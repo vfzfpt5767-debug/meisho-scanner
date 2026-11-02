@@ -324,6 +324,39 @@ def nse_period() -> dict:
             "stops": {sc: {k: _stats(v) for k, v in d.items()} for sc, d in stops.items()}}
 
 
+def sim_nights(groups: list[dict], series: dict[str, Series], markets_of: dict[str, str], w: dict) -> list[dict]:
+    """シミュレーター用：名証上場銘柄だけで、夜ごとの候補（区分と翌日の騰落）を点数順に並べたもの。"""
+    by_date: dict = defaultdict(list)
+    all_dates = set()
+    for code, s in series.items():
+        if "名" not in markets_of.get(code, ""):
+            continue
+        all_dates.update(s.dates)
+        for i in range(1, len(s.c) - 1):
+            if s.stuck_high(i):
+                by_date[s.dates[i]].append({"kind": "STUCK", "score": 95, "r1": s.ret(i, i + 1), "code": code})
+    for g in groups:
+        if not g["scope"]["nagoya"]:
+            continue
+        cat = card_category(g["tags"])
+        if cat not in ("S", "A", "CHECK"):
+            continue
+        pos_scores = sorted((w.get(t.label, 0) for t in g["tags"] if t.cat in ("A", "CHECK")), reverse=True)
+        sc = 100 if cat == "S" else (pos_scores[0] if pos_scores else 30)
+        d = series[g["code"]].dates[g["pos"]]
+        by_date[d].append({"kind": cat, "score": sc, "r1": g["r1"], "code": g["code"]})
+    out = []
+    for d in sorted(all_dates):
+        c = sorted([x for x in by_date.get(d, []) if x["r1"] is not None], key=lambda x: -x["score"])
+        seen, uniq = set(), []
+        for x in c:
+            if x["code"] not in seen:
+                seen.add(x["code"])
+                uniq.append({"kind": x["kind"], "r1": round(x["r1"], 5)})
+        out.append({"date": str(d), "cands": uniq[:3]})
+    return out
+
+
 def weights(labels: dict) -> dict:
     """件数30以上の好材料・要確認ラベルに、翌日の平均騰落率から点数をつける（全上場銘柄の結果）。"""
     w = {}
@@ -347,6 +380,8 @@ def main() -> None:
     nse = nse_period()
     w = weights(d["labels"])
     REPORTS.mkdir(exist_ok=True)
+    (REPORTS / "sim_nights.json").write_text(
+        json.dumps(sim_nights(d["groups"], series, d["markets_of"], w), ensure_ascii=False), encoding="utf-8")
     fmt = lambda x: f"{x[:4]}/{x[4:6]}/{x[6:]}"  # noqa: E731
     result = {"period": f"{fmt(days[0])}〜{fmt(days[-1])}" if days else "",
               "generated": now_jst().strftime("%Y-%m-%d %H:%M JST"), "min_n": MIN_N,

@@ -35,6 +35,16 @@ def main() -> int:
         sections = render_portfolio.section(pf)
     except Exception as e:  # noqa: BLE001
         res.errors.append(f"保有管理の計算に失敗: {type(e).__name__}: {e}")
+    sim_html = ""
+    try:
+        from . import simulator
+
+        sim = simulator.run_for(res, pf)
+        if sim is not None:
+            res.simulator = simulator.summary(sim)
+            sim_html = simulator.section(sim)
+    except Exception as e:  # noqa: BLE001
+        res.errors.append(f"入賞確率シミュレーターでエラー: {type(e).__name__}: {e}")
     mid = ""
     try:
         from . import render_limits
@@ -70,7 +80,7 @@ def main() -> int:
     except Exception as e:  # noqa: BLE001
         res.errors.append(f"検証結果の表示に失敗: {type(e).__name__}: {e}")
     html = render(res, pf, extra_top=top, extra_sections=sections, extra_mid=mid, morning=morning_rep,
-                  after_concl=morning_html)
+                  after_concl=morning_html + sim_html)
     DOCS_DIR.mkdir(parents=True, exist_ok=True)
     (DOCS_DIR / "index.html").write_text(html, encoding="utf-8")
 

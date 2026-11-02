@@ -133,6 +133,9 @@ def evening_text(res, pf) -> str | None:
         out.append(f"・[{C.LABELS[c.category].split('：')[0]}] {c.name}({c.code}){price} {it.time} {it.title[:40]}")
     for h in warned:
         out.append(f"⚠保有 {h.name}({h.code}): {'・'.join(h.warnings)}")
+    sim = getattr(res, "simulator", None)
+    if sim:
+        out.append(f"攻め方：{sim['advice']}")
     out.append(page_url())
     return "\n".join(out)
 
