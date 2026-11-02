@@ -336,17 +336,42 @@ def test_preflight(tmp_path):
     from scanner.ai_decision import preflight
 
     p = tmp_path / "in.json"
-    p.write_text(json.dumps({"generated_at": "2026-11-03T03:29:00+09:00", "base_day": "2026-11-02",
+    p.write_text(json.dumps({"generated_at": "2026-11-02T20:40:00+09:00", "base_day": "2026-11-02",
                              "deadline": "2026-11-04T07:59:00+09:00"}), encoding="utf-8")
-    hol = datetime(2026, 11, 3, 6, 45, tzinfo=JST)
-    ok, lines = preflight(p, "schedule", False, now=hol)
-    assert not ok and "休業日" in lines[-1]
-    ok, lines = preflight(p, "fire", False, now=hol)
-    assert ok
-    ok, lines = preflight(p, "schedule", True, now=hol)
+    # 祝日（11/3）の夜でも、11/2 のタームが開いているので判断する
+    ok, lines = preflight(p, "schedule", False, now=datetime(2026, 11, 3, 21, 15, tzinfo=JST), history=[])
+    assert ok and "use_base_day=2026-11-02" in lines and "use_deadline=2026-11-04T07:59:00+09:00" in lines
+    assert any(x.startswith("recorded=true") for x in lines)
+    assert not any(x.startswith("input_mismatch") for x in lines)
+    # 23:30 を過ぎたら参考扱い
+    ok, lines = preflight(p, "fire", False, now=datetime(2026, 11, 3, 23, 45, tzinfo=JST), history=[])
+    assert ok and any(x.startswith("recorded=false") for x in lines)
+    # 11/4 の昼はタームの外
+    ok, lines = preflight(p, "schedule", False, now=datetime(2026, 11, 4, 12, 0, tzinfo=JST), history=[])
+    assert not ok and "タームの外" in lines[-1]
+    # 11/4 の夜は新しいターム。入力が古ければ mismatch
+    ok, lines = preflight(p, "schedule", False, now=datetime(2026, 11, 4, 21, 15, tzinfo=JST), history=[])
+    assert ok and any(x.startswith("input_mismatch=true") for x in lines)
+    ok, lines = preflight(p, "schedule", True, now=datetime(2026, 11, 3, 6, 45, tzinfo=JST))
     assert ok and "output=decisions/test/2026-11-03-0645" in lines
-    ok, lines = preflight(p, "schedule", False, now=datetime(2026, 11, 4, 8, 0, tzinfo=JST))
-    assert not ok and "締切" in lines[-1]
+
+
+def test_record_window_and_watch(monkeypatch):
+    import json
+
+    from scanner import ai_decision as AD
+
+    assert AD.recordable(datetime(2026, 11, 3, 21, 30, tzinfo=JST))
+    assert AD.recordable(datetime(2026, 11, 3, 23, 30, tzinfo=JST))
+    assert not AD.recordable(datetime(2026, 11, 3, 23, 31, tzinfo=JST))
+    assert not AD.recordable(datetime(2026, 11, 4, 6, 50, tzinfo=JST))
+    sent = []
+    monkeypatch.setattr("scanner.notify.notify_once", lambda key, text, kind: sent.append(text) or "sent")
+    now = datetime(2026, 11, 3, 22, 30, tzinfo=JST)
+    got = json.dumps({"_apply": {"applied_at": "2026-11-03T21:28:00+09:00"}})
+    assert AD.watch(now, got) == "今夜の判断は届いています"
+    old = json.dumps({"_apply": {"applied_at": "2026-11-02T21:28:00+09:00"}})
+    assert AD.watch(now, old) == "sent" and "届いていません" in sent[0]
 
 
 def test_apply_test_mode_keeps_portfolio(tmp_path, monkeypatch):
@@ -379,3 +404,13 @@ def test_apply_test_mode_keeps_portfolio(tmp_path, monkeypatch):
     assert sent and sent[0].startswith("【テスト】AIの結論")
     assert "テスト" in log[0]
     assert AD.apply_all(now=datetime(2026, 11, 3, 4, 6, tzinfo=JST)) == []  # 2回目は取り込まない
+    # 本番：23:30 より後に届いた注文は参考（記録しない）、21:30 なら記録する
+    real = dict(d, test=False)
+    (dec / "2026-11-03-2340.json").write_text(json.dumps(real), encoding="utf-8")
+    AD.apply_all(now=datetime(2026, 11, 3, 23, 45, tzinfo=JST))
+    assert (h.read_text(), c.read_text()) == before
+    assert sent[-1].startswith("【参考（起きていれば）】")
+    (dec / "2026-11-03-2115.json").write_text(json.dumps(real), encoding="utf-8")
+    AD.apply_all(now=datetime(2026, 11, 3, 21, 30, tzinfo=JST))
+    assert "4445" in h.read_text() and "2833500" in c.read_text()
+    assert sent[-1].startswith("【AIの結論】")

@@ -4,6 +4,11 @@
   python -m scanner.ai_decision validate decisions/2026-11-04-1712.json   # 形式チェック（AIが push 前に使う）
   python -m scanner.ai_decision apply                                      # Actions：未取り込みの判断を取り込む
 
+保有の自動記録は「注文締切前」かつ「16:30〜23:30 に届いた」本番の判断だけ。
+それ以外（深夜・朝・昼）は「参考（起きていれば）」としてLINEで送るだけで、holdings.csv・cash.csv は変えない。
+
+  python -m scanner.ai_decision watch                                      # Actions（22:30）：夜の判断が届いていなければLINE
+
 テストモード（decisions/test/*.json または "test": true）：
 - 形式チェックをして、LINEに「【テスト】AIの結論」を送るだけ
 - holdings.csv・cash.csv・ページの「AIの結論」（data/ai/latest.json）は変えない
@@ -20,10 +25,10 @@ import io
 import json
 import os
 import sys
-from datetime import date, datetime
+from datetime import date, datetime, timedelta
 from pathlib import Path
 
-from .config import BUDGET_PER_TERM, DATA_DIR, ROOT
+from .config import AI_NIGHT_RUN, BUDGET_PER_TERM, DATA_DIR, RECORD_FROM, RECORD_UNTIL, ROOT
 
 DECISIONS = ROOT / "decisions"
 TEST_DIR = DECISIONS / "test"
@@ -138,10 +143,20 @@ def apply_to_portfolio(d: dict, now: datetime) -> list[str]:
     return notes
 
 
-def line_text(d: dict, test: bool = False) -> str:
+HEAD = {"record": "【AIの結論】", "ref": "【参考（起きていれば）】AIの結論：",
+        "late": "【締切後・参考】AIの結論：", "test": "【テスト】AIの結論："}
+
+
+def recordable(now: datetime) -> bool:
+    """この時刻に届いた判断を保有に自動記録するか（16:30〜23:30）。"""
+    return RECORD_FROM <= now.time().replace(tzinfo=None) <= RECORD_UNTIL
+
+
+def line_text(d: dict, mode: str = "record") -> str:
+    """mode：record（記録した本番）/ ref（23:30以降などの参考）/ late（締切後）/ test。"""
     from .notify import page_url
 
-    out = [f"{'【テスト】AIの結論：' if test else '【AIの結論】'}{d.get('summary', '')}"]
+    out = [f"{HEAD[mode]}{d.get('summary', '')}"]
     dl = d.get("deadline")
     if dl:
         try:
@@ -155,13 +170,18 @@ def line_text(d: dict, test: bool = False) -> str:
                    f" 自信度{o.get('confidence', '')}")
         out.append(f"　理由：{str(o.get('reason', ''))[:80]}")
     if not d.get("orders"):
-        out.append("今夜は注文なし（見送り）")
+        out.append("今夜は見送り（注文なし）")
     for s in d.get("skipped", [])[:3]:
         out.append(f"見送り：{s.get('code', '')} {s.get('name', '')} {str(s.get('reason', ''))[:40]}")
-    if test:
+    if mode == "test":
         out.append(f"※テストです（基準日 {d.get('base_day', '')} のデータ）。注文はしないでください。保有・現金の記録は変えていません")
-    else:
-        out.append("注文したら完了。違う注文をしたときはページの案内で holdings.csv / cash.csv を直してください")
+    elif mode == "ref":
+        out.append(f"※{RECORD_UNTIL:%H:%M}を過ぎた（または夜以外の）指示なので、保有・現金には記録していません。"
+                   "起きていて注文したときは holdings.csv / cash.csv を直してください")
+    elif mode == "late":
+        out.append("※注文締切を過ぎているので、保有・現金には記録していません")
+    elif d.get("orders"):
+        out.append("寝る前に注文してください。違う注文をしたときはページの案内で holdings.csv / cash.csv を直してください")
     out.append(page_url())
     return "\n".join(out)
 
@@ -193,10 +213,16 @@ def apply_all(now: datetime | None = None, send_line: bool = True) -> list[str]:
         else:
             deadline = order_deadline(date.fromisoformat(d["base_day"]))
             if now > deadline:
+                rec["mode"] = "late"
                 rec["status"] = "注文締切を過ぎていたため、保有の自動記録はしませんでした"
+            elif not recordable(now):
+                rec["mode"] = "ref"
+                rec["status"] = (f"参考（{RECORD_FROM:%H:%M}〜{RECORD_UNTIL:%H:%M}の外に届いた指示）のため、"
+                                 "保有の自動記録はしませんでした")
             else:
+                rec["mode"] = "record"
                 rec["notes"] = apply_to_portfolio(d, now)
-                rec["status"] = "取り込み済み"
+                rec["status"] = "取り込み済み（保有に記録）"
             d["deadline"] = d.get("deadline") or deadline.isoformat()
         d["_apply"] = rec
         if not test:
@@ -214,7 +240,7 @@ def apply_all(now: datetime | None = None, send_line: bool = True) -> list[str]:
             if errs:
                 msg = f"{'【テスト】' if test else '【名証スキャナー】'}AIの判断ファイル {key} に形式エラー：{errs[0]}"
             else:
-                msg = line_text(d, test=test)
+                msg = line_text(d, "test" if test else rec.get("mode", "record"))
             log.append(send(msg, "ai_test" if test else "ai"))
     APPLIED.parent.mkdir(parents=True, exist_ok=True)
     APPLIED.write_text(json.dumps(applied[-500:], ensure_ascii=False, indent=0), encoding="utf-8")
@@ -226,48 +252,109 @@ def apply_all(now: datetime | None = None, send_line: bool = True) -> list[str]:
     return log
 
 
-def preflight(input_path: Path, trigger: str, test: bool, now: datetime | None = None) -> tuple[bool, list[str]]:
+def _term_history(base_day: str) -> list[dict]:
+    """このタームにすでに取り込んだ本番の判断（main の data/ai/history.jsonl。なければ手元）。"""
+    import subprocess
+
+    text = ""
+    try:
+        text = subprocess.run(["git", "show", "origin/main:data/ai/history.jsonl"], cwd=ROOT, capture_output=True,
+                              text=True, timeout=30).stdout
+    except Exception:  # noqa: BLE001
+        pass
+    if not text and HISTORY.exists():
+        text = HISTORY.read_text(encoding="utf-8")
+    out = []
+    for line in text.splitlines():
+        try:
+            d = json.loads(line)
+        except ValueError:
+            continue
+        if d.get("base_day") == base_day and not d.get("_apply", {}).get("errors"):
+            out.append(d)
+    return out
+
+
+def preflight(input_path: Path, trigger: str, test: bool, now: datetime | None = None,
+              history: list[dict] | None = None) -> tuple[bool, list[str]]:
     """AIが最初に実行する確認。（続けるか, 表示する行）。"""
-    from .calendar_jp import is_business_day, now_jst
+    from .calendar_jp import base_day, is_business_day, now_jst, order_deadline
 
     now = now or now_jst()
-    lines = [f"now={now:%Y-%m-%dT%H:%M%z}", f"mode={'test' if test else 'normal'}", f"trigger={trigger}"]
-    biz = is_business_day(now.date())
-    lines.append(f"business_day={'true' if biz else 'false'}")
+    tb = base_day(now)
+    td = order_deadline(tb)
+    lines = [f"now={now:%Y-%m-%dT%H:%M%z}", f"mode={'test' if test else 'normal'}", f"trigger={trigger}",
+             f"business_day={'true' if is_business_day(now.date()) else 'false'}",
+             f"term_base_day={tb.isoformat()}", f"term_deadline={td.isoformat()}"]
     try:
         d = json.loads(input_path.read_text(encoding="utf-8"))
     except Exception as e:  # noqa: BLE001
-        lines.append(f"input_error={type(e).__name__}: {e}")
-        lines.append("result=STOP 入力（analyst_input.json）が読めません")
-        return False, lines
-    lines.append(f"base_day={d.get('base_day', '')}")
-    lines.append(f"deadline={d.get('deadline', '')}")
-    passed = False
-    try:
-        passed = now > datetime.fromisoformat(d["deadline"])
-    except (KeyError, TypeError, ValueError):
-        lines.append("deadline_error=入力に deadline がありません")
-    lines.append(f"deadline_passed={'true' if passed else 'false'}")
-    try:
-        age = (now - datetime.fromisoformat(d["generated_at"])).total_seconds() / 3600
-        lines.append(f"input_age_hours={age:.1f}")
-        if age >= 18:
-            lines.append("stale=true（data_gaps に「入力が18時間以上前」と書く）")
-    except (KeyError, TypeError, ValueError):
-        lines.append("input_age_hours=不明")
+        d = {}
+        lines.append(f"input_error={type(e).__name__}: {e}（入力なしで判断し、注文は出さず見送りにする）")
+    term_open = now <= td
+    lines.append(f"term_open={'true' if term_open else 'false'}")
+    if d:
+        lines.append(f"input_base_day={d.get('base_day', '')}")
+        try:
+            age = (now - datetime.fromisoformat(d["generated_at"])).total_seconds() / 3600
+            lines.append(f"input_age_hours={age:.1f}")
+        except (KeyError, TypeError, ValueError):
+            lines.append("input_age_hours=不明")
+        if not test and d.get("base_day") != tb.isoformat():
+            lines.append("input_mismatch=true（入力が今のタームのものではない。スキャンが失敗している可能性。"
+                         "注文は出さず見送りにし、data_gaps に書く）")
+    if test:
+        tb_s = d.get("base_day") or tb.isoformat()
+        lines.append(f"use_base_day={tb_s}")
+        lines.append(f"use_deadline={d.get('deadline') or order_deadline(date.fromisoformat(tb_s)).isoformat()}")
+    else:
+        lines.append(f"use_base_day={tb.isoformat()}")
+        lines.append(f"use_deadline={td.isoformat()}")
+        lines.append(f"recorded={'true' if recordable(now) and term_open else 'false'}"
+                     f"（{RECORD_FROM:%H:%M}〜{RECORD_UNTIL:%H:%M}に届いた注文だけ保有に記録。false なら参考として送られる）")
+        hist = _term_history(tb.isoformat()) if history is None else history
+        for h in hist:
+            ap = h.get("_apply", {})
+            od = "、".join(f"{'買い' if o['side'] == 'buy' else '売り'}{o['code']} {int(o['shares']):,}株"
+                          for o in h.get("orders", [])) or "注文なし"
+            lines.append(f"term_decision={h.get('id', '')}：{od}（{ap.get('status', '')}）")
+        if not hist:
+            lines.append("term_decision=なし（このタームの判断はまだない）")
     sub = "decisions/test/" if test else "decisions/"
     lines.append(f"output={sub}{now:%Y-%m-%d-%H%M}")
     if test:
         lines.append("result=GO テストモード（休業日・締切に関係なく最後まで判断する）")
         return True, lines
-    if passed:
-        lines.append("result=STOP 締切を過ぎています")
+    if not term_open:
+        lines.append("result=STOP 今は注文できるタームの外です（営業日の 7:59〜15:30）")
         return False, lines
-    if trigger == "schedule" and not biz:
-        lines.append("result=STOP 今日は取引所の休業日（定時起動なので何もしない）")
-        return False, lines
-    lines.append("result=GO")
+    lines.append("result=GO 判断ファイルを必ず1つ出す（見送りでも）")
     return True, lines
+
+
+def watch(now: datetime | None = None, history_text: str | None = None) -> str:
+    """22:30：今夜（21:00以降）の本番の判断が届いていなければLINEで知らせる。"""
+    from .calendar_jp import base_day, now_jst, order_deadline
+
+    now = now or now_jst()
+    tb = base_day(now)
+    if now > order_deadline(tb):
+        return "注文できるタームの外なので確認しない"
+    since = datetime.combine(now.date(), AI_NIGHT_RUN, tzinfo=now.tzinfo) - timedelta(minutes=15)
+    if history_text is None:
+        history_text = HISTORY.read_text(encoding="utf-8") if HISTORY.exists() else ""
+    for line in history_text.splitlines():
+        try:
+            ap = json.loads(line).get("_apply", {})
+            if datetime.fromisoformat(ap["applied_at"]) >= since:
+                return "今夜の判断は届いています"
+        except (ValueError, KeyError, TypeError):
+            continue
+    from .notify import notify_once
+
+    return notify_once(f"ai_night_missing:{now.date()}",
+                       f"【名証スキャナー】{AI_NIGHT_RUN:%H:%M}のAIの判断が届いていません。今夜は見送るか、ページの"
+                       "「今夜の結論」を見て判断してください。claude.ai/code の実行履歴も確認してください。", "failure")
 
 
 def main() -> int:
@@ -290,6 +377,9 @@ def main() -> int:
         ok, lines = preflight(Path(a.input), a.trigger, a.test)
         print("\n".join(lines))
         return 0 if ok else 3
+    if len(sys.argv) >= 2 and sys.argv[1] == "watch":
+        print(watch())
+        return 0
     if len(sys.argv) >= 2 and sys.argv[1] == "apply":
         for line in apply_all():
             print(line)

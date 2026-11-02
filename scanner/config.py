@@ -18,6 +18,12 @@ BUDGET_PER_TERM = 3_000_000  # 1タームに買える上限（円）
 MARKET_CLOSE = time(15, 30)  # 大引け
 ORDER_DEADLINE = time(7, 59)  # 翌営業日の朝の注文締切
 
+# 夜に注文して寝る運用（2026-11-03 ユーザー指定）
+AI_NIGHT_RUN = time(21, 15)  # AIアナリストの定時起動（毎日・祝日も）
+RECORD_FROM = time(16, 30)  # この時刻〜RECORD_UNTIL に届いたAIの注文だけ保有に自動記録する
+RECORD_UNTIL = time(23, 30)  # これより後の指示は「参考（起きていれば）」として送るだけ
+AI_WATCH_AT = time(22, 30)  # この時刻までに夜の判断が届いていなければLINEで知らせる
+
 # 要確認の中で一番上に出すラベル（検証で上がった割合が高いもの。2026-11-03 ユーザー指定）
 PRIORITY_CHECK_LABELS = ("配当予想の修正", "株主還元方針の変更")
 

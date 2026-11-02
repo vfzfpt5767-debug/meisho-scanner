@@ -187,7 +187,7 @@ M. 検証モード：取得できる範囲の過去データ（できれば全�
 - 役割：スキャン結果（S・A・要確認・ストップ高・新規上場・保有警告・朝レポート）を読み、上位の候補（最大8件）についてWeb検索で開示内容・報道・PTSの反応などを調べる。上方か下方かの判定、材料の大きさ、検証結果と予測モデル（B）の数字を合わせて「今夜の注文」を決める
 - 出力：decisions/YYYY-MM-DD-HHMM.json とMarkdown（買い・売りの銘柄、株数、理由、自信度、根拠リンク、見送り理由）。ai-decisions ブランチにpushする
 - GitHub Actions：ai-decisions へのpushを受けて、ページ最上部の「AIの結論」を更新し、LINEで注文の指示を送る（例「買い：4445 リビンT 1,800株（今日の終値1,665円）」）
-- 起動方法：①GitHub Actionsのスキャンで新しいS・A・要確認・保有警告が出たときだけ、タスクのAPI（fire）を呼んで起動する（同じ夜は最大3回）②営業日の朝6:45に定時起動する。APIのURLとトークンはGitHub Secretsに入れる
+- 起動方法：①GitHub Actionsのスキャンで新しいS・A・要確認・保有警告が出たときだけ、タスクのAPI（fire）を呼んで起動する（同じ夜は最大3回）②毎晩21:15（祝日・休日も）に定時起動し、その夜の最終的な注文を必ず1通LINEで送る（2026-11-03 変更：朝6:45の定時起動はやめた）。APIのURLとトークンはGitHub Secretsに入れる
 - タスクのプロンプト本文を ai/analyst_prompt.md に書き、ユーザーが claude.ai/code/routines に登録する手順（モデルはSonnet、環境はfull-net、トリガーの設定、APIトークンの発行とSecretsへの登録）を、スマホでできる形で案内する
 - 使用量を抑える：1回の調査は短く、Web検索は1銘柄2〜3回まで
 - 判断ルール：検証で上がった割合60%以上かつ平均+2%以上の材料を優先する。確認できないものは買わない。名証単独銘柄が未購入なら、条件を満たす安全な候補も提案する
@@ -216,6 +216,7 @@ M. 検証モード：取得できる範囲の過去データ（できれば全�
 ## Phase 4 実施メモ（2026-11-03）
 - A：ai/analyst_prompt.md（ルーチン用プロンプト）。入力 data/analyst_input.json（スキャンごとに作成）。起動は scan.yml の「AIアナリストを起動」ステップ（scanner.ai_fire、Secrets：ANALYST_FIRE_URL・ANALYST_FIRE_TOKEN、1晩3回まで）。判断は `claude/ai-decisions` ブランチ（ルーチンの初期設定で push できるのが `claude/` で始まるブランチのため）→ ai-decision.yml が main に取り込み、LINE送信、scan を起動してページ更新。1時間たっても判断が来なければLINEで1回知らせる。
   - ルーチンには短い「入口」だけを登録し、毎回 `git show origin/main:ai/analyst_prompt.md` で最新の指示書を読む（README）。最初に `python -m scanner.ai_decision preflight` で休業日・締切・入力の古さを判定する。AIが使うコマンドは標準ライブラリだけで動く（jpholiday がなければ calendar_jp の予備の祝日判定を使う）。
+  - 夜に注文して寝る運用（2026-11-03）：preflight は休業日でも、締切前のターム（base_day(now)〜order_deadline）が開いていれば GO。保有の自動記録は 16:30〜23:30 に取り込んだ本番の判断だけ（config.RECORD_FROM/RECORD_UNTIL）。それ以外は「参考（起きていれば）」としてLINEのみ。preflight はこのタームの取り込み済みの判断（history.jsonl）を表示し、AIは追加分だけを出す。ai-watch.yml（毎晩22:30）が、21:00以降の判断がなければLINEで知らせる。
   - テストモード：入口に「テストモード」と書いたテスト用ルーチンを「今すぐ実行」。休業日でも直近の営業日のデータで判断し、`decisions/test/`（`"test": true`）に書く。取り込みは LINE に「【テスト】AIの結論」を送るだけで、holdings.csv・cash.csv・data/ai/latest.json・ページは変えない。
 - B：ロジスティック回帰（scanner/backtest/model.py）。学習2025年・採点2026年。AUCはモデル0.643＞ルール0.601だが、毎晩の1位候補の平均はルールが上（+5.31%＞+3.84%）→ 不採用。reports/model.md。
 - C：scanner/simulator.py。reports/sim_nights.json（名証上場銘柄の夜ごとの候補と翌日騰落）をブートストラップ。2万回。
