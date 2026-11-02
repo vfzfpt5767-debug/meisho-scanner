@@ -54,8 +54,31 @@ def target_codes(title: str) -> list[str]:
     return CODE_IN_TITLE.findall(norm(title))
 
 
+def _load_weights() -> dict[str, int]:
+    """検証結果（scanner/weights.json）で決めた点数。件数30以上のラベルだけ入っている。"""
+    import json
+    from pathlib import Path
+
+    p = Path(__file__).with_name("weights.json")
+    try:
+        return {k: int(v) for k, v in json.loads(p.read_text(encoding="utf-8")).items()}
+    except Exception:  # noqa: BLE001
+        return {}
+
+
+WEIGHTS = _load_weights()
+
+
 def classify(title: str, own_code: str = "") -> list[Tag]:
     """1件の開示タイトルを分類する。複数の材料を含むことがあるのでリストで返す。"""
+    tags = _classify(title, own_code)
+    for t in tags:
+        if t.label in WEIGHTS and t.cat in (A, CHECK):
+            t.score = WEIGHTS[t.label]
+    return tags
+
+
+def _classify(title: str, own_code: str = "") -> list[Tag]:
     t = norm(title)
     tags: list[Tag] = []
     is_followup = (

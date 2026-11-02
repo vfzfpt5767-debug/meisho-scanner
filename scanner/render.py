@@ -76,6 +76,7 @@ summary{cursor:pointer;font-weight:700;min-height:32px}
 .row{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap}
 .sell{color:#fff;background:var(--s);border-radius:6px;padding:0 8px;font-weight:700}
 footer{color:var(--muted);font-size:.8rem;margin-top:32px}
+table.bt{width:100%;border-collapse:collapse;font-size:.85rem}table.bt td,table.bt th{border-bottom:1px solid var(--line);padding:4px;text-align:left;vertical-align:top}
 .consult{margin-top:10px}.consult textarea{width:100%;font-size:.85rem;background:var(--bg);color:var(--text);border:1px solid var(--line);border-radius:8px;padding:8px}
 button.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:10px 16px;border:none;border-radius:10px;background:var(--btn);color:var(--btn-text);font-weight:700;font-size:1rem;flex:1 1 140px;cursor:pointer}
 .concl{background:var(--card);border:3px solid var(--accent);border-radius:14px;padding:12px 14px;margin:10px 0}

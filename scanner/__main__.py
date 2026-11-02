@@ -60,6 +60,12 @@ def main() -> int:
         sections += render_earnings.section(days, by_day, res.ctx.universe, held, tonight)
     except Exception as e:  # noqa: BLE001
         res.errors.append(f"決算カレンダーの表示に失敗: {type(e).__name__}: {e}")
+    try:
+        from . import render_backtest
+
+        sections += render_backtest.section()
+    except Exception as e:  # noqa: BLE001
+        res.errors.append(f"検証結果の表示に失敗: {type(e).__name__}: {e}")
     html = render(res, pf, extra_top=top, extra_sections=sections, extra_mid=mid, morning=morning_rep,
                   after_concl=morning_html)
     DOCS_DIR.mkdir(parents=True, exist_ok=True)
