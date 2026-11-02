@@ -1,0 +1,260 @@
+{
+"date": "2026-10-22",
+"fetched_at": "2026-11-02T23:12:46.814403+09:00",
+"complete": true,
+"total_all_markets": 127,
+"items": [
+{
+"Tdnet": {
+"id": "1286379",
+"pubdate": "2026-10-22 16:00:00",
+"company_code": "21680",
+"company_name": "パソナグループ",
+"title": "持分法適用会社株式に対する公開買付けに係る応募契約の締結及び特別利益の計上見込みに関するお知らせ",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261022554415.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": null,
+"markets_string": "東",
+"update_history": null
+}
+},
+{
+"Tdnet": {
+"id": "1286380",
+"pubdate": "2026-10-22 16:00:00",
+"company_code": "50290",
+"company_name": "Ｇ－サークレイス",
+"title": "ＨＨＨ１合同会社による当社株券等に対する公開買付けに関する 賛同の意見表明及び応募推奨のお知らせ",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261022554716.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": null,
+"markets_string": "東",
+"update_history": null
+}
+},
+{
+"Tdnet": {
+"id": "1286381",
+"pubdate": "2026-10-22 16:00:00",
+"company_code": "50290",
+"company_name": "Ｇ－サークレイス",
+"title": "ＨＨＨ１合同会社によるサークレイス株式会社（証券コード：5029）の 株券等に対する公開買付けの開始に関するお知らせ",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261022554734.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": null,
+"markets_string": "東",
+"update_history": null
+}
+},
+{
+"Tdnet": {
+"id": "1286327",
+"pubdate": "2026-10-22 15:30:00",
+"company_code": "29830",
+"company_name": "Ｇ－アールプランナー",
+"title": "当座貸越契約の増額に関するお知らせ",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261021554135.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": null,
+"markets_string": "東名",
+"update_history": null
+}
+},
+{
+"Tdnet": {
+"id": "1286331",
+"pubdate": "2026-10-22 15:30:00",
+"company_code": "30910",
+"company_name": "ブロンコＢ",
+"title": "2026年12月期　第３四半期決算短信〔日本基準〕（連結）",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261017552553.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/081220261017552553.zip",
+"markets_string": "東名",
+"update_history": null
+}
+},
+{
+"Tdnet": {
+"id": "1286332",
+"pubdate": "2026-10-22 15:30:00",
+"company_code": "30910",
+"company_name": "ブロンコＢ",
+"title": "2026年12月期　第3四半期決算参考資料",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261022554350.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": null,
+"markets_string": "東名",
+"update_history": null
+}
+},
+{
+"Tdnet": {
+"id": "1286364",
+"pubdate": "2026-10-22 15:30:00",
+"company_code": "89040",
+"company_name": "ＡＶＡＮＴＩＡ",
+"title": "剰余金の配当に関するお知らせ",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261021553849.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": null,
+"markets_string": "東名",
+"update_history": null
+}
+},
+{
+"Tdnet": {
+"id": "1286305",
+"pubdate": "2026-10-22 13:00:00",
+"company_code": "44390",
+"company_name": "東名",
+"title": "取締役会の実効性評価の結果概要に関するお知らせ",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261005545938.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": null,
+"markets_string": "東名",
+"update_history": null
+}
+},
+{
+"Tdnet": {
+"id": "1286306",
+"pubdate": "2026-10-22 13:00:00",
+"company_code": "52040",
+"company_name": "石塚硝",
+"title": "2027年３月期 第２四半期（中間期）決算短信〔日本基準〕(連結)",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261021554163.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/081220261021554163.zip",
+"markets_string": "東名",
+"update_history": null
+}
+},
+{
+"Tdnet": {
+"id": "1286307",
+"pubdate": "2026-10-22 13:00:00",
+"company_code": "52040",
+"company_name": "石塚硝",
+"title": "2027年３月期第２四半期の業績説明及び2027年３月期通期の業績予想",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261021554172.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": null,
+"markets_string": "東名",
+"update_history": null
+}
+},
+{
+"Tdnet": {
+"id": "1286300",
+"pubdate": "2026-10-22 12:00:00",
+"company_code": "37330",
+"company_name": "ソフトウェアＳ",
+"title": "主要株主である筆頭株主の異動（予定）並びに公開買付けに準ずる行為として政令で定める買集め行為に関するお知らせ",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261022554408.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": null,
+"markets_string": "東",
+"update_history": null
+}
+},
+{
+"Tdnet": {
+"id": "1286302",
+"pubdate": "2026-10-22 12:00:00",
+"company_code": "44770",
+"company_name": "Ｇ－ＢＡＳＥ",
+"title": "ＳＢＩＮＭ合同会社（ＳＢＩホールディングス株式会社の完全子会社）による当社株式に対する公開買付けの結果に関するお知らせ",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261022554430.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": null,
+"markets_string": "東",
+"update_history": null
+}
+},
+{
+"Tdnet": {
+"id": "1286286",
+"pubdate": "2026-10-22 10:00:00",
+"company_code": "138A0",
+"company_name": "Ｇ－光フードサービス",
+"title": "株式の立会外分売終了に関するお知らせ",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261016552304.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": null,
+"markets_string": "東名",
+"update_history": null
+}
+},
+{
+"Tdnet": {
+"id": "1286291",
+"pubdate": "2026-10-22 10:00:00",
+"company_code": "84730",
+"company_name": "ＳＢＩ",
+"title": "BASE 株式会社株式（証券コード：4477）に対する公開買付けの結果に関するお知らせ",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261021554277.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": null,
+"markets_string": "東",
+"update_history": null
+}
+}
+]
+}
