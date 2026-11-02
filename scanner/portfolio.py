@@ -36,6 +36,7 @@ class Holding:
     price: float | None = None
     price_note: str = ""
     quote_only: bool = False
+    sell_rule: str = ""  # 売り時の目安（検証結果から）
     warnings: list[str] = field(default_factory=list)  # 赤い警告（売り推奨）
     cautions: list[str] = field(default_factory=list)  # 黄色の注意
 
@@ -240,6 +241,9 @@ def build(res, now: datetime | None = None) -> Portfolio:
         if r and not r.sell_signal:
             h.cautions.append("TOB対象（TOB価格に届くまで保有の候補）")
 
+    for h in holdings:
+        h.sell_rule = _sell_rule(h, ctx, limits)
+
     state["single_codes_ever"] = sorted(ever)
     STATE.parent.mkdir(parents=True, exist_ok=True)
     STATE.write_text(json.dumps(state, ensure_ascii=False, indent=1), encoding="utf-8")
@@ -300,3 +304,46 @@ def _swap(pf: Portfolio, res) -> None:
     pf.swap = trades
     pf.swap_note = (f"買い {n_buy:,}株 × {c.price:,.0f}円 = {n_buy * c.price:,.0f}円"
                     f"（今タームの残り枠 {budget:,.0f}円、売却後の現金 {cash:,.0f}円）")
+
+
+def _sell_rule(h: Holding, ctx, limits: dict) -> str:
+    """買った理由（TOB・上方修正・優待・ストップ高張り付き）から、検証で一番よかった売り方を示す。"""
+    from datetime import timedelta
+
+    from .render_backtest import holding_advice, load
+
+    target = ""
+    for d in getattr(ctx, "disclosures", []) or []:
+        if d.code != h.code or not (h.buy_date - timedelta(days=4) <= d.pubdate.date() <= h.buy_date):
+            continue
+        tags = C.classify(d.title, d.code)
+        if any(t.cat == C.S for t in tags):
+            target = "TOB（S）"
+            break
+        lbs = {t.label for t in tags}
+        if "上方修正" in lbs:
+            target = target or "上方修正"
+        if "優待新設・拡充" in lbs:
+            target = target or "優待新設・拡充"
+    lim = limits.get(h.code)
+    stuck_today = bool(lim and lim.kind == "stop_high" and lim.stuck)
+    if not target and stuck_today:
+        target = "ストップ高張り付き"
+    if not target:
+        return ""
+    adv = holding_advice(target)
+    if not adv:
+        return ""
+    best = load().get("holding", {}).get(target, {}).get("best", "")
+    status = ""
+    term_done = h.term_base() < ctx.base  # 買ったタームの次の営業日の終値が出ている
+    if best == "stop":
+        if stuck_today:
+            status = "今日もストップ高張り付き → 持ち続ける"
+        elif term_done:
+            status = "今日は張り付きが外れた → 売り時"
+    elif best == "d1" and term_done:
+        status = "翌営業日の終値が出た → 売り時"
+    elif best == "d2":
+        status = "2営業日後の終値で売る"
+    return f"{target}の売り時の目安：{adv}" + (f"。いま：{status}" if status else "")

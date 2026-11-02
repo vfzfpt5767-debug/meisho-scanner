@@ -9,7 +9,8 @@ from . import classify as C
 from . import limits
 from . import tob as tobmod
 from .calendar_jp import JST, base_day, now_jst, order_deadline, prev_business_day
-from .config import BUDGET_PER_TERM, CONTEST_START, DATA_DIR, MARKET_CLOSE, TOB_SELL_GAP_PCT
+from .config import (BUDGET_PER_TERM, CONTEST_START, DATA_DIR, MARKET_CLOSE, PRIORITY_CHECK_LABELS,
+                     TOB_SELL_GAP_PCT)
 from .sources import nse_list, nse_prices, yahoo, yanoshin
 from .sources.nse_list import Listing
 from .sources.yanoshin import Disclosure
@@ -213,6 +214,9 @@ def run(now: datetime | None = None) -> ScanResult:
     def sort_key(c: Card):
         if c.category == C.S:
             return (0 if c.tob_gap_pct is None else 1, -(c.tob_gap_pct or 0), -c.score)
+        if c.category == C.CHECK:
+            prio = any(t["label"] in PRIORITY_CHECK_LABELS for it in c.items for t in it.tags)
+            return (0 if prio else 1, -c.score, c.items[0].time)
         return (0, -c.score, c.items[0].time)
 
     cards.sort(key=sort_key)

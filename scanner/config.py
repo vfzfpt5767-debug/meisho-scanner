@@ -18,6 +18,9 @@ BUDGET_PER_TERM = 3_000_000  # 1タームに買える上限（円）
 MARKET_CLOSE = time(15, 30)  # 大引け
 ORDER_DEADLINE = time(7, 59)  # 翌営業日の朝の注文締切
 
+# 要確認の中で一番上に出すラベル（検証で上がった割合が高いもの。2026-11-03 ユーザー指定）
+PRIORITY_CHECK_LABELS = ("配当予想の修正", "株主還元方針の変更")
+
 # TOB価格との差がこの%以下なら「売り時」と表示する
 TOB_SELL_GAP_PCT = 1.0
 

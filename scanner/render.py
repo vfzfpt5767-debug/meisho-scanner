@@ -8,6 +8,7 @@ from html import escape
 from . import classify as C
 from .calendar_jp import fmt_date, is_business_day
 from .config import GITHUB_BRANCH, GITHUB_REPOSITORY, TOB_SELL_GAP_PCT
+from .render_backtest import label_note
 from .scan import Card, ScanResult, TobRow
 
 EDIT_TOB_URL = f"https://github.com/{GITHUB_REPOSITORY}/edit/{GITHUB_BRANCH}/tob_prices.csv"
@@ -81,6 +82,7 @@ table.bt{width:100%;border-collapse:collapse;font-size:.85rem}table.bt td,table.
 button.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:10px 16px;border:none;border-radius:10px;background:var(--btn);color:var(--btn-text);font-weight:700;font-size:1rem;flex:1 1 140px;cursor:pointer}
 .concl{background:var(--card);border:3px solid var(--accent);border-radius:14px;padding:12px 14px;margin:10px 0}
 .concl h2{border:none;margin:0 0 6px;font-size:1.2rem}
+h3{font-size:1rem;margin:16px 0 4px}.reason.bt{color:var(--accent)}
 .concl ol{margin:0;padding-left:1.3em}.concl li{margin:4px 0;font-weight:700}
 .concl li.sell{color:var(--s)}.concl li.info{font-weight:400}
 .concl .dl{font-size:1.1rem;font-weight:700;color:var(--s);margin-top:6px}
@@ -180,6 +182,8 @@ def _card(c: Card) -> str:
         tags = "".join(f'<span class="tag {escape(t["cat"])}">{escape(t["label"])}</span>' for t in it.tags
                        if t["label"] != "その他")
         reasons = "".join(f'<div class="reason">・{escape(t["reason"])}</div>' for t in it.tags if t["reason"])
+        reasons += "".join(f'<div class="reason bt">・{escape(t["label"])}の{escape(label_note(t["label"]))}</div>'
+                           for t in it.tags if t["cat"] in (C.S, C.A, C.CHECK, C.BAD) and label_note(t["label"]))
         pdf = (f'<div class="btns"><a class="btn" href="{escape(it.pdf)}" target="_blank" rel="noopener">開示PDFを開く</a></div>'
                if it.pdf else "")
         items.append(f'<div class="item"><div class="t"><span class="time">{escape(it.date)} {escape(it.time)}</span>'

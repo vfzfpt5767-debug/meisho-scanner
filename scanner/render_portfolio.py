@@ -61,6 +61,8 @@ def section(pf: Portfolio) -> str:
                     else '<span class="badge dual">重複</span>' if h.single is False else "")
         warn = "".join(f'<div class="tob" style="color:var(--s)">警告：{escape(x)}</div>' for x in h.warnings)
         caut = "".join(f'<div class="reason">注意：{escape(x)}</div>' for x in h.cautions)
+        if h.sell_rule:
+            caut += f'<div class="reason bt">{escape(h.sell_rule)}</div>'
         out.append(
             f'<div class="{cls}"><div class="head"><span class="name">{escape(h.name)}</span>'
             f'<span class="code">{escape(h.code)}</span>{single_b}</div>'
@@ -78,6 +80,13 @@ def section(pf: Portfolio) -> str:
     elif pf.swap_note:
         out.append(f'<p class="sub">入れ替え案：{escape(pf.swap_note)}</p>')
 
+    from .render_backtest import holding_advice
+
+    adv = [(t, holding_advice(t)) for t in ("TOB（S）", "上方修正", "優待新設・拡充", "ストップ高張り付き")]
+    adv = [(t, a) for t, a in adv if a]
+    if adv:
+        out.append('<details><summary>売り時の目安（検証で平均が一番よかった売り方）</summary>'
+                   + "".join(f'<div class="reason"><b>{escape(t)}</b>：{escape(a)}</div>' for t, a in adv) + "</details>")
     out.append(f'<div class="btns"><a class="btn sub" href="{EDIT}holdings.csv" target="_blank" rel="noopener">holdings.csv を編集</a>'
                f'<a class="btn sub" href="{EDIT}cash.csv" target="_blank" rel="noopener">cash.csv を編集</a></div>')
     return "\n".join(out)

@@ -137,6 +137,66 @@ def evening_text(res, pf) -> str | None:
     return "\n".join(out)
 
 
+EXTRA_PER_NIGHT = 2  # 最初の通知のあとに追加で送れる数（1晩）
+
+
+def _evening_items(res, pf) -> dict[str, str]:
+    """通知の対象（キー→1行の説明）。キーは S:コード / A:コード / W:コード（保有警告）。"""
+    from . import classify as C
+
+    items = {}
+    for c in res.cards:
+        if c.category in (C.S, C.A):
+            it = next((i for i in c.items if any(t["cat"] == c.category for t in i.tags)), c.items[-1])
+            price = f" {c.price:,.0f}円" if c.price else ""
+            shares = f" {c.shares:,}株" if c.shares else ""
+            items[f"{c.category}:{c.code}"] = (f"[{'S' if c.category == C.S else 'A'}] {c.name}({c.code}){price}{shares} "
+                                               f"{it.time} {it.title[:40]}")
+    for h in (pf.warned() if pf else []):
+        items[f"W:{h.code}"] = f"⚠保有 {h.name}({h.code}): {'・'.join(h.warnings)}"
+    return items
+
+
+def evening_notify(res, pf) -> str:
+    """夜の通知。最初の1通（S・A・要確認・保有警告があるとき）と、そのあと新しいS・A・保有警告が出たときの追加（1晩2通まで）。
+
+    同じ銘柄（同じ種類）は1回だけ。月180通の上限は send() で守る。
+    """
+    st = _load()
+    night = st.setdefault("nights", {}).setdefault(res.base_day, {"first": False, "extra": 0, "keys": []})
+    items = _evening_items(res, pf)
+    if not night["first"]:
+        text = evening_text(res, pf)
+        if not text:
+            return "通知する候補なし"
+        msg = send(text, "evening")
+        if msg.startswith("LINEに送信しました"):
+            st = _load()
+            night = st.setdefault("nights", {}).setdefault(res.base_day, {"first": False, "extra": 0, "keys": []})
+            night["first"] = True
+            night["keys"] = sorted(set(night["keys"]) | set(items))
+            st["nights"] = dict(sorted(st["nights"].items())[-14:])
+            _save(st)
+        return msg
+    new = {k: v for k, v in items.items() if k not in night["keys"]}
+    if not new:
+        return "新しいS・A・保有警告はないので追加通知なし"
+    if night["extra"] >= EXTRA_PER_NIGHT:
+        return f"今夜の追加通知は{EXTRA_PER_NIGHT}通に達したので送りません"
+    from .calendar_jp import fmt_date
+
+    dl = datetime.fromisoformat(res.deadline)
+    text = "\n".join([f"【名証スキャナー・追加】締切 {fmt_date(dl.date())} {dl:%H:%M}"] + list(new.values()) + [page_url()])
+    msg = send(text, "evening_extra")
+    if msg.startswith("LINEに送信しました"):
+        st = _load()
+        night = st["nights"][res.base_day]
+        night["extra"] += 1
+        night["keys"] = sorted(set(night["keys"]) | set(new))
+        _save(st)
+    return msg
+
+
 def main() -> None:
     p = argparse.ArgumentParser()
     p.add_argument("--failure", help="Actions の実行URL（失敗通知）")

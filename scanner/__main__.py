@@ -82,13 +82,12 @@ def main() -> int:
                                               morning.line_text(morning_rep, _dt.fromisoformat(res.deadline)), "morning"))
         except Exception as e:  # noqa: BLE001
             print("LINE通知でエラー:", type(e).__name__, e)
-    # LINE通知（夜：S・A・要確認・保有警告があるときだけ、1タームに1回）
+    # LINE通知（夜：最初の1通＋新しいS・A・保有警告の追加は1晩2通まで）
     if not getattr(res, "ctx", None) or res.ctx.now.hour >= 8:
         try:
             from . import notify
 
-            text = notify.evening_text(res, pf)
-            print("LINE:", notify.notify_once(f"evening:{res.base_day}", text, "evening") if text else "通知する候補なし")
+            print("LINE:", notify.evening_notify(res, pf))
         except Exception as e:  # noqa: BLE001
             print("LINE通知でエラー:", type(e).__name__, e)
     counts: dict[str, int] = {}

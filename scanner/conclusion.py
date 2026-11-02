@@ -42,8 +42,13 @@ def buy_line(res: ScanResult) -> Line:
         if n_check:
             return Line("info", f"買い候補：S・Aはなし。要確認が{n_check}社（PDFで上方修正・増配か確認）")
         return Line("info", "買い候補：今夜の新しい好材料はなし")
-    labels = [t["label"] for it in c.items for t in it.tags if t["cat"] in (C.S, C.A)]
+    tags = [t for it in c.items for t in it.tags if t["cat"] in (C.S, C.A)]
+    labels = [t["label"] for t in tags]
     reason = "・".join(dict.fromkeys(labels)) or C.LABELS.get(c.category, "")
+    from .render_backtest import label_note
+
+    main = max(tags, key=lambda t: t["score"])["label"] if tags else ""
+    note = label_note(main, short=True) if main else ""
     if c.category == C.S:
         reason += f"・TOB価格との差{c.tob_gap_pct:+.1f}%" if c.tob_gap_pct is not None else "・TOB価格未入力"
     single = "【名証単独】" if c.single else ""
@@ -51,7 +56,8 @@ def buy_line(res: ScanResult) -> Line:
         money = f"終値{_yen(c.price)} → {c.shares:,}株（{_man(c.cost)}）"
     else:
         money = "株価はコンテスト画面で確認"
-    return Line("buy", f"買い候補1位：{c.name}（{c.code}）{single}［{reason}］{money}")
+    bt = f"［検証：{main}は{note}］" if note else ""
+    return Line("buy", f"買い候補1位：{c.name}（{c.code}）{single}［{reason}］{money}{bt}")
 
 
 def lines(res: ScanResult, portfolio=None) -> list[Line]:

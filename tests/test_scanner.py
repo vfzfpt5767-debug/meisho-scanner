@@ -217,3 +217,33 @@ def test_consult_text():
     t = consult_text(c)
     for s in ("ユタカフーズ", "2806", "1,988円", "15:30", "業績予想の修正に関するお知らせ", "https://example.com/x.pdf"):
         assert s in t
+
+
+def test_evening_extra(tmp_path, monkeypatch):
+    from types import SimpleNamespace
+
+    from scanner import notify
+
+    monkeypatch.setattr(notify, "STATE", tmp_path / "n.json")
+    sent = []
+    monkeypatch.setattr(notify, "send", lambda text, kind: (sent.append((kind, text)), "LINEに送信しました（テスト）")[1])
+    a_tag = vars(C.Tag(C.A, "上方修正", 60, ""))
+    s_tag = vars(C.Tag(C.S, "TOB対象", 100, ""))
+
+    def res_with(*cards):
+        return ScanResult(generated_at="", base_day="2026-11-04", deadline="2026-11-05T07:59:00+09:00", price_source="",
+                          cards=list(cards), before_close=[], tob_rows=[])
+
+    def card(code, cat, tag):
+        return Card(code=code, name=code, single=False, division="", unit=100, category=cat, score=60,
+                    items=[Item("16:00", "11/04", "t", "", [tag])], price=1000, shares=3000)
+
+    pf = None
+    a1 = card("1111", C.A, a_tag)
+    assert "送信" in notify.evening_notify(res_with(a1), pf)  # 最初の1通
+    assert "追加通知なし" in notify.evening_notify(res_with(a1), pf)  # 同じ銘柄は送らない
+    notify.evening_notify(res_with(a1, card("2222", C.S, s_tag)), pf)  # 追加1通目
+    notify.evening_notify(res_with(a1, card("3333", C.A, a_tag)), pf)  # 追加2通目
+    assert "2通に達した" in notify.evening_notify(res_with(a1, card("4444", C.A, a_tag)), pf)
+    assert [k for k, _ in sent] == ["evening", "evening_extra", "evening_extra"]
+    assert "2222" in sent[1][1] and "1111" not in sent[1][1]
