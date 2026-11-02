@@ -1,0 +1,223 @@
+{
+ "generated_at": "2026-11-03T03:29:43.691266+09:00",
+ "base_day": "2026-11-02",
+ "deadline": "2026-11-04T07:59:00+09:00",
+ "price_source": "名証 日報",
+ "rules": {
+  "prefer": "検証で上がった割合60%以上かつ平均+2%以上の材料を優先する",
+  "unverified": "PDFや報道で内容を確認できないものは買わない",
+  "single": "名証単独銘柄が未購入なら、条件を満たす安全な候補も提案する",
+  "budget": "1ターム（営業日16:30〜翌営業日7:59）の買いは合計3,000,000円まで。売りは無制限",
+  "unit": "株数は売買単位（unit）の整数倍",
+  "price": "約定価格は名証の直近の終値（最終気配を含む）。price がその値",
+  "search": "Web検索は1銘柄2〜3回まで。調査は短く"
+ },
+ "candidates": [
+  {
+   "code": "2327",
+   "name": "日鉄ソリューションズ",
+   "category": "CHECK",
+   "score": 65,
+   "single": false,
+   "price": 4097.0,
+   "price_note": "名証の最終気配",
+   "quote_only": true,
+   "unit": 100,
+   "shares_for_budget": 700,
+   "tob_price": null,
+   "tob_gap_pct": null,
+   "model_prob": null,
+   "items": [
+    {
+     "time": "11/02 15:30",
+     "title": "2027年３月期　第２四半期(中間期)決算短信〔ＩＦＲＳ〕(連結)",
+     "pdf": "https://www.release.tdnet.info/inbs/140120261028558053.pdf",
+     "labels": [
+      {
+       "cat": "INFO",
+       "label": "決算短信",
+       "backtest_next_day": {
+        "up": 40.7,
+        "mean": -0.36,
+        "median": -0.52,
+        "p10": -8.2,
+        "n": 19890
+       }
+      }
+     ]
+    },
+    {
+     "time": "11/02 15:30",
+     "title": "2026年度第２四半期決算実績ならびに2025-2027中期経営計画の進捗",
+     "pdf": "https://www.release.tdnet.info/inbs/140120261028558085.pdf",
+     "labels": []
+    },
+    {
+     "time": "11/02 15:30",
+     "title": "2027年３月期　第２四半期(中間期)決算　参考資料",
+     "pdf": "https://www.release.tdnet.info/inbs/140120261028558102.pdf",
+     "labels": []
+    },
+    {
+     "time": "11/02 15:30",
+     "title": "配当予想の修正に関するお知らせ",
+     "pdf": "https://www.release.tdnet.info/inbs/140120261028558059.pdf",
+     "labels": [
+      {
+       "cat": "CHECK",
+       "label": "配当予想の修正",
+       "backtest_next_day": {
+        "up": 64.5,
+        "mean": 3.02,
+        "median": 2.08,
+        "p10": -6.29,
+        "n": 1076
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "code": "2806",
+   "name": "ユタカフーズ",
+   "category": "CHECK",
+   "score": 40,
+   "single": false,
+   "price": 1988.0,
+   "price_note": "名証の最終気配",
+   "quote_only": true,
+   "unit": 100,
+   "shares_for_budget": 1500,
+   "tob_price": null,
+   "tob_gap_pct": null,
+   "model_prob": null,
+   "items": [
+    {
+     "time": "11/02 15:30",
+     "title": "業績予想の修正に関するお知らせ",
+     "pdf": "https://www.release.tdnet.info/inbs/140120261030560794.pdf",
+     "labels": [
+      {
+       "cat": "CHECK",
+       "label": "業績予想の修正",
+       "backtest_next_day": {
+        "up": 49.08,
+        "mean": 0.97,
+        "median": 0.0,
+        "p10": -7.8,
+        "n": 3421
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "code": "4445",
+   "name": "リビン・テクノロジーズ",
+   "category": "CHECK",
+   "score": 40,
+   "single": false,
+   "price": 1665.0,
+   "price_note": "名証の最終気配",
+   "quote_only": true,
+   "unit": 100,
+   "shares_for_budget": 1800,
+   "tob_price": null,
+   "tob_gap_pct": null,
+   "model_prob": null,
+   "items": [
+    {
+     "time": "11/02 20:00",
+     "title": "通期連結業績予想の修正に関するお知らせ",
+     "pdf": "https://www.release.tdnet.info/inbs/140120261102563269.pdf",
+     "labels": [
+      {
+       "cat": "CHECK",
+       "label": "業績予想の修正",
+       "backtest_next_day": {
+        "up": 49.08,
+        "mean": 0.97,
+        "median": 0.0,
+        "p10": -7.8,
+        "n": 3421
+       }
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "other_after_close_count": 14,
+ "stop_limits": [],
+ "tob_tracker": [],
+ "errors": [],
+ "portfolio": {
+  "cash": 3000000.0,
+  "total": 3000000.0,
+  "profit": 0.0,
+  "term_left": 3000000,
+  "term_open": true,
+  "single_bought": false,
+  "holdings": []
+ },
+ "new_listings": [
+  {
+   "code": "655A",
+   "name": "（株）LTV-X",
+   "date": "2026-11-05",
+   "status": "上場予定",
+   "single": true,
+   "offer_price": 570.0,
+   "first_day_price": null,
+   "price_now": null
+  },
+  {
+   "code": "7986",
+   "name": "日本アイ・エス・ケイ（株）",
+   "date": "2026-10-23",
+   "status": "上場済み",
+   "single": false,
+   "offer_price": null,
+   "first_day_price": 2078.0,
+   "price_now": 2258.0
+  }
+ ],
+ "earnings_today": [
+  {
+   "code": "3202",
+   "name": "ダイトウボウ",
+   "kind": "第２四半期"
+  },
+  {
+   "code": "6103",
+   "name": "オークマ",
+   "kind": "第２四半期"
+  },
+  {
+   "code": "8031",
+   "name": "三井物産",
+   "kind": "第２四半期"
+  },
+  {
+   "code": "2806",
+   "name": "ユタカフーズ",
+   "kind": ""
+  }
+ ],
+ "simulator": {
+  "nights_left": 18,
+  "start_assets": 3000000.0,
+  "target": 7290000,
+  "best": "aggressive",
+  "best_label": "毎晩1位候補に全額（要確認だけの夜も買う）",
+  "advice": "どの戦略でも10位ラインに届く確率は低い（最大0.4%）。一番ましなのは「毎晩1位候補に全額（要確認だけの夜も買う）」",
+  "probs": {
+   "毎晩1位候補に全額（要確認だけの夜も買う）": 0.4,
+   "毎晩上位2銘柄に半分ずつ": 0.1,
+   "S・A・ストップ高張り付きがある夜だけ1位に全額、ない夜は休む": 0.23,
+   "S・A・張り付きがある夜だけ、上位2銘柄に半分ずつ": 0.11
+  }
+ }
+}

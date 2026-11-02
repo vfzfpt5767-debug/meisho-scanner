@@ -1,5 +1,5 @@
 {
-"generated_at": "2026-11-02T23:16:44.006856+09:00",
+"generated_at": "2026-11-03T03:29:43.691266+09:00",
 "base_day": "2026-11-02",
 "deadline": "2026-11-04T07:59:00+09:00",
 "price_source": "名証 日報",
@@ -11,7 +11,7 @@
 "division": "メイン",
 "unit": 100,
 "category": "CHECK",
-"score": 40,
+"score": 65,
 "items": [
 {
 "time": "15:30",
@@ -64,7 +64,7 @@
 {
 "cat": "CHECK",
 "label": "配当予想の修正",
-"score": 35,
+"score": 60,
 "reason": "増配か減配かタイトルでは不明。PDFで確認"
 }
 ]
@@ -77,73 +77,8 @@
 "shares": 700,
 "cost": 2867900.0,
 "tob_price": null,
-"tob_gap_pct": null
-},
-{
-"code": "2806",
-"name": "ユタカフーズ",
-"single": false,
-"division": "メイン",
-"unit": 100,
-"category": "CHECK",
-"score": 40,
-"items": [
-{
-"time": "15:30",
-"date": "11/02",
-"title": "業績予想の修正に関するお知らせ",
-"pdf": "https://www.release.tdnet.info/inbs/140120261030560794.pdf",
-"tags": [
-{
-"cat": "CHECK",
-"label": "業績予想の修正",
-"score": 40,
-"reason": "上方か下方かタイトルでは不明。PDFで確認"
-}
-]
-}
-],
-"price": 1988.0,
-"price_note": "名証の最終気配",
-"nse_close": null,
-"nse_quote": 1988.0,
-"shares": 1500,
-"cost": 2982000.0,
-"tob_price": null,
-"tob_gap_pct": null
-},
-{
-"code": "4445",
-"name": "リビン・テクノロジーズ",
-"single": false,
-"division": "メイン",
-"unit": 100,
-"category": "CHECK",
-"score": 40,
-"items": [
-{
-"time": "20:00",
-"date": "11/02",
-"title": "通期連結業績予想の修正に関するお知らせ",
-"pdf": "https://www.release.tdnet.info/inbs/140120261102563269.pdf",
-"tags": [
-{
-"cat": "CHECK",
-"label": "業績予想の修正",
-"score": 40,
-"reason": "上方か下方かタイトルでは不明。PDFで確認"
-}
-]
-}
-],
-"price": 1665.0,
-"price_note": "名証の最終気配",
-"nse_close": null,
-"nse_quote": 1665.0,
-"shares": 1800,
-"cost": 2997000.0,
-"tob_price": null,
-"tob_gap_pct": null
+"tob_gap_pct": null,
+"quote_only": true
 },
 {
 "code": "2902",
@@ -176,7 +111,8 @@
 "shares": 1000,
 "cost": 2760000.0,
 "tob_price": null,
-"tob_gap_pct": null
+"tob_gap_pct": null,
+"quote_only": false
 },
 {
 "code": "2551",
@@ -223,7 +159,8 @@
 "shares": 800,
 "cost": 2792000.0,
 "tob_price": null,
-"tob_gap_pct": null
+"tob_gap_pct": null,
+"quote_only": false
 },
 {
 "code": "3320",
@@ -256,7 +193,8 @@
 "shares": 2300,
 "cost": 2967000.0,
 "tob_price": null,
-"tob_gap_pct": null
+"tob_gap_pct": null,
+"quote_only": true
 },
 {
 "code": "7213",
@@ -289,7 +227,8 @@
 "shares": 4900,
 "cost": 2964500.0,
 "tob_price": null,
-"tob_gap_pct": null
+"tob_gap_pct": null,
+"quote_only": true
 },
 {
 "code": "8725",
@@ -322,7 +261,8 @@
 "shares": 500,
 "cost": 2605000.0,
 "tob_price": null,
-"tob_gap_pct": null
+"tob_gap_pct": null,
+"quote_only": true
 },
 {
 "code": "8904",
@@ -355,7 +295,8 @@
 "shares": 3600,
 "cost": 2952000.0,
 "tob_price": null,
-"tob_gap_pct": null
+"tob_gap_pct": null,
+"quote_only": true
 },
 {
 "code": "6676",
@@ -388,7 +329,8 @@
 "shares": 900,
 "cost": 2997000.0,
 "tob_price": null,
-"tob_gap_pct": null
+"tob_gap_pct": null,
+"quote_only": true
 },
 {
 "code": "3775",
@@ -421,7 +363,8 @@
 "shares": 7000,
 "cost": 2989000.0,
 "tob_price": null,
-"tob_gap_pct": null
+"tob_gap_pct": null,
+"quote_only": false
 },
 {
 "code": "6407",
@@ -454,7 +397,8 @@
 "shares": 600,
 "cost": 2802000.0,
 "tob_price": null,
-"tob_gap_pct": null
+"tob_gap_pct": null,
+"quote_only": true
 },
 {
 "code": "7946",
@@ -487,7 +431,8 @@
 "shares": 8800,
 "cost": 2992000.0,
 "tob_price": null,
-"tob_gap_pct": null
+"tob_gap_pct": null,
+"quote_only": false
 },
 {
 "code": "212A",
@@ -520,7 +465,8 @@
 "shares": 1100,
 "cost": 2904000.0,
 "tob_price": null,
-"tob_gap_pct": null
+"tob_gap_pct": null,
+"quote_only": true
 },
 {
 "code": "523A",
@@ -553,7 +499,8 @@
 "shares": 1900,
 "cost": 2998200.0,
 "tob_price": null,
-"tob_gap_pct": null
+"tob_gap_pct": null,
+"quote_only": true
 },
 {
 "code": "8604",
@@ -586,7 +533,8 @@
 "shares": 1900,
 "cost": 2851900.0,
 "tob_price": null,
-"tob_gap_pct": null
+"tob_gap_pct": null,
+"quote_only": true
 },
 {
 "code": "6501",
@@ -633,76 +581,79 @@
 "shares": 600,
 "cost": 2982000.0,
 "tob_price": null,
-"tob_gap_pct": null
+"tob_gap_pct": null,
+"quote_only": true
+},
+{
+"code": "2806",
+"name": "ユタカフーズ",
+"single": false,
+"division": "メイン",
+"unit": 100,
+"category": "CHECK",
+"score": 40,
+"items": [
+{
+"time": "15:30",
+"date": "11/02",
+"title": "業績予想の修正に関するお知らせ",
+"pdf": "https://www.release.tdnet.info/inbs/140120261030560794.pdf",
+"tags": [
+{
+"cat": "CHECK",
+"label": "業績予想の修正",
+"score": 40,
+"reason": "上方か下方かタイトルでは不明。PDFで確認"
+}
+]
+}
+],
+"price": 1988.0,
+"price_note": "名証の最終気配",
+"nse_close": null,
+"nse_quote": 1988.0,
+"shares": 1500,
+"cost": 2982000.0,
+"tob_price": null,
+"tob_gap_pct": null,
+"quote_only": true
+},
+{
+"code": "4445",
+"name": "リビン・テクノロジーズ",
+"single": false,
+"division": "メイン",
+"unit": 100,
+"category": "CHECK",
+"score": 40,
+"items": [
+{
+"time": "20:00",
+"date": "11/02",
+"title": "通期連結業績予想の修正に関するお知らせ",
+"pdf": "https://www.release.tdnet.info/inbs/140120261102563269.pdf",
+"tags": [
+{
+"cat": "CHECK",
+"label": "業績予想の修正",
+"score": 40,
+"reason": "上方か下方かタイトルでは不明。PDFで確認"
+}
+]
+}
+],
+"price": 1665.0,
+"price_note": "名証の最終気配",
+"nse_close": null,
+"nse_quote": 1665.0,
+"shares": 1800,
+"cost": 2997000.0,
+"tob_price": null,
+"tob_gap_pct": null,
+"quote_only": true
 }
 ],
 "before_close": [
-{
-"code": "9900",
-"name": "サガミホールディングス",
-"single": false,
-"division": "プレミア",
-"unit": 100,
-"category": "CHECK",
-"score": 40,
-"items": [
-{
-"time": "13:00",
-"date": "11/02",
-"title": "業績予想の修正に関するお知らせ",
-"pdf": "https://www.release.tdnet.info/inbs/140120261029558887.pdf",
-"tags": [
-{
-"cat": "CHECK",
-"label": "業績予想の修正",
-"score": 40,
-"reason": "上方か下方かタイトルでは不明。PDFで確認"
-}
-]
-}
-],
-"price": 1249.0,
-"price_note": "名証の最終気配",
-"nse_close": null,
-"nse_quote": 1249.0,
-"shares": 2400,
-"cost": 2997600.0,
-"tob_price": null,
-"tob_gap_pct": null
-},
-{
-"code": "1870",
-"name": "矢作建設工業",
-"single": false,
-"division": "プレミア",
-"unit": 100,
-"category": "CHECK",
-"score": 40,
-"items": [
-{
-"time": "14:00",
-"date": "11/02",
-"title": "2027年３月期第２四半期（中間期）連結業績予想の修正に関するお知らせ",
-"pdf": "https://www.release.tdnet.info/inbs/140120261030561692.pdf",
-"tags": [
-{
-"cat": "CHECK",
-"label": "業績予想の修正",
-"score": 40,
-"reason": "上方か下方かタイトルでは不明。PDFで確認"
-}
-]
-}
-],
-"price": 2096.0,
-"price_note": "名証の最終気配",
-"nse_close": null,
-"nse_quote": 2096.0,
-"shares": 1400,
-"cost": 2934400.0,
-"tob_price": null,
-"tob_gap_pct": null
-},
 {
 "code": "7723",
 "name": "愛知時計電機",
@@ -748,7 +699,8 @@
 "shares": 1100,
 "cost": 2900700.0,
 "tob_price": null,
-"tob_gap_pct": null
+"tob_gap_pct": null,
+"quote_only": true
 },
 {
 "code": "5979",
@@ -781,7 +733,8 @@
 "shares": 1100,
 "cost": 2805000.0,
 "tob_price": null,
-"tob_gap_pct": null
+"tob_gap_pct": null,
+"quote_only": false
 },
 {
 "code": "8031",
@@ -814,7 +767,8 @@
 "shares": 600,
 "cost": 2950200.0,
 "tob_price": null,
-"tob_gap_pct": null
+"tob_gap_pct": null,
+"quote_only": true
 },
 {
 "code": "2053",
@@ -847,7 +801,8 @@
 "shares": 1400,
 "cost": 2891000.0,
 "tob_price": null,
-"tob_gap_pct": null
+"tob_gap_pct": null,
+"quote_only": true
 },
 {
 "code": "9987",
@@ -880,7 +835,8 @@
 "shares": 1000,
 "cost": 2911000.0,
 "tob_price": null,
-"tob_gap_pct": null
+"tob_gap_pct": null,
+"quote_only": true
 },
 {
 "code": "4445",
@@ -913,7 +869,8 @@
 "shares": 1800,
 "cost": 2997000.0,
 "tob_price": null,
-"tob_gap_pct": null
+"tob_gap_pct": null,
+"quote_only": true
 },
 {
 "code": "6339",
@@ -946,7 +903,8 @@
 "shares": 2800,
 "cost": 2945600.0,
 "tob_price": null,
-"tob_gap_pct": null
+"tob_gap_pct": null,
+"quote_only": true
 },
 {
 "code": "6902",
@@ -979,7 +937,8 @@
 "shares": 1600,
 "cost": 2976800.0,
 "tob_price": null,
-"tob_gap_pct": null
+"tob_gap_pct": null,
+"quote_only": true
 },
 {
 "code": "5589",
@@ -1012,7 +971,8 @@
 "shares": 1000,
 "cost": 2850000.0,
 "tob_price": null,
-"tob_gap_pct": null
+"tob_gap_pct": null,
+"quote_only": true
 },
 {
 "code": "3419",
@@ -1045,7 +1005,8 @@
 "shares": 1600,
 "cost": 2905600.0,
 "tob_price": null,
-"tob_gap_pct": null
+"tob_gap_pct": null,
+"quote_only": false
 },
 {
 "code": "3066",
@@ -1078,7 +1039,76 @@
 "shares": 4800,
 "cost": 2976000.0,
 "tob_price": null,
-"tob_gap_pct": null
+"tob_gap_pct": null,
+"quote_only": false
+},
+{
+"code": "9900",
+"name": "サガミホールディングス",
+"single": false,
+"division": "プレミア",
+"unit": 100,
+"category": "CHECK",
+"score": 40,
+"items": [
+{
+"time": "13:00",
+"date": "11/02",
+"title": "業績予想の修正に関するお知らせ",
+"pdf": "https://www.release.tdnet.info/inbs/140120261029558887.pdf",
+"tags": [
+{
+"cat": "CHECK",
+"label": "業績予想の修正",
+"score": 40,
+"reason": "上方か下方かタイトルでは不明。PDFで確認"
+}
+]
+}
+],
+"price": 1249.0,
+"price_note": "名証の最終気配",
+"nse_close": null,
+"nse_quote": 1249.0,
+"shares": 2400,
+"cost": 2997600.0,
+"tob_price": null,
+"tob_gap_pct": null,
+"quote_only": true
+},
+{
+"code": "1870",
+"name": "矢作建設工業",
+"single": false,
+"division": "プレミア",
+"unit": 100,
+"category": "CHECK",
+"score": 40,
+"items": [
+{
+"time": "14:00",
+"date": "11/02",
+"title": "2027年３月期第２四半期（中間期）連結業績予想の修正に関するお知らせ",
+"pdf": "https://www.release.tdnet.info/inbs/140120261030561692.pdf",
+"tags": [
+{
+"cat": "CHECK",
+"label": "業績予想の修正",
+"score": 40,
+"reason": "上方か下方かタイトルでは不明。PDFで確認"
+}
+]
+}
+],
+"price": 2096.0,
+"price_note": "名証の最終気配",
+"nse_close": null,
+"nse_quote": 2096.0,
+"shares": 1400,
+"cost": 2934400.0,
+"tob_price": null,
+"tob_gap_pct": null,
+"quote_only": true
 }
 ],
 "tob_rows": [],

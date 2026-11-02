@@ -1,0 +1,1255 @@
+{
+ "fetched_date": "2026-11-03",
+ "items": [
+  {
+   "date": "2026-11-05",
+   "market": "ネクスト",
+   "code": "655A",
+   "name": "（株）LTV-X",
+   "ipo": true,
+   "kettei_url": "https://www.nse.or.jp/listing/files/press_kettei655A.pdf",
+   "offer_price": 570.0,
+   "header": "(コード番号 655A 名証ネクスト)",
+   "links": {
+    "（株）LTV-X": "https://ltv-x.jp",
+    "会社概要": "https://www.nse.or.jp/listing/files/kaisya655A.pdf",
+    "Ⅰの部": "https://www.nse.or.jp/listing/files/ichi655A.pdf",
+    "確認書": "https://www.nse.or.jp/listing/files/kakunin655A.pdf",
+    "発行決議": "https://www.nse.or.jp/listing/files/press_hakkou655A.pdf",
+    "仮条件決定": "https://www.nse.or.jp/listing/files/press_kari655A.pdf",
+    "価格決定": "https://www.nse.or.jp/listing/files/press_kettei655A.pdf"
+   }
+  },
+  {
+   "date": "2026-10-23",
+   "market": "メイン",
+   "code": "7986",
+   "name": "日本アイ・エス・ケイ（株）",
+   "ipo": false,
+   "kettei_url": "",
+   "offer_price": null,
+   "header": "",
+   "links": {
+    "日本アイ・エス・ケイ（株）": "http://www.king-ind.co.jp",
+    "会社概要": "https://www.nse.or.jp/listing/files/kaisya7986.pdf",
+    "有価証券報告書": "https://www.nse.or.jp/listing/files/ichi7986.pdf"
+   }
+  },
+  {
+   "date": "2026-10-14",
+   "market": "メイン",
+   "code": "5363",
+   "name": "東京窯業（株）",
+   "ipo": false,
+   "kettei_url": "",
+   "offer_price": null,
+   "header": "",
+   "links": {
+    "東京窯業（株）": "https://tyk.co.jp/",
+    "会社概要": "https://www.nse.or.jp/listing/files/kaisya5363.pdf",
+    "有価証券報告書": "https://www.nse.or.jp/listing/files/ichi5363.pdf"
+   }
+  },
+  {
+   "date": "2026-10-13",
+   "market": "ネクスト",
+   "code": "9334",
+   "name": "（株）アイビスホールディングス",
+   "ipo": true,
+   "kettei_url": "https://www.nse.or.jp/listing/files/press_kettei9334.pdf",
+   "offer_price": null,
+   "header": "",
+   "links": {
+    "（株）アイビスホールディングス": "https://ibisholdings.co.jp/",
+    "会社概要": "https://www.nse.or.jp/listing/files/kaisya9334.pdf",
+    "Ⅰの部": "https://www.nse.or.jp/listing/files/ichi9334.pdf",
+    "訂正報告書": "https://www.nse.or.jp/listing/files/ichi9334_teisei2.pdf.pdf",
+    "確認書": "https://www.nse.or.jp/listing/files/kakunin9334.pdf",
+    "発行決議": "https://www.nse.or.jp/listing/files/press_hakkou9334.pdf",
+    "仮条件決定": "https://www.nse.or.jp/listing/files/press_kari9334.pdf",
+    "価格決定": "https://www.nse.or.jp/listing/files/press_kettei9334.pdf"
+   }
+  },
+  {
+   "date": "2026-10-01",
+   "market": "ネクスト",
+   "code": "640A",
+   "name": "（株）ASNOVA Companies",
+   "ipo": true,
+   "kettei_url": "",
+   "offer_price": null,
+   "header": "",
+   "links": {
+    "（株）ASNOVA Companies": "https://www.asnova.co.jp",
+    "会社概要": "https://www.nse.or.jp/listing/files/kaisya640A.pdf",
+    "Ⅰの部": "https://www.nse.or.jp/listing/files/ichi640A.pdf",
+    "確認書": "https://www.nse.or.jp/listing/files/kakunin640A.pdf"
+   }
+  },
+  {
+   "date": "2026-10-01",
+   "market": "プレミア",
+   "code": "2681",
+   "name": "（株）セカンドリテイリング",
+   "ipo": false,
+   "kettei_url": "",
+   "offer_price": null,
+   "header": "",
+   "links": {
+    "（株）セカンドリテイリング": "https://2nd-rtl.com/",
+    "会社概要": "https://www.nse.or.jp/listing/files/kaisya2681_1.pdf",
+    "有価証券報告書": "https://www.nse.or.jp/listing/files/ichi2681_1.pdf"
+   }
+  },
+  {
+   "date": "2026-09-30",
+   "market": "メイン",
+   "code": "6899",
+   "name": "ＡＳＴＩ（株）",
+   "ipo": false,
+   "kettei_url": "",
+   "offer_price": null,
+   "header": "",
+   "links": {
+    "ＡＳＴＩ（株）": "https://www.asti.co.jp",
+    "会社概要": "https://www.nse.or.jp/listing/files/kaisya6899.pdf",
+    "有価証券報告書": "https://www.nse.or.jp/listing/files/ichi6899.pdf"
+   }
+  },
+  {
+   "date": "2026-09-18",
+   "market": "ネクスト",
+   "code": "624A",
+   "name": "かがやきホールディングス(株)",
+   "ipo": true,
+   "kettei_url": "https://www.nse.or.jp/listing/files/press_kettei624A.pdf",
+   "offer_price": null,
+   "header": "",
+   "links": {
+    "かがやきホールディングス(株)": "https://kagayaki-grp.com/holdings/",
+    "会社概要": "https://www.nse.or.jp/listing/files/kaisya624A_1.pdf",
+    "Ⅰの部": "https://www.nse.or.jp/listing/files/ichi624A.pdf",
+    "確認書": "https://www.nse.or.jp/listing/files/kakunin624A.pdf",
+    "発行決議": "https://www.nse.or.jp/listing/files/press_hakkou624A.pdf",
+    "仮条件決定": "https://www.nse.or.jp/listing/files/press_kari624A.pdf",
+    "価格決定": "https://www.nse.or.jp/listing/files/press_kettei624A.pdf"
+   }
+  },
+  {
+   "date": "2026-09-17",
+   "market": "メイン",
+   "code": "6029",
+   "name": "アトラグループ（株）",
+   "ipo": false,
+   "kettei_url": "",
+   "offer_price": null,
+   "header": "",
+   "links": {
+    "アトラグループ（株）": "https://www.artra-group.co.jp/",
+    "会社概要": "https://www.nse.or.jp/listing/files/kaisya6029.pdf",
+    "有価証券報告書": "https://www.nse.or.jp/listing/files/ichi6029.pdf"
+   }
+  },
+  {
+   "date": "2026-08-20",
+   "market": "メイン",
+   "code": "4707",
+   "name": "（株）キタック",
+   "ipo": false,
+   "kettei_url": "",
+   "offer_price": null,
+   "header": "",
+   "links": {
+    "（株）キタック": "https://kitac.co.jp",
+    "会社概要": "https://www.nse.or.jp/listing/files/kaisya4707.pdf",
+    "有価証券報告書": "https://www.nse.or.jp/listing/files/ichi4707.pdf"
+   }
+  },
+  {
+   "date": "2026-08-06",
+   "market": "ネクスト",
+   "code": "523A",
+   "name": "（株）セイワホールディングス",
+   "ipo": true,
+   "kettei_url": "",
+   "offer_price": null,
+   "header": "",
+   "links": {
+    "（株）セイワホールディングス": "https://seiwaholdings.co.jp/",
+    "会社概要": "https://www.nse.or.jp/listing/files/kaisya523A.pdf",
+    "Ⅰの部": "https://www.nse.or.jp/listing/files/ichi523A.pdf"
+   }
+  },
+  {
+   "date": "2026-07-30",
+   "market": "メイン",
+   "code": "9476",
+   "name": "（株）中央経済社ホールディングス",
+   "ipo": false,
+   "kettei_url": "",
+   "offer_price": null,
+   "header": "",
+   "links": {
+    "（株）中央経済社ホールディングス": "https://www.chuokeizai.co.jp",
+    "会社概要": "https://www.nse.or.jp/listing/files/kaisya9476.pdf",
+    "有価証券報告書": "https://www.nse.or.jp/listing/files/ichi9476.pdf"
+   }
+  },
+  {
+   "date": "2026-07-03",
+   "market": "メイン",
+   "code": "3441",
+   "name": "（株）山王",
+   "ipo": false,
+   "kettei_url": "",
+   "offer_price": null,
+   "header": "",
+   "links": {
+    "（株）山王": "https://www.sanno.co.jp/",
+    "会社概要": "https://www.nse.or.jp/listing/files/kaisya3441.pdf",
+    "有価証券報告書": "https://www.nse.or.jp/listing/files/ichi3441.pdf"
+   }
+  },
+  {
+   "date": "2026-06-19",
+   "market": "メイン",
+   "code": "3549",
+   "name": "（株）クスリのアオキホールディングス",
+   "ipo": false,
+   "kettei_url": "",
+   "offer_price": null,
+   "header": "",
+   "links": {
+    "（株）クスリのアオキホールディングス": "https://kusuri-aoki-hd.co.jp",
+    "会社概要": "https://www.nse.or.jp/listing/files/kaisya3549.pdf",
+    "有価証券報告書": "https://www.nse.or.jp/listing/files/ichi3549.pdf"
+   }
+  },
+  {
+   "date": "2026-05-28",
+   "market": "メイン",
+   "code": "4124",
+   "name": "大阪油化工業（株）",
+   "ipo": false,
+   "kettei_url": "",
+   "offer_price": null,
+   "header": "",
+   "links": {
+    "大阪油化工業（株）": "https://www.osaka-yuka.co.jp/",
+    "会社概要": "https://www.nse.or.jp/listing/files/kaisya4124.pdf",
+    "有価証券報告書": "https://www.nse.or.jp/listing/files/ichi4124.pdf"
+   }
+  },
+  {
+   "date": "2026-05-28",
+   "market": "ネクスト",
+   "code": "7118",
+   "name": "（株）伸和ホールディングス",
+   "ipo": false,
+   "kettei_url": "",
+   "offer_price": null,
+   "header": "",
+   "links": {
+    "（株）伸和ホールディングス": "https://shinwa-holdings.co.jp/",
+    "会社概要": "https://www.nse.or.jp/listing/files/kaisya7118.pdf",
+    "有価証券報告書": "https://www.nse.or.jp/listing/files/ichi7118.pdf"
+   }
+  },
+  {
+   "date": "2026-04-09",
+   "market": "メイン",
+   "code": "550A",
+   "name": "（株）ソフトテックス",
+   "ipo": true,
+   "kettei_url": "https://www.nse.or.jp/listing/files/press_kettei550A.pdf",
+   "offer_price": null,
+   "header": "",
+   "links": {
+    "（株）ソフトテックス": "https://www.softtex.co.jp",
+    "会社概要": "https://www.nse.or.jp/listing/files/kaisya550A.pdf",
+    "Ⅰの部": "https://www.nse.or.jp/listing/files/ichi550A.pdf",
+    "訂正報告書": "https://www.nse.or.jp/listing/files/ichi550A_teisei.pdf.pdf",
+    "確認書": "https://www.nse.or.jp/listing/files/kakunin550A_1.pdf",
+    "発行決議": "https://www.nse.or.jp/listing/files/press_hakkou550A.pdf",
+    "仮条件決定": "https://www.nse.or.jp/listing/files/press_kari550A.pdf",
+    "価格決定": "https://www.nse.or.jp/listing/files/press_kettei550A.pdf"
+   }
+  },
+  {
+   "date": "2026-04-01",
+   "market": "プレミア",
+   "code": "546A",
+   "name": "MIRAINIホールディングス（株）",
+   "ipo": true,
+   "kettei_url": "",
+   "offer_price": null,
+   "header": "",
+   "links": {
+    "MIRAINIホールディングス（株）": "https://miraini-gr.com/",
+    "会社概要": "https://www.nse.or.jp/listing/files/kaisya546A.pdf",
+    "Ⅰの部": "https://www.nse.or.jp/listing/files/ichi546A.pdf",
+    "確認書": "https://www.nse.or.jp/listing/files/kakunin546A.pdf"
+   }
+  },
+  {
+   "date": "2026-02-26",
+   "market": "メイン",
+   "code": "2480",
+   "name": "システム・ロケーション（株）",
+   "ipo": false,
+   "kettei_url": "",
+   "offer_price": null,
+   "header": "",
+   "links": {
+    "システム・ロケーション（株）": "https://slc.jp/",
+    "会社概要": "https://www.nse.or.jp/listing/files/kaisya2480.pdf",
+    "有価証券報告書": "https://www.nse.or.jp/listing/files/ichi2480.pdf"
+   }
+  },
+  {
+   "date": "2026-02-26",
+   "market": "メイン",
+   "code": "4920",
+   "name": "（株）日本色材工業研究所",
+   "ipo": false,
+   "kettei_url": "",
+   "offer_price": null,
+   "header": "",
+   "links": {
+    "（株）日本色材工業研究所": "https://shikizai.com/",
+    "会社概要": "https://www.nse.or.jp/listing/files/kaisya4920.pdf",
+    "有価証券報告書": "https://www.nse.or.jp/listing/files/ichi4920.pdf"
+   }
+  },
+  {
+   "date": "2026-02-06",
+   "market": "メイン",
+   "code": "2351",
+   "name": "（株）ＡＳＪ",
+   "ipo": false,
+   "kettei_url": "",
+   "offer_price": null,
+   "header": "",
+   "links": {
+    "（株）ＡＳＪ": "https://www.asj.ad.jp/index.html",
+    "会社概要": "https://www.nse.or.jp/listing/files/999a1877a2a45c1360decbbefa9b4b40_6.pdf",
+    "有価証券報告書": "https://www.nse.or.jp/listing/files/ichi2351.pdf"
+   }
+  },
+  {
+   "date": "2025-12-10",
+   "market": "メイン",
+   "code": "2376",
+   "name": "（株）サイネックス",
+   "ipo": false,
+   "kettei_url": "",
+   "offer_price": null,
+   "header": "",
+   "links": {
+    "（株）サイネックス": "https://www.scinex.co.jp/",
+    "会社概要": "https://www.nse.or.jp/listing/files/kaisya2376.pdf",
+    "有価証券報告書": "https://www.nse.or.jp/listing/files/ichi2376.pdf"
+   }
+  },
+  {
+   "date": "2025-11-17",
+   "market": "ネクスト",
+   "code": "275A",
+   "name": "ハンワホームズ（株）",
+   "ipo": true,
+   "kettei_url": "https://www.nse.or.jp/listing/files/press_kettei275A.pdf",
+   "offer_price": null,
+   "header": "",
+   "links": {
+    "ハンワホームズ（株）": "https://www.hanwa-ex.com/",
+    "会社概要": "https://www.nse.or.jp/listing/files/kaisya275A.pdf",
+    "Ⅰの部": "https://www.nse.or.jp/listing/files/ichi275A.pdf",
+    "確認書": "https://www.nse.or.jp/listing/files/kakunin275A.pdf",
+    "発行決議": "https://www.nse.or.jp/listing/files/press_hakkou275A.pdf",
+    "仮条件決定": "https://www.nse.or.jp/listing/files/press_kari275A.pdf",
+    "価格決定": "https://www.nse.or.jp/listing/files/press_kettei275A.pdf"
+   }
+  },
+  {
+   "date": "2025-10-27",
+   "market": "メイン",
+   "code": "4445",
+   "name": "リビン・テクノロジーズ（株）",
+   "ipo": false,
+   "kettei_url": "",
+   "offer_price": null,
+   "header": "",
+   "links": {
+    "リビン・テクノロジーズ（株）": "https://www.lvn.co.jp",
+    "会社概要": "https://www.nse.or.jp/listing/files/kaisya4445_1.pdf",
+    "有価証券報告書": "https://www.nse.or.jp/listing/files/ichi4445_1.pdf"
+   }
+  },
+  {
+   "date": "2025-10-24",
+   "market": "メイン",
+   "code": "7362",
+   "name": "（株）Ｔ．Ｓ．Ｉ",
+   "ipo": false,
+   "kettei_url": "",
+   "offer_price": null,
+   "header": "",
+   "links": {
+    "（株）Ｔ．Ｓ．Ｉ": "https://www.t-s-i.jp",
+    "会社概要": "https://www.nse.or.jp/listing/files/kaisya7362.pdf",
+    "有価証券報告書": "https://www.nse.or.jp/listing/files/ichi7362_1.pdf"
+   }
+  },
+  {
+   "date": "2025-10-16",
+   "market": "メイン",
+   "code": "2435",
+   "name": "（株）シダー",
+   "ipo": false,
+   "kettei_url": "",
+   "offer_price": null,
+   "header": "",
+   "links": {
+    "（株）シダー": "https://cedar-group.co.jp/",
+    "会社概要": "https://www.nse.or.jp/listing/files/kaisya2435_2.pdf",
+    "有価証券報告書": "https://www.nse.or.jp/listing/files/ichi2435.pdf"
+   }
+  },
+  {
+   "date": "2025-10-16",
+   "market": "メイン",
+   "code": "3138",
+   "name": "（株）富士山マガジンサービス",
+   "ipo": false,
+   "kettei_url": "",
+   "offer_price": null,
+   "header": "",
+   "links": {
+    "（株）富士山マガジンサービス": "https://www.fujisan.co.jp",
+    "会社概要": "https://www.nse.or.jp/listing/files/kaisya3138_1.pdf",
+    "有価証券報告書": "https://www.nse.or.jp/listing/files/ichi3138.pdf"
+   }
+  },
+  {
+   "date": "2025-10-07",
+   "market": "ネクスト",
+   "code": "418A",
+   "name": "ウリドキ（株）",
+   "ipo": true,
+   "kettei_url": "https://www.nse.or.jp/listing/files/press_kettei418A.pdf",
+   "offer_price": null,
+   "header": "",
+   "links": {
+    "ウリドキ（株）": "https://uridoki.co.jp/",
+    "会社概要": "https://www.nse.or.jp/listing/files/kaisya418A.pdf",
+    "Ⅰの部": "https://www.nse.or.jp/listing/files/ichi418A.pdf",
+    "訂正報告書": "https://www.nse.or.jp/listing/files/ichi418A_teisei.pdf",
+    "確認書": "https://www.nse.or.jp/listing/files/kakunin418A.pdf",
+    "発行決議": "https://www.nse.or.jp/listing/files/press_hakkou418A.pdf",
+    "仮条件決定": "https://www.nse.or.jp/listing/files/press_kari418A.pdf",
+    "価格決定": "https://www.nse.or.jp/listing/files/press_kettei418A.pdf"
+   }
+  },
+  {
+   "date": "2025-10-06",
+   "market": "メイン",
+   "code": "4240",
+   "name": "クラスターテクノロジー（株）",
+   "ipo": false,
+   "kettei_url": "",
+   "offer_price": null,
+   "header": "",
+   "links": {
+    "クラスターテクノロジー（株）": "https://www.cluster-tech.co.jp/",
+    "会社概要": "https://www.nse.or.jp/listing/files/kaisya4240.pdf",
+    "有価証券報告書": "https://www.nse.or.jp/listing/files/ichi4240.pdf"
+   }
+  },
+  {
+   "date": "2025-09-30",
+   "market": "メイン",
+   "code": "7073",
+   "name": "（株）ジェイック",
+   "ipo": false,
+   "kettei_url": "",
+   "offer_price": null,
+   "header": "",
+   "links": {
+    "（株）ジェイック": "https://www.jaic-g.com",
+    "会社概要": "https://www.nse.or.jp/listing/files/kaisya7073.pdf",
+    "有価証券報告書": "https://www.nse.or.jp/listing/files/ichi7073.pdf"
+   }
+  },
+  {
+   "date": "2025-08-28",
+   "market": "メイン",
+   "code": "7805",
+   "name": "プリントネット（株）",
+   "ipo": false,
+   "kettei_url": "",
+   "offer_price": null,
+   "header": "",
+   "links": {
+    "プリントネット（株）": "https://printnet.jp",
+    "会社概要": "https://www.nse.or.jp/listing/files/kaisya7805.pdf",
+    "有価証券報告書": "https://www.nse.or.jp/listing/files/ichi7805.pdf"
+   }
+  },
+  {
+   "date": "2025-08-06",
+   "market": "プレミア",
+   "code": "3922",
+   "name": "（株）ＰＲ ＴＩＭＥＳ",
+   "ipo": false,
+   "kettei_url": "",
+   "offer_price": null,
+   "header": "",
+   "links": {
+    "（株）ＰＲ ＴＩＭＥＳ": "https://prtimes.co.jp/",
+    "会社概要": "https://www.nse.or.jp/listing/files/kaisya3922.pdf",
+    "有価証券報告書": "https://www.nse.or.jp/listing/files/ichi3922.pdf"
+   }
+  },
+  {
+   "date": "2025-07-29",
+   "market": "メイン",
+   "code": "391A",
+   "name": "（株）山忠",
+   "ipo": true,
+   "kettei_url": "https://www.nse.or.jp/listing/files/press_kettei391A.pdf",
+   "offer_price": null,
+   "header": "",
+   "links": {
+    "（株）山忠": "https://www.yamachuu.co.jp",
+    "会社概要": "https://www.nse.or.jp/listing/files/kaisya391A.pdf",
+    "Ⅰの部": "https://www.nse.or.jp/listing/files/ichi391A.pdf",
+    "訂正報告書": "https://www.nse.or.jp/listing/files/ichi391A_teisei.pdf",
+    "確認書": "https://www.nse.or.jp/listing/files/kakunin391A.pdf",
+    "発行決議": "https://www.nse.or.jp/listing/files/press_hakkou391A.pdf",
+    "仮条件決定": "https://www.nse.or.jp/listing/files/press_kari391A.pdf.pdf",
+    "価格決定": "https://www.nse.or.jp/listing/files/press_kettei391A.pdf"
+   }
+  },
+  {
+   "date": "2025-07-22",
+   "market": "プレミア",
+   "code": "2986",
+   "name": "（株）ＬＡホールディングス",
+   "ipo": false,
+   "kettei_url": "",
+   "offer_price": null,
+   "header": "",
+   "links": {
+    "（株）ＬＡホールディングス": "https://lahd.co.jp/",
+    "会社概要": "https://www.nse.or.jp/listing/files/kaisya2986.pdf",
+    "有価証券報告書": "https://www.nse.or.jp/listing/files/ichi2986.pdf"
+   }
+  },
+  {
+   "date": "2025-07-14",
+   "market": "メイン",
+   "code": "3974",
+   "name": "ＳＣＡＴ（株）",
+   "ipo": false,
+   "kettei_url": "",
+   "offer_price": null,
+   "header": "",
+   "links": {
+    "ＳＣＡＴ（株）": "https://www.scat.inc",
+    "会社概要": "https://www.nse.or.jp/listing/files/kaisya3974.pdf",
+    "有価証券報告書": "https://www.nse.or.jp/listing/files/ichi3974.pdf"
+   }
+  },
+  {
+   "date": "2025-07-01",
+   "market": "メイン",
+   "code": "377A",
+   "name": "（株）エージェントＩＧホールディングス",
+   "ipo": true,
+   "kettei_url": "",
+   "offer_price": null,
+   "header": "",
+   "links": {
+    "（株）エージェントＩＧホールディングス": "https://a-gent.co.jp/",
+    "会社概要": "https://www.nse.or.jp/listing/files/kaisya377A.pdf",
+    "Ⅰの部": "https://www.nse.or.jp/listing/files/ichi377A.pdf",
+    "確認書": "https://www.nse.or.jp/listing/files/kakunin377A.pdf"
+   }
+  },
+  {
+   "date": "2025-06-27",
+   "market": "メイン",
+   "code": "3670",
+   "name": "協立情報通信（株）",
+   "ipo": false,
+   "kettei_url": "",
+   "offer_price": null,
+   "header": "",
+   "links": {
+    "協立情報通信（株）": "https://www.kccnet.co.jp/",
+    "会社概要": "https://www.nse.or.jp/listing/files/kaisya3670_3.pdf",
+    "有価証券報告書": "https://www.nse.or.jp/listing/files/ichi3670.pdf"
+   }
+  },
+  {
+   "date": "2025-06-27",
+   "market": "ネクスト",
+   "code": "9330",
+   "name": "（株）揚羽",
+   "ipo": false,
+   "kettei_url": "",
+   "offer_price": null,
+   "header": "",
+   "links": {
+    "（株）揚羽": "https://www.ageha.tv/",
+    "会社概要": "https://www.nse.or.jp/listing/files/kaisya9330.pdf",
+    "有価証券報告書": "https://www.nse.or.jp/listing/files/ichi9330.pdf"
+   }
+  },
+  {
+   "date": "2025-06-13",
+   "market": "メイン",
+   "code": "4760",
+   "name": "（株）アルファ",
+   "ipo": false,
+   "kettei_url": "",
+   "offer_price": null,
+   "header": "",
+   "links": {
+    "（株）アルファ": "https://www.popalpha.co.jp/",
+    "会社概要": "https://www.nse.or.jp/listing/files/kaisya4760.pdf",
+    "有価証券報告書": "https://www.nse.or.jp/listing/files/ichi4760.pdf"
+   }
+  },
+  {
+   "date": "2025-06-06",
+   "market": "メイン",
+   "code": "7946",
+   "name": "（株）光陽社",
+   "ipo": false,
+   "kettei_url": "",
+   "offer_price": null,
+   "header": "",
+   "links": {
+    "（株）光陽社": "https://www.koyosha-inc.co.jp/",
+    "会社概要": "https://www.nse.or.jp/listing/files/kaisya7946.pdf",
+    "有価証券報告書": "https://www.nse.or.jp/listing/files/ichi7946.pdf"
+   }
+  },
+  {
+   "date": "2025-05-02",
+   "market": "メイン",
+   "code": "3461",
+   "name": "（株）パルマ",
+   "ipo": false,
+   "kettei_url": "",
+   "offer_price": null,
+   "header": "",
+   "links": {
+    "（株）パルマ": "https://www.palma.jp/",
+    "会社概要": "https://www.nse.or.jp/listing/files/kaisya3461.pdf",
+    "有価証券報告書": "https://www.nse.or.jp/listing/files/ichi3461.pdf"
+   }
+  },
+  {
+   "date": "2025-03-26",
+   "market": "プレミア",
+   "code": "3771",
+   "name": "（株）システムリサーチ",
+   "ipo": false,
+   "kettei_url": "",
+   "offer_price": null,
+   "header": "",
+   "links": {
+    "（株）システムリサーチ": "https://www.sr-net.co.jp/",
+    "会社概要": "https://www.nse.or.jp/listing/files/kaisya3771.pdf",
+    "有価証券報告書": "https://www.nse.or.jp/listing/files/ichi3771.pdf"
+   }
+  },
+  {
+   "date": "2025-03-24",
+   "market": "メイン",
+   "code": "1811",
+   "name": "（株）錢高組",
+   "ipo": false,
+   "kettei_url": "",
+   "offer_price": null,
+   "header": "",
+   "links": {
+    "（株）錢高組": "https://www.zenitaka.co.jp/",
+    "会社概要": "https://www.nse.or.jp/listing/files/kaisya1811.pdf",
+    "有価証券報告書": "https://www.nse.or.jp/listing/files/ichi1811.pdf"
+   }
+  },
+  {
+   "date": "2025-03-14",
+   "market": "メイン",
+   "code": "2329",
+   "name": "（株）東北新社",
+   "ipo": false,
+   "kettei_url": "",
+   "offer_price": null,
+   "header": "",
+   "links": {
+    "（株）東北新社": "https://www.tfc.co.jp",
+    "会社概要": "https://www.nse.or.jp/listing/files/kaisya2329.pdf",
+    "有価証券報告書": "https://www.nse.or.jp/listing/files/ichi2329.pdf"
+   }
+  },
+  {
+   "date": "2025-03-14",
+   "market": "メイン",
+   "code": "3559",
+   "name": "（株）ピーバンドットコム",
+   "ipo": false,
+   "kettei_url": "",
+   "offer_price": null,
+   "header": "",
+   "links": {
+    "（株）ピーバンドットコム": "https://www.p-ban.com/corporate",
+    "会社概要": "https://www.nse.or.jp/listing/files/kaisya3559.pdf",
+    "有価証券報告書": "https://www.nse.or.jp/listing/files/ichi3559.pdf"
+   }
+  },
+  {
+   "date": "2025-02-27",
+   "market": "メイン",
+   "code": "6074",
+   "name": "（株）ジェイエスエス",
+   "ipo": false,
+   "kettei_url": "",
+   "offer_price": null,
+   "header": "",
+   "links": {
+    "（株）ジェイエスエス": "https://www.jss-group.co.jp/",
+    "会社概要": "https://www.nse.or.jp/listing/files/999a1877a2a45c1360decbbefa9b4b40_4.pdf",
+    "有価証券報告書": "https://www.nse.or.jp/listing/files/ichi6074.pdf"
+   }
+  },
+  {
+   "date": "2025-02-17",
+   "market": "メイン",
+   "code": "3842",
+   "name": "（株）ネクストジェン",
+   "ipo": false,
+   "kettei_url": "",
+   "offer_price": null,
+   "header": "",
+   "links": {
+    "（株）ネクストジェン": "https://www.nextgen.co.jp/",
+    "会社概要": "https://www.nse.or.jp/listing/files/kaisya3842.pdf",
+    "有価証券報告書": "https://www.nse.or.jp/listing/files/ichi3842.pdf"
+   }
+  },
+  {
+   "date": "2025-02-03",
+   "market": "ネクスト",
+   "code": "7790",
+   "name": "（株）バルコス",
+   "ipo": true,
+   "kettei_url": "https://www.nse.or.jp/listing/files/press_kettei7790.pdf",
+   "offer_price": null,
+   "header": "",
+   "links": {
+    "（株）バルコス": "https://barcos.jp/",
+    "会社概要": "https://www.nse.or.jp/listing/files/kaisya7790.pdf",
+    "Ⅰの部": "https://www.nse.or.jp/listing/files/ichi7790.pdf",
+    "訂正報告書": "https://www.nse.or.jp/listing/files/ichi7790_teisei.pdf.pdf",
+    "確認書": "https://www.nse.or.jp/listing/files/kakunin7790.pdf",
+    "発行決議": "https://www.nse.or.jp/listing/files/press_hakkou7790.pdf",
+    "仮条件決定": "https://www.nse.or.jp/listing/files/press_kari7790.pdf",
+    "価格決定": "https://www.nse.or.jp/listing/files/press_kettei7790.pdf"
+   }
+  },
+  {
+   "date": "2025-01-24",
+   "market": "メイン",
+   "code": "8225",
+   "name": "（株）タカチホ",
+   "ipo": false,
+   "kettei_url": "",
+   "offer_price": null,
+   "header": "",
+   "links": {
+    "（株）タカチホ": "https://kk-takachiho.jp",
+    "会社概要": "https://www.nse.or.jp/listing/files/kaisya8225_1.pdf",
+    "有価証券報告書": "https://www.nse.or.jp/listing/files/ichi8225_1.pdf"
+   }
+  },
+  {
+   "date": "2025-01-14",
+   "market": "メイン",
+   "code": "2327",
+   "name": "日鉄ソリューションズ（株）",
+   "ipo": false,
+   "kettei_url": "",
+   "offer_price": null,
+   "header": "",
+   "links": {
+    "日鉄ソリューションズ（株）": "https://www.nssol.nipponsteel.com/",
+    "会社概要": "https://www.nse.or.jp/listing/files/kaisya2327.pdf",
+    "有価証券報告書": "https://www.nse.or.jp/listing/files/ichi2327.pdf"
+   }
+  },
+  {
+   "date": "2025-01-14",
+   "market": "メイン",
+   "code": "7928",
+   "name": "旭化学工業（株）",
+   "ipo": false,
+   "kettei_url": "",
+   "offer_price": null,
+   "header": "",
+   "links": {
+    "旭化学工業（株）": "https://www.asahikagakukogyo.co.jp/",
+    "会社概要": "https://www.nse.or.jp/listing/files/999a1877a2a45c1360decbbefa9b4b40_3.pdf",
+    "有価証券報告書": "https://www.nse.or.jp/listing/files/eb6b8a6c1298c6722a2c93080b236bc7.pdf"
+   }
+  },
+  {
+   "date": "2024-12-26",
+   "market": "メイン",
+   "code": "9914",
+   "name": "（株）植松商会",
+   "ipo": false,
+   "kettei_url": "",
+   "offer_price": null,
+   "header": "",
+   "links": {
+    "（株）植松商会": "http://www.uem-net.co.jp",
+    "会社概要": "https://www.nse.or.jp/listing/files/999a1877a2a45c1360decbbefa9b4b40_2.pdf",
+    "有価証券報告書": "https://www.nse.or.jp/listing/files/ichi9914.pdf"
+   }
+  },
+  {
+   "date": "2024-12-23",
+   "market": "ネクスト",
+   "code": "5241",
+   "name": "（株）日本オーエー研究所",
+   "ipo": true,
+   "kettei_url": "https://www.nse.or.jp/listing/files/press_kettei5241.pdf",
+   "offer_price": null,
+   "header": "",
+   "links": {
+    "（株）日本オーエー研究所": "https://www.noar.co.jp",
+    "会社概要": "https://www.nse.or.jp/listing/files/kaisya5241-1.pdf",
+    "Ⅰの部": "https://www.nse.or.jp/listing/files/ichi5241.pdf",
+    "訂正報告書": "https://www.nse.or.jp/listing/files/ichi5241_teisei.pdf",
+    "確認書": "https://www.nse.or.jp/listing/files/kakunin5241.pdf",
+    "発行決議": "https://www.nse.or.jp/listing/files/press_hakkou5241.pdf",
+    "仮条件決定": "https://www.nse.or.jp/listing/files/press_kari5241.pdf.pdf",
+    "価格決定": "https://www.nse.or.jp/listing/files/press_kettei5241.pdf"
+   }
+  },
+  {
+   "date": "2024-12-18",
+   "market": "メイン",
+   "code": "4196",
+   "name": "（株）ネオマーケティング",
+   "ipo": false,
+   "kettei_url": "",
+   "offer_price": null,
+   "header": "",
+   "links": {
+    "（株）ネオマーケティング": "https://corp.neo-m.jp/",
+    "会社概要": "https://www.nse.or.jp/listing/files/kaisya4196.pdf",
+    "有価証券報告書": "https://www.nse.or.jp/listing/files/ichi4196.pdf"
+   }
+  },
+  {
+   "date": "2024-11-25",
+   "market": "メイン",
+   "code": "9073",
+   "name": "京極運輸商事（株）",
+   "ipo": false,
+   "kettei_url": "",
+   "offer_price": null,
+   "header": "",
+   "links": {
+    "京極運輸商事（株）": "https://www.kyogoku.co.jp/",
+    "会社概要": "https://www.nse.or.jp/listing/files/999a1877a2a45c1360decbbefa9b4b40_1.pdf",
+    "有価証券報告書": "https://www.nse.or.jp/listing/files/c67679e9cbec0e5c9b5bb7ab24805e35.pdf"
+   }
+  },
+  {
+   "date": "2024-10-23",
+   "market": "メイン",
+   "code": "4667",
+   "name": "アイサンテクノロジー（株）",
+   "ipo": false,
+   "kettei_url": "",
+   "offer_price": null,
+   "header": "",
+   "links": {
+    "アイサンテクノロジー（株）": "https://www.aisantec.co.jp/",
+    "会社概要": "https://www.nse.or.jp/listing/files/999a1877a2a45c1360decbbefa9b4b40.pdf",
+    "有価証券報告書": "https://www.nse.or.jp/listing/files/cd74330491b77d0ad51fa2f244d09732.pdf"
+   }
+  },
+  {
+   "date": "2024-10-17",
+   "market": "メイン",
+   "code": "3494",
+   "name": "（株）マリオン",
+   "ipo": false,
+   "kettei_url": "",
+   "offer_price": null,
+   "header": "",
+   "links": {
+    "（株）マリオン": "https://www.mullion.co.jp/",
+    "会社概要": "https://www.nse.or.jp/listing/files/kaisya3494.pdf",
+    "有価証券報告書": "https://www.nse.or.jp/listing/files/ichi3494.pdf"
+   }
+  },
+  {
+   "date": "2024-10-10",
+   "market": "メイン",
+   "code": "6615",
+   "name": "ユー・エム・シー・エレクトロニクス（株）",
+   "ipo": false,
+   "kettei_url": "",
+   "offer_price": null,
+   "header": "",
+   "links": {
+    "ユー・エム・シー・エレクトロニクス（株）": "https://www.umc.co.jp",
+    "会社概要": "https://www.nse.or.jp/listing/files/kaisya6615.pdf",
+    "有価証券報告書": "https://www.nse.or.jp/listing/files/ichi6615.pdf"
+   }
+  },
+  {
+   "date": "2024-10-08",
+   "market": "ネクスト",
+   "code": "259A",
+   "name": "（株）ケイ・ウノ",
+   "ipo": true,
+   "kettei_url": "https://www.nse.or.jp/listing/files/press_kettei259A.pdf",
+   "offer_price": null,
+   "header": "",
+   "links": {
+    "（株）ケイ・ウノ": "https://www.k-uno.co.jp/",
+    "会社概要": "https://www.nse.or.jp/listing/files/kaisya259A.pdf",
+    "Ⅰの部": "https://www.nse.or.jp/listing/files/ichi259A.pdf",
+    "訂正報告書": "https://www.nse.or.jp/listing/files/ichi259A_teisei.pdf.pdf",
+    "確認書": "https://www.nse.or.jp/listing/files/kakunin259A.pdf",
+    "発行決議": "https://www.nse.or.jp/listing/files/press_hakkou259A.pdf",
+    "仮条件決定": "https://www.nse.or.jp/listing/files/press_kari259A.pdf",
+    "価格決定": "https://www.nse.or.jp/listing/files/press_kettei259A.pdf"
+   }
+  },
+  {
+   "date": "2024-10-02",
+   "market": "メイン",
+   "code": "4361",
+   "name": "川口化学工業（株）",
+   "ipo": false,
+   "kettei_url": "",
+   "offer_price": null,
+   "header": "",
+   "links": {
+    "川口化学工業（株）": "https://www.kawachem.co.jp",
+    "会社概要": "https://www.nse.or.jp/listing/files/kaisya4361.pdf",
+    "有価証券報告書": "https://www.nse.or.jp/listing/files/ichi4361.pdf"
+   }
+  },
+  {
+   "date": "2024-09-26",
+   "market": "ネクスト",
+   "code": "246A",
+   "name": "（株）アスア",
+   "ipo": true,
+   "kettei_url": "https://www.nse.or.jp/listing/files/press_kettei246A.pdf",
+   "offer_price": null,
+   "header": "",
+   "links": {
+    "（株）アスア": "https://www.asua.ne.jp",
+    "会社概要": "https://www.nse.or.jp/listing/files/kaisya246A.pdf",
+    "Ⅰの部": "https://www.nse.or.jp/listing/files/ichi246A.pdf",
+    "確認書": "https://www.nse.or.jp/listing/files/kakunin246A.pdf",
+    "発行決議": "https://www.nse.or.jp/listing/files/press_hakkou246A.pdf",
+    "仮条件決定": "https://www.nse.or.jp/listing/files/press_kari246A.pdf",
+    "価格決定": "https://www.nse.or.jp/listing/files/press_kettei246A.pdf"
+   }
+  },
+  {
+   "date": "2024-09-26",
+   "market": "メイン",
+   "code": "8995",
+   "name": "（株）誠建設工業",
+   "ipo": false,
+   "kettei_url": "",
+   "offer_price": null,
+   "header": "",
+   "links": {
+    "（株）誠建設工業": "https://www.makoto-gr.com/",
+    "会社概要": "https://www.nse.or.jp/listing/files/kaisya8995.pdf",
+    "有価証券報告書": "https://www.nse.or.jp/listing/files/ichi8995.pdf"
+   }
+  },
+  {
+   "date": "2024-09-12",
+   "market": "メイン",
+   "code": "6396",
+   "name": "（株）宇野澤組鐵工所",
+   "ipo": false,
+   "kettei_url": "",
+   "offer_price": null,
+   "header": "",
+   "links": {
+    "（株）宇野澤組鐵工所": "https://www.unozawa.co.jp",
+    "会社概要": "https://www.nse.or.jp/listing/files/kaisya6396.pdf",
+    "有価証券報告書": "https://www.nse.or.jp/listing/files/ichi6396.pdf"
+   }
+  },
+  {
+   "date": "2024-08-29",
+   "market": "メイン",
+   "code": "3469",
+   "name": "（株）デュアルタップ",
+   "ipo": false,
+   "kettei_url": "",
+   "offer_price": null,
+   "header": "",
+   "links": {
+    "（株）デュアルタップ": "https://www.dualtap.co.jp",
+    "会社概要": "https://www.nse.or.jp/listing/files/kaisya3469.pdf",
+    "有価証券報告書": "https://www.nse.or.jp/listing/files/ichi3469.pdf"
+   }
+  },
+  {
+   "date": "2024-08-29",
+   "market": "メイン",
+   "code": "7129",
+   "name": "ミアヘルサホールディングス（株）",
+   "ipo": false,
+   "kettei_url": "",
+   "offer_price": null,
+   "header": "",
+   "links": {
+    "ミアヘルサホールディングス（株）": "https://www.merhalsa-hd.jp/",
+    "会社概要": "https://www.nse.or.jp/listing/files/kaisya7129.pdf",
+    "有価証券報告書": "https://www.nse.or.jp/listing/files/ichi7129.pdf"
+   }
+  },
+  {
+   "date": "2024-07-23",
+   "market": "メイン",
+   "code": "212A",
+   "name": "フィットイージー（株）",
+   "ipo": true,
+   "kettei_url": "https://www.nse.or.jp/listing/files/press_kettei212A.pdf",
+   "offer_price": null,
+   "header": "",
+   "links": {
+    "フィットイージー（株）": "https://fiteasy.co.jp/",
+    "会社概要": "https://www.nse.or.jp/listing/files/kaisya212A.pdf",
+    "Ⅰの部": "https://www.nse.or.jp/listing/files/ichi212A.pdf",
+    "確認書": "https://www.nse.or.jp/listing/files/kakunin212A.pdf",
+    "発行決議": "https://www.nse.or.jp/listing/files/press_hakkou212A.pdf",
+    "仮条件決定": "https://www.nse.or.jp/listing/files/press_kari212A.pdf",
+    "価格決定": "https://www.nse.or.jp/listing/files/press_kettei212A.pdf"
+   }
+  },
+  {
+   "date": "2024-06-20",
+   "market": "メイン",
+   "code": "5287",
+   "name": "（株）イトーヨーギョー",
+   "ipo": false,
+   "kettei_url": "",
+   "offer_price": null,
+   "header": "",
+   "links": {
+    "（株）イトーヨーギョー": "https://itoyogyo.co.jp",
+    "会社概要": "https://www.nse.or.jp/listing/files/kaisya5287.pdf",
+    "有価証券報告書": "https://www.nse.or.jp/listing/files/ichi5287.pdf"
+   }
+  },
+  {
+   "date": "2024-06-13",
+   "market": "メイン",
+   "code": "4616",
+   "name": "川上塗料（株）",
+   "ipo": false,
+   "kettei_url": "",
+   "offer_price": null,
+   "header": "",
+   "links": {
+    "川上塗料（株）": "https://www.kawakami-paint.co.jp",
+    "会社概要": "https://www.nse.or.jp/listing/files/kaisya4616.pdf",
+    "有価証券報告書": "https://www.nse.or.jp/listing/files/ichi4616.pdf"
+   }
+  },
+  {
+   "date": "2024-05-30",
+   "market": "メイン",
+   "code": "7878",
+   "name": "（株）光・彩",
+   "ipo": false,
+   "kettei_url": "",
+   "offer_price": null,
+   "header": "",
+   "links": {
+    "（株）光・彩": "https://www.kohsai-qq.co.jp",
+    "会社概要": "https://www.nse.or.jp/listing/files/kaisya7878.pdf",
+    "有価証券報告書": "https://www.nse.or.jp/listing/files/ichi7878.pdf"
+   }
+  },
+  {
+   "date": "2024-02-28",
+   "market": "ネクスト",
+   "code": "138A",
+   "name": "光フードサービス（株）",
+   "ipo": true,
+   "kettei_url": "https://www.nse.or.jp/listing/files/press_kettei138A.pdf",
+   "offer_price": null,
+   "header": "",
+   "links": {
+    "光フードサービス（株）": "https://hikari-food-service.jp",
+    "会社概要": "https://www.nse.or.jp/listing/files/kaisya138A.pdf",
+    "Ⅰの部": "https://www.nse.or.jp/listing/files/ichi138A.pdf",
+    "確認書": "https://www.nse.or.jp/listing/files/kakunin138A.pdf",
+    "発行決議": "https://www.nse.or.jp/listing/files/press_hakkou138A.pdf",
+    "仮条件決定": "https://www.nse.or.jp/listing/files/press_kari138A.pdf",
+    "価格決定": "https://www.nse.or.jp/listing/files/press_kettei138A.pdf"
+   }
+  },
+  {
+   "date": "2024-02-16",
+   "market": "メイン",
+   "code": "5271",
+   "name": "（株）トーヨーアサノ",
+   "ipo": false,
+   "kettei_url": "",
+   "offer_price": null,
+   "header": "",
+   "links": {
+    "（株）トーヨーアサノ": "https://www.toyoasano.co.jp",
+    "会社概要": "https://www.nse.or.jp/listing/files/kaisya5271.pdf",
+    "有価証券報告書": "https://www.nse.or.jp/listing/files/ichi5271.pdf"
+   }
+  },
+  {
+   "date": "2021-12-23",
+   "market": "2部",
+   "code": "4125",
+   "name": "三和油化工業（株）",
+   "ipo": true,
+   "kettei_url": "https://www.nse.or.jp/listing/files/press_kettei4125.pdf",
+   "offer_price": null,
+   "header": "",
+   "links": {
+    "三和油化工業（株）": "https://www.sanwayuka.co.jp/",
+    "会社概要": "https://www.nse.or.jp/listing/files/kaisya4125.pdf",
+    "Ⅰの部": "https://www.nse.or.jp/listing/files/ichi4125.pdf",
+    "確認書": "https://www.nse.or.jp/listing/files/kakunin4125%20.pdf",
+    "発行決議": "https://www.nse.or.jp/listing/files/press_hakkou4125.pdf",
+    "仮条件決定": "https://www.nse.or.jp/listing/files/press_kari4125.pdf",
+    "価格決定": "https://www.nse.or.jp/listing/files/press_kettei4125.pdf"
+   }
+  },
+  {
+   "date": "2021-12-22",
+   "market": "2部",
+   "code": "2983",
+   "name": "（株）アールプランナー",
+   "ipo": false,
+   "kettei_url": "",
+   "offer_price": null,
+   "header": "",
+   "links": {
+    "（株）アールプランナー": "https://www.arrplanner.co.jp/",
+    "会社概要": "https://www.nse.or.jp/listing/files/kaisya2983.pdf",
+    "有価証券報告書": "https://www.nse.or.jp/listing/files/yuuhou2983.pdf"
+   }
+  },
+  {
+   "date": "2021-10-08",
+   "market": "2部",
+   "code": "9249",
+   "name": "日本エコシステム（株）",
+   "ipo": true,
+   "kettei_url": "https://www.nse.or.jp/listing/files/press_kettei9249.pdf",
+   "offer_price": null,
+   "header": "",
+   "links": {
+    "日本エコシステム（株）": "https://www.jp-eco.co.jp/",
+    "会社概要": "https://www.nse.or.jp/listing/files/kaisya9249.pdf.pdf",
+    "Ⅰの部": "https://www.nse.or.jp/listing/files/ichi9249.pdf.pdf",
+    "確認書": "https://www.nse.or.jp/listing/files/kakunin9249.pdf%20.pdf",
+    "発行決議": "https://www.nse.or.jp/listing/files/press_hakkou9249.pdf.pdf",
+    "仮条件決定": "https://www.nse.or.jp/listing/files/press_kari9249.pdf",
+    "価格決定": "https://www.nse.or.jp/listing/files/press_kettei9249.pdf"
+   }
+  },
+  {
+   "date": "2021-10-01",
+   "market": "1部",
+   "code": "7380",
+   "name": "（株）十六フィナンシャルグループ",
+   "ipo": true,
+   "kettei_url": "",
+   "offer_price": null,
+   "header": "",
+   "links": {
+    "（株）十六フィナンシャルグループ": "https://www.16fg.co.jp",
+    "会社概要": "https://www.nse.or.jp/listing/files/kaisya7380.pdf",
+    "Ⅰの部": "https://www.nse.or.jp/listing/files/ichi7380.pdf",
+    "確認書": "https://www.nse.or.jp/listing/files/kakunin7380.pdf"
+   }
+  },
+  {
+   "date": "2021-07-01",
+   "market": "1部",
+   "code": "4072 (株)電算システムホールディングス",
+   "name": "4072 （株）電算システムホールディングス",
+   "ipo": true,
+   "kettei_url": "",
+   "offer_price": null,
+   "header": "",
+   "links": {
+    "（株）電算システムホールディングス": "https://ds-hd.co.jp/",
+    "会社概要": "https://www.nse.or.jp/listing/files/kaisya4072.pdf",
+    "Ⅰの部": "https://www.nse.or.jp/listing/files/ichi4072.pdf",
+    "確認書": "https://www.nse.or.jp/listing/files/kakunin4072.pdf"
+   }
+  },
+  {
+   "date": "2021-06-02",
+   "market": "ｾﾝﾄﾚｯｸｽ",
+   "code": "7369 (株)メイホーホールディングス",
+   "name": "7369 （株）メイホーホールディングス",
+   "ipo": true,
+   "kettei_url": "https://www.nse.or.jp/listing/files/press_kettei7369.pdf",
+   "offer_price": null,
+   "header": "",
+   "links": {
+    "（株）メイホーホールディングス": "https://meihoholdings.co.jp/",
+    "会社概要": "https://www.nse.or.jp/listing/files/kaisya7369.pdf",
+    "Ⅰの部": "https://www.nse.or.jp/listing/files/ichi7369.pdf",
+    "確認書": "https://www.nse.or.jp/listing/files/kakunin7369.pdf",
+    "発行決議": "https://www.nse.or.jp/listing/files/press_hakkou7369.pdf",
+    "仮条件決定": "https://www.nse.or.jp/listing/files/press_kari7369.pdf",
+    "価格決定": "https://www.nse.or.jp/listing/files/press_kettei7369.pdf"
+   }
+  },
+  {
+   "date": "2021-04-07",
+   "market": "2部",
+   "code": "4193 (株)ファブリカコミュニケーションズ",
+   "name": "4193 （株）ファブリカコミュニケーションズ",
+   "ipo": true,
+   "kettei_url": "https://www.nse.or.jp/listing/files/press_kettei4193.pdf",
+   "offer_price": null,
+   "header": "",
+   "links": {
+    "（株）ファブリカコミュニケーションズ": "https://www.fabrica-com.co.jp/",
+    "会社概要": "https://www.nse.or.jp/listing/files/kaisya4193.pdf",
+    "Ⅰの部": "https://www.nse.or.jp/listing/files/ichi4193.pdf",
+    "確認書": "https://www.nse.or.jp/listing/files/kakunin4193.pdf",
+    "発行決議": "https://www.nse.or.jp/listing/files/press_hakkou4193.pdf",
+    "仮条件決定": "https://www.nse.or.jp/listing/files/press_kari4193.pdf",
+    "価格決定": "https://www.nse.or.jp/listing/files/press_kettei4193.pdf"
+   }
+  }
+ ]
+}
