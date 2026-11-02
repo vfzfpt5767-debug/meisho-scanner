@@ -49,6 +49,17 @@ def main() -> int:
         mid += render_newlistings.section(nl_rows)
     except Exception as e:  # noqa: BLE001
         res.errors.append(f"新規上場トラッカーの表示に失敗: {type(e).__name__}: {e}")
+    try:
+        from . import earnings, render_earnings
+
+        today = res.ctx.now.date()
+        days, by_day, e_errs = earnings.upcoming(res.ctx.universe, today)
+        res.errors += e_errs
+        held = {h.code for h in pf.holdings} if pf else set()
+        tonight = today  # 今日が営業日なら「今夜」、休業日なら「次の営業日」と表示
+        sections += render_earnings.section(days, by_day, res.ctx.universe, held, tonight)
+    except Exception as e:  # noqa: BLE001
+        res.errors.append(f"決算カレンダーの表示に失敗: {type(e).__name__}: {e}")
     html = render(res, pf, extra_top=top, extra_sections=sections, extra_mid=mid, morning=morning_rep,
                   after_concl=morning_html)
     DOCS_DIR.mkdir(parents=True, exist_ok=True)
