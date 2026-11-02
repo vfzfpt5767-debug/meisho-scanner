@@ -150,3 +150,17 @@ def test_limits():
     assert h["2"].stuck and "特別買い気配" in h["2"].label
     assert "3" not in h
     assert not h["4"].stuck and h["4"].label == "ストップ高で引け"
+
+
+def test_newlistings_parse():
+    from scanner.newlistings import parse
+
+    html = """<h2>2026年</h2><table class="tbl"><tbody><tr><th>上場日</th></tr>
+<tr><td><p><span>11/5</span></p></td><td><span>ネクスト</span></td><td><p>655A</p><p><a href="https://x">（株）LTV-X</a></p></td>
+<td><a href="/listing/files/kaisya655A.pdf">会社概要</a></td><td><p><a href="/listing/files/ichi655A.pdf">Ⅰの部</a></p></td>
+<td><p><a href="/listing/files/press_kettei655A.pdf">価格決定</a></p></td></tr></tbody></table>"""
+    items = parse(html)
+    assert len(items) == 1
+    it = items[0]
+    assert it.date == "2026-11-05" and it.code == "655A" and it.ipo and it.market == "ネクスト"
+    assert it.kettei_url.endswith("press_kettei655A.pdf")

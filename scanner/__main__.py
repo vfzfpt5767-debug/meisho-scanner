@@ -27,6 +27,14 @@ def main() -> int:
         mid = render_limits.section(res)
     except Exception as e:  # noqa: BLE001
         res.errors.append(f"ストップ高・安の表示に失敗: {type(e).__name__}: {e}")
+    try:
+        from . import newlistings, render_newlistings
+
+        nl_rows, nl_errs = newlistings.rows(res)
+        res.errors += nl_errs
+        mid += render_newlistings.section(nl_rows)
+    except Exception as e:  # noqa: BLE001
+        res.errors.append(f"新規上場トラッカーの表示に失敗: {type(e).__name__}: {e}")
     html = render(res, pf, extra_top=top, extra_sections=sections, extra_mid=mid)
     DOCS_DIR.mkdir(parents=True, exist_ok=True)
     (DOCS_DIR / "index.html").write_text(html, encoding="utf-8")
