@@ -12,6 +12,20 @@ def main() -> int:
     res = run()
     pf = None
     top, sections = "", ""
+    morning_rep = None
+    morning_html = ""
+    from .morning import is_morning
+
+    if res.ctx.now and is_morning(res.ctx.now):
+        try:
+            from datetime import datetime as _dt
+
+            from . import morning, render_morning
+
+            morning_rep = morning.build(res)
+            morning_html = render_morning.section(morning_rep, _dt.fromisoformat(res.deadline))
+        except Exception as e:  # noqa: BLE001
+            res.errors.append(f"朝レポートの作成に失敗: {type(e).__name__}: {e}")
     try:
         from . import portfolio, render_portfolio
 
@@ -35,10 +49,22 @@ def main() -> int:
         mid += render_newlistings.section(nl_rows)
     except Exception as e:  # noqa: BLE001
         res.errors.append(f"新規上場トラッカーの表示に失敗: {type(e).__name__}: {e}")
-    html = render(res, pf, extra_top=top, extra_sections=sections, extra_mid=mid)
+    html = render(res, pf, extra_top=top, extra_sections=sections, extra_mid=mid, morning=morning_rep,
+                  after_concl=morning_html)
     DOCS_DIR.mkdir(parents=True, exist_ok=True)
     (DOCS_DIR / "index.html").write_text(html, encoding="utf-8")
 
+    # LINE通知（朝：朝レポートの要約を1日1回）
+    if morning_rep is not None and not morning_rep.stale_from:
+        try:
+            from datetime import datetime as _dt
+
+            from . import morning, notify
+
+            print("LINE:", notify.notify_once(f"morning:{res.ctx.now.date()}",
+                                              morning.line_text(morning_rep, _dt.fromisoformat(res.deadline)), "morning"))
+        except Exception as e:  # noqa: BLE001
+            print("LINE通知でエラー:", type(e).__name__, e)
     # LINE通知（夜：S・A・要確認・保有警告があるときだけ、1タームに1回）
     if not getattr(res, "ctx", None) or res.ctx.now.hour >= 8:
         try:

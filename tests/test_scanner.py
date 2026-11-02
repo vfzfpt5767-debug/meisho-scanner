@@ -197,3 +197,12 @@ def test_notify_limits(tmp_path, monkeypatch):
     usage[0] = 180
     assert "上限" in notify.send("hi", "test")
     assert len(sent) == 1
+
+
+def test_morning_window():
+    from scanner.morning import is_morning
+
+    assert is_morning(datetime(2026, 11, 4, 6, 20, tzinfo=JST))
+    assert is_morning(datetime(2026, 11, 4, 7, 5, tzinfo=JST))
+    assert not is_morning(datetime(2026, 11, 3, 0, 25, tzinfo=JST))
+    assert not is_morning(datetime(2026, 11, 4, 8, 0, tzinfo=JST))

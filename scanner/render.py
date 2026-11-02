@@ -162,7 +162,8 @@ def _tob_row(r: TobRow) -> str:
             f'<a class="btn sub" href="{_kabutan(r.code)}" target="_blank" rel="noopener">株探</a></div></div>')
 
 
-def render(res: ScanResult, portfolio=None, extra_top: str = "", extra_sections: str = "", extra_mid: str = "") -> str:
+def render(res: ScanResult, portfolio=None, extra_top: str = "", extra_sections: str = "", extra_mid: str = "",
+           morning=None, after_concl: str = "") -> str:
     gen = datetime.fromisoformat(res.generated_at)
     base = date.fromisoformat(res.base_day)
     dl = datetime.fromisoformat(res.deadline)
@@ -188,9 +189,15 @@ def render(res: ScanResult, portfolio=None, extra_top: str = "", extra_sections:
     hours = left.total_seconds() / 3600
     left_txt = f"あと{int(hours)}時間{int((hours % 1) * 60)}分" if hours > 0 else "締切を過ぎています（次のタームは営業日16:30から）"
     head = "今朝の結論" if 4 <= gen.hour < 12 else "今夜の結論"
-    lis = "".join(f'<li class="{escape(x.kind)}">{escape(x.text)}</li>' for x in concl_lines(res, portfolio))
+    cl = concl_lines(res, portfolio)
+    if morning is not None:
+        from .conclusion import Line
+
+        cl = [Line("buy", morning.summary_line())] + cl
+    lis = "".join(f'<li class="{escape(x.kind)}">{escape(x.text)}</li>' for x in cl[:3])
     out.append(f'<div class="concl"><h2>{head}</h2><ol>{lis}</ol>'
                f'<div class="dl">注文締切：{fmt_date(dl.date())} 朝{dl:%H:%M}（{left_txt}）{hol}</div></div>')
+    out.append(after_concl)
     out.append(f'<div class="meta">更新：{fmt_date(gen.date())} {gen:%H:%M}<br>'
                f'約定見込み価格＝<b>{fmt_date(base)}の名証の終値</b>（出典：{escape(res.price_source or "取得できず")}）<br>'
                f'対象：{fmt_date(base)} 15:30以降の名証上場銘柄の適時開示<br>'
