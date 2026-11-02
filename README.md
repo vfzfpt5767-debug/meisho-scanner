@@ -92,7 +92,10 @@ code,shares,buy_price,buy_date,memo
 
 1. **ルーチンを作る**：ブラウザで https://claude.ai/code/routines を開き、新しいルーチンを作成します。
    - 名前：名証AIアナリスト
-   - 指示（プロンプト）：https://github.com/vfzfpt5767-debug/meisho-scanner/blob/main/ai/analyst_prompt.md を開き、右上のコピーボタンで全文をコピーして貼り付け
+   - 指示（プロンプト）：下の「入口（本番）」をそのまま貼り付け。中身の指示は毎回 main の `ai/analyst_prompt.md` を読むので、そのファイルを直してもルーチンの貼り直しは不要です。
+     ```
+     最初に `git fetch origin main && git show origin/main:ai/analyst_prompt.md` を実行して、リポジトリ meisho-scanner の最新の指示書 ai/analyst_prompt.md を読み、その指示に従って最後まで実行してください。モード：本番。
+     ```
    - リポジトリ：`vfzfpt5767-debug/meisho-scanner`
    - モデル：Sonnet
    - 環境：full-net（ネットにつながる環境。Web検索に必要）
@@ -102,7 +105,12 @@ code,shares,buy_price,buy_date,memo
 4. **GitHub Secretsに入れる**：https://github.com/vfzfpt5767-debug/meisho-scanner/settings/secrets/actions で「New repository secret」を2回。
    - Name: `ANALYST_FIRE_URL` ／ Secret: 3.のURL（`https://api.anthropic.com/v1/claude_code/routines/trig_…/fire`）
    - Name: `ANALYST_FIRE_TOKEN` ／ Secret: 3.のトークン
-5. **テスト**：ルーチンの画面で「今すぐ実行（Run now）」を押します。数分で `claude/ai-decisions` に判断が push され、LINEに「【AIの結論】…」が届き、ページ最上部に「AIの結論」が出れば完了です。
+5. **テスト用のルーチン**：1.と同じ設定で、名前「名証AIアナリスト（テスト）」、トリガーなし（スケジュールもAPIも付けない）のルーチンをもう1つ作り、指示に「入口（テスト）」を貼ります。
+     ```
+     最初に `git fetch origin main && git show origin/main:ai/analyst_prompt.md` を実行して、リポジトリ meisho-scanner の最新の指示書 ai/analyst_prompt.md を読み、その指示に従って最後まで実行してください。モード：テストモード。
+     ```
+   このルーチンで「今すぐ実行（Run now）」を押すと、休業日や締切後でも、直近の営業日のデータで最後まで判断します。結果は `decisions/test/` に書かれ、LINEに「【テスト】AIの結論：…」が届きます。holdings.csv・cash.csv・ページの「AIの結論」は変わりません（LINEは1通使います）。
+6. **本番の動作確認**：本番のルーチンで「今すぐ実行」を押すと、営業日なら判断が push され、LINEに「【AIの結論】…」が届き、ページ最上部に「AIの結論」が出ます（保有も自動記録されるので、試すだけならテスト用を使ってください）。休業日は「休業日なので何もしない」と答えて終わるのが正しい動きです。
 
 注意：
 - ルーチンの実行は Claude の利用枠（サブスクリプションの使用量）を使います。調査は1回あたり最大8銘柄・1銘柄2〜3回の検索に抑えています。

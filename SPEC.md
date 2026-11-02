@@ -215,6 +215,8 @@ M. 検証モード：取得できる範囲の過去データ（できれば全�
 
 ## Phase 4 実施メモ（2026-11-03）
 - A：ai/analyst_prompt.md（ルーチン用プロンプト）。入力 data/analyst_input.json（スキャンごとに作成）。起動は scan.yml の「AIアナリストを起動」ステップ（scanner.ai_fire、Secrets：ANALYST_FIRE_URL・ANALYST_FIRE_TOKEN、1晩3回まで）。判断は `claude/ai-decisions` ブランチ（ルーチンの初期設定で push できるのが `claude/` で始まるブランチのため）→ ai-decision.yml が main に取り込み、LINE送信、scan を起動してページ更新。1時間たっても判断が来なければLINEで1回知らせる。
+  - ルーチンには短い「入口」だけを登録し、毎回 `git show origin/main:ai/analyst_prompt.md` で最新の指示書を読む（README）。最初に `python -m scanner.ai_decision preflight` で休業日・締切・入力の古さを判定する。AIが使うコマンドは標準ライブラリだけで動く（jpholiday がなければ calendar_jp の予備の祝日判定を使う）。
+  - テストモード：入口に「テストモード」と書いたテスト用ルーチンを「今すぐ実行」。休業日でも直近の営業日のデータで判断し、`decisions/test/`（`"test": true`）に書く。取り込みは LINE に「【テスト】AIの結論」を送るだけで、holdings.csv・cash.csv・data/ai/latest.json・ページは変えない。
 - B：ロジスティック回帰（scanner/backtest/model.py）。学習2025年・採点2026年。AUCはモデル0.643＞ルール0.601だが、毎晩の1位候補の平均はルールが上（+5.31%＞+3.84%）→ 不採用。reports/model.md。
 - C：scanner/simulator.py。reports/sim_nights.json（名証上場銘柄の夜ごとの候補と翌日騰落）をブートストラップ。2万回。
 - D：scanner/ai_decision.py apply が holdings.csv・cash.csv を更新（締切後の判断は記録しない）。

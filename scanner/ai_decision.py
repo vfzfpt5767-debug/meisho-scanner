@@ -1,7 +1,12 @@
 """AIアナリストの判断（decisions/*.json）の確認・取り込み。
 
+  python -m scanner.ai_decision preflight /tmp/input.json --trigger schedule [--test]  # AIが最初に使う（続けるか・出力先）
   python -m scanner.ai_decision validate decisions/2026-11-04-1712.json   # 形式チェック（AIが push 前に使う）
   python -m scanner.ai_decision apply                                      # Actions：未取り込みの判断を取り込む
+
+テストモード（decisions/test/*.json または "test": true）：
+- 形式チェックをして、LINEに「【テスト】AIの結論」を送るだけ
+- holdings.csv・cash.csv・ページの「AIの結論」（data/ai/latest.json）は変えない
 
 取り込み（apply）でやること：
 - 形式チェック → data/ai/latest.json に保存（ページ最上部の「AIの結論」に表示）
@@ -13,6 +18,7 @@ from __future__ import annotations
 import csv
 import io
 import json
+import os
 import sys
 from datetime import date, datetime
 from pathlib import Path
@@ -20,6 +26,7 @@ from pathlib import Path
 from .config import BUDGET_PER_TERM, DATA_DIR, ROOT
 
 DECISIONS = ROOT / "decisions"
+TEST_DIR = DECISIONS / "test"
 LATEST = DATA_DIR / "ai" / "latest.json"
 APPLIED = DATA_DIR / "ai" / "applied.json"
 HISTORY = DATA_DIR / "ai" / "history.jsonl"
@@ -131,10 +138,10 @@ def apply_to_portfolio(d: dict, now: datetime) -> list[str]:
     return notes
 
 
-def line_text(d: dict) -> str:
+def line_text(d: dict, test: bool = False) -> str:
     from .notify import page_url
 
-    out = [f"【AIの結論】{d.get('summary', '')}"]
+    out = [f"{'【テスト】AIの結論：' if test else '【AIの結論】'}{d.get('summary', '')}"]
     dl = d.get("deadline")
     if dl:
         try:
@@ -151,9 +158,19 @@ def line_text(d: dict) -> str:
         out.append("今夜は注文なし（見送り）")
     for s in d.get("skipped", [])[:3]:
         out.append(f"見送り：{s.get('code', '')} {s.get('name', '')} {str(s.get('reason', ''))[:40]}")
-    out.append("注文したら完了。違う注文をしたときはページの案内で holdings.csv / cash.csv を直してください")
+    if test:
+        out.append(f"※テストです（基準日 {d.get('base_day', '')} のデータ）。注文はしないでください。保有・現金の記録は変えていません")
+    else:
+        out.append("注文したら完了。違う注文をしたときはページの案内で holdings.csv / cash.csv を直してください")
     out.append(page_url())
     return "\n".join(out)
+
+
+def _pending(applied: list[str]) -> list[tuple[str, Path]]:
+    """（取り込み済みリストでの名前, パス）。テストは "test/ファイル名"。"""
+    out = [(p.name, p) for p in sorted(DECISIONS.glob("*.json"))]
+    out += [(f"test/{p.name}", p) for p in sorted(TEST_DIR.glob("*.json"))]
+    return [(k, p) for k, p in out if k not in applied]
 
 
 def apply_all(now: datetime | None = None, send_line: bool = True) -> list[str]:
@@ -162,15 +179,17 @@ def apply_all(now: datetime | None = None, send_line: bool = True) -> list[str]:
     now = now or now_jst()
     applied = json.loads(APPLIED.read_text(encoding="utf-8")) if APPLIED.exists() else []
     log = []
-    for path in sorted(DECISIONS.glob("*.json")):
-        if path.name in applied:
-            continue
+    real = 0
+    for key, path in _pending(applied):
         d = json.loads(path.read_text(encoding="utf-8"))
         d.setdefault("id", path.stem)
+        test = key.startswith("test/") or bool(d.get("test"))
         errs = validate(d)
-        rec = {"file": path.name, "applied_at": now.isoformat(), "errors": errs, "notes": []}
+        rec = {"file": key, "applied_at": now.isoformat(), "errors": errs, "notes": [], "test": test}
         if errs:
             rec["status"] = "形式エラーのため取り込みませんでした"
+        elif test:
+            rec["status"] = "テスト（保有・現金の記録とページは変えません）"
         else:
             deadline = order_deadline(date.fromisoformat(d["base_day"]))
             if now > deadline:
@@ -180,29 +199,97 @@ def apply_all(now: datetime | None = None, send_line: bool = True) -> list[str]:
                 rec["status"] = "取り込み済み"
             d["deadline"] = d.get("deadline") or deadline.isoformat()
         d["_apply"] = rec
-        LATEST.parent.mkdir(parents=True, exist_ok=True)
-        if not errs:
-            LATEST.write_text(json.dumps(d, ensure_ascii=False, indent=1), encoding="utf-8")
-        with HISTORY.open("a", encoding="utf-8") as f:
-            f.write(json.dumps(d, ensure_ascii=False) + "\n")
-        applied.append(path.name)
-        log.append(f"{path.name}: {rec['status']} {' / '.join(rec['notes'] + errs)}")
+        if not test:
+            real += 1
+            LATEST.parent.mkdir(parents=True, exist_ok=True)
+            if not errs:
+                LATEST.write_text(json.dumps(d, ensure_ascii=False, indent=1), encoding="utf-8")
+            with HISTORY.open("a", encoding="utf-8") as f:
+                f.write(json.dumps(d, ensure_ascii=False) + "\n")
+        applied.append(key)
+        log.append(f"{key}: {rec['status']} {' / '.join(rec['notes'] + errs)}")
         if send_line:
             from .notify import send
 
-            msg = line_text(d) if not errs else f"【名証スキャナー】AIの判断ファイル {path.name} に形式エラー：{errs[0]}"
-            log.append(send(msg, "ai"))
+            if errs:
+                msg = f"{'【テスト】' if test else '【名証スキャナー】'}AIの判断ファイル {key} に形式エラー：{errs[0]}"
+            else:
+                msg = line_text(d, test=test)
+            log.append(send(msg, "ai_test" if test else "ai"))
     APPLIED.parent.mkdir(parents=True, exist_ok=True)
     APPLIED.write_text(json.dumps(applied[-500:], ensure_ascii=False, indent=0), encoding="utf-8")
+    # Actions 用：本番の判断があったときだけページを作り直す
+    out = os.environ.get("GITHUB_OUTPUT")
+    if out:
+        with open(out, "a", encoding="utf-8") as f:
+            f.write(f"rebuild={'true' if real else 'false'}\n")
     return log
+
+
+def preflight(input_path: Path, trigger: str, test: bool, now: datetime | None = None) -> tuple[bool, list[str]]:
+    """AIが最初に実行する確認。（続けるか, 表示する行）。"""
+    from .calendar_jp import is_business_day, now_jst
+
+    now = now or now_jst()
+    lines = [f"now={now:%Y-%m-%dT%H:%M%z}", f"mode={'test' if test else 'normal'}", f"trigger={trigger}"]
+    biz = is_business_day(now.date())
+    lines.append(f"business_day={'true' if biz else 'false'}")
+    try:
+        d = json.loads(input_path.read_text(encoding="utf-8"))
+    except Exception as e:  # noqa: BLE001
+        lines.append(f"input_error={type(e).__name__}: {e}")
+        lines.append("result=STOP 入力（analyst_input.json）が読めません")
+        return False, lines
+    lines.append(f"base_day={d.get('base_day', '')}")
+    lines.append(f"deadline={d.get('deadline', '')}")
+    passed = False
+    try:
+        passed = now > datetime.fromisoformat(d["deadline"])
+    except (KeyError, TypeError, ValueError):
+        lines.append("deadline_error=入力に deadline がありません")
+    lines.append(f"deadline_passed={'true' if passed else 'false'}")
+    try:
+        age = (now - datetime.fromisoformat(d["generated_at"])).total_seconds() / 3600
+        lines.append(f"input_age_hours={age:.1f}")
+        if age >= 18:
+            lines.append("stale=true（data_gaps に「入力が18時間以上前」と書く）")
+    except (KeyError, TypeError, ValueError):
+        lines.append("input_age_hours=不明")
+    sub = "decisions/test/" if test else "decisions/"
+    lines.append(f"output={sub}{now:%Y-%m-%d-%H%M}")
+    if test:
+        lines.append("result=GO テストモード（休業日・締切に関係なく最後まで判断する）")
+        return True, lines
+    if passed:
+        lines.append("result=STOP 締切を過ぎています")
+        return False, lines
+    if trigger == "schedule" and not biz:
+        lines.append("result=STOP 今日は取引所の休業日（定時起動なので何もしない）")
+        return False, lines
+    lines.append("result=GO")
+    return True, lines
 
 
 def main() -> int:
     if len(sys.argv) >= 3 and sys.argv[1] == "validate":
-        d = json.loads(Path(sys.argv[2]).read_text(encoding="utf-8"))
+        path = Path(sys.argv[2])
+        d = json.loads(path.read_text(encoding="utf-8"))
         errs = validate(d)
+        if path.resolve().parent == TEST_DIR.resolve() and d.get("test") is not True:
+            errs.append('テストモードのファイルには "test": true を入れてください')
         print("OK" if not errs else "\n".join(errs))
         return 1 if errs else 0
+    if len(sys.argv) >= 2 and sys.argv[1] == "preflight":
+        import argparse
+
+        ap = argparse.ArgumentParser(prog="python -m scanner.ai_decision preflight")
+        ap.add_argument("input")
+        ap.add_argument("--trigger", choices=("fire", "schedule"), default="schedule")
+        ap.add_argument("--test", action="store_true")
+        a = ap.parse_args(sys.argv[2:])
+        ok, lines = preflight(Path(a.input), a.trigger, a.test)
+        print("\n".join(lines))
+        return 0 if ok else 3
     if len(sys.argv) >= 2 and sys.argv[1] == "apply":
         for line in apply_all():
             print(line)

@@ -305,3 +305,77 @@ def test_track(tmp_path, monkeypatch):
     T.evaluate(ctx)
     st = T.stats()
     assert st["rule_top"]["n"] == 1 and abs(st["rule_top"]["mean"] - 10.0) < 1e-6
+
+
+def test_builtin_holidays_match_jpholiday():
+    import pytest
+
+    jpholiday = pytest.importorskip("jpholiday")
+    from datetime import timedelta
+
+    from scanner.calendar_jp import _fallback_holiday
+
+    d = date(2020, 1, 1)
+    while d < date(2036, 1, 1):
+        assert bool(jpholiday.is_holiday(d)) == _fallback_holiday(d), d
+        d += timedelta(days=1)
+
+
+def test_builtin_holidays_known_days():
+    from scanner.calendar_jp import _fallback_holiday
+
+    assert _fallback_holiday(date(2026, 11, 3))  # 文化の日
+    assert _fallback_holiday(date(2026, 5, 6))  # 振替休日
+    assert _fallback_holiday(date(2026, 9, 22))  # 国民の休日
+    assert not _fallback_holiday(date(2026, 11, 2))
+
+
+def test_preflight(tmp_path):
+    import json
+
+    from scanner.ai_decision import preflight
+
+    p = tmp_path / "in.json"
+    p.write_text(json.dumps({"generated_at": "2026-11-03T03:29:00+09:00", "base_day": "2026-11-02",
+                             "deadline": "2026-11-04T07:59:00+09:00"}), encoding="utf-8")
+    hol = datetime(2026, 11, 3, 6, 45, tzinfo=JST)
+    ok, lines = preflight(p, "schedule", False, now=hol)
+    assert not ok and "休業日" in lines[-1]
+    ok, lines = preflight(p, "fire", False, now=hol)
+    assert ok
+    ok, lines = preflight(p, "schedule", True, now=hol)
+    assert ok and "output=decisions/test/2026-11-03-0645" in lines
+    ok, lines = preflight(p, "schedule", False, now=datetime(2026, 11, 4, 8, 0, tzinfo=JST))
+    assert not ok and "締切" in lines[-1]
+
+
+def test_apply_test_mode_keeps_portfolio(tmp_path, monkeypatch):
+    import json
+
+    from scanner import ai_decision as AD
+    from scanner import portfolio as P
+
+    dec = tmp_path / "decisions"
+    (dec / "test").mkdir(parents=True)
+    monkeypatch.setattr(AD, "DECISIONS", dec)
+    monkeypatch.setattr(AD, "TEST_DIR", dec / "test")
+    for k in ("LATEST", "APPLIED", "HISTORY"):
+        monkeypatch.setattr(AD, k, tmp_path / "ai" / getattr(AD, k).name)
+    h, c = tmp_path / "holdings.csv", tmp_path / "cash.csv"
+    h.write_text("code,shares,buy_price,buy_date,memo\n", encoding="utf-8")
+    c.write_text("key,value\ncash,3000000\n", encoding="utf-8")
+    monkeypatch.setattr(P, "HOLDINGS_CSV", h)
+    monkeypatch.setattr(P, "CASH_CSV", c)
+    sent = []
+    monkeypatch.setattr("scanner.notify.send", lambda text, kind: sent.append(text) or "LINEに送信しました")
+    d = {"version": 1, "created_at": "2026-11-03T04:00:00+09:00", "base_day": "2026-11-02", "test": True,
+         "summary": "テスト", "orders": [{"side": "buy", "code": "4445", "name": "X", "shares": 100, "unit": 100,
+                                          "price": 1665, "confidence": "高", "reason": "r"}]}
+    (dec / "test" / "2026-11-03-0400.json").write_text(json.dumps(d), encoding="utf-8")
+    before = (h.read_text(), c.read_text())
+    log = AD.apply_all(now=datetime(2026, 11, 3, 4, 5, tzinfo=JST))
+    assert (h.read_text(), c.read_text()) == before
+    assert not AD.LATEST.exists()
+    assert sent and sent[0].startswith("【テスト】AIの結論")
+    assert "テスト" in log[0]
+    assert AD.apply_all(now=datetime(2026, 11, 3, 4, 6, tzinfo=JST)) == []  # 2回目は取り込まない
