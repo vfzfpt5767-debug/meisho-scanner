@@ -49,7 +49,7 @@ h2{font-size:1.1rem;margin:28px 0 4px;padding-bottom:4px;border-bottom:2px solid
 .name{font-weight:700;font-size:1.08rem}
 .code{color:var(--muted);font-variant-numeric:tabular-nums}
 .badge{display:inline-block;border-radius:999px;padding:1px 9px;font-size:.78rem;font-weight:700;background:var(--chip)}
-.badge.single{background:#1b8a3a;color:#fff}.badge.dual{background:var(--chip);color:var(--muted)}
+.badge.single{background:#1b8a3a;color:#fff}.badge.qo{background:#8d6e00;color:#fff}.badge.dual{background:var(--chip);color:var(--muted)}
 .badge.cat-S{background:var(--s);color:#fff}.badge.cat-A{background:var(--a);color:#fff}
 .badge.cat-CHECK{background:var(--check);color:#fff}.badge.cat-BAD{background:var(--bad);color:var(--card)}
 .price{margin:6px 0;font-variant-numeric:tabular-nums}
@@ -109,7 +109,8 @@ def _price_block(c: Card) -> str:
     shares = (f"300万円で <b>{c.shares:,}株</b>（{_yen(c.cost)}）" if c.shares
               else "300万円では1単元も買えません")
     unit = f"・売買単位{c.unit:,}株" if c.unit != 100 else ""
-    return (f'<div class="price">本日終値（今夜の約定見込み）：<b>{_yen(c.price)}</b> '
+    qo = ' <span class="badge qo">気配のみ</span>' if c.quote_only else ""
+    return (f'<div class="price">本日終値（今夜の約定見込み）：<b>{_yen(c.price)}</b>{qo} '
             f'<span class="sub">（{escape(c.price_note)}{unit}）</span><br>{shares}</div>')
 
 
@@ -230,6 +231,7 @@ def render(res: ScanResult, portfolio=None, extra_top: str = "", extra_sections:
             out.append(f'<details><summary>その他の開示（{len(other)}社）</summary>' +
                        "".join(_card(c) for c in other) + "</details>")
 
+    out.append(extra_sections)
     out.append(f'<h2>15:30より前の開示（{len(res.before_close)}社）</h2>'
                '<p class="sub">場中の開示は、すでに終値に反映されている可能性が高い（参考）</p>')
     if res.before_close:
@@ -241,7 +243,6 @@ def render(res: ScanResult, portfolio=None, extra_top: str = "", extra_sections:
                f'<p class="sub">期間中にTOBが発表された名証上場銘柄。差が{TOB_SELL_GAP_PCT:g}%以下なら「売り時」</p>')
     out += [_tob_row(r) for r in res.tob_rows] or ['<p class="empty">なし</p>']
 
-    out.append(extra_sections)
     out.append('<footer>' + "".join(f"<p>{escape(n)}</p>" for n in res.notes) +
                '<p>データ：適時開示＝やのしんWEB-API（TDnetの一覧）、銘柄一覧・値段＝名古屋証券取引所の公開情報。'
                '売買の判断はご自身で行ってください。</p></footer>')

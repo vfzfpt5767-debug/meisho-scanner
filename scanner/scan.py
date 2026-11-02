@@ -43,6 +43,7 @@ class Card:
     cost: float | None = None
     tob_price: float | None = None
     tob_gap_pct: float | None = None
+    quote_only: bool = False  # その日に名証で約定がなく、気配だけの値段
 
 
 @dataclass
@@ -171,9 +172,9 @@ def run(now: datetime | None = None) -> ScanResult:
         if q and q.contest_price:
             c.price = q.contest_price
             c.nse_close, c.nse_quote = q.close, q.quote
+            c.quote_only = q.quote_only
             if q.quote is not None and q.close is not None and q.quote != q.close:
-                c.price_note = (f"最終気配 {q.quote:,.0f}円／名証での約定 {q.close:,.0f}円。"
-                                f"採用：{'最終気配' if c.price == q.quote else '約定終値'}")
+                c.price_note = f"名証の最終気配（名証での約定は{q.close:,.0f}円）"
             elif q.quote is not None:
                 c.price_note = "名証の最終気配"
             else:
@@ -243,7 +244,18 @@ def run(now: datetime | None = None) -> ScanResult:
             res.stale_from = prev.get("generated_at", "")
     else:
         LAST_SCAN.write_text(json.dumps(asdict(res), ensure_ascii=False, indent=0, default=str), encoding="utf-8")
+    # 保有管理などで使う作業データ（JSONには保存しない）
+    res.ctx = Context(now=now, base=base, quotes=quotes, universe=universe, disclosures=disclosures)  # type: ignore[attr-defined]
     return res
+
+
+@dataclass
+class Context:
+    now: datetime
+    base: date
+    quotes: dict
+    universe: dict
+    disclosures: list
 
 
 def _card_from(d: dict) -> Card:

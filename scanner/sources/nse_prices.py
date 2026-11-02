@@ -41,12 +41,16 @@ class Quote:
 
     @property
     def contest_price(self) -> float | None:
-        """コンテストの約定見込み価格（config.PRICE_MODE で決め方を切り替え）。"""
-        from ..config import PRICE_MODE
+        """コンテストの約定見込み価格。最終気配があればそれ、なければ名証の終値。
 
-        if PRICE_MODE == "close":
-            return self.close if self.close is not None else self.quote
+        コンテストは最終気配を使う（2026-11-02 KOA(6999)：約定1,978円・最終気配2,002円 → コンテスト画面2,002円で確認済み）。
+        """
         return self.quote if self.quote is not None else self.close
+
+    @property
+    def quote_only(self) -> bool:
+        """その日に名証で約定がなく、気配だけで値段がついている。"""
+        return self.close is None and self.quote is not None
 
     @property
     def is_quote(self) -> bool:

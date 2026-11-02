@@ -10,7 +10,17 @@ from .scan import run
 
 def main() -> int:
     res = run()
-    html = render(res)
+    pf = None
+    top, sections = "", ""
+    try:
+        from . import portfolio, render_portfolio
+
+        pf = portfolio.build(res)
+        top = render_portfolio.alert(pf)
+        sections = render_portfolio.section(pf)
+    except Exception as e:  # noqa: BLE001
+        res.errors.append(f"保有管理の計算に失敗: {type(e).__name__}: {e}")
+    html = render(res, pf, extra_top=top, extra_sections=sections)
     DOCS_DIR.mkdir(parents=True, exist_ok=True)
     (DOCS_DIR / "index.html").write_text(html, encoding="utf-8")
     counts: dict[str, int] = {}

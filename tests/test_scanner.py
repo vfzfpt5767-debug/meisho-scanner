@@ -95,3 +95,40 @@ def test_conclusion_buy_line():
     assert "安江工務店" in t and "+41.9%" in t and "1,900株" in t and "名証単独" in t
     res.cards = [a]
     assert "トヨタ" in buy_line(res).text
+
+
+def test_portfolio_swap(tmp_path, monkeypatch):
+    from types import SimpleNamespace
+
+    from scanner import portfolio as P
+    from scanner.sources.nse_list import Listing
+    from scanner.sources.nse_prices import Quote
+
+    h = tmp_path / "holdings.csv"
+    h.write_text("code,shares,buy_price,buy_date\n1111,1000,1000,2026-10-30\n2222,500,2000,2026-11-02\n", encoding="utf-8")
+    c = tmp_path / "cash.csv"
+    c.write_text("key,value\ncash,100000\n", encoding="utf-8")
+    monkeypatch.setattr(P, "HOLDINGS_CSV", h)
+    monkeypatch.setattr(P, "CASH_CSV", c)
+    monkeypatch.setattr(P, "STATE", tmp_path / "state.json")
+    bad = vars(C.Tag(C.BAD, "下方修正", -60, ""))
+    good = vars(C.Tag(C.A, "上方修正", 60, ""))
+    cards = [Card(code="1111", name="悪い", single=False, division="", unit=100, category=C.BAD, score=-60,
+                  items=[Item("16:00", "11/02", "t", "", [bad])]),
+             Card(code="3333", name="良い", single=True, division="", unit=100, category=C.A, score=60,
+                  items=[Item("16:00", "11/02", "t", "", [good])], price=1200)]
+    res = ScanResult(generated_at="", base_day="2026-11-02", deadline="", price_source="", cards=cards,
+                     before_close=[], tob_rows=[])
+    uni = {k: Listing(k, k, s, "", 100, "") for k, s in (("1111", False), ("2222", True), ("3333", True))}
+    quotes = {"1111": Quote("1111", "a", quote=900), "2222": Quote("2222", "b", close=2100), "3333": Quote("3333", "c", quote=1200)}
+    res.ctx = SimpleNamespace(now=datetime(2026, 11, 2, 22, 0, tzinfo=JST), quotes=quotes, universe=uni)
+    pf = P.build(res)
+    assert pf.holdings[0].warnings  # 悪材料の保有に警告
+    assert pf.single_bought  # 2222 は単独
+    assert pf.term_bought == 1_000_000  # 11/2 夜の買いは今ターム
+    sells = [t for t in pf.swap if t.side == "sell"]
+    buy = [t for t in pf.swap if t.side == "buy"][0]
+    assert sells[0].code == "1111" and sells[0].shares == 1000
+    # 残り枠200万、現金10万+90万+2222の一部売却 → 200万以内で100株単位
+    assert buy.shares % 100 == 0 and buy.shares * 1200 <= 2_000_000
+    assert buy.shares == 1600
