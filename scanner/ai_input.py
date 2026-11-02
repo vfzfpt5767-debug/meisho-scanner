@@ -122,3 +122,28 @@ def plan_fire(res, pf, data: dict) -> dict:
     FIRE_REQ.parent.mkdir(parents=True, exist_ok=True)
     FIRE_REQ.write_text(json.dumps(req, ensure_ascii=False, indent=1), encoding="utf-8")
     return req
+
+
+def check_stuck(res) -> str:
+    """AIを起動したのに1時間以上たっても判断が届かないとき、LINEで1回だけ知らせる。"""
+    from datetime import timedelta
+
+    from .ai_decision import LATEST
+    from .notify import notify_once
+
+    st = json.loads(FIRE_STATE.read_text(encoding="utf-8")) if FIRE_STATE.exists() else {}
+    night = st.get(res.base_day, {})
+    if not night.get("last_fire_at"):
+        return ""
+    try:
+        latest = json.loads(LATEST.read_text(encoding="utf-8"))
+        if latest.get("base_day") == res.base_day and latest.get("created_at", "") >= night["last_fire_at"][:16]:
+            return ""
+    except Exception:  # noqa: BLE001
+        pass
+    now = datetime.fromisoformat(res.generated_at)
+    if now - datetime.fromisoformat(night["last_fire_at"]) < timedelta(hours=1):
+        return ""
+    return notify_once(f"ai_stuck:{res.base_day}:{night['last_fire_at']}",
+                       "【名証スキャナー】AIアナリストを起動しましたが、1時間たっても判断が届いていません。"
+                       "claude.ai/code の実行履歴を確認してください。ページのスキャン結果は通常どおり見られます。", "failure")

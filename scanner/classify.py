@@ -61,9 +61,18 @@ def _load_weights() -> dict[str, int]:
 
     p = Path(__file__).with_name("weights.json")
     try:
-        return {k: int(v) for k, v in json.loads(p.read_text(encoding="utf-8")).items()}
+        w = {k: int(v) for k, v in json.loads(p.read_text(encoding="utf-8")).items()}
     except Exception:  # noqa: BLE001
         return {}
+    # 自己採点による週ごとの見直し（data/live_adjust.json）
+    try:
+        adj = json.loads((Path(__file__).parent.parent / "data" / "live_adjust.json").read_text(encoding="utf-8"))
+        for k, v in adj.get("adjust", {}).items():
+            if k in w:
+                w[k] = int(max(5, min(90, round(w[k] + float(v)))))
+    except Exception:  # noqa: BLE001
+        pass
+    return w
 
 
 WEIGHTS = _load_weights()

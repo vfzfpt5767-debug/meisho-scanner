@@ -47,6 +47,9 @@ def main() -> int:
         st = json.loads(FIRE_STATE.read_text(encoding="utf-8")) if FIRE_STATE.exists() else {}
         night = st.setdefault(req["base_day"], {"fires": 0, "keys": []})
         night["fires"] += 1
+        from datetime import datetime, timedelta, timezone
+
+        night["last_fire_at"] = datetime.now(timezone(timedelta(hours=9))).isoformat()
         night["keys"] = sorted(set(night["keys"]) | set(req.get("new_keys", [])))
         st = dict(sorted(st.items())[-14:])
         FIRE_STATE.write_text(json.dumps(st, ensure_ascii=False, indent=1), encoding="utf-8")

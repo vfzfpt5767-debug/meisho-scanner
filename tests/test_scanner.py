@@ -284,3 +284,24 @@ def test_ai_decision_apply(tmp_path, monkeypatch):
     # 2回目は取り込まない
     assert AD.apply_all(now=datetime(2026, 11, 4, 17, 30, tzinfo=JST), send_line=False) == []
     assert "買い：4445 リビンT 600株" in AD.line_text(d)
+
+
+def test_track(tmp_path, monkeypatch):
+    from types import SimpleNamespace
+
+    from scanner import track as T
+    from scanner.sources.nse_prices import Quote
+
+    monkeypatch.setattr(T, "RECS", tmp_path / "recs.json")
+    a_tag = vars(C.Tag(C.A, "上方修正", 60, ""))
+    card = Card(code="1111", name="テスト", single=False, division="", unit=100, category=C.A, score=60,
+                items=[Item("16:00", "11/02", "t", "", [a_tag])], price=1000, shares=3000)
+    res = ScanResult(generated_at="", base_day="2026-11-02", deadline="", price_source="", cards=[card],
+                     before_close=[], tob_rows=[])
+    T.record(res)
+    T.record(res)  # 2回目は増えない
+    assert len(T._load()) == 2  # rule_top と rule_sa
+    ctx = SimpleNamespace(base=date(2026, 11, 4), quotes={"1111": Quote("1111", "t", quote=1100)})
+    T.evaluate(ctx)
+    st = T.stats()
+    assert st["rule_top"]["n"] == 1 and abs(st["rule_top"]["mean"] - 10.0) < 1e-6

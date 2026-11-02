@@ -74,6 +74,17 @@ def main() -> int:
     except Exception as e:  # noqa: BLE001
         res.errors.append(f"決算カレンダーの表示に失敗: {type(e).__name__}: {e}")
     try:
+        from . import track
+
+        track.evaluate(res.ctx)
+        track.record(res)
+        msg = track.weekly_adjust(res.ctx.now)
+        if msg:
+            print(msg)
+        sections += track.section()
+    except Exception as e:  # noqa: BLE001
+        res.errors.append(f"自己採点でエラー: {type(e).__name__}: {e}")
+    try:
         from . import render_backtest
 
         sections += render_backtest.section()
@@ -91,6 +102,9 @@ def main() -> int:
         data = ai_input.build(res, pf, morning_rep, nl_rows, earnings_today, getattr(res, "simulator", None))
         req = ai_input.plan_fire(res, pf, data)
         print("AI:", "起動する" if req["fire"] else "起動しない", req["reason"])
+        stuck = ai_input.check_stuck(res)
+        if stuck:
+            print("AI:", stuck)
     except Exception as e:  # noqa: BLE001
         print("AI入力の作成でエラー:", type(e).__name__, e)
 
