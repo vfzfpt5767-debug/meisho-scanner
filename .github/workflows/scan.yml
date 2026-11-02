@@ -48,6 +48,9 @@ jobs:
 
       - name: スキャン実行
         if: steps.cal.outputs.run == 'true'
+        env:
+          LINE_CHANNEL_ACCESS_TOKEN: ${{ secrets.LINE_CHANNEL_ACCESS_TOKEN }}
+          LINE_USER_ID: ${{ secrets.LINE_USER_ID }}
         run: python -m scanner
 
       - name: 結果をリポジトリに保存
@@ -80,3 +83,10 @@ jobs:
         id: deploy
         if: steps.cal.outputs.run == 'true'
         uses: actions/deploy-pages@v4
+
+      - name: 失敗をLINEで通知
+        if: failure()
+        env:
+          LINE_CHANNEL_ACCESS_TOKEN: ${{ secrets.LINE_CHANNEL_ACCESS_TOKEN }}
+          LINE_USER_ID: ${{ secrets.LINE_USER_ID }}
+        run: python -m scanner.notify --failure "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"

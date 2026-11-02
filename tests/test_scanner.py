@@ -164,3 +164,36 @@ def test_newlistings_parse():
     it = items[0]
     assert it.date == "2026-11-05" and it.code == "655A" and it.ipo and it.market == "ネクスト"
     assert it.kettei_url.endswith("press_kettei655A.pdf")
+
+
+def test_notify_limits(tmp_path, monkeypatch):
+    import io
+    import json as _json
+
+    from scanner import notify
+
+    monkeypatch.setattr(notify, "STATE", tmp_path / "n.json")
+    monkeypatch.setenv("LINE_CHANNEL_ACCESS_TOKEN", "x")
+    monkeypatch.setenv("LINE_USER_ID", "U1")
+    sent = []
+
+    class R(io.BytesIO):
+        def __enter__(self):
+            return self
+
+        def __exit__(self, *a):
+            return False
+
+    def fake_urlopen(req, timeout=0):
+        if req.full_url == notify.QUOTA_URL:
+            return R(_json.dumps({"totalUsage": usage[0]}).encode())
+        sent.append(req.data)
+        return R(b"{}")
+
+    usage = [5]
+    monkeypatch.setattr(notify.urllib.request, "urlopen", fake_urlopen)
+    assert notify.notify_once("evening:2026-11-02", "hi", "evening").startswith("LINEに送信しました（今月6通目")
+    assert "送信済み" in notify.notify_once("evening:2026-11-02", "hi", "evening")
+    usage[0] = 180
+    assert "上限" in notify.send("hi", "test")
+    assert len(sent) == 1

@@ -38,6 +38,16 @@ def main() -> int:
     html = render(res, pf, extra_top=top, extra_sections=sections, extra_mid=mid)
     DOCS_DIR.mkdir(parents=True, exist_ok=True)
     (DOCS_DIR / "index.html").write_text(html, encoding="utf-8")
+
+    # LINE通知（夜：S・A・要確認・保有警告があるときだけ、1タームに1回）
+    if not getattr(res, "ctx", None) or res.ctx.now.hour >= 8:
+        try:
+            from . import notify
+
+            text = notify.evening_text(res, pf)
+            print("LINE:", notify.notify_once(f"evening:{res.base_day}", text, "evening") if text else "通知する候補なし")
+        except Exception as e:  # noqa: BLE001
+            print("LINE通知でエラー:", type(e).__name__, e)
     counts: dict[str, int] = {}
     for c in res.cards:
         counts[c.category] = counts.get(c.category, 0) + 1
