@@ -20,7 +20,14 @@ def main() -> int:
         sections = render_portfolio.section(pf)
     except Exception as e:  # noqa: BLE001
         res.errors.append(f"保有管理の計算に失敗: {type(e).__name__}: {e}")
-    html = render(res, pf, extra_top=top, extra_sections=sections)
+    mid = ""
+    try:
+        from . import render_limits
+
+        mid = render_limits.section(res)
+    except Exception as e:  # noqa: BLE001
+        res.errors.append(f"ストップ高・安の表示に失敗: {type(e).__name__}: {e}")
+    html = render(res, pf, extra_top=top, extra_sections=sections, extra_mid=mid)
     DOCS_DIR.mkdir(parents=True, exist_ok=True)
     (DOCS_DIR / "index.html").write_text(html, encoding="utf-8")
     counts: dict[str, int] = {}

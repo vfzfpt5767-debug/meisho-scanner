@@ -90,7 +90,7 @@ def parse_pdf(data: bytes) -> tuple[date | None, dict[str, Quote]]:
             unit_top = min(w["top"] for w in unit_words)
             unit_words = sorted([w for w in unit_words if abs(w["top"] - unit_top) < 2], key=lambda w: w["x0"])
             halves = [unit_words[:7], unit_words[7:14]]
-            code_heads = sorted([w for w in words if w["text"] == "ｺ" and w["top"] < unit_top], key=lambda w: w["x0"])
+            code_heads = sorted([w for w in words if w["text"] in ("ｺ", "コード") and w["top"] < unit_top], key=lambda w: w["x0"])
             if len(code_heads) < 2:
                 continue
             mid = code_heads[1]["x0"] - 4

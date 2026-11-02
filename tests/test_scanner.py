@@ -132,3 +132,21 @@ def test_portfolio_swap(tmp_path, monkeypatch):
     # 残り枠200万、現金10万+90万+2222の一部売却 → 200万以内で100株単位
     assert buy.shares % 100 == 0 and buy.shares * 1200 <= 2_000_000
     assert buy.shares == 1600
+
+
+def test_limits():
+    from scanner.limits import detect, limit_width
+    from scanner.sources.nse_prices import Quote
+
+    assert limit_width(99) == 30 and limit_width(100) == 50 and limit_width(1879) == 400 and limit_width(47000) == 7000
+    prev = {"1": Quote("1", "a", quote=1879), "2": Quote("2", "b", quote=47000), "3": Quote("3", "c", quote=3830),
+            "4": Quote("4", "d", quote=343)}
+    today = {"1": Quote("1", "a", open=2279, high=2279, low=2279, close=2279, change=400),
+             "2": Quote("2", "b", quote=54000),
+             "3": Quote("3", "c", quote=1855),  # 株式分割など（値幅の外）→ 対象外
+             "4": Quote("4", "d", open=367, high=423, low=352, close=423, change=80)}
+    h = detect(today, prev)
+    assert h["1"].stuck and h["1"].kind == "stop_high"
+    assert h["2"].stuck and "特別買い気配" in h["2"].label
+    assert "3" not in h
+    assert not h["4"].stuck and h["4"].label == "ストップ高で引け"

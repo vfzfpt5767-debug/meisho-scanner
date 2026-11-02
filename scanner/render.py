@@ -162,7 +162,7 @@ def _tob_row(r: TobRow) -> str:
             f'<a class="btn sub" href="{_kabutan(r.code)}" target="_blank" rel="noopener">株探</a></div></div>')
 
 
-def render(res: ScanResult, portfolio=None, extra_top: str = "", extra_sections: str = "") -> str:
+def render(res: ScanResult, portfolio=None, extra_top: str = "", extra_sections: str = "", extra_mid: str = "") -> str:
     gen = datetime.fromisoformat(res.generated_at)
     base = date.fromisoformat(res.base_day)
     dl = datetime.fromisoformat(res.deadline)
@@ -230,6 +230,8 @@ def render(res: ScanResult, portfolio=None, extra_top: str = "", extra_sections:
         if other:
             out.append(f'<details><summary>その他の開示（{len(other)}社）</summary>' +
                        "".join(_card(c) for c in other) + "</details>")
+        if cat == C.A:
+            out.append(extra_mid)
 
     out.append(extra_sections)
     out.append(f'<h2>15:30より前の開示（{len(res.before_close)}社）</h2>'

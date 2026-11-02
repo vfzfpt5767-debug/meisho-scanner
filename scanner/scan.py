@@ -6,8 +6,9 @@ from dataclasses import asdict, dataclass, field
 from datetime import date, datetime, timedelta
 
 from . import classify as C
+from . import limits
 from . import tob as tobmod
-from .calendar_jp import JST, base_day, now_jst, order_deadline
+from .calendar_jp import JST, base_day, now_jst, order_deadline, prev_business_day
 from .config import BUDGET_PER_TERM, CONTEST_START, DATA_DIR, MARKET_CLOSE, TOB_SELL_GAP_PCT
 from .sources import nse_list, nse_prices, yahoo, yanoshin
 from .sources.nse_list import Listing
@@ -135,6 +136,14 @@ def run(now: datetime | None = None) -> ScanResult:
     quotes, price_src, err = nse_prices.get_prices(base)
     if err:
         errors.append(err)
+    # ストップ高・安の判定には前の営業日の値段（基準値段）も使う
+    limit_hits: dict = {}
+    if quotes:
+        prev_quotes, _, perr = nse_prices.get_prices(prev_business_day(base))
+        if perr:
+            errors.append("ストップ高・安の判定に使う前日の相場表: " + perr)
+        if prev_quotes:
+            limit_hits = limits.detect(quotes, prev_quotes)
 
     tob_prices, warns = tobmod.load_tob_prices()
     errors += warns
@@ -245,7 +254,8 @@ def run(now: datetime | None = None) -> ScanResult:
     else:
         LAST_SCAN.write_text(json.dumps(asdict(res), ensure_ascii=False, indent=0, default=str), encoding="utf-8")
     # 保有管理などで使う作業データ（JSONには保存しない）
-    res.ctx = Context(now=now, base=base, quotes=quotes, universe=universe, disclosures=disclosures)  # type: ignore[attr-defined]
+    res.ctx = Context(now=now, base=base, quotes=quotes, universe=universe, disclosures=disclosures,  # type: ignore[attr-defined]
+                      limits=limit_hits, tob_prices=tob_prices)
     return res
 
 
@@ -256,6 +266,8 @@ class Context:
     quotes: dict
     universe: dict
     disclosures: list
+    limits: dict = field(default_factory=dict)
+    tob_prices: dict = field(default_factory=dict)
 
 
 def _card_from(d: dict) -> Card:
