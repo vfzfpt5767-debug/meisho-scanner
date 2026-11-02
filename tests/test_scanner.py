@@ -206,3 +206,14 @@ def test_morning_window():
     assert is_morning(datetime(2026, 11, 4, 7, 5, tzinfo=JST))
     assert not is_morning(datetime(2026, 11, 3, 0, 25, tzinfo=JST))
     assert not is_morning(datetime(2026, 11, 4, 8, 0, tzinfo=JST))
+
+
+def test_consult_text():
+    from scanner.render import consult_text
+
+    tag = vars(C.Tag(C.CHECK, "業績予想の修正", 40, ""))
+    c = Card(code="2806", name="ユタカフーズ", single=False, division="", unit=100, category=C.CHECK, score=40,
+             items=[Item("15:30", "11/02", "業績予想の修正に関するお知らせ", "https://example.com/x.pdf", [tag])], price=1988)
+    t = consult_text(c)
+    for s in ("ユタカフーズ", "2806", "1,988円", "15:30", "業績予想の修正に関するお知らせ", "https://example.com/x.pdf"):
+        assert s in t

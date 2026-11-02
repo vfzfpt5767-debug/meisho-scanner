@@ -1,6 +1,7 @@
 """スキャン結果をスマホ向けのHTML1ページにする。"""
 from __future__ import annotations
 
+import itertools
 from datetime import date, datetime
 from html import escape
 
@@ -75,6 +76,8 @@ summary{cursor:pointer;font-weight:700;min-height:32px}
 .row{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap}
 .sell{color:#fff;background:var(--s);border-radius:6px;padding:0 8px;font-weight:700}
 footer{color:var(--muted);font-size:.8rem;margin-top:32px}
+.consult{margin-top:10px}.consult textarea{width:100%;font-size:.85rem;background:var(--bg);color:var(--text);border:1px solid var(--line);border-radius:8px;padding:8px}
+button.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:10px 16px;border:none;border-radius:10px;background:var(--btn);color:var(--btn-text);font-weight:700;font-size:1rem;flex:1 1 140px;cursor:pointer}
 .concl{background:var(--card);border:3px solid var(--accent);border-radius:14px;padding:12px 14px;margin:10px 0}
 .concl h2{border:none;margin:0 0 6px;font-size:1.2rem}
 .concl ol{margin:0;padding-left:1.3em}.concl li{margin:4px 0;font-weight:700}
@@ -83,6 +86,17 @@ footer{color:var(--muted);font-size:.8rem;margin-top:32px}
 .alert{background:var(--s);color:#fff;border-radius:14px;padding:12px 14px;margin:10px 0;font-weight:700}
 .alert ul{margin:4px 0 0;padding-left:1.2em}
 """
+
+
+COPY_JS = """<script>
+function cp(id, btn){
+  var t = document.getElementById(id);
+  var done = function(){ var o = btn.textContent; btn.textContent = 'コピーしました'; setTimeout(function(){ btn.textContent = o; }, 2000); };
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(t.value).then(done, function(){ t.select(); document.execCommand('copy'); done(); });
+  } else { t.select(); t.setSelectionRange(0, 99999); document.execCommand('copy'); done(); }
+}
+</script>"""
 
 
 def _yen(v: float | None) -> str:
@@ -127,6 +141,38 @@ def _tob_block(c: Card) -> str:
             f'TOB価格を書き込む（{escape(c.code)}）</a></div></div>')
 
 
+_ids = itertools.count(1)
+
+
+def consult_text(c: Card) -> str:
+    """Claudeアプリに貼る相談文。"""
+    single = "名証単独上場" if c.single else ("東証と名証の重複上場" if c.single is False else "上場区分不明")
+    lines = ["名古屋証券取引所の学生向け株式投資コンテスト（バーチャル売買）に参加しています。",
+             "今夜注文すると今日の終値（名証の最終気配）で約定します。次の適時開示のPDFを読んで、買うべきか判断を手伝ってください。",
+             "",
+             f"会社名：{c.name}（証券コード {c.code}、{single}）",
+             f"本日の終値（約定見込み）：{c.price:,.0f}円" if c.price else "本日の終値：コンテスト画面で確認"]
+    for it in c.items:
+        tags = "・".join(t["label"] for t in it.tags if t["label"] != "その他")
+        lines.append(f"開示：{it.date} {it.time}「{it.title}」" + (f"［{tags}］" if tags else ""))
+        if it.pdf:
+            lines.append(f"PDF：{it.pdf}")
+    lines += ["",
+              "知りたいこと：",
+              "1. 上方修正か下方修正か（増配か減配か）。営業利益・経常利益・純利益の修正率",
+              "2. 修正の理由が一時的なものか、続きそうなものか",
+              "3. 明日の株価は上がりそうか（理由も）。今夜この終値で買う価値はあるか"]
+    return "\n".join(lines)
+
+
+def _consult_block(c: Card) -> str:
+    i = next(_ids)
+    return (f'<details class="consult"><summary>Claudeに相談する文（コピーしてClaudeアプリに貼る）</summary>'
+            f'<textarea id="cs{i}" readonly rows="9">{escape(consult_text(c))}</textarea>'
+            f'<div class="btns"><button class="btn" type="button" onclick="cp(\'cs{i}\', this)">相談文をコピー</button></div>'
+            f'</details>')
+
+
 def _card(c: Card) -> str:
     items = []
     for it in c.items:
@@ -142,6 +188,7 @@ def _card(c: Card) -> str:
             f'<span class="name">{escape(c.name)}</span><span class="code">{escape(c.code)}</span>'
             f'{_single_badge(c.single)}</div>'
             f'{_price_block(c)}{_tob_block(c)}{"".join(items)}'
+            f'{_consult_block(c) if c.category == C.CHECK else ""}'
             f'<div class="btns"><a class="btn sub" href="{_kabutan(c.code)}" target="_blank" rel="noopener">株探で見る（PTS・チャート）</a></div>'
             f'</div>')
 
@@ -255,5 +302,6 @@ def render(res: ScanResult, portfolio=None, extra_top: str = "", extra_sections:
     out.append('<footer>' + "".join(f"<p>{escape(n)}</p>" for n in res.notes) +
                '<p>データ：適時開示＝やのしんWEB-API（TDnetの一覧）、銘柄一覧・値段＝名古屋証券取引所の公開情報。'
                '売買の判断はご自身で行ってください。</p></footer>')
+    out.append(COPY_JS)
     out.append('</main></body></html>')
     return "\n".join(out)
