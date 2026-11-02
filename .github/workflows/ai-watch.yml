@@ -1,0 +1,29 @@
+# 毎晩 22:30 JST（= 13:30 UTC）：21:15 のAIアナリストの判断が届いていなければ、LINEで1回知らせる。
+# 祝日・休日も動く（注文締切前のタームが開いていれば確認する）。
+# ※ GitHub の都合で、予定時刻から数分〜数十分遅れることがある。
+name: ai-watch
+
+on:
+  schedule:
+    - cron: "30 13 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  watch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: main
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - name: 夜の判断が届いたか確認（標準ライブラリだけで動く）
+        env:
+          LINE_CHANNEL_ACCESS_TOKEN: ${{ secrets.LINE_CHANNEL_ACCESS_TOKEN }}
+          LINE_USER_ID: ${{ secrets.LINE_USER_ID }}
+        run: python -m scanner.ai_decision watch

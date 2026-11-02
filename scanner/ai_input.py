@@ -110,7 +110,7 @@ def plan_fire(res, pf, data: dict) -> dict:
     new = {k: v for k, v in keys.items() if k not in night["keys"]}
     req = {"fire": False, "base_day": res.base_day, "new_keys": sorted(new), "reason": ""}
     if 4 <= now.hour < 8:
-        req["reason"] = "朝は定時起動（6:45）に任せる"
+        req["reason"] = "朝はAIを起動しない（夜に注文して寝る運用。夜21:15に定時起動）"
     elif not new:
         req["reason"] = "新しいS・A・要確認・保有警告なし"
     elif night["fires"] >= MAX_FIRES_PER_NIGHT:

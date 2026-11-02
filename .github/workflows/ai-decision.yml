@@ -1,5 +1,6 @@
 # AIアナリストが claude/ai-decisions ブランチに判断を push したら：
 # 判断を main に取り込み（保有の自動記録）→ LINEで注文の指示 → ページを作り直して公開（scan を起動）
+# テストモード（decisions/test/）は LINE に「【テスト】AIの結論」を送るだけ（保有・現金・ページは変えない）
 name: ai-decision
 
 on:
@@ -39,6 +40,7 @@ jobs:
           git checkout "${{ github.sha }}" -- decisions/
 
       - name: 取り込み（保有の自動記録・LINE）
+        id: apply
         env:
           LINE_CHANNEL_ACCESS_TOKEN: ${{ secrets.LINE_CHANNEL_ACCESS_TOKEN }}
           LINE_USER_ID: ${{ secrets.LINE_USER_ID }}
@@ -58,6 +60,7 @@ jobs:
           fi
 
       - name: ページを作り直す（scan を起動）
+        if: steps.apply.outputs.rebuild == 'true'
         env:
           GH_TOKEN: ${{ github.token }}
         run: gh workflow run scan.yml --ref main

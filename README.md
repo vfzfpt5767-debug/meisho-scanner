@@ -85,24 +85,38 @@ code,shares,buy_price,buy_date,memo
 ## AIアナリストの設定（スマホでできます）
 用語：**スケジュールされたタスク（ルーチン）**＝Claude Code が決まった時刻や合図で自動で動く仕組み。**APIトリガー**＝外（GitHub Actions）から「今動いて」と合図を送る入口。**トークン**＝その合図が本物だと証明する合言葉（他人に見せない）。
 
-流れ：スキャンで新しいS・A・要確認・保有警告が出る → GitHub Actions がAIアナリストを起動（1晩3回まで）→ AIが調べて `decisions/` に「今夜の注文」を書き `claude/ai-decisions` ブランチに push → GitHub Actions が保有を自動記録し、LINEで注文の指示を送り、ページ最上部の「AIの結論」を更新。朝は6:45に定時で動きます。
+流れ（**夜に注文して寝る**運用）：
+- **毎晩21:15（祝日・休日も）**：AIアナリストが定時で動き、その夜の最終的な「今夜の注文」をLINEで必ず1通送ります（買う物がなければ「今夜は見送り」）。祝日・休日でも、注文締切前のターム（例：11/2 16:30〜11/4 7:59）が開いていれば、そのタームの判断をします。
+- **臨時起動**：スキャンで新しいS・A・要確認・保有警告が出ると、GitHub Actions がAIを起動します（1晩3回まで）。
+- AIは調べて `decisions/` に「今夜の注文」を書き、`claude/ai-decisions` ブランチに push します → GitHub Actions がLINEで注文の指示を送り、ページ最上部の「AIの結論」を更新します。
+- **保有の自動記録は16:30〜23:30に届いた注文だけ**。それより後の指示は「【参考（起きていれば）】」としてLINEで送るだけで、holdings.csv と cash.csv には記録しません（GitHub Actions の待ち時間で数分遅れることがあるので、23:20以降の臨時起動は参考になることがあります）。
+- **22:30の確認**：その夜の判断が届いていなければ、LINEで「21:15のAIの判断が届いていません」と1回知らせます（ai-watch）。
+- 朝のAIの起動はしません（利用枠の節約）。ページの朝レポートは今までどおりです。
 
 ※ ブランチ名は `ai-decisions` ではなく `claude/ai-decisions` にしています。ルーチンは初期設定では `claude/` で始まるブランチにしか push できないためで、こうすると安全のための制限を外さずに済みます。
 ※ 画面の名前や位置は変わることがあります（2026年11月時点の想定）。違っていたら教えてください。
 
 1. **ルーチンを作る**：ブラウザで https://claude.ai/code/routines を開き、新しいルーチンを作成します。
    - 名前：名証AIアナリスト
-   - 指示（プロンプト）：https://github.com/vfzfpt5767-debug/meisho-scanner/blob/main/ai/analyst_prompt.md を開き、右上のコピーボタンで全文をコピーして貼り付け
+   - 指示（プロンプト）：下の「入口（本番）」をそのまま貼り付け。中身の指示は毎回 main の `ai/analyst_prompt.md` を読むので、そのファイルを直してもルーチンの貼り直しは不要です。
+     ```
+     最初に `git fetch origin main && git show origin/main:ai/analyst_prompt.md` を実行して、リポジトリ meisho-scanner の最新の指示書 ai/analyst_prompt.md を読み、その指示に従って最後まで実行してください。モード：本番。
+     ```
    - リポジトリ：`vfzfpt5767-debug/meisho-scanner`
    - モデル：Sonnet
    - 環境：full-net（ネットにつながる環境。Web検索に必要）
    - ブランチへのpushの制限（Permissions）：初期設定のまま（変えない）
-2. **朝の定時起動**：トリガーに「スケジュール」を追加し、平日の 6:45（日本時間）にします。祝日は、AIが自分で判断してすぐ終わります。
+2. **夜の定時起動**：トリガーに「スケジュール」を追加し、**毎日 21:15（日本時間）**にします（祝日・土日も動かします）。
 3. **APIトリガーを追加**：同じルーチンの編集画面で「Add another trigger」→「API」→「Generate token」。表示された **URL** と **トークン** をコピーします（トークンは一度しか表示されません。なくしたら作り直せば、前のものは無効になります）。
 4. **GitHub Secretsに入れる**：https://github.com/vfzfpt5767-debug/meisho-scanner/settings/secrets/actions で「New repository secret」を2回。
    - Name: `ANALYST_FIRE_URL` ／ Secret: 3.のURL（`https://api.anthropic.com/v1/claude_code/routines/trig_…/fire`）
    - Name: `ANALYST_FIRE_TOKEN` ／ Secret: 3.のトークン
-5. **テスト**：ルーチンの画面で「今すぐ実行（Run now）」を押します。数分で `claude/ai-decisions` に判断が push され、LINEに「【AIの結論】…」が届き、ページ最上部に「AIの結論」が出れば完了です。
+5. **テスト用のルーチン**：1.と同じ設定で、名前「名証AIアナリスト（テスト）」、トリガーなし（スケジュールもAPIも付けない）のルーチンをもう1つ作り、指示に「入口（テスト）」を貼ります。
+     ```
+     最初に `git fetch origin main && git show origin/main:ai/analyst_prompt.md` を実行して、リポジトリ meisho-scanner の最新の指示書 ai/analyst_prompt.md を読み、その指示に従って最後まで実行してください。モード：テストモード。
+     ```
+   このルーチンで「今すぐ実行（Run now）」を押すと、休業日や締切後でも、直近の営業日のデータで最後まで判断します。結果は `decisions/test/` に書かれ、LINEに「【テスト】AIの結論：…」が届きます。holdings.csv・cash.csv・ページの「AIの結論」は変わりません（LINEは1通使います）。
+6. **本番の動作確認**：本番のルーチンで「今すぐ実行」を押すと、営業日なら判断が push され、LINEに「【AIの結論】…」が届き、ページ最上部に「AIの結論」が出ます（16:30〜23:30なら保有も自動記録されるので、試すだけならテスト用を使ってください）。営業日の昼（7:59〜15:30）は注文できるタームの外なので、「タームの外」と答えて終わるのが正しい動きです。
 
 注意：
 - ルーチンの実行は Claude の利用枠（サブスクリプションの使用量）を使います。調査は1回あたり最大8銘柄・1銘柄2〜3回の検索に抑えています。
