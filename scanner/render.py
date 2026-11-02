@@ -84,7 +84,7 @@ button.btn{display:inline-flex;align-items:center;justify-content:center;min-hei
 .concl h2{border:none;margin:0 0 6px;font-size:1.2rem}
 h3{font-size:1rem;margin:16px 0 4px}.reason.bt{color:var(--accent)}
 .concl ol{margin:0;padding-left:1.3em}.concl li{margin:4px 0;font-weight:700}
-.concl li.sell{color:var(--s)}.concl li.info{font-weight:400}
+.concl li.k-sell{color:var(--s)}.concl li.k-info{font-weight:400}
 .concl .dl{font-size:1.1rem;font-weight:700;color:var(--s);margin-top:6px}
 .alert{background:var(--s);color:#fff;border-radius:14px;padding:12px 14px;margin:10px 0;font-weight:700}
 .alert ul{margin:4px 0 0;padding-left:1.2em}
@@ -255,7 +255,7 @@ def render(res: ScanResult, portfolio=None, extra_top: str = "", extra_sections:
         from .conclusion import Line
 
         cl = [Line("buy", morning.summary_line())] + cl
-    lis = "".join(f'<li class="{escape(x.kind)}">{escape(x.text)}</li>' for x in cl[:3])
+    lis = "".join(f'<li class="k-{escape(x.kind)}">{escape(x.text)}</li>' for x in cl[:3])
     out.append(f'<div class="concl"><h2>{head}</h2><ol>{lis}</ol>'
                f'<div class="dl">注文締切：{fmt_date(dl.date())} 朝{dl:%H:%M}（{left_txt}）{hol}</div></div>')
     out.append(after_concl)

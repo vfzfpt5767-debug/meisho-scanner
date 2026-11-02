@@ -103,8 +103,8 @@ def section(r: SimResult) -> str:
     from html import escape
 
     rows = "".join(
-        f'<div class="row"><span>{"★" if k == r.best else ""}{escape(v)}</span><b>{r.probs[k]:.1f}%'
-        f'（中央値 {r.medians[k] / 10000:,.0f}万円）</b></div>' for k, v in STRATEGIES.items())
+        f'<div class="reason"><b>{r.probs[k]:.1f}%</b>{"（★おすすめ）" if k == r.best else ""}：{escape(v)}'
+        f'<span class="sub">（最終資産の中央値 {r.medians[k] / 10000:,.0f}万円）</span></div>' for k, v in STRATEGIES.items())
     return (f'<h2 id="sim">入賞確率シミュレーター</h2><div class="meta"><div class="big"><b>{escape(r.advice)}</b></div>'
             f'<div class="sub">今の資産 {r.start_assets / 10000:,.0f}万円・残り{r.nights_left}回の売買で、10位ライン（729万円）を'
             f'超える確率（{RUNS:,}回のシミュレーション）。過去の名証上場銘柄の候補と翌日の騰落から計算。'
