@@ -75,6 +75,13 @@ summary{cursor:pointer;font-weight:700;min-height:32px}
 .row{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap}
 .sell{color:#fff;background:var(--s);border-radius:6px;padding:0 8px;font-weight:700}
 footer{color:var(--muted);font-size:.8rem;margin-top:32px}
+.concl{background:var(--card);border:3px solid var(--accent);border-radius:14px;padding:12px 14px;margin:10px 0}
+.concl h2{border:none;margin:0 0 6px;font-size:1.2rem}
+.concl ol{margin:0;padding-left:1.3em}.concl li{margin:4px 0;font-weight:700}
+.concl li.sell{color:var(--s)}.concl li.info{font-weight:400}
+.concl .dl{font-size:1.1rem;font-weight:700;color:var(--s);margin-top:6px}
+.alert{background:var(--s);color:#fff;border-radius:14px;padding:12px 14px;margin:10px 0;font-weight:700}
+.alert ul{margin:4px 0 0;padding-left:1.2em}
 """
 
 
@@ -154,7 +161,7 @@ def _tob_row(r: TobRow) -> str:
             f'<a class="btn sub" href="{_kabutan(r.code)}" target="_blank" rel="noopener">株探</a></div></div>')
 
 
-def render(res: ScanResult) -> str:
+def render(res: ScanResult, portfolio=None, extra_top: str = "", extra_sections: str = "") -> str:
     gen = datetime.fromisoformat(res.generated_at)
     base = date.fromisoformat(res.base_day)
     dl = datetime.fromisoformat(res.deadline)
@@ -173,6 +180,16 @@ def render(res: ScanResult) -> str:
            f'<meta name="color-scheme" content="light dark">'
            f'<title>名証 夜の好材料スキャナー</title><style>{CSS}</style></head><body><main>']
     out.append('<h1>名証 夜の好材料スキャナー</h1>')
+    out.append(extra_top)
+    from .conclusion import lines as concl_lines
+
+    left = dl - gen
+    hours = left.total_seconds() / 3600
+    left_txt = f"あと{int(hours)}時間{int((hours % 1) * 60)}分" if hours > 0 else "締切を過ぎています（次のタームは営業日16:30から）"
+    head = "今朝の結論" if 4 <= gen.hour < 12 else "今夜の結論"
+    lis = "".join(f'<li class="{escape(x.kind)}">{escape(x.text)}</li>' for x in concl_lines(res, portfolio))
+    out.append(f'<div class="concl"><h2>{head}</h2><ol>{lis}</ol>'
+               f'<div class="dl">注文締切：{fmt_date(dl.date())} 朝{dl:%H:%M}（{left_txt}）{hol}</div></div>')
     out.append(f'<div class="meta">更新：{fmt_date(gen.date())} {gen:%H:%M}<br>'
                f'約定見込み価格＝<b>{fmt_date(base)}の名証の終値</b>（出典：{escape(res.price_source or "取得できず")}）<br>'
                f'対象：{fmt_date(base)} 15:30以降の名証上場銘柄の適時開示<br>'
@@ -224,6 +241,7 @@ def render(res: ScanResult) -> str:
                f'<p class="sub">期間中にTOBが発表された名証上場銘柄。差が{TOB_SELL_GAP_PCT:g}%以下なら「売り時」</p>')
     out += [_tob_row(r) for r in res.tob_rows] or ['<p class="empty">なし</p>']
 
+    out.append(extra_sections)
     out.append('<footer>' + "".join(f"<p>{escape(n)}</p>" for n in res.notes) +
                '<p>データ：適時開示＝やのしんWEB-API（TDnetの一覧）、銘柄一覧・値段＝名古屋証券取引所の公開情報。'
                '売買の判断はご自身で行ってください。</p></footer>')

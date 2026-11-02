@@ -172,7 +172,8 @@ def run(now: datetime | None = None) -> ScanResult:
             c.price = q.contest_price
             c.nse_close, c.nse_quote = q.close, q.quote
             if q.quote is not None and q.close is not None and q.quote != q.close:
-                c.price_note = f"最終気配 {q.quote:,.0f}円（名証での約定 {q.close:,.0f}円）"
+                c.price_note = (f"最終気配 {q.quote:,.0f}円／名証での約定 {q.close:,.0f}円。"
+                                f"採用：{'最終気配' if c.price == q.quote else '約定終値'}")
             elif q.quote is not None:
                 c.price_note = "名証の最終気配"
             else:

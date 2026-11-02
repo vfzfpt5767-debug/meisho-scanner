@@ -77,3 +77,21 @@ def test_render_tob_banner():
     assert "tob_prices.csv" in html and "/edit/" in html
     assert "+41.9%" in html
     assert "開示PDFを開く" in html
+
+
+def test_conclusion_buy_line():
+    from scanner.conclusion import buy_line
+
+    tag = vars(C.Tag(C.S, "TOB対象", 100, ""))
+    a_tag = vars(C.Tag(C.A, "上方修正", 60, ""))
+    s = Card(code="1439", name="安江工務店", single=True, division="", unit=100, category=C.S, score=100,
+             items=[Item("16:00", "11/07", "t", "", [tag])], price=1515, shares=1900, cost=2878500,
+             tob_price=2150, tob_gap_pct=41.9)
+    a = Card(code="7203", name="トヨタ", single=False, division="", unit=100, category=C.A, score=60,
+             items=[Item("16:00", "11/07", "t", "", [a_tag])], price=3000, shares=1000, cost=3000000)
+    res = ScanResult(generated_at="2026-11-02T23:00:00+09:00", base_day="2026-11-02",
+                     deadline="2026-11-04T07:59:00+09:00", price_source="", cards=[a, s], before_close=[], tob_rows=[])
+    t = buy_line(res).text
+    assert "安江工務店" in t and "+41.9%" in t and "1,900株" in t and "名証単独" in t
+    res.cards = [a]
+    assert "トヨタ" in buy_line(res).text
