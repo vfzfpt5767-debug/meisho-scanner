@@ -15,6 +15,7 @@ from datetime import datetime, time
 
 from ..classify import BAD, card_category
 from ..classify import Tag
+from ..calendar_jp import now_jst
 from ..config import ROOT
 from ..limits import limit_width
 from .fetch import BT, OUT
@@ -186,7 +187,7 @@ def main() -> None:
     w = weights(d["labels"])
     REPORTS.mkdir(exist_ok=True)
     fmt = lambda x: f"{x[:4]}/{x[4:6]}/{x[6:]}"  # noqa: E731
-    result = {"period": f"{fmt(days[0])}〜{fmt(days[-1])}" if days else "", "generated": datetime.now().isoformat(timespec="minutes"),
+    result = {"period": f"{fmt(days[0])}〜{fmt(days[-1])}" if days else "", "generated": now_jst().strftime("%Y-%m-%d %H:%M JST"),
               "disclosures": d, "stop_high": s, "futures": f, "weights": w, "min_n": MIN_N}
     (REPORTS / "backtest.json").write_text(json.dumps(result, ensure_ascii=False, indent=1), encoding="utf-8")
     WEIGHTS.write_text(json.dumps(w, ensure_ascii=False, indent=1), encoding="utf-8")

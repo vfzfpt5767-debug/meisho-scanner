@@ -4,6 +4,8 @@ from __future__ import annotations
 from datetime import datetime
 from html import escape
 
+from .render_backtest import futures_note
+
 
 def _yen(v):
     return "—" if v is None else f"{v:,.0f}円"
@@ -13,6 +15,7 @@ def section(m, deadline: datetime) -> str:
     out = ['<h2 id="morning">朝レポート</h2>',
            f'<div class="tobbanner"><div class="big">注文締切 {deadline:%m/%d} 朝7:59 まで。前日の終値で買えます</div>'
            f'<div class="big">{escape(m.direction)}</div>'
+           f'<div class="sub">{escape(futures_note(m.futures_gap_pct))}</div>'
            f'<div class="sub">米国市場 {escape(m.us_date)} の終値時点（Yahoo Finance）</div></div>']
     if m.stale_from:
         out.append('<div class="warn">海外指標が取れなかったため、前回の朝レポートを表示しています</div>')

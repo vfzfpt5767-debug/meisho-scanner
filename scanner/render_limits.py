@@ -27,6 +27,11 @@ def section(res) -> str:
     out = [f'<h2 id="limits">ストップ高（{len(highs)}銘柄）・ストップ安（{len(lows)}銘柄）</h2>',
            '<p class="sub">名証の日報とJPXの制限値幅表で判定。張り付き（最終気配がストップ高）を最上位に表示。'
            '制限値幅の臨時拡大や配当落ちの調整には対応していません</p>']
+    from .render_backtest import stop_high_note
+
+    note_bt = stop_high_note()
+    if note_bt:
+        out.append(f'<p class="sub"><b>{escape(note_bt)}</b></p>')
     if not hits:
         out.append('<p class="empty">なし</p>')
     for h in highs + lows:

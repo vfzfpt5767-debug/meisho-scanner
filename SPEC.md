@@ -163,3 +163,8 @@ M. 検証モード：取得できる範囲の過去データ（できれば全�
 - LINE通知：夜はタームごとに1回（key=evening:基準日）。朝は1日1回。月180通で停止（LINEの送信数APIでも確認）。失敗時は workflow の `if: failure()` ステップから送信。テスト送信用に line-test ワークフロー。
 - 朝レポート：4:00〜7:59の実行で作成（予定は6:20・7:05）。指数＝^GSPC・^IXIC・^SOX・JPY=X・NIY=F（CME円建て日経先物）・^N225。方向＝NIY=F と基準日の日経平均終値の差（Yahooに基準日の終値がなければ先物の前日比で代用）。ADR→日本株の換算比率は過去約25日の「ADR終値×ドル円÷東証終値」の中央値で推定し、理論価格と前日の名証の値段の差（%）で並べる。米国で取引のなかったADRは参考外。
 - 決算カレンダー：JPX「決算発表予定日」ページと名証「決算発表日程」ページのxlsxリンクをすべて取得（1日1回＋17:10以降に1回更新）。名証上場銘柄だけ表示。名証のExcelで名証単独銘柄もカバー。
+
+### Phase 3 実施メモ（2026-11-03）
+- 期間 2025/01/06〜2026/10/30（平日475日）。やのしんAPIの開示一覧（全上場銘柄、15:30以降と分類対象のみ 40,442件）、Yahooの日足 3,679銘柄。データは data/bt/（.gitignoreで除外）。
+- 実行：`python -m scanner.backtest.fetch 開始日 終了日` → `python -m scanner.backtest.prices 開始日 終了日` → `python -m scanner.backtest.analyze`
+- 結果：reports/backtest.md・reports/backtest.json。点数は scanner/weights.json（件数30以上の A・要確認ラベルのみ、点数＝30＋10×翌日平均%）。区分は変えていない。
