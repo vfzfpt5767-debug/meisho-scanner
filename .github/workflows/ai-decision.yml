@@ -1,0 +1,70 @@
+# AIアナリストが claude/ai-decisions ブランチに判断を push したら：
+# 判断を main に取り込み（保有の自動記録）→ LINEで注文の指示 → ページを作り直して公開（scan を起動）
+name: ai-decision
+
+on:
+  push:
+    branches: ["claude/ai-decisions"]
+    paths: ["decisions/**"]
+
+permissions:
+  contents: write
+  actions: write
+
+concurrency:
+  group: scan
+  cancel-in-progress: false
+
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install
+        run: pip install -r requirements.txt
+
+      - name: 判断ファイルを持ってくる
+        run: |
+          git fetch origin "${{ github.sha }}"
+          git checkout "${{ github.sha }}" -- decisions/
+
+      - name: 取り込み（保有の自動記録・LINE）
+        env:
+          LINE_CHANNEL_ACCESS_TOKEN: ${{ secrets.LINE_CHANNEL_ACCESS_TOKEN }}
+          LINE_USER_ID: ${{ secrets.LINE_USER_ID }}
+        run: python -m scanner.ai_decision apply
+
+      - name: main に保存
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add decisions data holdings.csv cash.csv
+          if ! git diff --cached --quiet; then
+            git commit -m "AI decision applied: $(TZ=Asia/Tokyo date '+%Y-%m-%d %H:%M') JST"
+            for i in 1 2 3; do
+              git pull --rebase origin main && git push origin HEAD:main && break
+              sleep 5
+            done
+          fi
+
+      - name: ページを作り直す（scan を起動）
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run scan.yml --ref main
+
+      - name: 失敗をLINEで通知
+        if: failure()
+        env:
+          LINE_CHANNEL_ACCESS_TOKEN: ${{ secrets.LINE_CHANNEL_ACCESS_TOKEN }}
+          LINE_USER_ID: ${{ secrets.LINE_USER_ID }}
+        run: python -m scanner.notify --failure "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"

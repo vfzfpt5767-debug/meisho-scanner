@@ -1,0 +1,114 @@
+# 夜の好材料スキャナーを自動実行して、GitHub Pages に公開する。
+# 時刻は日本時間（JST）→ UTC に変換して書いている（JST = UTC + 9時間）。
+#   16:10 JST = 07:10 UTC / 17:10 = 08:10 / 18:40 = 09:40 / 20:40 = 11:40 / 22:40 = 13:40
+#   朝レポート 6:20 JST = 21:20 UTC / 7:05 JST = 22:05 UTC（UTCでは前日）
+# 土日は cron で除外。祝日・年末年始はスクリプト側（scanner.calendar_jp）で判定して実行しない。
+# 手動実行（Actions タブの「Run workflow」）なら休業日でも実行する。
+# ※ GitHub の都合で、予定時刻から数分〜数十分遅れることがある。
+name: scan
+
+on:
+  schedule:
+    - cron: "10 7 * * 1-5"
+    - cron: "10 8 * * 1-5"
+    - cron: "40 9 * * 1-5"
+    - cron: "40 11 * * 1-5"
+    - cron: "40 13 * * 1-5"
+    # 朝レポート 6:20 JST = 21:20 UTC（前日）/ 7:05 JST = 22:05 UTC（前日）。日〜木のUTC＝月〜金のJST
+    - cron: "20 21 * * 0-4"
+    - cron: "5 22 * * 0-4"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: scan
+  cancel-in-progress: false
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install
+        run: pip install -r requirements.txt
+
+      - name: 営業日チェック
+        id: cal
+        run: python -m scanner.calendar_jp --event "${{ github.event_name }}" | tee -a "$GITHUB_OUTPUT"
+
+      - name: スキャン実行
+        if: steps.cal.outputs.run == 'true'
+        env:
+          LINE_CHANNEL_ACCESS_TOKEN: ${{ secrets.LINE_CHANNEL_ACCESS_TOKEN }}
+          LINE_USER_ID: ${{ secrets.LINE_USER_ID }}
+        run: python -m scanner
+
+      - name: 結果をリポジトリに保存
+        if: steps.cal.outputs.run == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data docs holdings.csv cash.csv
+          if git diff --cached --quiet; then
+            echo "変更なし"
+          else
+            git commit -m "scan: $(TZ=Asia/Tokyo date '+%Y-%m-%d %H:%M') JST"
+            for i in 1 2 3; do
+              git pull --rebase origin "${GITHUB_REF_NAME}" && git push origin "HEAD:${GITHUB_REF_NAME}" && break
+              sleep 5
+            done
+          fi
+
+      - name: AIアナリストを起動（新しいS・A・要確認・保有警告があるときだけ）
+        if: steps.cal.outputs.run == 'true'
+        env:
+          ANALYST_FIRE_URL: ${{ secrets.ANALYST_FIRE_URL }}
+          ANALYST_FIRE_TOKEN: ${{ secrets.ANALYST_FIRE_TOKEN }}
+          LINE_CHANNEL_ACCESS_TOKEN: ${{ secrets.LINE_CHANNEL_ACCESS_TOKEN }}
+          LINE_USER_ID: ${{ secrets.LINE_USER_ID }}
+        run: |
+          python -m scanner.ai_fire
+          git add data
+          if ! git diff --cached --quiet; then
+            git commit -m "AI fire state"
+            for i in 1 2 3; do
+              git pull --rebase origin "${GITHUB_REF_NAME}" && git push origin "HEAD:${GITHUB_REF_NAME}" && break
+              sleep 5
+            done
+          fi
+
+      - name: Pages の準備
+        if: steps.cal.outputs.run == 'true'
+        uses: actions/configure-pages@v5
+
+      - name: Pages にアップロード
+        if: steps.cal.outputs.run == 'true'
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: docs
+
+      - name: Pages に公開
+        id: deploy
+        if: steps.cal.outputs.run == 'true'
+        uses: actions/deploy-pages@v4
+
+      - name: 失敗をLINEで通知
+        if: failure()
+        env:
+          LINE_CHANNEL_ACCESS_TOKEN: ${{ secrets.LINE_CHANNEL_ACCESS_TOKEN }}
+          LINE_USER_ID: ${{ secrets.LINE_USER_ID }}
+        run: python -m scanner.notify --failure "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
