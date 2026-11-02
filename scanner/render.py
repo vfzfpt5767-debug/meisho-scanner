@@ -88,6 +88,9 @@ h3{font-size:1rem;margin:16px 0 4px}.reason.bt{color:var(--accent)}
 .concl .dl{font-size:1.1rem;font-weight:700;color:var(--s);margin-top:6px}
 .alert{background:var(--s);color:#fff;border-radius:14px;padding:12px 14px;margin:10px 0;font-weight:700}
 .alert ul{margin:4px 0 0;padding-left:1.2em}
+.aibox{background:var(--card);border:3px solid var(--a);border-radius:14px;padding:12px 14px;margin:10px 0}
+.aibox h2{border:none;margin:0 0 6px;font-size:1.2rem}.aibox ol{margin:6px 0;padding-left:1.3em}
+.aibox li{margin:6px 0}.aibox li.buy b{color:var(--a)}.aibox li.sell b{color:var(--s)}.aibox .big{font-weight:700}
 """
 
 
@@ -235,6 +238,12 @@ def render(res: ScanResult, portfolio=None, extra_top: str = "", extra_sections:
            f'<title>名証 夜の好材料スキャナー</title><style>{CSS}</style></head><body><main>']
     out.append('<h1>名証 夜の好材料スキャナー</h1>')
     out.append(extra_top)
+    try:
+        from .render_ai import box as ai_box
+
+        out.append(ai_box(res.base_day))
+    except Exception:  # noqa: BLE001
+        pass
     from .conclusion import lines as concl_lines
 
     left = dl - gen

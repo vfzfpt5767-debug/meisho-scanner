@@ -78,6 +78,33 @@ code,shares,buy_price,buy_date,memo
 5. **テスト**
    https://github.com/vfzfpt5767-debug/meisho-scanner/actions/workflows/line-test.yml を開き「Run workflow」→ 1〜2分でLINEに「テスト送信です」が届けば完了です。
 
+## AIアナリストの設定（スマホでできます）
+用語：**スケジュールされたタスク（ルーチン）**＝Claude Code が決まった時刻や合図で自動で動く仕組み。**APIトリガー**＝外（GitHub Actions）から「今動いて」と合図を送る入口。**トークン**＝その合図が本物だと証明する合言葉（他人に見せない）。
+
+流れ：スキャンで新しいS・A・要確認・保有警告が出る → GitHub Actions がAIアナリストを起動（1晩3回まで）→ AIが調べて `decisions/` に「今夜の注文」を書き `claude/ai-decisions` ブランチに push → GitHub Actions が保有を自動記録し、LINEで注文の指示を送り、ページ最上部の「AIの結論」を更新。朝は6:45に定時で動きます。
+
+※ ブランチ名は `ai-decisions` ではなく `claude/ai-decisions` にしています。ルーチンは初期設定では `claude/` で始まるブランチにしか push できないためで、こうすると安全のための制限を外さずに済みます。
+※ 画面の名前や位置は変わることがあります（2026年11月時点の想定）。違っていたら教えてください。
+
+1. **ルーチンを作る**：ブラウザで https://claude.ai/code/routines を開き、新しいルーチンを作成します。
+   - 名前：名証AIアナリスト
+   - 指示（プロンプト）：https://github.com/vfzfpt5767-debug/meisho-scanner/blob/main/ai/analyst_prompt.md を開き、右上のコピーボタンで全文をコピーして貼り付け
+   - リポジトリ：`vfzfpt5767-debug/meisho-scanner`
+   - モデル：Sonnet
+   - 環境：full-net（ネットにつながる環境。Web検索に必要）
+   - ブランチへのpushの制限（Permissions）：初期設定のまま（変えない）
+2. **朝の定時起動**：トリガーに「スケジュール」を追加し、平日の 6:45（日本時間）にします。祝日は、AIが自分で判断してすぐ終わります。
+3. **APIトリガーを追加**：同じルーチンの編集画面で「Add another trigger」→「API」→「Generate token」。表示された **URL** と **トークン** をコピーします（トークンは一度しか表示されません。なくしたら作り直せば、前のものは無効になります）。
+4. **GitHub Secretsに入れる**：https://github.com/vfzfpt5767-debug/meisho-scanner/settings/secrets/actions で「New repository secret」を2回。
+   - Name: `ANALYST_FIRE_URL` ／ Secret: 3.のURL（`https://api.anthropic.com/v1/claude_code/routines/trig_…/fire`）
+   - Name: `ANALYST_FIRE_TOKEN` ／ Secret: 3.のトークン
+5. **テスト**：ルーチンの画面で「今すぐ実行（Run now）」を押します。数分で `claude/ai-decisions` に判断が push され、LINEに「【AIの結論】…」が届き、ページ最上部に「AIの結論」が出れば完了です。
+
+注意：
+- ルーチンの実行は Claude の利用枠（サブスクリプションの使用量）を使います。調査は1回あたり最大8銘柄・1銘柄2〜3回の検索に抑えています。
+- AIの注文どおりに注文した前提で、holdings.csv と cash.csv を自動で更新します。違う注文をした（または注文しなかった）ときは、ページの案内に従って2つのファイルを直してください。
+- AIはTDnetのページやPDFを開きません（TDnetのrobots.txtが自動取得を拒否しているため）。会社のIRページや報道で確認します。
+
 ## データの出どころ
 | データ | 取得元 | 備考 |
 |---|---|---|

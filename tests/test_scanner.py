@@ -247,3 +247,40 @@ def test_evening_extra(tmp_path, monkeypatch):
     assert "2通に達した" in notify.evening_notify(res_with(a1, card("4444", C.A, a_tag)), pf)
     assert [k for k, _ in sent] == ["evening", "evening_extra", "evening_extra"]
     assert "2222" in sent[1][1] and "1111" not in sent[1][1]
+
+
+def test_ai_decision_apply(tmp_path, monkeypatch):
+    import json as _json
+
+    from scanner import ai_decision as AD
+    from scanner import portfolio as P
+
+    h = tmp_path / "holdings.csv"
+    h.write_text("code,shares,buy_price,buy_date,memo\n# コメント\n1111,1000,900,2026-10-30\n", encoding="utf-8")
+    c = tmp_path / "cash.csv"
+    c.write_text("key,value,memo\ncash,100000,現金\nsingle_bought,no,\n", encoding="utf-8")
+    monkeypatch.setattr(P, "HOLDINGS_CSV", h)
+    monkeypatch.setattr(P, "CASH_CSV", c)
+    dec = tmp_path / "decisions"
+    dec.mkdir()
+    monkeypatch.setattr(AD, "DECISIONS", dec)
+    monkeypatch.setattr(AD, "LATEST", tmp_path / "ai" / "latest.json")
+    monkeypatch.setattr(AD, "APPLIED", tmp_path / "ai" / "applied.json")
+    monkeypatch.setattr(AD, "HISTORY", tmp_path / "ai" / "history.jsonl")
+    d = {"version": 1, "created_at": "2026-11-04T17:12:00+09:00", "base_day": "2026-11-04", "summary": "テスト",
+         "orders": [{"side": "sell", "code": "1111", "shares": 1000, "price": 1000, "confidence": "高", "reason": "警告"},
+                    {"side": "buy", "code": "4445", "name": "リビンT", "shares": 600, "unit": 100, "price": 1665,
+                     "confidence": "中", "reason": "上方修正"}]}
+    assert AD.validate(d) == []
+    bad = dict(d, orders=[dict(d["orders"][1], shares=650)])
+    assert any("整数倍" in e for e in AD.validate(bad))
+    (dec / "2026-11-04-1712.json").write_text(_json.dumps(d, ensure_ascii=False), encoding="utf-8")
+    log = AD.apply_all(now=datetime(2026, 11, 4, 17, 20, tzinfo=JST), send_line=False)
+    assert "取り込み済み" in log[0]
+    rows = [r for r in h.read_text(encoding="utf-8").splitlines() if r and not r.startswith(("#", "code"))]
+    assert rows == ["4445,600,1665,2026-11-04,AI 2026-11-04-1712"]
+    assert "cash,101000" in c.read_text(encoding="utf-8")  # 10万 + 100万 − 99.9万
+    assert "# コメント" in h.read_text(encoding="utf-8")
+    # 2回目は取り込まない
+    assert AD.apply_all(now=datetime(2026, 11, 4, 17, 30, tzinfo=JST), send_line=False) == []
+    assert "買い：4445 リビンT 600株" in AD.line_text(d)

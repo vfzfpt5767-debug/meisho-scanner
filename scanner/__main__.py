@@ -14,6 +14,7 @@ def main() -> int:
     top, sections = "", ""
     morning_rep = None
     morning_html = ""
+    nl_rows, earnings_today = [], []
     from .morning import is_morning
 
     if res.ctx.now and is_morning(res.ctx.now):
@@ -58,6 +59,8 @@ def main() -> int:
         held = {h.code for h in pf.holdings} if pf else set()
         tonight = today  # 今日が営業日なら「今夜」、休業日なら「次の営業日」と表示
         sections += render_earnings.section(days, by_day, res.ctx.universe, held, tonight)
+        earnings_today = [{"code": e.code, "name": e.name, "kind": e.kind} for e in by_day.get(days[0].isoformat(), [])] \
+            if days else []
     except Exception as e:  # noqa: BLE001
         res.errors.append(f"決算カレンダーの表示に失敗: {type(e).__name__}: {e}")
     try:
@@ -70,6 +73,16 @@ def main() -> int:
                   after_concl=morning_html)
     DOCS_DIR.mkdir(parents=True, exist_ok=True)
     (DOCS_DIR / "index.html").write_text(html, encoding="utf-8")
+
+    # AIアナリストへの入力と、起動するかどうか（実際の起動は push の後に scanner.ai_fire）
+    try:
+        from . import ai_input
+
+        data = ai_input.build(res, pf, morning_rep, nl_rows, earnings_today, getattr(res, "simulator", None))
+        req = ai_input.plan_fire(res, pf, data)
+        print("AI:", "起動する" if req["fire"] else "起動しない", req["reason"])
+    except Exception as e:  # noqa: BLE001
+        print("AI入力の作成でエラー:", type(e).__name__, e)
 
     # LINE通知（朝：朝レポートの要約を1日1回）
     if morning_rep is not None and not morning_rep.stale_from:

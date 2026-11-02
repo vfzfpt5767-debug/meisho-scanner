@@ -62,11 +62,29 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data docs
+          git add data docs holdings.csv cash.csv
           if git diff --cached --quiet; then
             echo "変更なし"
           else
             git commit -m "scan: $(TZ=Asia/Tokyo date '+%Y-%m-%d %H:%M') JST"
+            for i in 1 2 3; do
+              git pull --rebase origin "${GITHUB_REF_NAME}" && git push origin "HEAD:${GITHUB_REF_NAME}" && break
+              sleep 5
+            done
+          fi
+
+      - name: AIアナリストを起動（新しいS・A・要確認・保有警告があるときだけ）
+        if: steps.cal.outputs.run == 'true'
+        env:
+          ANALYST_FIRE_URL: ${{ secrets.ANALYST_FIRE_URL }}
+          ANALYST_FIRE_TOKEN: ${{ secrets.ANALYST_FIRE_TOKEN }}
+          LINE_CHANNEL_ACCESS_TOKEN: ${{ secrets.LINE_CHANNEL_ACCESS_TOKEN }}
+          LINE_USER_ID: ${{ secrets.LINE_USER_ID }}
+        run: |
+          python -m scanner.ai_fire
+          git add data
+          if ! git diff --cached --quiet; then
+            git commit -m "AI fire state"
             for i in 1 2 3; do
               git pull --rebase origin "${GITHUB_REF_NAME}" && git push origin "HEAD:${GITHUB_REF_NAME}" && break
               sleep 5
