@@ -63,7 +63,7 @@ jobs:
         if: steps.apply.outputs.rebuild == 'true'
         env:
           GH_TOKEN: ${{ github.token }}
-        run: gh workflow run scan.yml --ref main
+        run: gh workflow run scan.yml --ref main -f skip_ai=true  # ページだけ作り直す（AIは起動しない）
 
       - name: 失敗をLINEで通知
         if: failure()

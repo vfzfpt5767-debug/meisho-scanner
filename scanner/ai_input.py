@@ -6,6 +6,7 @@
 from __future__ import annotations
 
 import json
+import os
 from datetime import datetime
 
 from . import classify as C
@@ -109,7 +110,9 @@ def plan_fire(res, pf, data: dict) -> dict:
     keys = keys_of(res, pf)
     new = {k: v for k, v in keys.items() if k not in night["keys"]}
     req = {"fire": False, "base_day": res.base_day, "new_keys": sorted(new), "reason": ""}
-    if 4 <= now.hour < 8:
+    if os.environ.get("SKIP_AI") == "true":
+        req["reason"] = "AIの判断の取り込み・LINEの記録のあとのページ作り直しなので起動しない"
+    elif 4 <= now.hour < 8:
         req["reason"] = "朝はAIを起動しない（夜に注文して寝る運用。夜21:15に定時起動）"
     elif not new:
         req["reason"] = "新しいS・A・要確認・保有警告なし"
@@ -147,3 +150,25 @@ def check_stuck(res) -> str:
     return notify_once(f"ai_stuck:{res.base_day}:{night['last_fire_at']}",
                        "【名証スキャナー】AIアナリストを起動しましたが、1時間たっても判断が届いていません。"
                        "claude.ai/code の実行履歴を確認してください。ページのスキャン結果は通常どおり見られます。", "failure")
+
+
+def mark_handled(base_day: str) -> list[str]:
+    """AIの判断を取り込んだとき、そのときの入力にあった候補（S・A・要確認・保有警告）を「調べ済み」にする。
+
+    これで、あとのスキャンが同じ銘柄でもう一度AIを起動しない（新しい開示が出たときだけ起動する）。
+    """
+    try:
+        data = json.loads(INPUT.read_text(encoding="utf-8"))
+    except Exception:  # noqa: BLE001
+        return []
+    if data.get("base_day") != base_day:
+        return []
+    keys = {f"{c['category']}:{c['code']}" for c in data.get("candidates", []) if c.get("category") in (C.S, C.A, C.CHECK)}
+    keys |= {f"W:{h['code']}" for h in data.get("portfolio", {}).get("holdings", []) if h.get("warnings")}
+    st = json.loads(FIRE_STATE.read_text(encoding="utf-8")) if FIRE_STATE.exists() else {}
+    night = st.setdefault(base_day, {"fires": 0, "keys": []})
+    night["keys"] = sorted(set(night["keys"]) | keys)
+    st = dict(sorted(st.items())[-14:])
+    FIRE_STATE.parent.mkdir(parents=True, exist_ok=True)
+    FIRE_STATE.write_text(json.dumps(st, ensure_ascii=False, indent=1), encoding="utf-8")
+    return sorted(keys)

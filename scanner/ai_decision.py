@@ -230,6 +230,10 @@ def apply_all(now: datetime | None = None, send_line: bool = True) -> list[str]:
                 rec["status"] = "取り込み済み（保有に記録）"
             d["deadline"] = d.get("deadline") or deadline.isoformat()
         d["_apply"] = rec
+        if not test and not errs:
+            from .ai_input import mark_handled
+
+            mark_handled(d["base_day"])  # 調べ済みの候補では、あとのスキャンからAIを起動しない
         if not test and not errs and rec.get("mode") in ("record", "ref"):
             from .line_actions import register_decision
 

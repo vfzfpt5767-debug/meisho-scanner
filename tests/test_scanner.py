@@ -514,3 +514,36 @@ def test_units_format(monkeypatch):
     assert U.fmt("1319", 3000) == "3単位（3,000株）"
     assert "整数倍ではありません" in U.fmt("4445", 150)
     assert U.fmt("9999", 300, 100) == "3単位（300株）"  # 一覧にないときは渡された単位
+
+
+def test_ai_fire_skip_and_handled(tmp_path, monkeypatch):
+    import json as _json
+
+    from scanner import ai_input as AI
+
+    monkeypatch.setattr(AI, "FIRE_STATE", tmp_path / "fire_state.json")
+    monkeypatch.setattr(AI, "FIRE_REQ", tmp_path / "fire_request.json")
+    monkeypatch.setattr(AI, "INPUT", tmp_path / "analyst_input.json")
+    chk = vars(C.Tag(C.CHECK, "業績予想の修正", 40, ""))
+    a_tag = vars(C.Tag(C.A, "上方修正", 60, ""))
+
+    def card(code, cat, tag):
+        return Card(code=code, name=code, single=False, division="", unit=100, category=cat, score=40,
+                    items=[Item("16:00", "11/04", "t", "", [tag])], price=1000, shares=3000)
+
+    res = ScanResult(generated_at="2026-11-04T22:33:00+09:00", base_day="2026-11-04", deadline="", price_source="",
+                     cards=[card("4445", C.CHECK, chk)], before_close=[], tob_rows=[])
+    # 1) ページ作り直し（SKIP_AI）のときは、新しい候補があっても起動しない
+    monkeypatch.setenv("SKIP_AI", "true")
+    req = AI.plan_fire(res, None, {})
+    assert not req["fire"] and "作り直し" in req["reason"]
+    monkeypatch.delenv("SKIP_AI")
+    # 2) AIの判断を取り込んだら、入力にあった候補は「調べ済み」→ 同じ候補では起動しない
+    AI.INPUT.write_text(_json.dumps({"base_day": "2026-11-04", "candidates": [{"category": "CHECK", "code": "4445"}],
+                                     "portfolio": {"holdings": []}}), encoding="utf-8")
+    assert AI.mark_handled("2026-11-04") == ["CHECK:4445"]
+    assert not AI.plan_fire(res, None, {})["fire"]
+    # 3) 新しい開示（新しい候補）が出たら、今までどおり起動する
+    res.cards.append(card("7203", C.A, a_tag))
+    req = AI.plan_fire(res, None, {"x": 1})
+    assert req["fire"] and req["new_keys"] == ["A:7203"]

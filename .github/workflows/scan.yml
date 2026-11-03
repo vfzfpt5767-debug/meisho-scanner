@@ -18,6 +18,11 @@ on:
     - cron: "20 21 * * 0-4"
     - cron: "5 22 * * 0-4"
   workflow_dispatch:
+    inputs:
+      skip_ai:
+        description: "AIアナリストを起動しない（AIの判断の取り込み・LINEの記録のあとのページ作り直し用）"
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -53,6 +58,7 @@ jobs:
       - name: スキャン実行
         if: steps.cal.outputs.run == 'true'
         env:
+          SKIP_AI: ${{ inputs.skip_ai == true && 'true' || 'false' }}
           LINE_CHANNEL_ACCESS_TOKEN: ${{ secrets.LINE_CHANNEL_ACCESS_TOKEN }}
           LINE_USER_ID: ${{ secrets.LINE_USER_ID }}
         run: python -m scanner
@@ -73,8 +79,8 @@ jobs:
             done
           fi
 
-      - name: AIアナリストを起動（新しいS・A・要確認・保有警告があるときだけ）
-        if: steps.cal.outputs.run == 'true'
+      - name: AIアナリストを起動（新しいS・A・要確認・保有警告があるときだけ。ページ作り直しのときは起動しない）
+        if: steps.cal.outputs.run == 'true' && inputs.skip_ai != true
         env:
           ANALYST_FIRE_URL: ${{ secrets.ANALYST_FIRE_URL }}
           ANALYST_FIRE_TOKEN: ${{ secrets.ANALYST_FIRE_TOKEN }}
