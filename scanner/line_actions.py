@@ -341,6 +341,24 @@ def _legacy_entry(did: str, d: dict) -> dict:
                       "legacy_note": "売りの取り消しは元の買値が分からないため戻せません" if sold else ""}}
 
 
+def _latest_with_orders() -> dict | None:
+    """いちばん新しいAIの注文のうち、このタームで注文（買い・売り）があるもの。"""
+    from .ai_decision import HISTORY
+    from .calendar_jp import base_day
+
+    tb = base_day(_now()).isoformat()
+    best = None
+    if HISTORY.exists():
+        for line in HISTORY.read_text(encoding="utf-8").splitlines():
+            try:
+                h = json.loads(line)
+            except ValueError:
+                continue
+            if h.get("base_day") == tb and h.get("orders") and not h.get("_apply", {}).get("errors"):
+                best = h
+    return _decision(best["id"]) if best else None
+
+
 def _price_for(code: str, did: str | None, now) -> float | None:
     from .calendar_jp import base_day
 
@@ -413,7 +431,7 @@ def process(payload: dict, now=None) -> dict:
             from .ai_decision import LATEST
 
             try:
-                d = json.loads(LATEST.read_text(encoding="utf-8"))
+                d = _latest_with_orders() or json.loads(LATEST.read_text(encoding="utf-8"))
                 ent = st["decisions"].get(d["id"]) or _legacy_entry(d["id"], d)
                 msg = f"いちばん新しいAIの注文（{d.get('summary', '')}）のボタンです。"
                 mode = {"recorded": "record", "confirmed": "record", "custom": "custom", "undone": "undone"}.get(ent["status"], "ref")
