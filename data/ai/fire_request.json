@@ -1,10 +1,6 @@
 {
  "fire": false,
  "base_day": "2026-11-02",
- "new_keys": [
-  "CHECK:2327",
-  "CHECK:2806",
-  "CHECK:4445"
- ],
- "reason": "起動済み"
+ "new_keys": [],
+ "reason": "新しいS・A・要確認・保有警告なし"
 }
