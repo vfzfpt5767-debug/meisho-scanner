@@ -3,6 +3,7 @@ from __future__ import annotations
 
 from html import escape
 
+from .units import fmt as ufmt
 from .calendar_jp import fmt_date
 from .config import GITHUB_BRANCH, GITHUB_REPOSITORY
 from .portfolio import START_CAPITAL, TENTH_LINE_PROFIT, Portfolio
@@ -66,14 +67,14 @@ def section(pf: Portfolio) -> str:
         out.append(
             f'<div class="{cls}"><div class="head"><span class="name">{escape(h.name)}</span>'
             f'<span class="code">{escape(h.code)}</span>{single_b}</div>'
-            f'<div class="price">{h.shares:,}株 ／ 買値 {_yen(h.buy_price)}（{fmt_date(h.buy_date)}）<br>'
+            f'<div class="price">{escape(ufmt(h.code, h.shares, h.unit))} ／ 買値 {_yen(h.buy_price)}（{fmt_date(h.buy_date)}）<br>'
             f'今の値段 <b>{_yen(h.price)}</b>{qo} <span class="sub">（{escape(h.price_note)}）</span><br>'
             f'評価額 {_yen(h.value)} ／ 損益 <b>{_man(h.pnl, True)}（{h.pnl_pct:+.1f}%）</b></div>{warn}{caut}</div>')
 
     if pf.swap:
         lis = "".join(
             f'<li><b>{"売る" if t.side == "sell" else "買う"}</b>：{escape(t.name)}（{escape(t.code)}） '
-            f'{t.shares:,}株 × {_yen(t.price)} = {_yen(t.amount)} <span class="sub">［{escape(t.reason)}］</span></li>'
+            f'{escape(ufmt(t.code, t.shares))} × {_yen(t.price)} = {_yen(t.amount)} <span class="sub">［{escape(t.reason)}］</span></li>'
             for t in pf.swap)
         out.append(f'<div class="meta"><b>入れ替え案（売り→買い）</b><ol>{lis}</ol>'
                    f'<div class="sub">{escape(pf.swap_note)}。売買単位の整数倍・今タームの残り枠内で計算。売るのは無制限、買いは枠を使います</div></div>')

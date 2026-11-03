@@ -28,6 +28,7 @@ import sys
 from datetime import date, datetime, timedelta
 from pathlib import Path
 
+from .units import fmt as ufmt
 from .config import AI_NIGHT_RUN, BUDGET_PER_TERM, DATA_DIR, RECORD_FROM, RECORD_UNTIL, ROOT
 
 DECISIONS = ROOT / "decisions"
@@ -126,7 +127,7 @@ def apply_to_portfolio(d: dict, now: datetime) -> list[str]:
             sold = sh - left
             hrows = [r for r in hrows if not (r and r[0].strip().upper() == code and int(float(r[1])) <= 0)]
             cash += sold * pr
-            notes.append(f"売り {code} {sold:,}株 × {pr:,.0f}円 を記録" + (f"（保有が{left:,}株足りません）" if left else ""))
+            notes.append(f"売り {code} {ufmt(code, sold)} × {pr:,.0f}円 を記録" + (f"（保有が{left:,}株足りません）" if left else ""))
     for o in d.get("orders", []):
         if o["side"] != "buy":
             continue
@@ -136,7 +137,7 @@ def apply_to_portfolio(d: dict, now: datetime) -> list[str]:
             continue
         hrows.append([code, str(sh), f"{pr:g}", stamp, f"AI {d.get('id', '')}".strip()])
         cash -= sh * pr
-        notes.append(f"買い {code} {sh:,}株 × {pr:,.0f}円 を記録")
+        notes.append(f"買い {code} {ufmt(code, sh)} × {pr:,.0f}円 を記録")
     cash_row[1] = f"{cash:.0f}"
     _write_csv(HOLDINGS_CSV, hh, hrows)
     _write_csv(CASH_CSV, ch, crows)
@@ -166,7 +167,7 @@ def line_text(d: dict, mode: str = "record") -> str:
             pass
     for o in d.get("orders", []):
         side = "買い" if o["side"] == "buy" else "売り"
-        out.append(f"{side}：{o['code']} {o.get('name', '')} {int(o['shares']):,}株（今日の終値{float(o['price']):,.0f}円）"
+        out.append(f"{side}：{o['code']} {o.get('name', '')} {ufmt(o['code'], o['shares'], o.get('unit'))}（今日の終値{float(o['price']):,.0f}円）"
                    f" 自信度{o.get('confidence', '')}")
         out.append(f"　理由：{str(o.get('reason', ''))[:80]}")
     if not d.get("orders"):
@@ -176,12 +177,12 @@ def line_text(d: dict, mode: str = "record") -> str:
     if mode == "test":
         out.append(f"※テストです（基準日 {d.get('base_day', '')} のデータ）。注文はしないでください。保有・現金の記録は変えていません")
     elif mode == "ref":
-        out.append(f"※{RECORD_UNTIL:%H:%M}を過ぎた（または夜以外の）指示なので、保有・現金には記録していません。"
-                   "起きていて注文したときは holdings.csv / cash.csv を直してください")
+        out.append(f"※{RECORD_UNTIL:%H:%M}を過ぎた（または夜以外の）指示なので、保有・現金にはまだ記録していません。"
+                   "起きていて注文したときは、ボタン（またはページの holdings.csv / cash.csv）で記録してください")
     elif mode == "late":
         out.append("※注文締切を過ぎているので、保有・現金には記録していません")
     elif d.get("orders"):
-        out.append("寝る前に注文してください。違う注文をしたときはページの案内で holdings.csv / cash.csv を直してください")
+        out.append("寝る前に注文してください。違う注文・注文しなかったときは、ボタン（またはページの holdings.csv / cash.csv）で直してください")
     out.append(page_url())
     return "\n".join(out)
 
@@ -220,11 +221,20 @@ def apply_all(now: datetime | None = None, send_line: bool = True) -> list[str]:
                 rec["status"] = (f"参考（{RECORD_FROM:%H:%M}〜{RECORD_UNTIL:%H:%M}の外に届いた指示）のため、"
                                  "保有の自動記録はしませんでした")
             else:
+                from .line_actions import make_patch, snapshot
+
                 rec["mode"] = "record"
+                pre = snapshot()
                 rec["notes"] = apply_to_portfolio(d, now)
+                rec["patch"] = make_patch(pre, snapshot())
                 rec["status"] = "取り込み済み（保有に記録）"
             d["deadline"] = d.get("deadline") or deadline.isoformat()
         d["_apply"] = rec
+        if not test and not errs and rec.get("mode") in ("record", "ref"):
+            from .line_actions import register_decision
+
+            register_decision(d, rec["mode"], rec.pop("patch", None))
+        rec.pop("patch", None)
         if not test:
             real += 1
             LATEST.parent.mkdir(parents=True, exist_ok=True)
@@ -241,9 +251,21 @@ def apply_all(now: datetime | None = None, send_line: bool = True) -> list[str]:
                 msg = f"{'【テスト】' if test else '【名証スキャナー】'}AIの判断ファイル {key} に形式エラー：{errs[0]}"
             else:
                 msg = line_text(d, "test" if test else rec.get("mode", "record"))
-            log.append(send(msg, "ai_test" if test else "ai"))
+            extra = None
+            if not errs and not test:
+                from .line_actions import buttons, enabled
+
+                extra = (buttons(d, rec.get("mode", "")) or None) if enabled() else None
+            log.append(send(msg, "ai_test" if test else "ai", extra))
     APPLIED.parent.mkdir(parents=True, exist_ok=True)
     APPLIED.write_text(json.dumps(applied[-500:], ensure_ascii=False, indent=0), encoding="utf-8")
+    if real:
+        try:
+            from .line_actions import write_status
+
+            write_status()
+        except Exception as e:  # noqa: BLE001
+            log.append(f"残高の文の作成に失敗: {type(e).__name__}: {e}")
     # Actions 用：本番の判断があったときだけページを作り直す
     out = os.environ.get("GITHUB_OUTPUT")
     if out:
@@ -315,7 +337,7 @@ def preflight(input_path: Path, trigger: str, test: bool, now: datetime | None =
         hist = _term_history(tb.isoformat()) if history is None else history
         for h in hist:
             ap = h.get("_apply", {})
-            od = "、".join(f"{'買い' if o['side'] == 'buy' else '売り'}{o['code']} {int(o['shares']):,}株"
+            od = "、".join(f"{'買い' if o['side'] == 'buy' else '売り'}{o['code']} {ufmt(o['code'], o['shares'], o.get('unit'))}"
                           for o in h.get("orders", [])) or "注文なし"
             lines.append(f"term_decision={h.get('id', '')}：{od}（{ap.get('status', '')}）")
         if not hist:

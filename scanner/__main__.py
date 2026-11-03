@@ -33,6 +33,9 @@ def main() -> int:
         pf = portfolio.build(res)
         top = render_portfolio.alert(pf)
         sections = render_portfolio.section(pf)
+        from .line_actions import write_status
+
+        write_status(pf)  # LINEで「残高」と送ったときの返事（data/status.json）
     except Exception as e:  # noqa: BLE001
         res.errors.append(f"保有管理の計算に失敗: {type(e).__name__}: {e}")
     sim_html = ""

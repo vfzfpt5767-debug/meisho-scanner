@@ -3,6 +3,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 
+from .units import fmt as ufmt
 from . import classify as C
 from .scan import Card, ScanResult
 
@@ -53,7 +54,7 @@ def buy_line(res: ScanResult) -> Line:
         reason += f"・TOB価格との差{c.tob_gap_pct:+.1f}%" if c.tob_gap_pct is not None else "・TOB価格未入力"
     single = "【名証単独】" if c.single else ""
     if c.price and c.shares:
-        money = f"終値{_yen(c.price)} → {c.shares:,}株（{_man(c.cost)}）"
+        money = f"終値{_yen(c.price)} → {ufmt(c.code, c.shares, c.unit)}（{_man(c.cost)}）"
     else:
         money = "株価はコンテスト画面で確認"
     bt = f"［検証：{main}は{note}］" if note else ""

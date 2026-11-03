@@ -69,7 +69,7 @@
   "base_day": "（事前チェックの use_base_day）",
   "deadline": "（事前チェックの use_deadline）",
   "trigger": "fire か schedule",
-  "summary": "今夜の結論を1行で（例：リビンTを1,800株買い。上方修正を確認）",
+  "summary": "今夜の結論を1行で（例：リビンTを18単位（1,800株）買い。上方修正を確認）",
   "orders": [
     {"side": "buy", "code": "4445", "name": "リビン・テクノロジーズ", "shares": 1800, "unit": 100, "price": 1665,
      "confidence": "高", "reason": "通期の営業利益を+35%上方修正（会社IRで確認）。検証：上方修正は翌日68%で上昇・平均+3.8%",
@@ -82,6 +82,7 @@
 ```
    - 注文がない夜は `"orders": []` にして、`summary` を「今夜は見送り：（理由）」とし、候補ごとの理由を `skipped` に書く。
    - `price` は入力の `price`（今日の約定見込み価格）をそのまま使う。
+   - `shares` は株数（単位×売買単位）、`unit` は入力の `unit`（名証の売買単位）。コンテストの注文画面は「単位」で入力するので、`summary`・`reason`・Markdown で株数を書くときは「18単位（1,800株）」のように単位を先に書く。
    - テストモードでは `"test": true` を加える（取り込み時に holdings.csv・cash.csv・ページを変えず、LINEに「【テスト】AIの結論」を送るだけになる）。
 2. 同じ内容を人が読める形で、同じ名前の `.md` に書く（結論・注文・理由・根拠リンク・見送り）。
 3. 形式チェック：`python -m scanner.ai_decision validate （JSONのパス）` を実行し、OK になるまで直す。

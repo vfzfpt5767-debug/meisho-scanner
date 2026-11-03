@@ -5,6 +5,7 @@ import itertools
 from datetime import date, datetime
 from html import escape
 
+from .units import fmt as ufmt
 from . import classify as C
 from .calendar_jp import fmt_date, is_business_day
 from .config import GITHUB_BRANCH, GITHUB_REPOSITORY, TOB_SELL_GAP_PCT
@@ -126,7 +127,7 @@ def _kabutan(code: str) -> str:
 def _price_block(c: Card) -> str:
     if c.price is None:
         return f'<div class="price">本日終値：<b>—</b>（{escape(c.price_note)}）</div>'
-    shares = (f"300万円で <b>{c.shares:,}株</b>（{_yen(c.cost)}）" if c.shares
+    shares = (f"300万円で <b>{escape(ufmt(c.code, c.shares, c.unit))}</b>（{_yen(c.cost)}）" if c.shares
               else "300万円では1単元も買えません")
     unit = f"・売買単位{c.unit:,}株" if c.unit != 100 else ""
     qo = ' <span class="badge qo">気配のみ</span>' if c.quote_only else ""

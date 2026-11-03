@@ -15,6 +15,7 @@ import urllib.error
 import urllib.request
 from datetime import datetime, timedelta, timezone
 
+from .units import fmt as ufmt
 from .config import DATA_DIR, GITHUB_REPOSITORY
 
 JST = timezone(timedelta(hours=9))
@@ -58,8 +59,8 @@ def _api_usage(tok: str) -> int | None:
         return None
 
 
-def send(text: str, kind: str) -> str:
-    """1通送る。結果の説明を返す（送らなかった理由も含む）。"""
+def send(text: str, kind: str, extra: list[dict] | None = None) -> str:
+    """1通送る（extra にボタンなどのメッセージを足せる。1回の送信＝1通と数える）。結果の説明を返す。"""
     creds = _creds()
     if not creds:
         return "LINE未設定（Secrets に LINE_CHANNEL_ACCESS_TOKEN と LINE_USER_ID がない）ので送りません"
@@ -72,7 +73,8 @@ def send(text: str, kind: str) -> str:
     used = max(int(st.get("count", 0)), _api_usage(tok) or 0)
     if used >= MONTHLY_LIMIT:
         return f"今月の送信数が{used}通（上限{MONTHLY_LIMIT}通）に達したので送りません"
-    body = json.dumps({"to": uid, "messages": [{"type": "text", "text": text[:4900]}]}).encode("utf-8")
+    messages = [{"type": "text", "text": text[:4900]}] + list(extra or [])[:4]
+    body = json.dumps({"to": uid, "messages": messages}).encode("utf-8")
     req = urllib.request.Request(PUSH_URL, data=body, method="POST",
                                  headers={"Authorization": f"Bearer {tok}", "Content-Type": "application/json"})
     try:
@@ -152,7 +154,7 @@ def _evening_items(res, pf) -> dict[str, str]:
         if c.category in (C.S, C.A):
             it = next((i for i in c.items if any(t["cat"] == c.category for t in i.tags)), c.items[-1])
             price = f" {c.price:,.0f}円" if c.price else ""
-            shares = f" {c.shares:,}株" if c.shares else ""
+            shares = f" {ufmt(c.code, c.shares, c.unit)}" if c.shares else ""
             items[f"{c.category}:{c.code}"] = (f"[{'S' if c.category == C.S else 'A'}] {c.name}({c.code}){price}{shares} "
                                                f"{it.time} {it.title[:40]}")
     for h in (pf.warned() if pf else []):

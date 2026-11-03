@@ -267,6 +267,8 @@ def test_ai_decision_apply(tmp_path, monkeypatch):
     monkeypatch.setattr(AD, "LATEST", tmp_path / "ai" / "latest.json")
     monkeypatch.setattr(AD, "APPLIED", tmp_path / "ai" / "applied.json")
     monkeypatch.setattr(AD, "HISTORY", tmp_path / "ai" / "history.jsonl")
+    monkeypatch.setattr("scanner.line_actions.STATE", tmp_path / "ai" / "line_state.json")
+    monkeypatch.setattr("scanner.line_actions.STATUS", tmp_path / "status.json")
     d = {"version": 1, "created_at": "2026-11-04T17:12:00+09:00", "base_day": "2026-11-04", "summary": "テスト",
          "orders": [{"side": "sell", "code": "1111", "shares": 1000, "price": 1000, "confidence": "高", "reason": "警告"},
                     {"side": "buy", "code": "4445", "name": "リビンT", "shares": 600, "unit": 100, "price": 1665,
@@ -283,7 +285,7 @@ def test_ai_decision_apply(tmp_path, monkeypatch):
     assert "# コメント" in h.read_text(encoding="utf-8")
     # 2回目は取り込まない
     assert AD.apply_all(now=datetime(2026, 11, 4, 17, 30, tzinfo=JST), send_line=False) == []
-    assert "買い：4445 リビンT 600株" in AD.line_text(d)
+    assert "買い：4445 リビンT 6単位（600株）" in AD.line_text(d)
 
 
 def test_track(tmp_path, monkeypatch):
@@ -293,6 +295,7 @@ def test_track(tmp_path, monkeypatch):
     from scanner.sources.nse_prices import Quote
 
     monkeypatch.setattr(T, "RECS", tmp_path / "recs.json")
+    monkeypatch.setattr("scanner.render_ai.load", lambda: None)  # リポジトリの本物のAIの判断を使わない
     a_tag = vars(C.Tag(C.A, "上方修正", 60, ""))
     card = Card(code="1111", name="テスト", single=False, division="", unit=100, category=C.A, score=60,
                 items=[Item("16:00", "11/02", "t", "", [a_tag])], price=1000, shares=3000)
@@ -386,13 +389,16 @@ def test_apply_test_mode_keeps_portfolio(tmp_path, monkeypatch):
     monkeypatch.setattr(AD, "TEST_DIR", dec / "test")
     for k in ("LATEST", "APPLIED", "HISTORY"):
         monkeypatch.setattr(AD, k, tmp_path / "ai" / getattr(AD, k).name)
+    monkeypatch.setattr("scanner.line_actions.STATE", tmp_path / "ai" / "line_state.json")
+    monkeypatch.setattr("scanner.line_actions.STATUS", tmp_path / "status.json")
+    monkeypatch.setattr("scanner.line_actions.write_status", lambda pf=None: None)
     h, c = tmp_path / "holdings.csv", tmp_path / "cash.csv"
     h.write_text("code,shares,buy_price,buy_date,memo\n", encoding="utf-8")
     c.write_text("key,value\ncash,3000000\n", encoding="utf-8")
     monkeypatch.setattr(P, "HOLDINGS_CSV", h)
     monkeypatch.setattr(P, "CASH_CSV", c)
     sent = []
-    monkeypatch.setattr("scanner.notify.send", lambda text, kind: sent.append(text) or "LINEに送信しました")
+    monkeypatch.setattr("scanner.notify.send", lambda text, kind, extra=None: sent.append(text) or "LINEに送信しました")
     d = {"version": 1, "created_at": "2026-11-03T04:00:00+09:00", "base_day": "2026-11-02", "test": True,
          "summary": "テスト", "orders": [{"side": "buy", "code": "4445", "name": "X", "shares": 100, "unit": 100,
                                           "price": 1665, "confidence": "高", "reason": "r"}]}
@@ -414,3 +420,97 @@ def test_apply_test_mode_keeps_portfolio(tmp_path, monkeypatch):
     AD.apply_all(now=datetime(2026, 11, 3, 21, 30, tzinfo=JST))
     assert "4445" in h.read_text() and "2833500" in c.read_text()
     assert sent[-1].startswith("【AIの結論】")
+
+
+def test_line_parse_orders():
+    from scanner.line_actions import parse_orders
+
+    known = {"4445", "6999", "285A"}
+    assert parse_orders("買い 4445 1000", known) == [{"side": "buy", "code": "4445", "shares": 1000, "price": None}]
+    assert parse_orders("売り 6999 全部", known) == [{"side": "sell", "code": "6999", "shares": "all", "price": None}]
+    assert parse_orders("４４４５を１，０００株買った　１６６５円", known) == [
+        {"side": "buy", "code": "4445", "shares": 1000, "price": 1665.0}]
+    assert parse_orders("6999 全部売り、買い 285A 2千", known) == [
+        {"side": "sell", "code": "6999", "shares": "all", "price": None},
+        {"side": "buy", "code": "285A", "shares": 2000, "price": None}]
+    assert parse_orders("買 4445 1000株 @1700", known)[0]["price"] == 1700.0
+    assert parse_orders("買い 4445 18単位", known)[0]["shares"] == 18 * __import__("scanner.units", fromlist=["x"]).unit_of("4445")
+    assert parse_orders("こんにちは", known) == []
+    assert parse_orders("残高", known) == []
+
+
+def test_line_buttons_flow(tmp_path, monkeypatch):
+    import json as _json
+
+    from scanner import ai_decision as AD
+    from scanner import line_actions as L
+    from scanner import portfolio as P
+    from scanner.sources.nse_list import Listing
+    from scanner.sources.nse_prices import Quote
+
+    h = tmp_path / "holdings.csv"
+    h.write_text("code,shares,buy_price,buy_date,memo\n6999,1000,1950,2026-10-30\n", encoding="utf-8")
+    c = tmp_path / "cash.csv"
+    c.write_text("key,value,memo\ncash,1000000,\n", encoding="utf-8")
+    dec = tmp_path / "decisions"
+    dec.mkdir()
+    for mod, attr, val in ((P, "HOLDINGS_CSV", h), (P, "CASH_CSV", c), (AD, "DECISIONS", dec),
+                           (AD, "LATEST", tmp_path / "latest.json"), (AD, "APPLIED", tmp_path / "applied.json"),
+                           (AD, "HISTORY", tmp_path / "history.jsonl"), (L, "STATE", tmp_path / "state.json"),
+                           (L, "STATUS", tmp_path / "status.json")):
+        monkeypatch.setattr(mod, attr, val)
+    monkeypatch.setattr(L, "short_status", lambda pf=None: "保有：（省略）")
+    monkeypatch.setattr(L, "write_status", lambda pf=None: None)
+    monkeypatch.setattr(L, "latest_quotes", lambda base: {"7203": Quote("7203", "トヨタ", quote=3000)})
+    uni = {k: Listing(k, k, False, "", 100, "") for k in ("6999", "4445", "7203")}
+    monkeypatch.setattr("scanner.sources.nse_list.load", lambda refresh=False: (uni, None))
+    sent = []
+    monkeypatch.setattr("scanner.notify.send", lambda text, kind, extra=None: sent.append((text, extra)) or "LINEに送信しました")
+    d = {"version": 1, "created_at": "2026-11-04T21:20:00+09:00", "base_day": "2026-11-04", "summary": "t",
+         "orders": [{"side": "sell", "code": "6999", "shares": 1000, "price": 2000, "confidence": "高", "reason": "r"},
+                    {"side": "buy", "code": "4445", "shares": 600, "unit": 100, "price": 1665, "confidence": "中", "reason": "r"}]}
+    (dec / "2026-11-04-2120.json").write_text(_json.dumps(d), encoding="utf-8")
+    now = datetime(2026, 11, 4, 21, 25, tzinfo=JST)
+    AD.apply_all(now=now)
+    assert sent[-1][1] is None  # 中継役がまだ動いていないときはボタンを付けない
+    L.save_state({**L.load_state(), "enabled": True})
+    (dec / "2026-11-04-2120.json").rename(dec / "2026-11-04-2121.json")
+    d["id"] = "2026-11-04-2121"
+    rows_before = h.read_text(encoding="utf-8")
+    h.write_text("code,shares,buy_price,buy_date,memo\n6999,1000,1950,2026-10-30\n", encoding="utf-8")
+    c.write_text("key,value,memo\ncash,1000000,\n", encoding="utf-8")
+    AD.apply_all(now=now)
+    btn = sent[-1][1][0]
+    assert btn["type"] == "template" and len(btn["template"]["actions"]) == 3
+    after_ai = h.read_text(encoding="utf-8")
+    assert "4445,600" in after_ai and "6999" not in after_ai.split("\n", 1)[1]
+    # 注文しなかった → 取り消し（元に戻る）
+    r = L.process({"type": "postback", "data": "act=none&id=2026-11-04-2121", "event_id": "e1"}, now)
+    assert r["changed"] and "取り消し" in r["text"]
+    assert "6999,1000,1950" in h.read_text(encoding="utf-8") and "4445" not in h.read_text(encoding="utf-8")
+    assert "cash,1000000" in c.read_text(encoding="utf-8")
+    # 同じイベントは2回処理しない
+    assert L.process({"type": "postback", "data": "act=none&id=2026-11-04-2121", "event_id": "e1"}, now)["text"] == ""
+    # 指示どおり注文した → もう一度記録
+    r = L.process({"type": "postback", "data": "act=done&id=2026-11-04-2121", "event_id": "e2"}, now)
+    assert r["changed"] and "4445,600" in h.read_text(encoding="utf-8")
+    # 別の注文をした → 取り消して返信待ち → 「買い 7203 300」（値段なし＝終値）
+    r = L.process({"type": "postback", "data": "act=other&id=2026-11-04-2121", "event_id": "e3"}, now)
+    assert "返信してください" in r["text"] and "4445" not in h.read_text(encoding="utf-8")
+    r = L.process({"type": "text", "text": "売り 6999 全部\n買い 7203 300", "event_id": "e4"}, now)
+    txt = h.read_text(encoding="utf-8")
+    assert r["changed"] and "7203,300,3000,2026-11-04,LINE" in txt and "6999" not in txt.split("\n", 1)[1]
+    # 現金：100万 − 6999の売りはAIの値段2000円で 200万 → 300万 − 7203 300株×3000円 = 210万
+    assert "cash,2100000" in c.read_text(encoding="utf-8")
+    assert "読み取れません" in L.process({"type": "text", "text": "よろしく", "event_id": "e5"}, now)["text"]
+
+
+def test_units_format(monkeypatch):
+    from scanner import units as U
+
+    monkeypatch.setattr(U, "_units", lambda: {"4445": 100, "1553": 10, "1319": 1000})
+    assert U.fmt("4445", 1800) == "18単位（1,800株）"
+    assert U.fmt("1553", 50) == "5単位（50株）"
+    assert U.fmt("1319", 3000) == "3単位（3,000株）"
+    assert "整数倍ではありません" in U.fmt("4445", 150)
+    assert U.fmt("9999", 300, 100) == "3単位（300株）"  # 一覧にないときは渡された単位

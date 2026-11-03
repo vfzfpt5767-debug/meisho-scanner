@@ -223,3 +223,19 @@ M. 検証モード：取得できる範囲の過去データ（できれば全�
 - D：scanner/ai_decision.py apply が holdings.csv・cash.csv を更新（締切後の判断は記録しない）。
 - E：scanner/track.py（data/track/recs.json、data/live_adjust.json）。
 - F：AIプロンプトでデータ欠落時にWeb検索で補う。各ワークフローの失敗時・AI起動失敗時・AIの判断が来ないときにLINE。
+
+---
+
+# Phase 5（2026-11-03 指示）：記録をLINEのボタンだけで済ませる＋マージ作業をなくす
+1. マージをなくす：テストが全部通ったら main に直接push（作業ブランチとマージは不要）。戻せるよう変更ごとにわかりやすい説明を付ける。
+2. 記録をLINEで済ませる：AIの「今夜の注文」のLINEにボタン［指示どおり注文した］［注文しなかった］［別の注文をした］。指示どおり→自動記録のまま、注文しなかった→その夜の自動記録を取り消す、別の注文→「買い 4445 1000」「売り 6999 全部」のような返信で holdings.csv・cash.csv を直す（書き方が多少違っても読む）。記録したら「記録しました：保有○○、現金○○円」と返事。23:30以降の「参考」の指示もボタンで記録できる。中継役は無料で作業が少ない方法。秘密情報は安全な場所に。設定手順はスマホで画面ごとに。
+3. LINEで「残高」→ 保有・現金・評価額・今タームの残り購入枠を返す。
+4. 注文の指示は「単位」で書く（例「18単位（1,800株）」）。売買単位は名証の一覧の値。
+
+## Phase 5 実施メモ
+- 中継役：Cloudflare Workers（worker/line-webhook.js）。署名確認（チャネルシークレット）・本人（LINE_USER_ID）以外は無視。「残高」は GitHub API で data/status.json を読んで即返信（返信メッセージは無料）。ボタン・注文の返信は repository_dispatch（event_type=line-event）で GitHub Actions へ。秘密情報は Cloudflare のシークレットに保存。GitHub の fine-grained token は meisho-scanner の Contents: Read and write だけ・期限 2026-12-31。Google Apps Script は届いた合図の署名ヘッダーを読めないので不採用。
+- line-event.yml → `python -m scanner.line_actions process`（PAYLOAD）→ holdings.csv・cash.csv・data/ai/line_state.json を main に保存 → `send` で結果をLINE → 変更があれば scan を起動。
+- 取り消しは「差分」（記録の前後の行と現金の差）で行うので、あとから別の記録があってもその注文の分だけ戻る。ボタン導入前の注文は「AI <id>」のメモの行で戻す（売りは戻せない）。
+- ボタンは、中継役から一度でもイベントが届いた後（line_state.enabled）だけ付ける（設定前に押しても何も起きないのを避けるため）。「ボタン」と送ると最新の注文のボタンを再送。
+- data/status.json（「残高」の返事）は scan・AIの取り込み・LINEの記録のたびに作り直す。
+- 単位：scanner/units.py（data/universe.json の売買単位）。LINE・ページ・保有・残高で「18単位（1,800株）」。返信の「10単位」も読む。

@@ -5,6 +5,7 @@ import json
 from datetime import datetime
 from html import escape
 
+from .units import fmt as ufmt
 from .ai_decision import LATEST
 from .config import GITHUB_BRANCH, GITHUB_REPOSITORY
 
@@ -39,7 +40,7 @@ def box(base_day: str) -> str:
         links = " ".join(f'<a href="{escape(u)}" target="_blank" rel="noopener">根拠{i + 1}</a>'
                          for i, u in enumerate(o.get("links", [])[:3]))
         orders += (f'<li class="{cls}"><b>{side}：{escape(str(o["code"]))} {escape(o.get("name", ""))} '
-                   f'{int(o["shares"]):,}株</b>（今日の終値 {float(o["price"]):,.0f}円・合計 {int(o["shares"]) * float(o["price"]):,.0f}円）'
+                   f'{escape(ufmt(o["code"], o["shares"], o.get("unit")))}</b>（今日の終値 {float(o["price"]):,.0f}円・合計 {int(o["shares"]) * float(o["price"]):,.0f}円）'
                    f' 自信度：{escape(o.get("confidence", ""))}<br><span class="sub">{escape(o.get("reason", ""))} {links}</span></li>')
     if not orders:
         orders = "<li>今夜は注文なし（見送り）</li>"
