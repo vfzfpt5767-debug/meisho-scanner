@@ -1,7 +1,28 @@
 {
- "decisions": {},
+ "decisions": {
+  "2026-11-03-2229": {
+   "status": "confirmed",
+   "mode": "record",
+   "base_day": "2026-11-02",
+   "patch": {
+    "removed": [],
+    "added": [
+     [
+      "4445",
+      "1800",
+      "1665",
+      "2026-11-02",
+      "AI 2026-11-03-2229"
+     ]
+    ],
+    "cash_delta": -2997000.0,
+    "legacy_note": ""
+   }
+  }
+ },
  "seen": [
-  "01M6GXR7EJXZ9XR7HAHF1A95V2"
+  "01M6GXR7EJXZ9XR7HAHF1A95V2",
+  "01M6GXSTM5S7Y555P1QVQ4QEW7"
  ],
  "manual": [],
  "awaiting": null,
