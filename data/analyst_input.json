@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-03T03:29:43.691266+09:00",
+ "generated_at": "2026-11-03T22:32:39.037855+09:00",
  "base_day": "2026-11-02",
  "deadline": "2026-11-04T07:59:00+09:00",
  "price_source": "名証 日報",
@@ -154,13 +154,31 @@
  "tob_tracker": [],
  "errors": [],
  "portfolio": {
-  "cash": 3000000.0,
+  "cash": 3000.0,
   "total": 3000000.0,
   "profit": 0.0,
-  "term_left": 3000000,
+  "term_left": 3000.0,
   "term_open": true,
   "single_bought": false,
-  "holdings": []
+  "holdings": [
+   {
+    "code": "4445",
+    "name": "リビン・テクノロジーズ",
+    "shares": 1800,
+    "buy_price": 1665.0,
+    "buy_date": "2026-11-02",
+    "price": 1665.0,
+    "pnl_pct": 0.0,
+    "single": false,
+    "quote_only": true,
+    "unit": 100,
+    "warnings": [],
+    "cautions": [
+     "要確認の開示：業績予想の修正"
+    ],
+    "sell_rule": ""
+   }
+  ]
  },
  "new_listings": [
   {
