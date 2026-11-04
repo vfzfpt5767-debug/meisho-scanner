@@ -18,6 +18,16 @@
     "cash_delta": -2997000.0,
     "legacy_note": ""
    }
+  },
+  "2026-11-04-2213": {
+   "status": "recorded",
+   "mode": "record",
+   "patch": {
+    "removed": [],
+    "added": [],
+    "cash_delta": 0.0
+   },
+   "base_day": "2026-11-04"
   }
  },
  "seen": [
