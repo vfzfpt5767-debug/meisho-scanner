@@ -8,6 +8,10 @@
 //    「受け付けました」とすぐ返事する。記録が終わると GitHub Actions から「記録しました：…」が届く
 // 5. それ以外 → 使い方を返事する
 //
+// 6. 定時起動（Cron Triggers）：5分ごとに Cloudflare が scheduled() を呼ぶ。日本時間の決まった時刻だけ、
+//    GitHub の scan（と 22:30 の ai-watch）を repository_dispatch で起動する（GitHub の時刻指定が遅れるため）。
+//    Cloudflare の設定：Worker →「設定」→「トリガー」→「Cron トリガー」に「*/5 * * * *」を1つ追加するだけ。
+//
 // Cloudflare の「設定 → 変数とシークレット」に入れるもの（すべて「シークレット」の種類で）：
 //   LINE_CHANNEL_SECRET        … LINE Developers の「チャネル基本設定」の「チャネルシークレット」
 //   LINE_CHANNEL_ACCESS_TOKEN  … GitHub Secrets に入れたものと同じ「チャネルアクセストークン（長期）」
@@ -17,7 +21,15 @@
 
 const HELP = "使える言葉：\n・残高\n・買い 4445 10単位（または 1000株。値段を書かなければ、その日の終値で記録）\n・売り 6999 全部\n・買い 4445 10単位 1665円\n・ボタン（いちばん新しいAIの注文のボタンをもう一度出す）";
 
+// 定時起動する日本時間（平日＝月〜金。休業日（祝日など）かどうかは GitHub 側で判定して、休業日はスキャンしない）
+const SCAN_SLOTS = ["06:20", "07:05", "16:10", "17:10", "18:40", "20:40", "20:55", "22:40"];
+const WATCH_SLOTS = ["22:30"]; // 毎日（祝日・土日も）：21:15 のAIの判断が届いたか確認
+
 export default {
+  async scheduled(event, env, ctx) {
+    ctx.waitUntil(runSchedule(new Date(event.scheduledTime), env));
+  },
+
   async fetch(request, env) {
     if (request.method !== "POST") return new Response("ok"); // ブラウザで開いたとき用
     const body = await request.text();
@@ -111,4 +123,33 @@ async function readStatus(env) {
   } catch {
     return "残高の情報を読めませんでした。";
   }
+}
+
+// 日本時間の「曜日（0=日）」と「HH:MM」
+function jstParts(d) {
+  const j = new Date(d.getTime() + 9 * 3600 * 1000);
+  const hh = String(j.getUTCHours()).padStart(2, "0");
+  const mm = String(j.getUTCMinutes()).padStart(2, "0");
+  return { dow: j.getUTCDay(), hm: `${hh}:${mm}`, ymd: j.toISOString().slice(0, 10) };
+}
+
+async function runSchedule(when, env) {
+  const { dow, hm, ymd } = jstParts(when);
+  const weekday = dow >= 1 && dow <= 5;
+  if (weekday && SCAN_SLOTS.includes(hm)) {
+    await dispatchType(env, "scan", { source: "cloudflare-cron", slot: `${ymd} ${hm}` });
+  }
+  if (WATCH_SLOTS.includes(hm)) {
+    await dispatchType(env, "ai-watch", { source: "cloudflare-cron", slot: `${ymd} ${hm}` });
+  }
+}
+
+async function dispatchType(env, eventType, payload) {
+  const r = await gh(env, "/dispatches", {
+    method: "POST",
+    headers: { Accept: "application/vnd.github+json", "Content-Type": "application/json" },
+    body: JSON.stringify({ event_type: eventType, client_payload: payload }),
+  });
+  if (r.status !== 204) console.log(`dispatch ${eventType} failed: HTTP ${r.status}`);
+  return r.status;
 }

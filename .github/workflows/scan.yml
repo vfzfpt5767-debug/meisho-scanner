@@ -4,7 +4,10 @@
 #   朝レポート 6:20 JST = 21:20 UTC / 7:05 JST = 22:05 UTC（UTCでは前日）
 # 土日は cron で除外。祝日・年末年始はスクリプト側（scanner.calendar_jp）で判定して実行しない。
 # 手動実行（Actions タブの「Run workflow」）なら休業日でも実行する。
-# ※ GitHub の都合で、予定時刻から数分〜数十分遅れることがある。
+# ※ GitHub の都合で、予定時刻から数分〜数時間遅れることがある（2026-11-04 は16:10〜20:40が1回も動かなかった）。
+#   そのため本番の起動は Cloudflare Worker（worker/line-webhook.js の scheduled()）が repository_dispatch（event_type=scan）で行う。
+#   ここの schedule は予備。同じタームで何回動いても、LINE・AIの起動は重複しないようになっている。
+#   20:55 JST（11:55 UTC）は、21:15 のAIアナリストの前に入力を新しくするための回。
 name: scan
 
 on:
@@ -13,10 +16,13 @@ on:
     - cron: "10 8 * * 1-5"
     - cron: "40 9 * * 1-5"
     - cron: "40 11 * * 1-5"
+    - cron: "55 11 * * 1-5"
     - cron: "40 13 * * 1-5"
     # 朝レポート 6:20 JST = 21:20 UTC（前日）/ 7:05 JST = 22:05 UTC（前日）。日〜木のUTC＝月〜金のJST
     - cron: "20 21 * * 0-4"
     - cron: "5 22 * * 0-4"
+  repository_dispatch:
+    types: [scan]  # Cloudflare Worker の定時起動（時刻指定と同じ扱い：休業日は動かさない）
   workflow_dispatch:
     inputs:
       skip_ai:
@@ -53,7 +59,8 @@ jobs:
 
       - name: 営業日チェック
         id: cal
-        run: python -m scanner.calendar_jp --event "${{ github.event_name }}" | tee -a "$GITHUB_OUTPUT"
+        # Cloudflare からの定時起動（repository_dispatch）は schedule と同じ扱い（休業日はスキャンしない）
+        run: python -m scanner.calendar_jp --event "${{ github.event_name == 'repository_dispatch' && 'schedule' || github.event_name }}" | tee -a "$GITHUB_OUTPUT"
 
       - name: スキャン実行
         if: steps.cal.outputs.run == 'true'
