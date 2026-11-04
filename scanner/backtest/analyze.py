@@ -176,6 +176,48 @@ def holding_rules(groups: list[dict], series: dict[str, Series]) -> dict:
     return out
 
 
+EXIT_GROUPS = ["TOB（S）", "上方修正", "優待新設・拡充", "増配", "株式分割", "自社株買い", "配当予想の修正",
+               "株主還元方針の変更", "業績予想の修正", "好材料・要確認（全体）"]
+EXIT_DAYS = [1, 2, 3, 5]
+
+
+def exit_rules(groups: list[dict], series: dict[str, Series]) -> dict:
+    """ストップ高にならなかった銘柄（翌日にストップ高張り付きにならなかったもの）は何日目の終値で売るのがよいか。
+
+    開示の直前の終値で買い、1・2・3・5営業日後の終値で売った場合を、材料ごとに比べる。
+    基本は翌日（1営業日後）の終値。後の日の平均が翌日より0.5%以上高く、中央値も翌日以上のときだけ後の日にする
+    （長く持つと、その間は次の候補を買うお金が減るため）。件数30未満の材料は「好材料・要確認（全体）」を使う。
+    5営業日で60%以上下がるのは値幅制限の上ありえないので、株式分割などのデータの調整とみなして除く。
+    """
+    acc = {g: {k: [] for k in EXIT_DAYS} for g in EXIT_GROUPS}
+    for g in groups:
+        cats = {t.cat for t in g["tags"]}
+        lbs = {t.label for t in g["tags"]}
+        s, i = series[g["code"]], g["pos"]
+        if i + 1 >= len(s.c) or s.stuck_high(i + 1):
+            continue  # 翌日にストップ高張り付き → 別のルール（張り付きが続く間は持つ）
+        targets = [x for x in EXIT_GROUPS[:-1] if (x == "TOB（S）" and "S" in cats) or x in lbs]
+        if cats & {"S", "A", "CHECK"} and "BAD" not in cats:
+            targets.append("好材料・要確認（全体）")
+        rets = {k: s.ret(i, i + k) for k in EXIT_DAYS}
+        if any(r is not None and r < -0.6 for r in rets.values()):
+            continue
+        for x in targets:
+            for k in EXIT_DAYS:
+                acc[x][k].append(rets[k])
+    out = {}
+    for x, d in acc.items():
+        st = {f"d{k}": _stats(v) for k, v in d.items()}
+        n = st["d1"].get("n", 0)
+        best = "d1"
+        for k in EXIT_DAYS[1:]:
+            v, b = st[f"d{k}"], st["d1"]
+            if v.get("n") and v["mean"] >= b["mean"] + 0.5 and v["median"] >= b["median"] and v["mean"] > st[best]["mean"]:
+                best = f"d{k}"
+        out[x] = {"rules": st, "best": best if n else "", "best_days": int(best[1:]) if n else 0, "n": n}
+    return out
+
+
 def tob_day2(groups: list[dict], series: dict[str, Series]) -> dict:
     """TOB発表の翌日にストップ高張り付きで引けた銘柄を、その値段で買った場合。"""
     r_next, r_follow, n_tob, n_stuck = [], [], 0, 0
@@ -375,6 +417,7 @@ def main() -> None:
     d = analyze_disclosures(series)
     hold = holding_rules(d["groups"], series)
     t2 = tob_day2(d["groups"], series)
+    ex = exit_rules(d["groups"], series)
     sh = stop_high(series, d["markets_of"])
     fu = futures(prices)
     nse = nse_period()
@@ -386,7 +429,7 @@ def main() -> None:
     result = {"period": f"{fmt(days[0])}〜{fmt(days[-1])}" if days else "",
               "generated": now_jst().strftime("%Y-%m-%d %H:%M JST"), "min_n": MIN_N,
               "disclosures": {"labels": d["labels"], "cats": d["cats"], "n_groups": d["n_groups"]},
-              "holding": hold, "tob_day2": t2, "stop_high": sh, "futures": fu, "nse": nse, "weights": w}
+              "holding": hold, "exit_rules": ex, "tob_day2": t2, "stop_high": sh, "futures": fu, "nse": nse, "weights": w}
     (REPORTS / "backtest.json").write_text(json.dumps(result, ensure_ascii=False, indent=1), encoding="utf-8")
     WEIGHTS.write_text(json.dumps(w, ensure_ascii=False, indent=1), encoding="utf-8")
     md = markdown(result)
@@ -453,6 +496,18 @@ def markdown(r: dict) -> str:
         for k, st in v["rules"].items():
             mark = " **← 一番よい（平均）**" if k == v["best"] else ""
             L.append(f"| {target} | {RULES[k]}{mark} | {_f(st)} |")
+    ex = r.get("exit_rules") or {}
+    if ex:
+        L += ["", "## 4-2. ストップ高にならなかった銘柄の売り時（何日目の終値で売るか）", "",
+              "翌日にストップ高張り付きにならなかった銘柄だけで、開示の直前の終値で買い、1・2・3・5営業日後の終値で売った場合を比べた。"
+              "基本は翌日の終値で売る。後の日の平均が翌日より0.5%以上高く、中央値も翌日以上のときだけ後の日にする"
+              "（長く持つと、その間は次の候補を買うお金が減るため）。件数30未満の材料は「好材料・要確認（全体）」の売り時を使う。"
+              "5営業日で60%以上の下落は株式分割などのデータの調整とみなして除いた。", "",
+              f"| 材料 | 売る日 | {HEAD_FULL} |", f"|---|---|{SEP_FULL}|"]
+        for x, v in ex.items():
+            for k in EXIT_DAYS:
+                mark = " **← 売り時**" if v["best"] == f"d{k}" else ""
+                L.append(f"| {x}{_ref(v['rules']['d1'], mn)} | {k}営業日後の終値{mark} | {_f(v['rules'][f'd{k}'])} |")
     t2 = r["tob_day2"]
     L += ["", "## 5. TOBの2日目", "",
           f"TOB発表（{t2['n_tob']}件）のうち、発表翌日にストップ高張り付きで引けたのは{t2['n_stuck_next_day']}件。その張り付き値段で買った場合：", "",
