@@ -243,3 +243,9 @@ M. 検証モード：取得できる範囲の過去データ（できれば全�
 ## 2026-11-04 修正：AIの二重起動をなくす
 - 経緯：11/3夜、22:29の判断を取り込んだ後のページ作り直しのスキャンが、同じ候補（2327・2806・4445）でAIをもう一度起動し、22:33に「追加なし」の判断が来た（21:15の定時起動で調べた候補は、臨時起動の記録 data/ai/fire_state.json に入っていなかったため）。
 - 対応：① ai-decision・line-event からのページ作り直しは `gh workflow run scan.yml -f skip_ai=true` で起動し、scan はAIを起動しない（SKIP_AI）。② AIの判断を取り込んだとき、そのときの入力の候補（S・A・要確認・保有警告）を fire_state の「調べ済み」に入れる（ai_input.mark_handled）。新しい開示が出たときの臨時起動（1晩3回まで）はそのまま。
+
+## 2026-11-04 修正：時刻指定の遅れとAIの空振り
+- 経緯：11/4 は GitHub Actions の schedule が数時間遅れ、16:10〜20:40 のスキャンが1回も動かず、21:15 のAIは古い入力（base_day=11/02、input_mismatch=true）で起動し、52秒で判断ファイルを出さずに終わった。
+- 対応1（起動）：Cloudflare Worker（meisho-line2）の Cron Triggers（`*/5 * * * *`）→ worker の scheduled() が日本時間の決まった時刻（平日 6:20・7:05・16:10・17:10・18:40・20:40・20:55・22:40）に repository_dispatch（event_type=scan）、毎日 22:30 に ai-watch を起動。scan.yml は repository_dispatch を schedule と同じ扱い（休業日はスキャンしない）。GitHub の schedule は予備（20:55 も追加）。二重に動いても LINE・AIの起動は重複しない。
+- 対応2（AI）：preflight が input_mismatch のとき `next=` で手順を出す。AIは `request-scan`（claude/scan-request に push → scan-request.yml → scan を skip_ai=true で起動）→ `wait-input`（最長約100秒×最大6回）→ 入力を取り直して判断。だめなら `skip --reason …` で「今夜は見送り」を作って push（必ずLINEが1通届く）。push は `publish` で行う。何かで判断を書けないときも `skip` を使う。
+- 予備の網：ai-watch（22:30）は、今夜の判断がなければAIをもう一度起動し、LINEで知らせる（21:45〜23:30の間だけ。知らせた記録を main に保存して二重にしない）。

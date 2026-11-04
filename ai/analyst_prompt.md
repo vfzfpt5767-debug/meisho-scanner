@@ -32,7 +32,12 @@
    - 祝日・休日でも、締切前のタームが開いていれば（`term_open=true`）そのタームの判断をする。次の営業日の朝に回さない。
    - JSON の `base_day` と `deadline` には `use_base_day` と `use_deadline` を使う。`output=` が出力ファイル名（拡張子なし）。
    - `term_decision=` は、このタームにすでに出して取り込まれた判断。記録済みの注文は保有（`portfolio`）に入っている。**同じ注文をくり返さず**、今夜の注文は記録済みに追加する分だけを書く。追加がなければ `orders: []`、`summary` は「今夜は追加の注文なし（記録済み：〇〇）」のように書く。
-   - `input_mismatch=true` または `input_error` があれば、データが今のタームのものではないので注文は出さず、`summary` を「今夜は見送り（スキャンのデータが取れていない）」にし、`data_gaps` に書く。
+   - **`input_mismatch=true`（入力が古い）のとき**は、ここで終わらずに次の手順をこの順で必ず行う（2026-11-04 に、ここで何も出さずに終わってしまい、LINEが届かなかったため）：
+     1. `python -m scanner.ai_decision request-scan`（スキャンを頼む。2〜4分で main の入力が新しくなる）
+     2. `python -m scanner.ai_decision wait-input`（最長約100秒待つ。Bash のタイムアウトは150秒以上にする）。exit 0（`OK …`）になるまで**最大6回**くり返す。
+     3. OK になったら、準備の1（入力を `/tmp/input.json` に取り直す）と2（事前チェック）からやり直し、ふつうに判断する。
+     4. 6回待っても `WAIT …` のままなら、`python -m scanner.ai_decision skip --reason "スキャンのデータが取れていない"` を実行して終わる（「今夜は見送り」の判断ファイルを作って push まで行う。これで必ずLINEが1通届く）。
+   - `input_error`（入力が読めない）のときも、上の1〜4と同じ手順にする。
    - `recorded=false` なら、この判断は参考として送られる（保有には記録されない）。`notes` にそう書く。
    - 入力が18時間以上前（`input_age_hours`）なら `data_gaps` に書き、Web検索で補える範囲だけで判断する。
    - テストモードは休業日でも締切後でも最後まで判断する（入力の `base_day`＝直近の営業日のデータを使う）。
@@ -86,7 +91,8 @@
    - テストモードでは `"test": true` を加える（取り込み時に holdings.csv・cash.csv・ページを変えず、LINEに「【テスト】AIの結論」を送るだけになる）。
 2. 同じ内容を人が読める形で、同じ名前の `.md` に書く（結論・注文・理由・根拠リンク・見送り）。
 3. 形式チェック：`python -m scanner.ai_decision validate （JSONのパス）` を実行し、OK になるまで直す。
-4. push：
+4. push：`python -m scanner.ai_decision publish （JSONのパス）`（同じ名前の `.md` も一緒に、main の最新の上に載せて `claude/ai-decisions` に push する。`push しました` と出れば完了）。
+   うまくいかないときだけ、次の手作業で push する：
 ```bash
 git fetch origin main
 git stash -u || true
@@ -97,3 +103,8 @@ git commit -m "AI decision YYYY-MM-DD HH:MM"   # テストモードは "AI decis
 git push -f origin claude/ai-decisions
 ```
 5. 最後に、結論を3行以内で答えて終わる。
+
+# 何があっても判断を1つ出す（本番で result=GO のとき）
+- 調査の途中でエラーが出た・Web検索ができない・時間が足りない、などで判断ファイルを書けないときは、終わる前に必ず
+  `python -m scanner.ai_decision skip --reason "（何が起きたかを短く）"` を実行する（見送りの判断ファイルを作って push する）。
+- 終わる前に、`push しました` が表示されたことを確かめる。表示されていなければ、まだ終わらない。

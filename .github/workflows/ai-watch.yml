@@ -1,15 +1,17 @@
-# 毎晩 22:30 JST（= 13:30 UTC）：21:15 のAIアナリストの判断が届いていなければ、LINEで1回知らせる。
+# 毎晩 22:30 JST（= 13:30 UTC）：21:15 のAIアナリストの判断が届いていなければ、AIをもう一度起動し、LINEで1回知らせる。
 # 祝日・休日も動く（注文締切前のタームが開いていれば確認する）。
 # ※ GitHub の都合で、予定時刻から数分〜数十分遅れることがある。
 name: ai-watch
 
 on:
   schedule:
-    - cron: "30 13 * * *"
+    - cron: "30 13 * * *"  # 予備。本番は Cloudflare Worker の定時起動（repository_dispatch: ai-watch）
+  repository_dispatch:
+    types: [ai-watch]
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   watch:
@@ -26,4 +28,19 @@ jobs:
         env:
           LINE_CHANNEL_ACCESS_TOKEN: ${{ secrets.LINE_CHANNEL_ACCESS_TOKEN }}
           LINE_USER_ID: ${{ secrets.LINE_USER_ID }}
+          ANALYST_FIRE_URL: ${{ secrets.ANALYST_FIRE_URL }}
+          ANALYST_FIRE_TOKEN: ${{ secrets.ANALYST_FIRE_TOKEN }}
         run: python -m scanner.ai_decision watch
+
+      - name: 知らせた記録を保存（同じ夜に二重に知らせない）
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data
+          if ! git diff --cached --quiet; then
+            git commit -q -m "ai-watch: $(TZ=Asia/Tokyo date '+%Y-%m-%d %H:%M') JST"
+            for i in 1 2 3; do
+              git pull -q --rebase origin main && git push -q origin HEAD:main && break
+              sleep 3
+            done
+          fi

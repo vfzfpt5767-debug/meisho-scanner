@@ -8,6 +8,10 @@
 それ以外（深夜・朝・昼）は「参考（起きていれば）」としてLINEで送るだけで、holdings.csv・cash.csv は変えない。
 
   python -m scanner.ai_decision watch                                      # Actions（22:30）：夜の判断が届いていなければLINE
+  python -m scanner.ai_decision request-scan                               # AI：入力が古いとき、スキャンを頼む
+  python -m scanner.ai_decision wait-input                                 # AI：入力が新しくなるまで最長100秒待つ（exit 0＝新しい／4＝まだ）
+  python -m scanner.ai_decision skip --reason "…"                         # AI：「今夜は見送り」を作って push（最後の手段）
+  python -m scanner.ai_decision publish decisions/….json                   # AI：判断ファイル（.md も）を push
 
 テストモード（decisions/test/*.json または "test": true）：
 - 形式チェックをして、LINEに「【テスト】AIの結論」を送るだけ
@@ -327,8 +331,12 @@ def preflight(input_path: Path, trigger: str, test: bool, now: datetime | None =
         except (KeyError, TypeError, ValueError):
             lines.append("input_age_hours=不明")
         if not test and d.get("base_day") != tb.isoformat():
-            lines.append("input_mismatch=true（入力が今のタームのものではない。スキャンが失敗している可能性。"
-                         "注文は出さず見送りにし、data_gaps に書く）")
+            lines.append("input_mismatch=true（入力が今のタームのものではない。スキャンが動いていない可能性）")
+            lines.append("next=入力が古いので、①`python -m scanner.ai_decision request-scan` でスキャンを頼み、"
+                         "②`python -m scanner.ai_decision wait-input` を exit 0 になるまで最大6回くり返し（1回約100秒）、"
+                         "③新しくなったら入力を取り直して preflight からやり直す。"
+                         "④6回待っても古いままなら `python -m scanner.ai_decision skip --reason \"スキャンのデータが取れていない\"` "
+                         "で見送りの判断を出して終わる（これで必ずLINEが1通届く）")
     if test:
         tb_s = d.get("base_day") or tb.isoformat()
         lines.append(f"use_base_day={tb_s}")
@@ -366,6 +374,9 @@ def watch(now: datetime | None = None, history_text: str | None = None) -> str:
     tb = base_day(now)
     if now > order_deadline(tb):
         return "注文できるタームの外なので確認しない"
+    t = now.time().replace(tzinfo=None)
+    if not (datetime.strptime("21:45", "%H:%M").time() <= t <= RECORD_UNTIL):
+        return "確認する時間（21:45〜23:30）の外なので何もしない（遅れて動いた予備の起動など）"
     since = datetime.combine(now.date(), AI_NIGHT_RUN, tzinfo=now.tzinfo) - timedelta(minutes=15)
     if history_text is None:
         history_text = HISTORY.read_text(encoding="utf-8") if HISTORY.exists() else ""
@@ -376,11 +387,165 @@ def watch(now: datetime | None = None, history_text: str | None = None) -> str:
                 return "今夜の判断は届いています"
         except (ValueError, KeyError, TypeError):
             continue
-    from .notify import notify_once
+    from .notify import already_sent, notify_once
 
-    return notify_once(f"ai_night_missing:{now.date()}",
-                       f"【名証スキャナー】{AI_NIGHT_RUN:%H:%M}のAIの判断が届いていません。今夜は見送るか、ページの"
-                       "「今夜の結論」を見て判断してください。claude.ai/code の実行履歴も確認してください。", "failure")
+    key = f"ai_night_missing:{now.date()}"
+    if already_sent(key):
+        return "今夜はすでに知らせて、AIの再起動も済んでいます"
+    # 予備：AIをもう一度起動する（入力が古ければ、AIがスキャンを頼んで待つ。23:30までに届けば保有に記録される）
+    refire = ""
+    try:
+        from .ai_fire import fire
+
+        ok, msg = fire(f"再起動：{AI_NIGHT_RUN:%H:%M}の定時起動の判断が {now:%H:%M} までに届いていないため。"
+                       "入力は main の data/analyst_input.json を使い、指示書どおり必ず判断ファイルを1つ出すこと。")
+        refire = "AIをもう一度起動しました（数分で判断が届くはずです）。" if ok else f"AIの再起動はできませんでした（{msg}）。"
+    except Exception as e:  # noqa: BLE001
+        refire = f"AIの再起動はできませんでした（{type(e).__name__}）。"
+    return notify_once(key,
+                       f"【名証スキャナー】{AI_NIGHT_RUN:%H:%M}のAIの判断が届いていません。{refire}"
+                       "届かなければ今夜は見送るか、ページの「今夜の結論」を見て判断してください。", "failure")
+
+
+SCAN_REQUEST_BRANCH = "claude/scan-request"
+DECISION_BRANCH = "claude/ai-decisions"
+
+
+def _git(*args: str, check: bool = True) -> str:
+    import subprocess
+
+    r = subprocess.run(["git", *args], cwd=ROOT, capture_output=True, text=True, timeout=120)
+    if check and r.returncode != 0:
+        raise RuntimeError(f"git {' '.join(args)} に失敗：{(r.stderr or r.stdout).strip()[:300]}")
+    return r.stdout
+
+
+def request_scan(now: datetime | None = None) -> str:
+    """claude/scan-request に push してスキャンを頼む（GitHub Actions の scan-request が main で scan を起動）。"""
+    import tempfile
+
+    from .calendar_jp import now_jst
+
+    now = now or now_jst()
+    _git("fetch", "-q", "origin", "main")
+    with tempfile.TemporaryDirectory() as tmp:
+        _git("worktree", "add", "-q", "-f", "--detach", tmp, "origin/main")
+        try:
+            req = Path(tmp) / "scan_requests" / "last.txt"
+            req.parent.mkdir(exist_ok=True)
+            req.write_text(f"{now.isoformat()} AIアナリストがスキャンを依頼\n", encoding="utf-8")
+            import subprocess
+
+            def g(*a):
+                r = subprocess.run(["git", "-C", tmp, *a], capture_output=True, text=True, timeout=120)
+                if r.returncode != 0:
+                    raise RuntimeError(f"git {' '.join(a)} に失敗：{(r.stderr or r.stdout).strip()[:300]}")
+            g("add", "scan_requests/last.txt")
+            g("-c", "user.name=AI analyst", "-c", "user.email=ai-analyst@users.noreply.github.com",
+              "commit", "-q", "-m", f"scan request {now:%Y-%m-%d %H:%M}")
+            for i in range(4):
+                try:
+                    g("push", "-q", "-f", "origin", f"HEAD:refs/heads/{SCAN_REQUEST_BRANCH}")
+                    break
+                except RuntimeError:
+                    if i == 3:
+                        raise
+                    import time
+
+                    time.sleep(2 ** (i + 1))
+        finally:
+            _git("worktree", "remove", "-f", tmp, check=False)
+    return f"スキャンを頼みました（{SCAN_REQUEST_BRANCH} に push）。2〜4分で main の入力が新しくなります"
+
+
+def wait_input(timeout: int = 100, interval: int = 20, now_fn=None) -> tuple[bool, str]:
+    """main の data/analyst_input.json が今のタームのものになるまで待つ（最長 timeout 秒）。"""
+    import time
+
+    from .calendar_jp import base_day, now_jst
+
+    now_fn = now_fn or now_jst
+    tb = base_day(now_fn()).isoformat()
+    end = time.monotonic() + timeout
+    last = ""
+    while True:
+        try:
+            _git("fetch", "-q", "origin", "main")
+            d = json.loads(_git("show", "origin/main:data/analyst_input.json"))
+            last = f"input_base_day={d.get('base_day')} generated_at={d.get('generated_at', '')[:16]}"
+            if d.get("base_day") == tb:
+                return True, f"OK 入力が新しくなりました（{last}）。入力を取り直して preflight からやり直してください"
+        except Exception as e:  # noqa: BLE001
+            last = f"読めませんでした：{e}"
+        if time.monotonic() + interval > end:
+            return False, f"WAIT まだ古いままです（{last}・今のターム {tb}）。もう一度 wait-input を実行してください"
+        time.sleep(interval)
+
+
+def make_skip(reason: str, trigger: str = "schedule", now: datetime | None = None) -> Path:
+    """「今夜は見送り」の判断ファイルを作る（入力が古い・取れないときの最後の手段）。"""
+    from .calendar_jp import base_day, now_jst, order_deadline
+
+    now = now or now_jst()
+    tb = base_day(now)
+    path = DECISIONS / f"{now:%Y-%m-%d-%H%M}.json"
+    d = {"version": 1, "created_at": now.isoformat(timespec="seconds"), "base_day": tb.isoformat(),
+         "deadline": order_deadline(tb).isoformat(), "trigger": trigger,
+         "summary": f"今夜は見送り（{reason}）", "orders": [], "skipped": [],
+         "notes": "AIアナリストが入力を確認できなかったため、注文を出さずに見送りにしました。ページの「今夜の結論」も確認してください。",
+         "data_gaps": [reason]}
+    errs = validate(d)
+    if errs:
+        raise ValueError("見送りの判断ファイルが形式チェックを通りません：" + " / ".join(errs))
+    DECISIONS.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps(d, ensure_ascii=False, indent=1), encoding="utf-8")
+    path.with_suffix(".md").write_text(f"# {d['summary']}\n\n- 理由：{reason}\n- 作成：{d['created_at']}\n", encoding="utf-8")
+    return path
+
+
+def publish(paths: list[Path]) -> str:
+    """判断ファイル（.json と .md）を claude/ai-decisions に push する（main の最新の上に載せる）。"""
+    import shutil
+    import tempfile
+
+    for p in paths:
+        if p.suffix == ".json":
+            errs = validate(json.loads(p.read_text(encoding="utf-8")))
+            if errs:
+                raise ValueError(f"{p.name} が形式チェックを通りません：" + " / ".join(errs))
+    _git("fetch", "-q", "origin", "main")
+    import subprocess
+
+    with tempfile.TemporaryDirectory() as tmp:
+        _git("worktree", "add", "-q", "-f", "--detach", tmp, "origin/main")
+        try:
+            def g(*a):
+                r = subprocess.run(["git", "-C", tmp, *a], capture_output=True, text=True, timeout=120)
+                if r.returncode != 0:
+                    raise RuntimeError(f"git {' '.join(a)} に失敗：{(r.stderr or r.stdout).strip()[:300]}")
+            files = []
+            for p in paths:
+                rel = p.resolve().relative_to(ROOT.resolve())
+                dst = Path(tmp) / rel
+                dst.parent.mkdir(parents=True, exist_ok=True)
+                shutil.copy2(p, dst)
+                files.append(str(rel))
+            g("add", *files)
+            g("-c", "user.name=AI analyst", "-c", "user.email=ai-analyst@users.noreply.github.com",
+              "commit", "-q", "-m", f"AI decision {paths[0].stem}")
+            for i in range(4):
+                try:
+                    g("push", "-q", "-f", "origin", f"HEAD:refs/heads/{DECISION_BRANCH}")
+                    break
+                except RuntimeError:
+                    if i == 3:
+                        raise
+                    import time
+
+                    time.sleep(2 ** (i + 1))
+        finally:
+            _git("worktree", "remove", "-f", tmp, check=False)
+    return f"push しました（{DECISION_BRANCH}）：" + "、".join(p.name for p in paths)
 
 
 def main() -> int:
@@ -403,6 +568,30 @@ def main() -> int:
         ok, lines = preflight(Path(a.input), a.trigger, a.test)
         print("\n".join(lines))
         return 0 if ok else 3
+    if len(sys.argv) >= 2 and sys.argv[1] == "request-scan":
+        print(request_scan())
+        return 0
+    if len(sys.argv) >= 2 and sys.argv[1] == "wait-input":
+        ok, msg = wait_input(int(sys.argv[2]) if len(sys.argv) >= 3 else 100)
+        print(msg)
+        return 0 if ok else 4
+    if len(sys.argv) >= 2 and sys.argv[1] == "skip":
+        import argparse
+
+        ap = argparse.ArgumentParser(prog="python -m scanner.ai_decision skip")
+        ap.add_argument("--reason", default="スキャンのデータが取れていない")
+        ap.add_argument("--trigger", choices=("fire", "schedule"), default="schedule")
+        a = ap.parse_args(sys.argv[2:])
+        p = make_skip(a.reason, a.trigger)
+        print(f"作成：{p.relative_to(ROOT)}")
+        print(publish([p, p.with_suffix(".md")]))
+        return 0
+    if len(sys.argv) >= 3 and sys.argv[1] == "publish":
+        paths = [Path(x) for x in sys.argv[2:]]
+        paths += [p.with_suffix(".md") for p in paths if p.suffix == ".json" and p.with_suffix(".md").exists()
+                  and p.with_suffix(".md") not in paths]
+        print(publish(paths))
+        return 0
     if len(sys.argv) >= 2 and sys.argv[1] == "watch":
         print(watch())
         return 0

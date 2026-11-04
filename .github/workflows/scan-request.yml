@@ -1,0 +1,22 @@
+# AIアナリストが「入力（スキャン結果）が古い」と気づいたとき、claude/scan-request ブランチに push してスキャンを頼む。
+# → main で scan を起動する（AIはすでに動いているので、scan からAIは起動しない）。
+name: scan-request
+
+on:
+  push:
+    branches: ["claude/scan-request"]
+
+permissions:
+  actions: write
+  contents: read
+
+jobs:
+  request:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - name: scan を起動
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: gh workflow run scan.yml --ref main -f skip_ai=true

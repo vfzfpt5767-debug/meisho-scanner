@@ -368,13 +368,18 @@ def test_record_window_and_watch(monkeypatch):
     assert AD.recordable(datetime(2026, 11, 3, 23, 30, tzinfo=JST))
     assert not AD.recordable(datetime(2026, 11, 3, 23, 31, tzinfo=JST))
     assert not AD.recordable(datetime(2026, 11, 4, 6, 50, tzinfo=JST))
-    sent = []
+    sent, fired = [], []
     monkeypatch.setattr("scanner.notify.notify_once", lambda key, text, kind: sent.append(text) or "sent")
+    monkeypatch.setattr("scanner.notify.already_sent", lambda key: False)
+    monkeypatch.setattr("scanner.ai_fire.fire", lambda text: fired.append(text) or (True, "起動しました"))
     now = datetime(2026, 11, 3, 22, 30, tzinfo=JST)
     got = json.dumps({"_apply": {"applied_at": "2026-11-03T21:28:00+09:00"}})
     assert AD.watch(now, got) == "今夜の判断は届いています"
     old = json.dumps({"_apply": {"applied_at": "2026-11-02T21:28:00+09:00"}})
-    assert AD.watch(now, old) == "sent" and "届いていません" in sent[0]
+    assert AD.watch(now, old) == "sent" and "届いていません" in sent[0] and "もう一度起動しました" in sent[0]
+    assert len(fired) == 1  # 届いていなければAIをもう一度起動する
+    # 遅れて動いた予備の起動（深夜2時など）は何もしない
+    assert "時間" in AD.watch(datetime(2026, 11, 4, 2, 0, tzinfo=JST), old) and len(fired) == 1
 
 
 def test_apply_test_mode_keeps_portfolio(tmp_path, monkeypatch):
@@ -547,3 +552,48 @@ def test_ai_fire_skip_and_handled(tmp_path, monkeypatch):
     res.cards.append(card("7203", C.A, a_tag))
     req = AI.plan_fire(res, None, {"x": 1})
     assert req["fire"] and req["new_keys"] == ["A:7203"]
+
+
+def test_ai_skip_publish_and_scan_request(tmp_path, monkeypatch):
+    """入力が古いとき：スキャンの依頼・入力待ち・「見送り」の作成と push（偽の origin で試す）。"""
+    import json as _json
+    import subprocess
+
+    from scanner import ai_decision as AD
+
+    def git(cwd, *a):
+        return subprocess.run(["git", *a], cwd=cwd, check=True, capture_output=True, text=True).stdout
+
+    origin = tmp_path / "origin.git"
+    git(tmp_path, "init", "-q", "--bare", str(origin))
+    work = tmp_path / "work"
+    git(tmp_path, "clone", "-q", str(origin), str(work))
+    (work / "data").mkdir()
+    (work / "data" / "analyst_input.json").write_text(_json.dumps({"base_day": "2026-11-02"}), encoding="utf-8")
+    git(work, "add", ".")
+    git(work, "-c", "user.name=t", "-c", "user.email=t@t", "commit", "-q", "-m", "init")
+    git(work, "branch", "-M", "main")
+    git(work, "push", "-q", "origin", "main")
+    monkeypatch.setattr(AD, "ROOT", work)
+    monkeypatch.setattr(AD, "DECISIONS", work / "decisions")
+    now = datetime(2026, 11, 4, 21, 15, tzinfo=JST)
+    # スキャンの依頼 → origin に claude/scan-request ができる
+    assert "スキャンを頼みました" in AD.request_scan(now)
+    assert "scan_requests/last.txt" in git(origin, "ls-tree", "-r", "--name-only", "claude/scan-request")
+    # 入力が古いままなら WAIT
+    ok, msg = AD.wait_input(timeout=0, interval=0, now_fn=lambda: now)
+    assert not ok and msg.startswith("WAIT")
+    # main の入力が新しくなれば OK
+    (work / "data" / "analyst_input.json").write_text(_json.dumps({"base_day": "2026-11-04"}), encoding="utf-8")
+    git(work, "-c", "user.name=t", "-c", "user.email=t@t", "commit", "-q", "-am", "scan")
+    git(work, "push", "-q", "origin", "main")
+    ok, msg = AD.wait_input(timeout=0, interval=0, now_fn=lambda: now)
+    assert ok and msg.startswith("OK")
+    # 見送りを作って push → claude/ai-decisions に .json と .md
+    p = AD.make_skip("スキャンのデータが取れていない", now=now)
+    d = _json.loads(p.read_text(encoding="utf-8"))
+    assert d["orders"] == [] and d["base_day"] == "2026-11-04" and AD.validate(d) == []
+    assert "push しました" in AD.publish([p, p.with_suffix(".md")])
+    files = git(origin, "ls-tree", "-r", "--name-only", "claude/ai-decisions")
+    assert "decisions/2026-11-04-2115.json" in files and "decisions/2026-11-04-2115.md" in files
+    assert "data/analyst_input.json" in files  # main の最新の上に載っている
