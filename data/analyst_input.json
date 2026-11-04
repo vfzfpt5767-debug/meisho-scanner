@@ -1,7 +1,7 @@
 {
- "generated_at": "2026-11-04T11:09:14.940224+09:00",
- "base_day": "2026-11-02",
- "deadline": "2026-11-04T07:59:00+09:00",
+ "generated_at": "2026-11-04T22:12:54.649638+09:00",
+ "base_day": "2026-11-04",
+ "deadline": "2026-11-05T07:59:00+09:00",
  "price_source": "名証 日報",
  "rules": {
   "prefer": "検証で上がった割合60%以上かつ平均+2%以上の材料を優先する",
@@ -14,112 +14,12 @@
  },
  "candidates": [
   {
-   "code": "2327",
-   "name": "日鉄ソリューションズ",
-   "category": "CHECK",
-   "score": 65,
+   "code": "4430",
+   "name": "東海ソフト",
+   "category": "A",
+   "score": 53,
    "single": false,
-   "price": 4097.0,
-   "price_note": "名証の最終気配",
-   "quote_only": true,
-   "unit": 100,
-   "shares_for_budget": 700,
-   "tob_price": null,
-   "tob_gap_pct": null,
-   "model_prob": null,
-   "items": [
-    {
-     "time": "11/02 15:30",
-     "title": "2027年３月期　第２四半期(中間期)決算短信〔ＩＦＲＳ〕(連結)",
-     "pdf": "https://www.release.tdnet.info/inbs/140120261028558053.pdf",
-     "labels": [
-      {
-       "cat": "INFO",
-       "label": "決算短信",
-       "backtest_next_day": {
-        "up": 40.7,
-        "mean": -0.36,
-        "median": -0.52,
-        "p10": -8.2,
-        "n": 19890
-       }
-      }
-     ]
-    },
-    {
-     "time": "11/02 15:30",
-     "title": "2026年度第２四半期決算実績ならびに2025-2027中期経営計画の進捗",
-     "pdf": "https://www.release.tdnet.info/inbs/140120261028558085.pdf",
-     "labels": []
-    },
-    {
-     "time": "11/02 15:30",
-     "title": "2027年３月期　第２四半期(中間期)決算　参考資料",
-     "pdf": "https://www.release.tdnet.info/inbs/140120261028558102.pdf",
-     "labels": []
-    },
-    {
-     "time": "11/02 15:30",
-     "title": "配当予想の修正に関するお知らせ",
-     "pdf": "https://www.release.tdnet.info/inbs/140120261028558059.pdf",
-     "labels": [
-      {
-       "cat": "CHECK",
-       "label": "配当予想の修正",
-       "backtest_next_day": {
-        "up": 64.5,
-        "mean": 3.02,
-        "median": 2.08,
-        "p10": -6.29,
-        "n": 1076
-       }
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "code": "2806",
-   "name": "ユタカフーズ",
-   "category": "CHECK",
-   "score": 40,
-   "single": false,
-   "price": 1988.0,
-   "price_note": "名証の最終気配",
-   "quote_only": true,
-   "unit": 100,
-   "shares_for_budget": 1500,
-   "tob_price": null,
-   "tob_gap_pct": null,
-   "model_prob": null,
-   "items": [
-    {
-     "time": "11/02 15:30",
-     "title": "業績予想の修正に関するお知らせ",
-     "pdf": "https://www.release.tdnet.info/inbs/140120261030560794.pdf",
-     "labels": [
-      {
-       "cat": "CHECK",
-       "label": "業績予想の修正",
-       "backtest_next_day": {
-        "up": 49.08,
-        "mean": 0.97,
-        "median": 0.0,
-        "p10": -7.8,
-        "n": 3421
-       }
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "code": "4445",
-   "name": "リビン・テクノロジーズ",
-   "category": "CHECK",
-   "score": 40,
-   "single": false,
-   "price": 1665.0,
+   "price": 1662.0,
    "price_note": "名証の最終気配",
    "quote_only": true,
    "unit": 100,
@@ -129,19 +29,54 @@
    "model_prob": null,
    "items": [
     {
-     "time": "11/02 20:00",
-     "title": "通期連結業績予想の修正に関するお知らせ",
-     "pdf": "https://www.release.tdnet.info/inbs/140120261102563269.pdf",
+     "time": "11/04 16:35",
+     "title": "自己株式の取得及び自己株式立会外買付取引（ToSTNeT-3）による自己株式の買付けに関するお知らせ",
+     "pdf": "https://www.release.tdnet.info/inbs/140120261104564052.pdf",
      "labels": [
       {
-       "cat": "CHECK",
-       "label": "業績予想の修正",
+       "cat": "A",
+       "label": "自社株買い",
        "backtest_next_day": {
-        "up": 49.08,
-        "mean": 0.97,
-        "median": 0.0,
-        "p10": -7.8,
-        "n": 3421
+        "up": 65.99,
+        "mean": 2.31,
+        "median": 1.35,
+        "p10": -4.32,
+        "n": 1729
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "code": "5363",
+   "name": "東京窯業",
+   "category": "A",
+   "score": 40,
+   "single": false,
+   "price": 665.0,
+   "price_note": "名証の最終気配",
+   "quote_only": true,
+   "unit": 100,
+   "shares_for_budget": 4500,
+   "tob_price": null,
+   "tob_gap_pct": null,
+   "model_prob": null,
+   "items": [
+    {
+     "time": "11/04 15:30",
+     "title": "投資有価証券売却益（特別利益）の計上に関するお知らせ",
+     "pdf": "https://www.release.tdnet.info/inbs/140120261102563195.pdf",
+     "labels": [
+      {
+       "cat": "A",
+       "label": "特別利益",
+       "backtest_next_day": {
+        "up": 50.6,
+        "mean": 0.96,
+        "median": 0.1,
+        "p10": -4.84,
+        "n": 923
        }
       }
      ]
@@ -149,16 +84,16 @@
    ]
   }
  ],
- "other_after_close_count": 15,
+ "other_after_close_count": 10,
  "stop_limits": [],
  "tob_tracker": [],
  "errors": [],
  "portfolio": {
   "cash": 3000.0,
-  "total": 3000000.0,
-  "profit": 0.0,
-  "term_left": 3000000.0,
-  "term_open": false,
+  "total": 3127800.0,
+  "profit": 127800.0,
+  "term_left": 3000000,
+  "term_open": true,
   "single_bought": false,
   "holdings": [
    {
@@ -167,15 +102,13 @@
     "shares": 1800,
     "buy_price": 1665.0,
     "buy_date": "2026-11-02",
-    "price": 1665.0,
-    "pnl_pct": 0.0,
+    "price": 1736.0,
+    "pnl_pct": 4.26,
     "single": false,
     "quote_only": true,
     "unit": 100,
     "warnings": [],
-    "cautions": [
-     "要確認の開示：業績予想の修正"
-    ],
+    "cautions": [],
     "sell_rule": ""
    }
   ]
@@ -199,7 +132,7 @@
    "single": false,
    "offer_price": null,
    "first_day_price": 2078.0,
-   "price_now": 2258.0
+   "price_now": 2247.0
   }
  ],
  "earnings_today": [
@@ -226,16 +159,16 @@
  ],
  "simulator": {
   "nights_left": 17,
-  "start_assets": 3000000.0,
+  "start_assets": 3127800.0,
   "target": 7290000,
   "best": "aggressive",
   "best_label": "毎晩1位候補に全額（要確認だけの夜も買う）",
-  "advice": "どの戦略でも10位ラインに届く確率は低い（最大0.3%）。一番ましなのは「毎晩1位候補に全額（要確認だけの夜も買う）」",
+  "advice": "どの戦略でも10位ラインに届く確率は低い（最大0.4%）。一番ましなのは「毎晩1位候補に全額（要確認だけの夜も買う）」",
   "probs": {
-   "毎晩1位候補に全額（要確認だけの夜も買う）": 0.31,
-   "毎晩上位2銘柄に半分ずつ": 0.07,
-   "S・A・ストップ高張り付きがある夜だけ1位に全額、ない夜は休む": 0.19,
-   "S・A・張り付きがある夜だけ、上位2銘柄に半分ずつ": 0.12
+   "毎晩1位候補に全額（要確認だけの夜も買う）": 0.41,
+   "毎晩上位2銘柄に半分ずつ": 0.09,
+   "S・A・ストップ高張り付きがある夜だけ1位に全額、ない夜は休む": 0.24,
+   "S・A・張り付きがある夜だけ、上位2銘柄に半分ずつ": 0.15
   }
  }
 }

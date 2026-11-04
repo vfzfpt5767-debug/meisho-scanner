@@ -7,6 +7,37 @@
 "category": "AI",
 "label": "",
 "price": 1665.0,
+"result": 0.042642642642642725,
+"next_day": "2026-11-04"
+},
+{
+"base_day": "2026-11-04",
+"source": "rule_top",
+"code": "4430",
+"name": "東海ソフト",
+"category": "A",
+"label": "自社株買い",
+"price": 1662.0,
+"result": null
+},
+{
+"base_day": "2026-11-04",
+"source": "rule_sa",
+"code": "4430",
+"name": "東海ソフト",
+"category": "A",
+"label": "自社株買い",
+"price": 1662.0,
+"result": null
+},
+{
+"base_day": "2026-11-04",
+"source": "rule_sa",
+"code": "5363",
+"name": "東京窯業",
+"category": "A",
+"label": "特別利益",
+"price": 665.0,
 "result": null
 }
 ]
