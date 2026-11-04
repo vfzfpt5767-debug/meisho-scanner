@@ -1,5 +1,5 @@
 {
-"generated_at": "2026-11-04T10:29:11.552347+09:00",
+"generated_at": "2026-11-04T11:09:14.940224+09:00",
 "base_day": "2026-11-02",
 "deadline": "2026-11-04T07:59:00+09:00",
 "price_source": "名証 日報",
@@ -161,6 +161,40 @@
 "tob_price": null,
 "tob_gap_pct": null,
 "quote_only": false
+},
+{
+"code": "3221",
+"name": "ヨシックスホールディングス",
+"single": false,
+"division": "プレミア",
+"unit": 100,
+"category": "INFO",
+"score": 5,
+"items": [
+{
+"time": "10:30",
+"date": "11/04",
+"title": "自己株式の取得状況に関するお知らせ （会社法第165条第２項の規定による定款の定めに基づく自己株式の取得）",
+"pdf": "https://www.release.tdnet.info/inbs/140120261104563650.pdf",
+"tags": [
+{
+"cat": "INFO",
+"label": "自社株買いの経過",
+"score": 5,
+"reason": "自社株買いの途中経過・結果"
+}
+]
+}
+],
+"price": 2914.0,
+"price_note": "名証の最終気配",
+"nse_close": null,
+"nse_quote": 2914.0,
+"shares": 1000,
+"cost": 2914000.0,
+"tob_price": null,
+"tob_gap_pct": null,
+"quote_only": true
 },
 {
 "code": "3320",

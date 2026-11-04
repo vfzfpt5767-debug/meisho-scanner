@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-04T10:29:11.552347+09:00",
+ "generated_at": "2026-11-04T11:09:14.940224+09:00",
  "base_day": "2026-11-02",
  "deadline": "2026-11-04T07:59:00+09:00",
  "price_source": "名証 日報",
@@ -149,7 +149,7 @@
    ]
   }
  ],
- "other_after_close_count": 14,
+ "other_after_close_count": 15,
  "stop_limits": [],
  "tob_tracker": [],
  "errors": [],

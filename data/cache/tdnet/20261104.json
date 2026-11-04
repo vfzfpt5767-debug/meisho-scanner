@@ -1,7 +1,24 @@
 {
 "date": "2026-11-04",
-"fetched_at": "2026-11-04T10:29:12.364037+09:00",
+"fetched_at": "2026-11-04T11:09:15.904645+09:00",
 "complete": false,
-"total_all_markets": 15,
-"items": []
+"total_all_markets": 17,
+"items": [
+{
+"id": "1289139",
+"pubdate": "2026-11-04 10:30:00",
+"company_code": "32210",
+"company_name": "ヨシックスＨＤ",
+"title": "自己株式の取得状況に関するお知らせ （会社法第165条第２項の規定による定款の定めに基づく自己株式の取得）",
+"document_url": "https://www.release.tdnet.info/inbs/140120261104563650.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": null,
+"markets_string": "東名",
+"update_history": null
+}
+]
 }
