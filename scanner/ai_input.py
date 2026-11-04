@@ -72,7 +72,8 @@ def build(res, pf=None, morning=None, new_listings=None, earnings_today=None, si
             "holdings": [{"code": h.code, "name": h.name, "shares": h.shares, "buy_price": h.buy_price,
                           "buy_date": h.buy_date.isoformat(), "price": h.price, "pnl_pct": round(h.pnl_pct, 2),
                           "single": h.single, "quote_only": h.quote_only, "unit": h.unit,
-                          "warnings": h.warnings, "cautions": h.cautions, "sell_rule": h.sell_rule} for h in pf.holdings],
+                          "warnings": h.warnings, "notices": h.notices, "cautions": h.cautions, "sell_rule": h.sell_rule,
+                          "material": h.material} for h in pf.holdings],
         }
     if morning is not None:
         out["morning"] = {"direction": morning.direction, "futures_gap_pct": morning.futures_gap_pct,
@@ -99,6 +100,9 @@ def keys_of(res, pf) -> dict[str, str]:
             keys[f"{c.category}:{c.code}"] = f"{C.LABELS[c.category].split('：')[0]} {c.name}({c.code})"
     for h in (pf.warned() if pf else []):
         keys[f"W:{h.code}"] = f"保有警告 {h.name}({h.code})"
+    for h in (pf.holdings if pf else []):
+        if h.notices:
+            keys[f"N:{h.code}"] = f"保有の注意（決算が近い） {h.name}({h.code})"
     return keys
 
 
@@ -165,6 +169,7 @@ def mark_handled(base_day: str) -> list[str]:
         return []
     keys = {f"{c['category']}:{c['code']}" for c in data.get("candidates", []) if c.get("category") in (C.S, C.A, C.CHECK)}
     keys |= {f"W:{h['code']}" for h in data.get("portfolio", {}).get("holdings", []) if h.get("warnings")}
+    keys |= {f"N:{h['code']}" for h in data.get("portfolio", {}).get("holdings", []) if h.get("notices")}
     st = json.loads(FIRE_STATE.read_text(encoding="utf-8")) if FIRE_STATE.exists() else {}
     night = st.setdefault(base_day, {"fires": 0, "keys": []})
     night["keys"] = sorted(set(night["keys"]) | keys)

@@ -39,6 +39,8 @@ class Holding:
     sell_rule: str = ""  # 売り時の目安（検証結果から）
     warnings: list[str] = field(default_factory=list)  # 赤い警告（売り推奨）
     cautions: list[str] = field(default_factory=list)  # 黄色の注意
+    notices: list[str] = field(default_factory=list)  # 赤い注意（決算が近いなど。売るかはAIが判断。入れ替え案で自動では売らない）
+    material: str = ""  # 買った理由の材料（売り時の目安に使う）
 
     @property
     def cost(self) -> float:
@@ -241,8 +243,13 @@ def build(res, now: datetime | None = None) -> Portfolio:
         if r and not r.sell_signal:
             h.cautions.append("TOB対象（TOB価格に届くまで保有の候補）")
 
+    earn = _earnings_soon(ctx, now)
     for h in holdings:
-        h.sell_rule = _sell_rule(h, ctx, limits)
+        h.sell_rule, sell_now = _sell_rule(h, ctx, limits)
+        if sell_now:
+            h.warnings.append(sell_now)
+        if h.code in earn:
+            h.notices.append(earn[h.code])
 
     state["single_codes_ever"] = sorted(ever)
     STATE.parent.mkdir(parents=True, exist_ok=True)
@@ -306,44 +313,115 @@ def _swap(pf: Portfolio, res) -> None:
                     f"（今タームの残り枠 {budget:,.0f}円、売却後の現金 {cash:,.0f}円）")
 
 
-def _sell_rule(h: Holding, ctx, limits: dict) -> str:
-    """買った理由（TOB・上方修正・優待・ストップ高張り付き）から、検証で一番よかった売り方を示す。"""
+MATERIAL_WORDS = [("TOB（S）", ("TOB", "公開買付", "MBO")), ("株式分割", ("株式分割", "分割")),
+                  ("上方修正", ("上方修正",)), ("優待新設・拡充", ("優待",)), ("増配", ("増配", "復配", "記念配当")),
+                  ("自社株買い", ("自社株買い", "自己株式")), ("配当予想の修正", ("配当予想",)),
+                  ("株主還元方針の変更", ("株主還元",)), ("業績予想の修正", ("業績予想",))]
+MATERIAL_LABELS = ["上方修正", "優待新設・拡充", "増配", "株式分割", "自社株買い", "配当予想の修正",
+                   "株主還元方針の変更", "業績予想の修正"]
+ALL_GROUP = "好材料・要確認（全体）"
+
+
+def _material(h: Holding, ctx) -> str:
+    """買った理由の材料。①AIの買いの理由（holdings.csv のメモ「AI <id>」）②買った日の前後の開示 ③全体。"""
     from datetime import timedelta
 
-    from .render_backtest import holding_advice, load
+    if h.memo.startswith("AI "):
+        try:
+            from .ai_decision import DECISIONS
 
-    target = ""
+            d = json.loads((DECISIONS / f"{h.memo[3:].strip()}.json").read_text(encoding="utf-8"))
+            reason = " ".join(f"{o.get('reason', '')}" for o in d.get("orders", [])
+                              if str(o.get("code", "")).upper() == h.code and o.get("side") == "buy")
+            for group, words in MATERIAL_WORDS:
+                if any(w in reason for w in words):
+                    return group
+        except Exception:  # noqa: BLE001
+            pass
+    found = set()
     for d in getattr(ctx, "disclosures", []) or []:
         if d.code != h.code or not (h.buy_date - timedelta(days=4) <= d.pubdate.date() <= h.buy_date):
             continue
         tags = C.classify(d.title, d.code)
         if any(t.cat == C.S for t in tags):
-            target = "TOB（S）"
-            break
-        lbs = {t.label for t in tags}
-        if "上方修正" in lbs:
-            target = target or "上方修正"
-        if "優待新設・拡充" in lbs:
-            target = target or "優待新設・拡充"
+            return "TOB（S）"
+        found |= {t.label for t in tags}
+    for lb in MATERIAL_LABELS:
+        if lb in found:
+            return lb
+    return ALL_GROUP
+
+
+def _days_held(h: Holding, base) -> int:
+    """買ったタームの基準日から、今の基準日まで何営業日たったか（今夜買った＝0）。"""
+    from .calendar_jp import next_business_day
+
+    d, n = h.term_base(), 0
+    while d < base:
+        d = next_business_day(d)
+        n += 1
+    return n
+
+
+def _sell_rule(h: Holding, ctx, limits: dict) -> tuple[str, str | None]:
+    """売り時の目安（文, 今夜売るべきなら警告の文）。
+
+    ストップ高張り付き中は「張り付きが外れた日の終値で売る」。そうでなければ、材料ごとに検証で決めた日
+    （ほとんどは翌営業日の終値。株式分割は5営業日後）の終値で売る。reports/backtest.md の 4・4-2。
+    """
+    from .calendar_jp import fmt_date, next_business_day
+    from .render_backtest import load
+
+    bt = load()
+    h.material = _material(h, ctx)
     lim = limits.get(h.code)
-    stuck_today = bool(lim and lim.kind == "stop_high" and lim.stuck)
-    if not target and stuck_today:
-        target = "ストップ高張り付き"
-    if not target:
-        return ""
-    adv = holding_advice(target)
-    if not adv:
-        return ""
-    best = load().get("holding", {}).get(target, {}).get("best", "")
-    status = ""
-    term_done = h.term_base() < ctx.base  # 買ったタームの次の営業日の終値が出ている
-    if best == "stop":
-        if stuck_today:
-            status = "今日もストップ高張り付き → 持ち続ける"
-        elif term_done:
-            status = "今日は張り付きが外れた → 売り時"
-    elif best == "d1" and term_done:
-        status = "翌営業日の終値が出た → 売り時"
-    elif best == "d2":
-        status = "2営業日後の終値で売る"
-    return f"{target}の売り時の目安：{adv}" + (f"。いま：{status}" if status else "")
+    k = _days_held(h, getattr(ctx, "base", None) or base_day(ctx.now))
+    if lim and lim.kind == "stop_high" and lim.stuck and k >= 1:
+        st = bt.get("holding", {}).get("ストップ高張り付き", {}).get("rules", {}).get("stop", {})
+        note = f"（検証：平均{st['mean']:+.1f}%・n={st['n']}）" if st.get("n") else ""
+        return f"今日もストップ高張り付き → 持ち続ける。張り付きが外れた日の終値で売る{note}", None
+    ex = bt.get("exit_rules", {})
+    rule = ex.get(h.material) or {}
+    if rule.get("n", 0) < 30:
+        rule = ex.get(ALL_GROUP) or {}
+    days = int(rule.get("best_days") or 1)
+    st = rule.get("rules", {}).get(f"d{days}", {})
+    why = (f"検証：{h.material}でストップ高にならなかった銘柄は{days}営業日後の終値で売るのが一番よい"
+           f"（平均{st['mean']:+.1f}%・中央値{st['median']:+.1f}%・n={st['n']:,}）") if st.get("n") else \
+        f"{days}営業日後の終値で売る"
+    if k < days:
+        sell_day = h.term_base()
+        for _ in range(days):
+            sell_day = next_business_day(sell_day)
+        return f"{fmt_date(sell_day)}の終値で売る予定（買ってから{days}営業日後）。{why}", None
+    return (f"売り時：買ってから{k}営業日たった（ストップ高ではない）。今夜売る。{why}",
+            f"売り時（{h.material}で買ってから{k}営業日・ストップ高ではない）")
+
+
+def _earnings_soon(ctx, now) -> dict[str, str]:
+    """保有銘柄で、決算発表が今日〜2営業日後にあるもの（コード→注意の文）。"""
+    from .calendar_jp import fmt_date, is_business_day, next_business_day
+    from .render_backtest import label_note
+
+    try:
+        from .earnings import PATH as EPATH
+
+        events = json.loads(EPATH.read_text(encoding="utf-8")).get("events", [])
+    except Exception:  # noqa: BLE001
+        return {}
+    today = now.date()
+    d = today if is_business_day(today) else next_business_day(today)
+    days = [d, next_business_day(d), next_business_day(next_business_day(d))]
+    names = {0: "今日", 1: "次の営業日", 2: "2営業日後"} if d == today else {0: "次の営業日", 1: "2営業日後", 2: "3営業日後"}
+    out = {}
+    bt = label_note("決算短信", short=True)
+    for e in events:
+        try:
+            ed = date.fromisoformat(e["date"])
+        except (KeyError, ValueError):
+            continue
+        if ed in days and e.get("code") not in out:
+            when = names[days.index(ed)]
+            out[e["code"]] = (f"決算発表が近い：{fmt_date(ed)}（{when}）。持ったまま決算を迎えるか、その前に売るかをAIが判断"
+                              + (f"（検証：決算短信の翌日は{bt}）" if bt else ""))
+    return out

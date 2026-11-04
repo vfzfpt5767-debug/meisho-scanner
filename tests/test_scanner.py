@@ -597,3 +597,50 @@ def test_ai_skip_publish_and_scan_request(tmp_path, monkeypatch):
     files = git(origin, "ls-tree", "-r", "--name-only", "claude/ai-decisions")
     assert "decisions/2026-11-04-2115.json" in files and "decisions/2026-11-04-2115.md" in files
     assert "data/analyst_input.json" in files  # main の最新の上に載っている
+
+
+def test_sell_rule_and_earnings_notice(tmp_path, monkeypatch):
+    import json as _json
+    from types import SimpleNamespace
+
+    from scanner import earnings as E
+    from scanner import portfolio as P
+    from scanner.limits import LimitHit
+
+    bt = {"exit_rules": {
+        "上方修正": {"best_days": 1, "n": 245, "rules": {"d1": {"n": 245, "mean": 2.7, "median": 1.8}}},
+        "株式分割": {"best_days": 5, "n": 297, "rules": {"d5": {"n": 297, "mean": 5.1, "median": 2.8}}},
+        "好材料・要確認（全体）": {"best_days": 1, "n": 9230, "rules": {"d1": {"n": 9230, "mean": 1.2, "median": 0.6}}}},
+        "holding": {"ストップ高張り付き": {"rules": {"stop": {"n": 752, "mean": 12.9}}}}}
+    monkeypatch.setattr("scanner.render_backtest.load", lambda: bt)
+    dec = tmp_path / "decisions"
+    dec.mkdir()
+    (dec / "2026-11-03-2229.json").write_text(_json.dumps({"orders": [
+        {"side": "buy", "code": "4445", "reason": "通期の経常利益を+34.6%上方修正（株探で確認）"}]}), encoding="utf-8")
+    monkeypatch.setattr("scanner.ai_decision.DECISIONS", dec)
+    h = P.Holding(code="4445", shares=1800, buy_price=1665, buy_date=date(2026, 11, 2), buy_time=None,
+                  memo="AI 2026-11-03-2229")
+    ctx = SimpleNamespace(base=date(2026, 11, 2), now=datetime(2026, 11, 3, 22, 0, tzinfo=JST), disclosures=[])
+    text, sell = P._sell_rule(h, ctx, {})
+    assert h.material == "上方修正" and sell is None and "11/4(水)の終値で売る予定" in text  # 11/3は祝日
+    ctx.base = date(2026, 11, 4)
+    text, sell = P._sell_rule(h, ctx, {})
+    assert sell and "売り時" in text and "今夜売る" in text
+    stuck = LimitHit("4445", "x", "stop_high", 1665, 2065, 2065, True, "張り付き", None, None, None, None, 2065)
+    text, sell = P._sell_rule(h, ctx, {"4445": stuck})
+    assert sell is None and "持ち続ける" in text
+    # 株式分割は5営業日後
+    h2 = P.Holding(code="7203", shares=100, buy_price=3000, buy_date=date(2026, 11, 4), buy_time=None, memo="")
+    h2.memo = "AI x"
+    (dec / "x.json").write_text(_json.dumps({"orders": [{"side": "buy", "code": "7203", "reason": "株式分割（1:2）"}]}),
+                                encoding="utf-8")
+    ctx2 = SimpleNamespace(base=date(2026, 11, 5), now=datetime(2026, 11, 5, 21, 0, tzinfo=JST), disclosures=[])
+    text, sell = P._sell_rule(h2, ctx2, {})
+    assert h2.material == "株式分割" and sell is None and "5営業日後" in text
+    # 決算発表が近い（今日〜2営業日後）
+    ep = tmp_path / "earnings.json"
+    ep.write_text(_json.dumps({"events": [{"date": "2026-11-06", "code": "4445"}, {"date": "2026-11-20", "code": "7203"}]}),
+                  encoding="utf-8")
+    monkeypatch.setattr(E, "PATH", ep)
+    got = P._earnings_soon(ctx, datetime(2026, 11, 4, 21, 0, tzinfo=JST))
+    assert "4445" in got and "7203" not in got and "11/6(金)" in got["4445"] and "AIが判断" in got["4445"]

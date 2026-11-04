@@ -24,10 +24,10 @@ def _man(v: float | None, sign: bool = False) -> str:
 
 
 def alert(pf: Portfolio) -> str:
-    w = pf.warned()
+    w = [h for h in pf.holdings if h.warnings or h.notices]
     if not w:
         return ""
-    lis = "".join(f"<li>{escape(h.name)}（{escape(h.code)}）：{escape('・'.join(h.warnings))}</li>" for h in w)
+    lis = "".join(f"<li>{escape(h.name)}（{escape(h.code)}）：{escape('・'.join(h.warnings + h.notices))}</li>" for h in w)
     return f'<div class="alert">保有銘柄に警告があります（売りを検討）<ul>{lis}</ul></div>'
 
 
@@ -60,7 +60,7 @@ def section(pf: Portfolio) -> str:
         qo = ' <span class="badge qo">気配のみ</span>' if h.quote_only else ""
         single_b = ('<span class="badge single">名証単独</span>' if h.single
                     else '<span class="badge dual">重複</span>' if h.single is False else "")
-        warn = "".join(f'<div class="tob" style="color:var(--s)">警告：{escape(x)}</div>' for x in h.warnings)
+        warn = "".join(f'<div class="tob" style="color:var(--s)">警告：{escape(x)}</div>' for x in h.warnings + h.notices)
         caut = "".join(f'<div class="reason">注意：{escape(x)}</div>' for x in h.cautions)
         if h.sell_rule:
             caut += f'<div class="reason bt">{escape(h.sell_rule)}</div>'
