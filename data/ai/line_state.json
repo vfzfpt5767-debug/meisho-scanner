@@ -34,6 +34,24 @@
    "mode": "ref",
    "patch": null,
    "base_day": "2026-11-04"
+  },
+  "2026-11-05-2117": {
+   "status": "recorded",
+   "mode": "record",
+   "patch": {
+    "removed": [
+     [
+      "4445",
+      "1800",
+      "1665",
+      "2026-11-02",
+      "AI 2026-11-03-2229"
+     ]
+    ],
+    "added": [],
+    "cash_delta": 3142800.0
+   },
+   "base_day": "2026-11-05"
   }
  },
  "seen": [
