@@ -77,7 +77,26 @@ def validate(d: dict) -> list[str]:
             errs.append(f"{p}.reason がありません")
     if buy_total > BUDGET_PER_TERM:
         errs.append(f"買いの合計 {buy_total:,.0f}円 が1タームの上限 {BUDGET_PER_TERM:,}円 を超えています")
+    ask = d.get("ask_human", [])
+    if ask is not None and (not isinstance(ask, list) or any(not isinstance(a, dict) or not a.get("code") for a in ask)):
+        errs.append("ask_human は [{\"code\": \"1869\", \"question\": \"…\"}] のような形にしてください")
     return errs
+
+
+def _human_ok(d: dict, now: datetime) -> bool:
+    """人の確認の答えで起動された判断か（締切前なら 23:30 以降でも記録してよい）。"""
+    if d.get("trigger") != "human":
+        return False
+    try:
+        from .line_actions import load_state
+
+        for q in load_state().get("questions", []):
+            if q.get("base_day") == d.get("base_day") and q.get("status") == "answered" and q.get("answered_at"):
+                if (now - datetime.fromisoformat(q["answered_at"])).total_seconds() <= 3 * 3600:
+                    return True
+    except Exception:  # noqa: BLE001
+        pass
+    return False
 
 
 def _read_csv(path: Path) -> tuple[list[str], list[list[str]]]:
@@ -220,7 +239,7 @@ def apply_all(now: datetime | None = None, send_line: bool = True) -> list[str]:
             if now > deadline:
                 rec["mode"] = "late"
                 rec["status"] = "注文締切を過ぎていたため、保有の自動記録はしませんでした"
-            elif not recordable(now):
+            elif not recordable(now) and not _human_ok(d, now):
                 rec["mode"] = "ref"
                 rec["status"] = (f"参考（{RECORD_FROM:%H:%M}〜{RECORD_UNTIL:%H:%M}の外に届いた指示）のため、"
                                  "保有の自動記録はしませんでした")
@@ -263,7 +282,12 @@ def apply_all(now: datetime | None = None, send_line: bool = True) -> list[str]:
             if not errs and not test:
                 from .line_actions import buttons, enabled
 
-                extra = (buttons(d, rec.get("mode", "")) or None) if enabled() else None
+                extra = (buttons(d, rec.get("mode", "")) or []) if enabled() else []
+                ask = _ask_human(d, now, rec.get("mode", ""))
+                if ask:
+                    extra.append({"type": "text", "text": ask[:4900]})
+                    log.append("人に確認を頼みました")
+                extra = extra or None
             log.append(send(msg, "ai_test" if test else "ai", extra))
     APPLIED.parent.mkdir(parents=True, exist_ok=True)
     APPLIED.write_text(json.dumps(applied[-500:], ensure_ascii=False, indent=0), encoding="utf-8")
@@ -280,6 +304,27 @@ def apply_all(now: datetime | None = None, send_line: bool = True) -> list[str]:
         with open(out, "a", encoding="utf-8") as f:
             f.write(f"rebuild={'true' if real else 'false'}\n")
     return log
+
+
+def _ask_human(d: dict, now: datetime, mode: str) -> str:
+    """見送った候補のうち確認できなかったものを、LINEで人に確認を頼む文（締切前だけ・1晩2件まで）。"""
+    if mode not in ("record", "ref"):
+        return ""
+    try:
+        from .human_check import ask_text, pick_questions, register
+        from .line_actions import enabled, load_state, save_state
+
+        if not enabled():
+            return ""  # 中継役（返信を受け取るしくみ）がまだ動いていない
+        qs = pick_questions(d)
+        if not qs:
+            return ""
+        st = load_state()
+        new = register(qs, d, st, now)
+        save_state(st)
+        return ask_text(new) if new else ""
+    except Exception:  # noqa: BLE001
+        return ""
 
 
 def _term_history(base_day: str) -> list[dict]:

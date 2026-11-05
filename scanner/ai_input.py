@@ -87,6 +87,20 @@ def build(res, pf=None, morning=None, new_listings=None, earnings_today=None, si
         out["earnings_today"] = earnings_today
     if simulator:
         out["simulator"] = simulator
+    try:
+        from .human_check import answers_for
+
+        ha = answers_for(res.base_day)
+        if ha:
+            out["human_answers"] = ha  # ユーザーがLINEで答えた確認（TDnetのPDFを人が読んだ内容）
+    except Exception:  # noqa: BLE001
+        pass
+    try:
+        from .ir import attach_ir_checks
+
+        attach_ir_checks(out)  # 会社のIRページで同じ開示を探した結果（candidates[].ir_check）
+    except Exception as e:  # noqa: BLE001
+        out.setdefault("errors", []).append(f"IRページの確認に失敗: {type(e).__name__}: {e}")
     INPUT.parent.mkdir(parents=True, exist_ok=True)
     INPUT.write_text(json.dumps(out, ensure_ascii=False, indent=1, default=str), encoding="utf-8")
     return out

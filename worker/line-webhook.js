@@ -19,7 +19,7 @@
 //   GITHUB_TOKEN               … GitHub の fine-grained personal access token（meisho-scanner の Contents を Read and write）
 //   GITHUB_REPO                … vfzfpt5767-debug/meisho-scanner
 
-const HELP = "使える言葉：\n・残高\n・買い 4445 10単位（または 1000株。値段を書かなければ、その日の終値で記録）\n・売り 6999 全部\n・買い 4445 10単位 1665円\n・ボタン（いちばん新しいAIの注文のボタンをもう一度出す）";
+const HELP = "使える言葉：\n・残高\n・買い 4445 10単位（または 1000株。値段を書かなければ、その日の終値で記録）\n・売り 6999 全部\n・買い 4445 10単位 1665円\n・ボタン（いちばん新しいAIの注文のボタンをもう一度出す）\n・確認 1869 5.2%（確認のお願いへの答え）";
 
 // 定時起動する日本時間（平日＝月〜金。休業日（祝日など）かどうかは GitHub 側で判定して、休業日はスキャンしない）
 const SCAN_SLOTS = ["06:20", "07:05", "16:10", "17:10", "18:40", "20:40", "20:55", "22:40"];
@@ -69,6 +69,11 @@ async function handle(ev, env) {
   if (/^(ボタン|ぼたん|button)$/i.test(t) || /買|売|buy|sell|かい|うり/i.test(t)) {
     await dispatch(env, { type: "text", text: text.slice(0, 500), event_id: id, ts: ev.timestamp });
     return reply(env, ev.replyToken, "受け付けました。1分ほどで記録して結果を送ります。");
+  }
+  // 確認のお願いへの答え（「確認 1869 5.2%」や、数字の入った返信）
+  if (/^(確認|回答|かくにん|答え|こたえ)/.test(t) || /[0-9]/.test(t)) {
+    await dispatch(env, { type: "text", text: text.slice(0, 500), event_id: id, ts: ev.timestamp });
+    return reply(env, ev.replyToken, "受け付けました。1分ほどで結果を送ります。");
   }
   return reply(env, ev.replyToken, "読み取れませんでした。\n" + HELP);
 }

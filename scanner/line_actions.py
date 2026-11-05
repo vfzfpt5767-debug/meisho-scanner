@@ -388,6 +388,7 @@ def process(payload: dict, now=None) -> dict:
     changed = False
     msg = ""
     extra: list[dict] = []
+    result_fire = ""
 
     if kind == "postback":
         q = dict(x.split("=", 1) for x in str(payload.get("data", "")).split("&") if "=" in x)
@@ -439,9 +440,18 @@ def process(payload: dict, now=None) -> dict:
             except Exception:  # noqa: BLE001
                 msg = "AIの注文がまだありません。"
         else:
+            from .human_check import ANSWER_HEAD, match_answer
+
             universe, _ = nse_list.load(refresh=False)
             orders = parse_orders(text, set(universe) or None)
-            if not orders:
+            q, ans = (match_answer(text, st, base_day(now).isoformat())
+                      if ANSWER_HEAD.match(unicodedata.normalize("NFKC", text)) or not orders else (None, ""))
+            if q is not None:
+                msg, fire = _answer(q, ans, st, now)
+                changed = True
+                if fire:
+                    result_fire = fire
+            elif not orders:
                 msg = "読み取れませんでした。\n" + HELP
             else:
                 aw = st.get("awaiting") or {}
@@ -478,7 +488,29 @@ def process(payload: dict, now=None) -> dict:
         msg += "\n" + short_status()
     if changed:
         write_status()
-    return {"text": msg, "changed": changed, "extra": extra}
+    return {"text": msg, "changed": changed, "extra": extra, "fire": result_fire}
+
+
+def _answer(q: dict, ans: str, st: dict, now) -> tuple[str, str]:
+    """確認の答えを保存する。（返事の文, AIを起動するときの文）。"""
+    from .calendar_jp import base_day, order_deadline
+    from .human_check import MAX_ANSWER_FIRES_PER_NIGHT, fire_text, save_answer
+
+    notes = save_answer(q, ans, st, now)
+    msg = f"ありがとうございます。{q['code']} {q.get('name', '')} の答え「{ans[:60]}」を受け取りました。"
+    if notes:
+        msg += "（" + "／".join(notes) + "）"
+    tb = base_day(now)
+    fires = st.setdefault("answer_fires", {})
+    n = int(fires.get(tb.isoformat(), 0))
+    if now > order_deadline(tb) or q.get("base_day") != tb.isoformat():
+        return msg + "\n注文の締切を過ぎているので、AIは起動しません。", ""
+    if n >= MAX_ANSWER_FIRES_PER_NIGHT:
+        return msg + f"\n今夜の再判断は{MAX_ANSWER_FIRES_PER_NIGHT}回に達したので、AIは起動しません。", ""
+    fires[tb.isoformat()] = n + 1
+    st["answer_fires"] = dict(sorted(fires.items())[-14:])
+    return msg + "\nこの答えでAIにもう一度判断させます（数分でLINEに結論が届きます。締切前なら保有にも記録します）。", \
+        fire_text(q, ans)
 
 
 def main() -> int:
@@ -501,6 +533,21 @@ def main() -> int:
         r = json.loads(RESULT.read_text(encoding="utf-8"))
         if r.get("text"):
             print(send(r["text"], "line_reply", r.get("extra") or None))
+        return 0
+    if cmd == "fire":
+        # 確認の答えが来たとき、AIアナリストをもう一度起動する（push の後に1回だけ）
+        if not RESULT.exists():
+            return 0
+        r = json.loads(RESULT.read_text(encoding="utf-8"))
+        if r.get("fire"):
+            from .ai_fire import fire
+
+            ok, m = fire(r["fire"])
+            print(m)
+            if not ok and "未設定" not in m:
+                from .notify import send
+
+                send(f"【名証スキャナー】確認の答えでAIを起動できませんでした（{m}）。", "failure")
         return 0
     if cmd == "status":
         write_status()

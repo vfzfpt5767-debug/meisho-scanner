@@ -644,3 +644,131 @@ def test_sell_rule_and_earnings_notice(tmp_path, monkeypatch):
     monkeypatch.setattr(E, "PATH", ep)
     got = P._earnings_soon(ctx, datetime(2026, 11, 4, 21, 0, tzinfo=JST))
     assert "4445" in got and "7203" not in got and "11/6(金)" in got["4445"] and "AIが判断" in got["4445"]
+
+
+def test_ir_lookup_offline(tmp_path, monkeypatch):
+    import json as _json
+    from types import SimpleNamespace
+
+    from scanner import ir
+
+    pages = tmp_path / "ir_pages.json"
+    pages.write_text(_json.dumps({"1869": {"status": "ok", "ir_news": "https://ex.co.jp/ir/"}}), encoding="utf-8")
+    monkeypatch.setattr(ir, "PAGES", pages)
+    html = ('<ul><li>2026年11月05日 <a href="/data/a.pdf">自己株式取得に係る事項の決定に関するお知らせ（PDF：324KB）</a></li>'
+            '<li>2026年11月05日 <a href="/data/b.pdf">2027年3月期 第2四半期決算短信</a></li></ul>')
+    pdf = b"%PDF-1.4 fake"
+
+    def fake_fetch(url):
+        if url.endswith("/ir/"):
+            return SimpleNamespace(content=html.encode("utf-8"), url=url, encoding="utf-8")
+        return SimpleNamespace(content=pdf, url=url, encoding=None)
+
+    monkeypatch.setattr(ir, "fetch", fake_fetch)
+    monkeypatch.setattr(ir, "_pdf_text", lambda data, max_chars=3500: "取得し得る株式の総数 134,000株（上限）割合 0.53%")
+    r = ir.lookup("1869", "自己株式取得に係る事項の決定に関するお知らせ", "2026-11-05")
+    assert r["status"] == "found" and r["url"] == "https://ex.co.jp/data/a.pdf" and "0.53%" in r["excerpt"]
+    assert ir.lookup("1869", "株主優待制度の新設に関するお知らせ")["status"] == "not_found"
+    assert ir.lookup("9999", "x")["status"] == "no_ir_page"
+
+
+def test_ir_robots(monkeypatch):
+    from types import SimpleNamespace
+
+    from scanner import ir
+
+    ir._robots.clear()
+    texts = {"https://a.jp": (200, "User-agent: *\nDisallow: /ir/\n"), "https://b.jp": (404, ""), "https://c.jp": (503, "")}
+
+    def fake_get(url, timeout=0, allow_redirects=True):
+        host = url.rsplit("/robots.txt", 1)[0]
+        code, body = texts[host]
+        return SimpleNamespace(status_code=code, text=body, content=body.encode(), encoding="utf-8")
+
+    monkeypatch.setattr(ir.http._session, "get", fake_get)
+    assert ir.robots_state("https://a.jp/ir/news") == "disallow"
+    assert ir.robots_state("https://a.jp/company/") == "allow"
+    assert ir.robots_state("https://b.jp/ir/") == "allow"  # robots.txt がない
+    assert ir.robots_state("https://c.jp/ir/") == "unreachable"  # 5xx は開かない
+
+
+def test_human_check_flow(tmp_path, monkeypatch):
+    import json as _json
+
+    from scanner import human_check as H
+    from scanner import line_actions as L
+    from scanner.sources.nse_list import Listing
+
+    inp = tmp_path / "analyst_input.json"
+    inp.write_text(_json.dumps({"base_day": "2026-11-05", "candidates": [
+        {"code": "1869", "name": "名工建設", "category": "CHECK", "single": True, "score": 53,
+         "items": [{"time": "11/05 16:30", "title": "自己株式取得に係る事項の決定に関するお知らせ",
+                    "pdf": "https://www.release.tdnet.info/inbs/140120261105565325.pdf",
+                    "labels": [{"cat": "A", "label": "自社株買い"}]}]},
+        {"code": "7203", "name": "トヨタ", "category": "CHECK", "single": False, "score": 60, "items": []}],
+        "stop_limits": []}), encoding="utf-8")
+    monkeypatch.setattr(H, "INPUT", inp)
+    monkeypatch.setattr(H, "TOB_PRICES_CSV", tmp_path / "tob.csv")
+    monkeypatch.setattr(L, "STATE", tmp_path / "state.json")
+    monkeypatch.setattr(L, "short_status", lambda pf=None: "保有：（省略）")
+    monkeypatch.setattr(L, "write_status", lambda pf=None: None)
+    monkeypatch.setattr("scanner.sources.nse_list.load",
+                        lambda refresh=False: ({"1869": Listing("1869", "名工建設", True, "", 100, "")}, None))
+    d = {"id": "2026-11-05-2120", "base_day": "2026-11-05",
+         "skipped": [{"code": "7203", "reason": "小さい材料"}, {"code": "1869", "reason": "開示の中身をWebで確認できず"}]}
+    qs = H.pick_questions(d)
+    assert [q["code"] for q in qs] == ["1869"] and "%" in qs[0]["question"] and qs[0]["pdf"].endswith("565325.pdf")
+    text = H.ask_text(qs)
+    assert "確認 1869" in text and "140120261105565325.pdf" in text
+    now = datetime(2026, 11, 5, 21, 30, tzinfo=JST)
+    st = L.load_state()
+    H.register(qs, d, st, now)
+    H.register(qs, d, st, now)  # 同じ銘柄は1回だけ
+    assert len(st["questions"]) == 1
+    L.save_state(st)
+    # 「確認 1869 0.53% 11/6〜3/31」と返信 → 答えを保存し、AIを起動する文ができる
+    r = L.process({"type": "text", "text": "確認 1869 0.53%（11/6〜3/31）", "event_id": "q1"}, now)
+    assert "答え" in r["text"] and r["fire"] and "0.53%" in r["fire"]
+    data = _json.loads(inp.read_text(encoding="utf-8"))
+    assert data["human_answers"][0]["code"] == "1869" and "0.53%" in data["human_answers"][0]["answer"]
+    assert H.answers_for("2026-11-05")[0]["answer"].startswith("0.53%")
+    # 確認待ちがなければ、ただの数字は答えとして扱わない
+    assert L.process({"type": "text", "text": "確認 1869 1%", "event_id": "q2"}, now)["fire"] == ""
+
+
+def test_human_trigger_records_after_2330(tmp_path, monkeypatch):
+    import json as _json
+
+    from scanner import ai_decision as AD
+    from scanner import line_actions as L
+    from scanner import portfolio as P
+
+    dec = tmp_path / "decisions"
+    dec.mkdir()
+    monkeypatch.setattr(AD, "DECISIONS", dec)
+    monkeypatch.setattr(AD, "TEST_DIR", dec / "test")
+    for k in ("LATEST", "APPLIED", "HISTORY"):
+        monkeypatch.setattr(AD, k, tmp_path / "ai" / getattr(AD, k).name)
+    monkeypatch.setattr(L, "STATE", tmp_path / "ai" / "line_state.json")
+    monkeypatch.setattr(L, "write_status", lambda pf=None: None)
+    monkeypatch.setattr("scanner.ai_input.mark_handled", lambda b: [])
+    h, c = tmp_path / "holdings.csv", tmp_path / "cash.csv"
+    h.write_text("code,shares,buy_price,buy_date,memo\n", encoding="utf-8")
+    c.write_text("key,value\ncash,3000000\n", encoding="utf-8")
+    monkeypatch.setattr(P, "HOLDINGS_CSV", h)
+    monkeypatch.setattr(P, "CASH_CSV", c)
+    monkeypatch.setattr("scanner.notify.send", lambda text, kind, extra=None: "LINEに送信しました")
+    now = datetime(2026, 11, 5, 23, 50, tzinfo=JST)
+    st = L.load_state()
+    st["questions"] = [{"base_day": "2026-11-05", "code": "1869", "status": "answered",
+                        "answered_at": datetime(2026, 11, 5, 23, 40, tzinfo=JST).isoformat()}]
+    L.save_state(st)
+    d = {"version": 1, "created_at": now.isoformat(), "base_day": "2026-11-05", "summary": "t", "trigger": "human",
+         "orders": [{"side": "buy", "code": "1869", "shares": 1000, "unit": 100, "price": 1890, "confidence": "中", "reason": "r"}]}
+    (dec / "2026-11-05-2350.json").write_text(_json.dumps(d), encoding="utf-8")
+    AD.apply_all(now=now)
+    assert "1869,1000" in h.read_text(encoding="utf-8")  # 人の答えでの判断は23:30以降でも記録
+    d2 = dict(d, trigger="fire")
+    (dec / "2026-11-05-2355.json").write_text(_json.dumps(d2), encoding="utf-8")
+    AD.apply_all(now=datetime(2026, 11, 5, 23, 55, tzinfo=JST))
+    assert h.read_text(encoding="utf-8").count("1869,1000") == 1  # ふつうの判断は参考（記録しない）

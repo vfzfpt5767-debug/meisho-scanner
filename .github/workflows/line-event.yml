@@ -55,6 +55,14 @@ jobs:
           LINE_USER_ID: ${{ secrets.LINE_USER_ID }}
         run: python -m scanner.line_actions send
 
+      - name: 確認の答えでAIをもう一度起動（答えが届いたときだけ）
+        env:
+          ANALYST_FIRE_URL: ${{ secrets.ANALYST_FIRE_URL }}
+          ANALYST_FIRE_TOKEN: ${{ secrets.ANALYST_FIRE_TOKEN }}
+          LINE_CHANNEL_ACCESS_TOKEN: ${{ secrets.LINE_CHANNEL_ACCESS_TOKEN }}
+          LINE_USER_ID: ${{ secrets.LINE_USER_ID }}
+        run: python -m scanner.line_actions fire
+
       - name: ページを作り直す（scan を起動）
         if: steps.rec.outputs.changed == 'true'
         env:
