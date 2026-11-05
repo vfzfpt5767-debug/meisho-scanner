@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-06T03:57:26.363105+09:00",
+ "generated_at": "2026-11-06T04:05:54.973911+09:00",
  "base_day": "2026-11-05",
  "deadline": "2026-11-06T07:59:00+09:00",
  "price_source": "名証 日報",
@@ -511,6 +511,144 @@
     "cautions": [],
     "sell_rule": "11/6(金)の終値で売る予定（買ってから1営業日後）。検証：自社株買いでストップ高にならなかった銘柄は1営業日後の終値で売るのが一番よい（平均+2.2%・中央値+1.3%・n=1,718）",
     "material": "自社株買い"
+   }
+  ]
+ },
+ "morning": {
+  "direction": "日経平均先物は前日の日経平均より-7.7% → 下落して始まりそう",
+  "futures_gap_pct": -7.6837681389263395,
+  "indices": [
+   {
+    "symbol": "^GSPC",
+    "label": "S&P500",
+    "last": 7368.490234375,
+    "change_pct": -4.1636844834727516,
+    "date": "2026-11-05"
+   },
+   {
+    "symbol": "^IXIC",
+    "label": "ナスダック",
+    "last": 24368.5,
+    "change_pct": -5.315444005745428,
+    "date": "2026-11-05"
+   },
+   {
+    "symbol": "^SOX",
+    "label": "SOX指数（半導体）",
+    "last": 9198.224609375,
+    "change_pct": -10.424210977396498,
+    "date": "2026-11-05"
+   },
+   {
+    "symbol": "JPY=X",
+    "label": "ドル円",
+    "last": 157.66799926757812,
+    "change_pct": -0.5054584194155165,
+    "date": "2026-11-05"
+   },
+   {
+    "symbol": "NIY=F",
+    "label": "日経平均先物（CME・円建て）",
+    "last": 58210.0,
+    "change_pct": -7.6837681389263395,
+    "date": "2026-11-05"
+   },
+   {
+    "symbol": "^N225",
+    "label": "日経平均",
+    "last": 62188.62890625,
+    "change_pct": -1.4159862718060579,
+    "date": "2026-11-04"
+   }
+  ],
+  "adr_top": [
+   {
+    "adr": "MHVYF",
+    "code": "7011",
+    "name": "三菱重工業",
+    "jp_price": 3052.0,
+    "implied": 3226.5409135561367,
+    "gap_pct": 5.718902803281023,
+    "adr_change_pct": -0.340299931272392,
+    "traded": true,
+    "single": false
+   },
+   {
+    "adr": "NPSCY",
+    "code": "5401",
+    "name": "日本製鉄",
+    "jp_price": 666.0,
+    "implied": 672.4051546898987,
+    "gap_pct": 0.9617349384232421,
+    "adr_change_pct": 1.408449285348734,
+    "traded": true,
+    "single": false
+   },
+   {
+    "adr": "CJPRY",
+    "code": "9022",
+    "name": "東海旅客鉄道",
+    "jp_price": 4374.0,
+    "implied": 4331.089267313811,
+    "gap_pct": -0.9810409850523172,
+    "adr_change_pct": 3.9423841873129195,
+    "traded": true,
+    "single": false
+   },
+   {
+    "adr": "FJTSY",
+    "code": "6702",
+    "name": "富士通",
+    "jp_price": 3430.0,
+    "implied": 3368.264419203281,
+    "gap_pct": -1.7998711602542072,
+    "adr_change_pct": -2.4601407597173552,
+    "traded": true,
+    "single": false
+   },
+   {
+    "adr": "CAJPY",
+    "code": "7751",
+    "name": "キヤノン",
+    "jp_price": 4879.0,
+    "implied": 4784.354078259279,
+    "gap_pct": -1.9398631223759177,
+    "adr_change_pct": 1.9456555991176572,
+    "traded": true,
+    "single": false
+   },
+   {
+    "adr": "DNZOY",
+    "code": "6902",
+    "name": "デンソー",
+    "jp_price": 1926.0,
+    "implied": 1883.3659226036,
+    "gap_pct": -2.213607341453794,
+    "adr_change_pct": 1.3628607370651524,
+    "traded": true,
+    "single": false
+   },
+   {
+    "adr": "TAK",
+    "code": "4502",
+    "name": "武田薬品工業",
+    "jp_price": 6888.0,
+    "implied": 6732.22642883588,
+    "gap_pct": -2.2615210680040576,
+    "adr_change_pct": 1.3057911942257805,
+    "traded": true,
+    "single": false
+   },
+   {
+    "adr": "TM",
+    "code": "7203",
+    "name": "トヨタ自動車",
+    "jp_price": 3533.0,
+    "implied": 3445.144507695411,
+    "gap_pct": -2.486710792657487,
+    "adr_change_pct": 9.871646706030246,
+    "traded": true,
+    "single": false
    }
   ]
  },
