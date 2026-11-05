@@ -231,7 +231,12 @@ def build(limit: int | None = None, only: list[str] | None = None) -> dict:
                 homes[c] = _nse_home(c)
             except Exception as e:  # noqa: BLE001
                 print(c, "名証の基本情報を読めませんでした:", type(e).__name__)
+        if homes[c]:
+            prev = pages.get(c, {})
+            pages[c] = {**prev, "name": universe[c].name, "single": universe[c].single, "home": homes[c],
+                        "status": prev.get("status") if prev.get("status") else "pending"}
         if i % 25 == 0:
+            PAGES.write_text(json.dumps(pages, ensure_ascii=False, indent=1), encoding="utf-8")
             print("トップページ", i, "/", len(todo), flush=True)
 
     # 2) 各社のIRページ（会社ごとに別のサイトなので6社ずつ並べて見る。同じサイトへは3秒おき）
