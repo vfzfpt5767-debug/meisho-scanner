@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-05T21:16:35.535351+09:00",
+ "generated_at": "2026-11-05T21:19:15.608976+09:00",
  "base_day": "2026-11-05",
  "deadline": "2026-11-06T07:59:00+09:00",
  "price_source": "名証 日報",
@@ -384,33 +384,13 @@
  "tob_tracker": [],
  "errors": [],
  "portfolio": {
-  "cash": 3000.0,
+  "cash": 3145800.0,
   "total": 3145800.0,
   "profit": 145800.0,
   "term_left": 3000000,
   "term_open": true,
   "single_bought": false,
-  "holdings": [
-   {
-    "code": "4445",
-    "name": "リビン・テクノロジーズ",
-    "shares": 1800,
-    "buy_price": 1665.0,
-    "buy_date": "2026-11-02",
-    "price": 1746.0,
-    "pnl_pct": 4.86,
-    "single": false,
-    "quote_only": true,
-    "unit": 100,
-    "warnings": [
-     "売り時（上方修正で買ってから2営業日・ストップ高ではない）"
-    ],
-    "notices": [],
-    "cautions": [],
-    "sell_rule": "売り時：買ってから2営業日たった（ストップ高ではない）。今夜売る。検証：上方修正でストップ高にならなかった銘柄は1営業日後の終値で売るのが一番よい（平均+2.7%・中央値+1.8%・n=245）",
-    "material": "上方修正"
-   }
-  ]
+  "holdings": []
  },
  "new_listings": [
   {
