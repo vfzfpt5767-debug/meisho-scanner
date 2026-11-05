@@ -1,5 +1,5 @@
 {
-"generated_at": "2026-11-05T10:30:37.326598+09:00",
+"generated_at": "2026-11-05T11:15:26.070969+09:00",
 "base_day": "2026-11-04",
 "deadline": "2026-11-05T07:59:00+09:00",
 "price_source": "名証 日報",
@@ -82,6 +82,40 @@
 "nse_quote": 665.0,
 "shares": 4500,
 "cost": 2992500.0,
+"tob_price": null,
+"tob_gap_pct": null,
+"quote_only": true
+},
+{
+"code": "5947",
+"name": "リンナイ",
+"single": false,
+"division": "プレミア",
+"unit": 100,
+"category": "INFO",
+"score": 15,
+"items": [
+{
+"time": "10:40",
+"date": "11/05",
+"title": "2027年3月期　第2四半期（中間期）決算短信〔日本基準〕（連結）",
+"pdf": "https://www.release.tdnet.info/inbs/140120261102563229.pdf",
+"tags": [
+{
+"cat": "INFO",
+"label": "決算短信",
+"score": 15,
+"reason": "決算発表（数値はPDFで確認。自動計算はしていません）"
+}
+]
+}
+],
+"price": 3465.0,
+"price_note": "名証の最終気配",
+"nse_close": null,
+"nse_quote": 3465.0,
+"shares": 800,
+"cost": 2772000.0,
 "tob_price": null,
 "tob_gap_pct": null,
 "quote_only": true

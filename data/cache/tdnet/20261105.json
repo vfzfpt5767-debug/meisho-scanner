@@ -1,9 +1,27 @@
 {
 "date": "2026-11-05",
-"fetched_at": "2026-11-05T10:30:38.244140+09:00",
+"fetched_at": "2026-11-05T11:15:26.962333+09:00",
 "complete": false,
-"total_all_markets": 20,
+"total_all_markets": 25,
 "items": [
+{
+"Tdnet": {
+"id": "1289517",
+"pubdate": "2026-11-05 10:40:00",
+"company_code": "59470",
+"company_name": "リンナイ",
+"title": "2027年3月期　第2四半期（中間期）決算短信〔日本基準〕（連結）",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261102563229.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/081220261102563229.zip",
+"markets_string": "東名",
+"update_history": null
+}
+},
 {
 "Tdnet": {
 "id": "1289499",
