@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-05T05:32:21.737158+09:00",
+ "generated_at": "2026-11-05T10:30:37.326598+09:00",
  "base_day": "2026-11-04",
  "deadline": "2026-11-05T07:59:00+09:00",
  "price_source": "名証 日報",
@@ -17,7 +17,7 @@
    "code": "4430",
    "name": "東海ソフト",
    "category": "A",
-   "score": 53,
+   "score": 58,
    "single": false,
    "price": 1662.0,
    "price_note": "名証の最終気配",
@@ -43,6 +43,18 @@
         "p10": -4.32,
         "n": 1729
        }
+      }
+     ]
+    },
+    {
+     "time": "11/05 09:30",
+     "title": "自己株式立会外買付取引（ToSTNeT-3）による自己株式の取得結果および取得終了に関するお知らせ",
+     "pdf": "https://www.release.tdnet.info/inbs/140120261104564151.pdf",
+     "labels": [
+      {
+       "cat": "INFO",
+       "label": "自社株買いの経過",
+       "backtest_next_day": null
       }
      ]
     }
@@ -84,7 +96,7 @@
    ]
   }
  ],
- "other_after_close_count": 10,
+ "other_after_close_count": 11,
  "stop_limits": [],
  "tob_tracker": [],
  "errors": [],
@@ -92,8 +104,8 @@
   "cash": 3000.0,
   "total": 3127800.0,
   "profit": 127800.0,
-  "term_left": 3000000,
-  "term_open": true,
+  "term_left": 3000000.0,
+  "term_open": false,
   "single_bought": false,
   "holdings": [
    {
@@ -114,144 +126,6 @@
     "cautions": [],
     "sell_rule": "売り時：買ってから1営業日たった（ストップ高ではない）。今夜売る。検証：上方修正でストップ高にならなかった銘柄は1営業日後の終値で売るのが一番よい（平均+2.7%・中央値+1.8%・n=245）",
     "material": "上方修正"
-   }
-  ]
- },
- "morning": {
-  "direction": "日経平均先物は前日の日経平均より-1.2% → 下落して始まりそう",
-  "futures_gap_pct": -1.2218045112781906,
-  "indices": [
-   {
-    "symbol": "^GSPC",
-    "label": "S&P500",
-    "last": 7707.009765625,
-    "change_pct": 1.8244326162165647,
-    "date": "2026-11-04"
-   },
-   {
-    "symbol": "^IXIC",
-    "label": "ナスダック",
-    "last": 25830.69140625,
-    "change_pct": 1.8078254141555616,
-    "date": "2026-11-04"
-   },
-   {
-    "symbol": "^SOX",
-    "label": "SOX指数（半導体）",
-    "last": 10229.5859375,
-    "change_pct": -3.498117424441327,
-    "date": "2026-11-04"
-   },
-   {
-    "symbol": "JPY=X",
-    "label": "ドル円",
-    "last": 158.44400024414062,
-    "change_pct": 0.33499476332135014,
-    "date": "2026-11-04"
-   },
-   {
-    "symbol": "NIY=F",
-    "label": "日経平均先物（CME・円建て）",
-    "last": 63060.0,
-    "change_pct": -1.2218045112781906,
-    "date": "2026-11-04"
-   },
-   {
-    "symbol": "^N225",
-    "label": "日経平均",
-    "last": 63081.859375,
-    "change_pct": -0.32904035410351584,
-    "date": "2026-11-02"
-   }
-  ],
-  "adr_top": [
-   {
-    "adr": "TM",
-    "code": "7203",
-    "name": "トヨタ自動車",
-    "jp_price": 3028.0,
-    "implied": 3155.8726432359113,
-    "gap_pct": 4.2230067118861125,
-    "adr_change_pct": 3.378240555679235,
-    "traded": true,
-    "single": false
-   },
-   {
-    "adr": "MUFG",
-    "code": "8306",
-    "name": "三菱ＵＦＪフィナンシャル・グループ",
-    "jp_price": 3360.0,
-    "implied": 3488.209751122443,
-    "gap_pct": 3.8157664024536464,
-    "adr_change_pct": 3.596612003688082,
-    "traded": true,
-    "single": false
-   },
-   {
-    "adr": "SMFG",
-    "code": "8316",
-    "name": "三井住友フィナンシャルグループ",
-    "jp_price": 3146.0,
-    "implied": 3257.711395469247,
-    "gap_pct": 3.5509025896137025,
-    "adr_change_pct": 3.2454001386741593,
-    "traded": true,
-    "single": false
-   },
-   {
-    "adr": "NMR",
-    "code": "8604",
-    "name": "野村ホールディングス",
-    "jp_price": 1496.5,
-    "implied": 1543.3083854954648,
-    "gap_pct": 3.1278573668870546,
-    "adr_change_pct": 3.2206899989577042,
-    "traded": true,
-    "single": false
-   },
-   {
-    "adr": "MITSY",
-    "code": "8031",
-    "name": "三井物産",
-    "jp_price": 4900.0,
-    "implied": 5043.811166184777,
-    "gap_pct": 2.934921758872999,
-    "adr_change_pct": 2.4606643326689825,
-    "traded": true,
-    "single": false
-   },
-   {
-    "adr": "MKTAY",
-    "code": "6586",
-    "name": "マキタ",
-    "jp_price": 5328.0,
-    "implied": 5458.165085601105,
-    "gap_pct": 2.443038393414132,
-    "adr_change_pct": 3.3502809502259145,
-    "traded": true,
-    "single": false
-   },
-   {
-    "adr": "FJTSY",
-    "code": "6702",
-    "name": "富士通",
-    "jp_price": 3397.0,
-    "implied": 3467.052300279154,
-    "gap_pct": 2.0621813446910275,
-    "adr_change_pct": -0.5442128618448061,
-    "traded": true,
-    "single": false
-   },
-   {
-    "adr": "HTHIY",
-    "code": "6501",
-    "name": "日立製作所",
-    "jp_price": 4894.0,
-    "implied": 4976.403005590448,
-    "gap_pct": 1.683755733356107,
-    "adr_change_pct": -0.22151801892150713,
-    "traded": true,
-    "single": false
    }
   ]
  },
@@ -340,17 +214,17 @@
   }
  ],
  "simulator": {
-  "nights_left": 17,
+  "nights_left": 16,
   "start_assets": 3127800.0,
   "target": 7290000,
   "best": "aggressive",
   "best_label": "毎晩1位候補に全額（要確認だけの夜も買う）",
-  "advice": "どの戦略でも10位ラインに届く確率は低い（最大0.4%）。一番ましなのは「毎晩1位候補に全額（要確認だけの夜も買う）」",
+  "advice": "どの戦略でも10位ラインに届く確率は低い（最大0.3%）。一番ましなのは「毎晩1位候補に全額（要確認だけの夜も買う）」",
   "probs": {
-   "毎晩1位候補に全額（要確認だけの夜も買う）": 0.41,
-   "毎晩上位2銘柄に半分ずつ": 0.09,
-   "S・A・ストップ高張り付きがある夜だけ1位に全額、ない夜は休む": 0.24,
-   "S・A・張り付きがある夜だけ、上位2銘柄に半分ずつ": 0.15
+   "毎晩1位候補に全額（要確認だけの夜も買う）": 0.29,
+   "毎晩上位2銘柄に半分ずつ": 0.07,
+   "S・A・ストップ高張り付きがある夜だけ1位に全額、ない夜は休む": 0.17,
+   "S・A・張り付きがある夜だけ、上位2銘柄に半分ずつ": 0.09
   }
  }
 }

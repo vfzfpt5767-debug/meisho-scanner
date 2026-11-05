@@ -1,5 +1,5 @@
 {
-"generated_at": "2026-11-05T05:32:21.737158+09:00",
+"generated_at": "2026-11-05T10:30:37.326598+09:00",
 "base_day": "2026-11-04",
 "deadline": "2026-11-05T07:59:00+09:00",
 "price_source": "名証 日報",
@@ -11,7 +11,7 @@
 "division": "プレミア",
 "unit": 100,
 "category": "A",
-"score": 53,
+"score": 58,
 "items": [
 {
 "time": "16:35",
@@ -24,6 +24,20 @@
 "label": "自社株買い",
 "score": 53,
 "reason": "自己株式取得の決定（規模＝発行済株式に対する%はPDFで確認）"
+}
+]
+},
+{
+"time": "09:30",
+"date": "11/05",
+"title": "自己株式立会外買付取引（ToSTNeT-3）による自己株式の取得結果および取得終了に関するお知らせ",
+"pdf": "https://www.release.tdnet.info/inbs/140120261104564151.pdf",
+"tags": [
+{
+"cat": "INFO",
+"label": "自社株買いの経過",
+"score": 5,
+"reason": "自社株買いの途中経過・結果"
 }
 ]
 }
@@ -391,6 +405,68 @@
 "tob_price": null,
 "tob_gap_pct": null,
 "quote_only": true
+},
+{
+"code": "655A",
+"name": "ＬＴＶ－Ｘ",
+"single": true,
+"division": "",
+"unit": 100,
+"category": "INFO",
+"score": 0,
+"items": [
+{
+"time": "08:00",
+"date": "11/05",
+"title": "名古屋証券取引所ネクスト市場への上場に伴う当社決算情報等のお知らせ",
+"pdf": "https://www.release.tdnet.info/inbs/140120261104563735.pdf",
+"tags": [
+{
+"cat": "INFO",
+"label": "その他",
+"score": 0,
+"reason": ""
+}
+]
+},
+{
+"time": "08:00",
+"date": "11/05",
+"title": "事業計画及び成長可能性に関する書類",
+"pdf": "https://www.release.tdnet.info/inbs/140120261104563762.pdf",
+"tags": [
+{
+"cat": "INFO",
+"label": "その他",
+"score": 0,
+"reason": ""
+}
+]
+},
+{
+"time": "08:00",
+"date": "11/05",
+"title": "親会社以外の支配株主及び主要株主の異動のお知らせ",
+"pdf": "https://www.release.tdnet.info/inbs/140120261104563767.pdf",
+"tags": [
+{
+"cat": "INFO",
+"label": "その他",
+"score": 0,
+"reason": ""
+}
+]
+}
+],
+"price": null,
+"price_note": "株価はコンテスト画面で確認",
+"nse_close": null,
+"nse_quote": null,
+"shares": null,
+"cost": null,
+"tob_price": null,
+"tob_gap_pct": null,
+"quote_only": false
 },
 {
 "code": "5401",

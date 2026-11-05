@@ -1,7 +1,80 @@
 {
 "date": "2026-11-05",
-"fetched_at": "2026-11-05T05:32:22.613951+09:00",
+"fetched_at": "2026-11-05T10:30:38.244140+09:00",
 "complete": false,
-"total_all_markets": 0,
-"items": []
+"total_all_markets": 20,
+"items": [
+{
+"Tdnet": {
+"id": "1289499",
+"pubdate": "2026-11-05 09:30:00",
+"company_code": "44300",
+"company_name": "東海ソフト",
+"title": "自己株式立会外買付取引（ToSTNeT-3）による自己株式の取得結果および取得終了に関するお知らせ",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261104564151.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": null,
+"markets_string": "東名",
+"update_history": null
+}
+},
+{
+"Tdnet": {
+"id": "1289493",
+"pubdate": "2026-11-05 08:00:00",
+"company_code": "655A0",
+"company_name": "ＬＴＶ－Ｘ",
+"title": "名古屋証券取引所ネクスト市場への上場に伴う当社決算情報等のお知らせ",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261104563735.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": null,
+"markets_string": "名",
+"update_history": null
+}
+},
+{
+"Tdnet": {
+"id": "1289494",
+"pubdate": "2026-11-05 08:00:00",
+"company_code": "655A0",
+"company_name": "ＬＴＶ－Ｘ",
+"title": "事業計画及び成長可能性に関する書類",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261104563762.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": null,
+"markets_string": "名",
+"update_history": null
+}
+},
+{
+"Tdnet": {
+"id": "1289495",
+"pubdate": "2026-11-05 08:00:00",
+"company_code": "655A0",
+"company_name": "ＬＴＶ－Ｘ",
+"title": "親会社以外の支配株主及び主要株主の異動のお知らせ",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261104563767.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": null,
+"markets_string": "名",
+"update_history": null
+}
+}
+]
 }
