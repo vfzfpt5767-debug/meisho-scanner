@@ -1,5 +1,5 @@
 {
-"fetched_date": "2026-11-05",
+"fetched_date": "2026-11-06",
 "source": "https://www.nse.or.jp/api/stock/search.json",
 "rows": [
 {
@@ -2343,6 +2343,18 @@
 "tradingUnit": "100"
 },
 {
+"simpleListing": 1,
+"stockCode": "655A0",
+"stockName_j": "LTV-X",
+"stockName_e": "LTV-X Inc.",
+"listedDivision": 3,
+"industryName_j": "情報・通信業",
+"industryName_e": "Information & Communication",
+"stockUrl_e": "",
+"accountingTerm": "0331",
+"tradingUnit": "100"
+},
+{
 "simpleListing": 0,
 "stockCode": "65640",
 "stockName_j": "ミダックホールディングス",
@@ -3942,6 +3954,7 @@
 "62250",
 "624A0",
 "64390",
+"655A0",
 "65650",
 "66230",
 "66550",
