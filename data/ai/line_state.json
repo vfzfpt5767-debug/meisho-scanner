@@ -58,9 +58,29 @@
   "01M6GXR7EJXZ9XR7HAHF1A95V2",
   "01M6GXSTM5S7Y555P1QVQ4QEW7",
   "01M6N966D6TA6SXXE0Y0BGE48E",
-  "01M6PA87GVP4YPQY32GJMVRVXH"
+  "01M6PA87GVP4YPQY32GJMVRVXH",
+  "01M6PACW1ZQKJS944PGY7Y8GDN"
  ],
- "manual": [],
+ "manual": [
+  {
+   "id": "LINE 11/06 01:59",
+   "text": "買い 1869 1単位 1877円",
+   "patch": {
+    "removed": [],
+    "added": [
+     [
+      "1869",
+      "100",
+      "1877",
+      "2026-11-05",
+      "LINE 11/06 01:59"
+     ]
+    ],
+    "cash_delta": -187700.0
+   },
+   "at": "2026-11-06T01:59:30.351349+09:00"
+  }
+ ],
  "awaiting": null,
  "enabled": true
 }
