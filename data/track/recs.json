@@ -18,7 +18,8 @@
 "category": "A",
 "label": "自社株買い",
 "price": 1662.0,
-"result": null
+"result": -0.001203369434416346,
+"next_day": "2026-11-05"
 },
 {
 "base_day": "2026-11-04",
@@ -28,7 +29,8 @@
 "category": "A",
 "label": "自社株買い",
 "price": 1662.0,
-"result": null
+"result": -0.001203369434416346,
+"next_day": "2026-11-05"
 },
 {
 "base_day": "2026-11-04",
@@ -38,6 +40,37 @@
 "category": "A",
 "label": "特別利益",
 "price": 665.0,
+"result": 0.007518796992481258,
+"next_day": "2026-11-05"
+},
+{
+"base_day": "2026-11-05",
+"source": "rule_top",
+"code": "6134",
+"name": "ＦＵＪＩ",
+"category": "A",
+"label": "自社株買い",
+"price": 5204.0,
+"result": null
+},
+{
+"base_day": "2026-11-05",
+"source": "rule_sa",
+"code": "6134",
+"name": "ＦＵＪＩ",
+"category": "A",
+"label": "自社株買い",
+"price": 5204.0,
+"result": null
+},
+{
+"base_day": "2026-11-05",
+"source": "rule_sa",
+"code": "1869",
+"name": "名工建設",
+"category": "A",
+"label": "自社株買い",
+"price": 1877.0,
 "result": null
 }
 ]

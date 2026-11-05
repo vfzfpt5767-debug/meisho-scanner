@@ -1,7 +1,7 @@
 {
- "generated_at": "2026-11-05T11:15:26.070969+09:00",
- "base_day": "2026-11-04",
- "deadline": "2026-11-05T07:59:00+09:00",
+ "generated_at": "2026-11-05T21:16:35.535351+09:00",
+ "base_day": "2026-11-05",
+ "deadline": "2026-11-06T07:59:00+09:00",
  "price_source": "名証 日報",
  "rules": {
   "prefer": "検証で上がった割合60%以上かつ平均+2%以上の材料を優先する",
@@ -14,24 +14,101 @@
  },
  "candidates": [
   {
-   "code": "4430",
-   "name": "東海ソフト",
-   "category": "A",
-   "score": 58,
+   "code": "9913",
+   "name": "日邦産業",
+   "category": "CHECK",
+   "score": 65,
    "single": false,
-   "price": 1662.0,
+   "price": 3700.0,
    "price_note": "名証の最終気配",
    "quote_only": true,
    "unit": 100,
-   "shares_for_budget": 1800,
+   "shares_for_budget": 800,
    "tob_price": null,
    "tob_gap_pct": null,
    "model_prob": null,
    "items": [
     {
-     "time": "11/04 16:35",
-     "title": "自己株式の取得及び自己株式立会外買付取引（ToSTNeT-3）による自己株式の買付けに関するお知らせ",
-     "pdf": "https://www.release.tdnet.info/inbs/140120261104564052.pdf",
+     "time": "11/05 15:30",
+     "title": "連結業績予想及び期末配当予想の修正に関するお知らせ",
+     "pdf": "https://www.release.tdnet.info/inbs/140120261105565632.pdf",
+     "labels": [
+      {
+       "cat": "CHECK",
+       "label": "配当予想の修正",
+       "backtest_next_day": {
+        "up": 64.5,
+        "mean": 3.02,
+        "median": 2.08,
+        "p10": -6.29,
+        "n": 1076
+       }
+      }
+     ]
+    },
+    {
+     "time": "11/05 15:30",
+     "title": "2027年３月期第２四半期（中間期）決算短信〔日本基準〕(連結)",
+     "pdf": "https://www.release.tdnet.info/inbs/140120261104564426.pdf",
+     "labels": [
+      {
+       "cat": "INFO",
+       "label": "決算短信",
+       "backtest_next_day": {
+        "up": 40.7,
+        "mean": -0.36,
+        "median": -0.52,
+        "p10": -8.2,
+        "n": 19890
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "code": "6134",
+   "name": "ＦＵＪＩ",
+   "category": "A",
+   "score": 58,
+   "single": false,
+   "price": 5204.0,
+   "price_note": "名証の最終気配",
+   "quote_only": true,
+   "unit": 100,
+   "shares_for_budget": 500,
+   "tob_price": null,
+   "tob_gap_pct": null,
+   "model_prob": null,
+   "items": [
+    {
+     "time": "11/05 15:30",
+     "title": "2027年3月期　第2四半期（中間期）決算短信〔日本基準〕(連結)",
+     "pdf": "https://www.release.tdnet.info/inbs/140120261105564997.pdf",
+     "labels": [
+      {
+       "cat": "INFO",
+       "label": "決算短信",
+       "backtest_next_day": {
+        "up": 40.7,
+        "mean": -0.36,
+        "median": -0.52,
+        "p10": -8.2,
+        "n": 19890
+       }
+      }
+     ]
+    },
+    {
+     "time": "11/05 15:30",
+     "title": "2027年3月期第2四半期（中間期） 決算説明資料",
+     "pdf": "https://www.release.tdnet.info/inbs/140120261105565177.pdf",
+     "labels": []
+    },
+    {
+     "time": "11/05 15:30",
+     "title": "自己株式の取得および自己株式立会外買付取引（ToSTNeT-3）による自己株式の買付けならびに自己株式消却に係る事項の決定に関するお知らせ",
+     "pdf": "https://www.release.tdnet.info/inbs/140120261105565247.pdf",
      "labels": [
       {
        "cat": "A",
@@ -47,28 +124,63 @@
      ]
     },
     {
-     "time": "11/05 09:30",
-     "title": "自己株式立会外買付取引（ToSTNeT-3）による自己株式の取得結果および取得終了に関するお知らせ",
-     "pdf": "https://www.release.tdnet.info/inbs/140120261104564151.pdf",
-     "labels": [
-      {
-       "cat": "INFO",
-       "label": "自社株買いの経過",
-       "backtest_next_day": null
-      }
-     ]
+     "time": "11/05 16:45",
+     "title": "自己株式立会外買付取引（ToSTNeT-3）による自己株式の買付けに関するお知らせ",
+     "pdf": "https://www.release.tdnet.info/inbs/140120261105565533.pdf",
+     "labels": []
     }
    ]
   },
   {
-   "code": "5363",
-   "name": "東京窯業",
+   "code": "1869",
+   "name": "名工建設",
    "category": "A",
-   "score": 40,
+   "score": 53,
+   "single": true,
+   "price": 1877.0,
+   "price_note": "名証の終値",
+   "quote_only": false,
+   "unit": 100,
+   "shares_for_budget": 1500,
+   "tob_price": null,
+   "tob_gap_pct": null,
+   "model_prob": null,
+   "items": [
+    {
+     "time": "11/05 16:30",
+     "title": "自己株式取得に係る事項の決定に関するお知らせ",
+     "pdf": "https://www.release.tdnet.info/inbs/140120261105565325.pdf",
+     "labels": [
+      {
+       "cat": "A",
+       "label": "自社株買い",
+       "backtest_next_day": {
+        "up": 65.99,
+        "mean": 2.31,
+        "median": 1.35,
+        "p10": -4.32,
+        "n": 1729
+       }
+      }
+     ]
+    },
+    {
+     "time": "11/05 16:30",
+     "title": "自己株式立会外買付取引（N-NET3）による自己株式の買付けに関するお知らせ",
+     "pdf": "https://www.release.tdnet.info/inbs/140120261105565332.pdf",
+     "labels": []
+    }
+   ]
+  },
+  {
+   "code": "5401",
+   "name": "日本製鉄",
+   "category": "CHECK",
+   "score": 50,
    "single": false,
-   "price": 665.0,
-   "price_note": "名証の最終気配",
-   "quote_only": true,
+   "price": 666.0,
+   "price_note": "名証の終値",
+   "quote_only": false,
    "unit": 100,
    "shares_for_budget": 4500,
    "tob_price": null,
@@ -76,19 +188,190 @@
    "model_prob": null,
    "items": [
     {
-     "time": "11/04 15:30",
-     "title": "投資有価証券売却益（特別利益）の計上に関するお知らせ",
-     "pdf": "https://www.release.tdnet.info/inbs/140120261102563195.pdf",
+     "time": "11/05 15:30",
+     "title": "2027年3月期第2四半期（中間期）決算短信〔ＩＦＲＳ〕（連結）",
+     "pdf": "https://www.release.tdnet.info/inbs/140120261028558367.pdf",
      "labels": [
       {
-       "cat": "A",
-       "label": "特別利益",
+       "cat": "INFO",
+       "label": "決算短信",
        "backtest_next_day": {
-        "up": 50.6,
-        "mean": 0.96,
-        "median": 0.1,
-        "p10": -4.84,
-        "n": 923
+        "up": 40.7,
+        "mean": -0.36,
+        "median": -0.52,
+        "p10": -8.2,
+        "n": 19890
+       }
+      }
+     ]
+    },
+    {
+     "time": "11/05 15:30",
+     "title": "2026年度第２四半期決算について",
+     "pdf": "https://www.release.tdnet.info/inbs/140120261028558368.pdf",
+     "labels": []
+    },
+    {
+     "time": "11/05 15:30",
+     "title": "2027年３月期第２四半期(中間期)連結業績予想値と決算値との差異に関するお知らせ",
+     "pdf": "https://www.release.tdnet.info/inbs/140120261102563154.pdf",
+     "labels": [
+      {
+       "cat": "CHECK",
+       "label": "予想と実績の差異",
+       "backtest_next_day": {
+        "up": 37.55,
+        "mean": -0.7,
+        "median": -0.79,
+        "p10": -10.11,
+        "n": 1891
+       }
+      }
+     ]
+    },
+    {
+     "time": "11/05 15:30",
+     "title": "業績予想の修正に関するお知らせ",
+     "pdf": "https://www.release.tdnet.info/inbs/140120261102563155.pdf",
+     "labels": [
+      {
+       "cat": "CHECK",
+       "label": "業績予想の修正",
+       "backtest_next_day": {
+        "up": 49.08,
+        "mean": 0.97,
+        "median": 0.0,
+        "p10": -7.8,
+        "n": 3421
+       }
+      }
+     ]
+    },
+    {
+     "time": "11/05 15:30",
+     "title": "2029年満期ユーロ円建転換社債型新株予約権付社債及び2031年満期ユーロ円建転換社債型新株予約権付社債の転換価額の調整に関するお知らせ",
+     "pdf": "https://www.release.tdnet.info/inbs/140120261015550958.pdf",
+     "labels": []
+    }
+   ]
+  },
+  {
+   "code": "5384",
+   "name": "フジミインコーポレーテッド",
+   "category": "CHECK",
+   "score": 45,
+   "single": false,
+   "price": 2750.0,
+   "price_note": "名証の最終気配",
+   "quote_only": true,
+   "unit": 100,
+   "shares_for_budget": 1000,
+   "tob_price": null,
+   "tob_gap_pct": null,
+   "model_prob": null,
+   "items": [
+    {
+     "time": "11/05 16:20",
+     "title": "2027年３月期 第２四半期（中間期）決算短信〔日本基準〕（連結）",
+     "pdf": "https://www.release.tdnet.info/inbs/140120261102563003.pdf",
+     "labels": [
+      {
+       "cat": "INFO",
+       "label": "決算短信",
+       "backtest_next_day": {
+        "up": 40.7,
+        "mean": -0.36,
+        "median": -0.52,
+        "p10": -8.2,
+        "n": 19890
+       }
+      }
+     ]
+    },
+    {
+     "time": "11/05 16:20",
+     "title": "業績予想の修正並びに剰余金の配当（中間配当）に関するお知らせ",
+     "pdf": "https://www.release.tdnet.info/inbs/140120261105565865.pdf",
+     "labels": [
+      {
+       "cat": "CHECK",
+       "label": "業績予想の修正",
+       "backtest_next_day": {
+        "up": 49.08,
+        "mean": 0.97,
+        "median": 0.0,
+        "p10": -7.8,
+        "n": 3421
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "code": "2435",
+   "name": "シダー",
+   "category": "CHECK",
+   "score": 40,
+   "single": false,
+   "price": 199.0,
+   "price_note": "名証の最終気配",
+   "quote_only": true,
+   "unit": 100,
+   "shares_for_budget": 15000,
+   "tob_price": null,
+   "tob_gap_pct": null,
+   "model_prob": null,
+   "items": [
+    {
+     "time": "11/05 16:00",
+     "title": "業績予想の修正に関するお知らせ",
+     "pdf": "https://www.release.tdnet.info/inbs/140120261029558964.pdf",
+     "labels": [
+      {
+       "cat": "CHECK",
+       "label": "業績予想の修正",
+       "backtest_next_day": {
+        "up": 49.08,
+        "mean": 0.97,
+        "median": 0.0,
+        "p10": -7.8,
+        "n": 3421
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "code": "8995",
+   "name": "誠建設工業",
+   "category": "CHECK",
+   "score": 40,
+   "single": false,
+   "price": 1503.0,
+   "price_note": "名証の最終気配",
+   "quote_only": true,
+   "unit": 100,
+   "shares_for_budget": 1900,
+   "tob_price": null,
+   "tob_gap_pct": null,
+   "model_prob": null,
+   "items": [
+    {
+     "time": "11/05 16:00",
+     "title": "2027年３月期　第２四半期（中間期）業績予想の修正に関するお知らせ",
+     "pdf": "https://www.release.tdnet.info/inbs/140120261030561878.pdf",
+     "labels": [
+      {
+       "cat": "CHECK",
+       "label": "業績予想の修正",
+       "backtest_next_day": {
+        "up": 49.08,
+        "mean": 0.97,
+        "median": 0.0,
+        "p10": -7.8,
+        "n": 3421
        }
       }
      ]
@@ -96,16 +379,16 @@
    ]
   }
  ],
- "other_after_close_count": 12,
+ "other_after_close_count": 14,
  "stop_limits": [],
  "tob_tracker": [],
  "errors": [],
  "portfolio": {
   "cash": 3000.0,
-  "total": 3127800.0,
-  "profit": 127800.0,
-  "term_left": 3000000.0,
-  "term_open": false,
+  "total": 3145800.0,
+  "profit": 145800.0,
+  "term_left": 3000000,
+  "term_open": true,
   "single_bought": false,
   "holdings": [
    {
@@ -114,17 +397,17 @@
     "shares": 1800,
     "buy_price": 1665.0,
     "buy_date": "2026-11-02",
-    "price": 1736.0,
-    "pnl_pct": 4.26,
+    "price": 1746.0,
+    "pnl_pct": 4.86,
     "single": false,
     "quote_only": true,
     "unit": 100,
     "warnings": [
-     "売り時（上方修正で買ってから1営業日・ストップ高ではない）"
+     "売り時（上方修正で買ってから2営業日・ストップ高ではない）"
     ],
     "notices": [],
     "cautions": [],
-    "sell_rule": "売り時：買ってから1営業日たった（ストップ高ではない）。今夜売る。検証：上方修正でストップ高にならなかった銘柄は1営業日後の終値で売るのが一番よい（平均+2.7%・中央値+1.8%・n=245）",
+    "sell_rule": "売り時：買ってから2営業日たった（ストップ高ではない）。今夜売る。検証：上方修正でストップ高にならなかった銘柄は1営業日後の終値で売るのが一番よい（平均+2.7%・中央値+1.8%・n=245）",
     "material": "上方修正"
    }
   ]
@@ -134,11 +417,11 @@
    "code": "655A",
    "name": "（株）LTV-X",
    "date": "2026-11-05",
-   "status": "上場予定",
+   "status": "上場済み",
    "single": true,
    "offer_price": 570.0,
-   "first_day_price": null,
-   "price_now": null
+   "first_day_price": 575.0,
+   "price_now": 575.0
   },
   {
    "code": "7986",
@@ -148,10 +431,15 @@
    "single": false,
    "offer_price": null,
    "first_day_price": 2078.0,
-   "price_now": 2247.0
+   "price_now": 2080.0
   }
  ],
  "earnings_today": [
+  {
+   "code": "3028",
+   "name": "アルペン",
+   "kind": "第１四半期"
+  },
   {
    "code": "3232",
    "name": "三重交通グループホールディングス",
@@ -193,18 +481,13 @@
    "kind": "第２四半期"
   },
   {
-   "code": "9913",
-   "name": "日邦産業",
+   "code": "7412",
+   "name": "アトム",
    "kind": "第２四半期"
   },
   {
-   "code": "3028",
-   "name": "アルペン",
-   "kind": "第１四半期"
-  },
-  {
-   "code": "7412",
-   "name": "アトム",
+   "code": "9913",
+   "name": "日邦産業",
    "kind": "第２四半期"
   },
   {
@@ -215,14 +498,14 @@
  ],
  "simulator": {
   "nights_left": 16,
-  "start_assets": 3127800.0,
+  "start_assets": 3145800.0,
   "target": 7290000,
   "best": "aggressive",
   "best_label": "毎晩1位候補に全額（要確認だけの夜も買う）",
   "advice": "どの戦略でも10位ラインに届く確率は低い（最大0.3%）。一番ましなのは「毎晩1位候補に全額（要確認だけの夜も買う）」",
   "probs": {
    "毎晩1位候補に全額（要確認だけの夜も買う）": 0.29,
-   "毎晩上位2銘柄に半分ずつ": 0.07,
+   "毎晩上位2銘柄に半分ずつ": 0.08,
    "S・A・ストップ高張り付きがある夜だけ1位に全額、ない夜は休む": 0.17,
    "S・A・張り付きがある夜だけ、上位2銘柄に半分ずつ": 0.09
   }
