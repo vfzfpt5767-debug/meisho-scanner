@@ -265,3 +265,8 @@ M. 検証モード：取得できる範囲の過去データ（できれば全�
 - 会社のトップページ：名証の上場会社検索の基本情報API（/api/stock/view.json の stockUrl_j）。全社にある。Wikidata は証券コードが他国の取引所と重なって誤りがあり（例 8190 ヤマナカ→サウジの会社）、名証単独は64社中15社しかないので不採用。名証の基本情報の適時開示PDF（/listing/search/files/）は数日遅れで、その夜には無いので使えない。
 - scanner/ir.py：build（トップページ→IRのページ→IRニュースのページ。robots.txt を確認。つながらない・5xx は unreachable としてやり直し、robots.txt で不可は robots_disallow として開かない）→ data/ir_pages.json。lookup（タイトルの文字の2文字組の似ている度合い0.45以上＋日付一致で同じ開示とみなし、PDFの先頭3,500字を取り出す）。attach_ir_checks（スキャンのたびに候補最大8件、結果は data/cache/ir/基準日.json に保存し、見つからなければ40分後にやり直す）→ candidates[].ir_check。ir-pages.yml で毎週月曜に作り直し。data/ir_sources.csv で手で上書き可。
 - scanner/human_check.py：AIの判断の ask_human（なければ skipped の「確認できず」から、TOB→ストップ高→名証単独→点数の順）を1晩2件まで、AIの結論のLINE（同じ1通）に「確認のお願い」として足す（中継役が動いているときだけ）。返信「確認 1869 0.53%」（確認待ちが1件ならコード省略可）→ line_state.questions に保存、analyst_input.json の human_answers に追加、line-event.yml の「確認の答えでAIをもう一度起動」でAIを起動（1晩2回まで・締切前だけ）。AIは trigger="human" で判断し、締切前なら23:30以降でも記録（ai_decision._human_ok：3時間以内の答えがあるとき）。TOB価格の答えは tob_prices.csv に書く。Worker は「確認」で始まる返信や数字を含む返信も GitHub に渡す（要再デプロイ）。
+
+## 2026-11-06 修正：遅れて動いたスキャンが、昼や深夜にLINE・AIを動かさない
+- 経緯：Cloudflare の定時起動（repository_dispatch: scan）が1回も動いておらず、GitHub の時刻指定は数時間遅れて深夜〜昼に動いていた。その結果、11/5 10:30（注文できない時間）に「追加」の夜のLINEが届き、朝レポートのLINEが4:06・5:17（米国株の取引が終わる6:00より前）に届いた。
+- 対応：夜のLINEは「タームが開いていて8:00以降、かつ営業日の8:00〜16:30ではない」ときだけ（__main__.night_notify_ok）。AIの臨時起動は16:00〜23:30だけ（ai_input.plan_fire）。朝レポートは6:00〜7:59だけ（morning.is_morning）。
+- 残っていること：Cloudflare の Cron トリガー（*/5 * * * *）の設定をユーザーが確認する。

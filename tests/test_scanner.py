@@ -772,3 +772,32 @@ def test_human_trigger_records_after_2330(tmp_path, monkeypatch):
     (dec / "2026-11-05-2355.json").write_text(_json.dumps(d2), encoding="utf-8")
     AD.apply_all(now=datetime(2026, 11, 5, 23, 55, tzinfo=JST))
     assert h.read_text(encoding="utf-8").count("1869,1000") == 1  # ふつうの判断は参考（記録しない）
+
+
+def test_delayed_runs_stay_quiet(tmp_path, monkeypatch):
+    """GitHub の時刻指定が遅れて昼・深夜に動いても、LINEやAIの起動をしない。"""
+    from types import SimpleNamespace
+
+    from scanner import ai_input as AI
+    from scanner.__main__ import night_notify_ok
+    from scanner.morning import is_morning
+
+    def res_at(dt, base):
+        return SimpleNamespace(ctx=SimpleNamespace(now=dt, base=base))
+
+    assert night_notify_ok(res_at(datetime(2026, 11, 5, 21, 0, tzinfo=JST), date(2026, 11, 5)))
+    assert not night_notify_ok(res_at(datetime(2026, 11, 5, 10, 30, tzinfo=JST), date(2026, 11, 4)))  # 昼：締切後
+    assert not night_notify_ok(res_at(datetime(2026, 11, 6, 1, 30, tzinfo=JST), date(2026, 11, 5)))  # 深夜
+    assert night_notify_ok(res_at(datetime(2026, 11, 3, 14, 0, tzinfo=JST), date(2026, 11, 2)))  # 祝日の昼はタームが開いている
+    assert not is_morning(datetime(2026, 11, 6, 4, 6, tzinfo=JST)) and is_morning(datetime(2026, 11, 6, 6, 20, tzinfo=JST))
+
+    monkeypatch.setattr(AI, "FIRE_STATE", tmp_path / "fs.json")
+    monkeypatch.setattr(AI, "FIRE_REQ", tmp_path / "fr.json")
+    tag = vars(C.Tag(C.A, "上方修正", 60, ""))
+    card = Card(code="7203", name="t", single=False, division="", unit=100, category=C.A, score=60,
+                items=[Item("16:00", "11/05", "t", "", [tag])], price=1000, shares=3000)
+    for when, ok in (("2026-11-05T10:30:00+09:00", False), ("2026-11-06T01:30:00+09:00", False),
+                     ("2026-11-05T20:40:00+09:00", True), ("2026-11-05T23:45:00+09:00", False)):
+        res = ScanResult(generated_at=when, base_day="2026-11-05", deadline="", price_source="", cards=[card],
+                         before_close=[], tob_rows=[])
+        assert AI.plan_fire(res, None, {})["fire"] is ok, when

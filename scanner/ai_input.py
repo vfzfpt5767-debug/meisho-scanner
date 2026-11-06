@@ -10,7 +10,7 @@ import os
 from datetime import datetime
 
 from . import classify as C
-from .config import BUDGET_PER_TERM, DATA_DIR
+from .config import BUDGET_PER_TERM, DATA_DIR, RECORD_UNTIL
 from .render_backtest import label_stats
 
 INPUT = DATA_DIR / "analyst_input.json"
@@ -130,8 +130,9 @@ def plan_fire(res, pf, data: dict) -> dict:
     req = {"fire": False, "base_day": res.base_day, "new_keys": sorted(new), "reason": ""}
     if os.environ.get("SKIP_AI") == "true":
         req["reason"] = "AIの判断の取り込み・LINEの記録のあとのページ作り直しなので起動しない"
-    elif 4 <= now.hour < 8:
-        req["reason"] = "朝はAIを起動しない（夜に注文して寝る運用。夜21:15に定時起動）"
+    elif not (16 <= now.hour and now.time().replace(tzinfo=None) <= RECORD_UNTIL):
+        req["reason"] = (f"臨時起動は16:00〜{RECORD_UNTIL:%H:%M}だけ（遅れて動いた昼・深夜・朝のスキャンからは起動しない。"
+                         "夜は21:15に定時起動）")
     elif not new:
         req["reason"] = "新しいS・A・要確認・保有警告なし"
     elif night["fires"] >= MAX_FIRES_PER_NIGHT:

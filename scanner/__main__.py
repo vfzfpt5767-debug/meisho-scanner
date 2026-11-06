@@ -8,6 +8,25 @@ from .render import render
 from .scan import run
 
 
+def night_notify_ok(res) -> bool:
+    """夜のLINE（候補の通知）を送ってよいか：注文できるタームが開いていて、0:00〜7:59 ではないとき。
+
+    GitHub の時刻指定は数時間遅れることがあり、昼（営業日の8:00〜16:30＝注文できない時間）や深夜に動くと、
+    その時刻にLINEが届いてしまうため（2026-11-05 10:30 に「追加」のLINEが届いた）。
+    """
+    from datetime import time as _t
+
+    from .calendar_jp import is_business_day, order_deadline
+
+    ctx = getattr(res, "ctx", None)
+    if ctx is None:
+        return True
+    now = ctx.now
+    if now.hour < 8 or now > order_deadline(ctx.base):
+        return False
+    return not (is_business_day(now.date()) and _t(8, 0) <= now.time().replace(tzinfo=None) < _t(16, 30))
+
+
 def main() -> int:
     res = run()
     pf = None
@@ -123,7 +142,7 @@ def main() -> int:
         except Exception as e:  # noqa: BLE001
             print("LINE通知でエラー:", type(e).__name__, e)
     # LINE通知（夜：最初の1通＋新しいS・A・保有警告の追加は1晩2通まで）
-    if not getattr(res, "ctx", None) or res.ctx.now.hour >= 8:
+    if night_notify_ok(res):
         try:
             from . import notify
 
