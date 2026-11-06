@@ -1,7 +1,40 @@
 {
 "date": "2026-11-06",
-"fetched_at": "2026-11-06T05:49:20.909059+09:00",
+"fetched_at": "2026-11-06T10:39:16.952699+09:00",
 "complete": false,
-"total_all_markets": 0,
-"items": []
+"total_all_markets": 66,
+"items": [
+{
+"id": "1290083",
+"pubdate": "2026-11-06 10:30:00",
+"company_code": "27220",
+"company_name": "ＩＫホールディングス",
+"title": "2026年10月度連結月次情報のお知らせ",
+"document_url": "https://www.release.tdnet.info/inbs/140120261106566863.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": null,
+"markets_string": "東名",
+"update_history": null
+},
+{
+"id": "1290072",
+"pubdate": "2026-11-06 10:00:00",
+"company_code": "18690",
+"company_name": "名工建",
+"title": "自己株式立会外買付取引（N-NET3）による自己株式の取得結果に関するお知らせ",
+"document_url": "https://www.release.tdnet.info/inbs/140120261105566358.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": null,
+"markets_string": "名",
+"update_history": null
+}
+]
 }

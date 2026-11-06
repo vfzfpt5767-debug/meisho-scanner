@@ -1,5 +1,5 @@
 {
-"generated_at": "2026-11-06T05:49:19.956326+09:00",
+"generated_at": "2026-11-06T10:39:15.962152+09:00",
 "base_day": "2026-11-05",
 "deadline": "2026-11-06T07:59:00+09:00",
 "price_source": "名証 日報",
@@ -135,7 +135,7 @@
 "division": "メイン",
 "unit": 100,
 "category": "A",
-"score": 53,
+"score": 58,
 "items": [
 {
 "time": "16:30",
@@ -162,6 +162,20 @@
 "label": "その他",
 "score": 0,
 "reason": ""
+}
+]
+},
+{
+"time": "10:00",
+"date": "11/06",
+"title": "自己株式立会外買付取引（N-NET3）による自己株式の取得結果に関するお知らせ",
+"pdf": "https://www.release.tdnet.info/inbs/140120261105566358.pdf",
+"tags": [
+{
+"cat": "INFO",
+"label": "自社株買いの経過",
+"score": 5,
+"reason": "自社株買いの途中経過・結果"
 }
 ]
 }
@@ -458,6 +472,40 @@
 "nse_quote": 2631.0,
 "shares": 1100,
 "cost": 2894100.0,
+"tob_price": null,
+"tob_gap_pct": null,
+"quote_only": true
+},
+{
+"code": "2722",
+"name": "ＩＫホールディングス",
+"single": false,
+"division": "プレミア",
+"unit": 100,
+"category": "INFO",
+"score": 0,
+"items": [
+{
+"time": "10:30",
+"date": "11/06",
+"title": "2026年10月度連結月次情報のお知らせ",
+"pdf": "https://www.release.tdnet.info/inbs/140120261106566863.pdf",
+"tags": [
+{
+"cat": "INFO",
+"label": "その他",
+"score": 0,
+"reason": ""
+}
+]
+}
+],
+"price": 355.0,
+"price_note": "名証の最終気配",
+"nse_close": null,
+"nse_quote": 355.0,
+"shares": 8400,
+"cost": 2982000.0,
 "tob_price": null,
 "tob_gap_pct": null,
 "quote_only": true
