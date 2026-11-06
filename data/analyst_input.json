@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-06T17:13:40.254388+09:00",
+ "generated_at": "2026-11-06T18:41:32.621861+09:00",
  "base_day": "2026-11-06",
  "deadline": "2026-11-09T07:59:00+09:00",
  "price_source": "名証 日報",
@@ -82,6 +82,47 @@
     "kind": "pdf",
     "checked": "2026-11-06T08:11",
     "for_title": "剰余金の配当（中間配当）の増配に関するお知らせ"
+   }
+  },
+  {
+   "code": "9476",
+   "name": "中央経済社ホールディングス",
+   "category": "CHECK",
+   "score": 60,
+   "single": false,
+   "price": 974.0,
+   "price_note": "名証の最終気配",
+   "quote_only": true,
+   "unit": 100,
+   "shares_for_budget": 3000,
+   "tob_price": null,
+   "tob_gap_pct": null,
+   "model_prob": null,
+   "items": [
+    {
+     "time": "11/06 17:00",
+     "title": "業績予想及び配当予想の修正に関するお知らせ",
+     "pdf": "https://www.release.tdnet.info/inbs/140120261104564483.pdf",
+     "labels": [
+      {
+       "cat": "CHECK",
+       "label": "配当予想の修正",
+       "backtest_next_day": {
+        "up": 64.5,
+        "mean": 3.02,
+        "median": 2.08,
+        "p10": -6.29,
+        "n": 1076
+       }
+      }
+     ]
+    }
+   ],
+   "ir_check": {
+    "status": "no_ir_page",
+    "note": "unreachable",
+    "checked": "2026-11-06T09:41",
+    "for_title": "業績予想及び配当予想の修正に関するお知らせ"
    }
   },
   {
@@ -213,7 +254,7 @@
       "date": "2025-11-14"
      }
     ],
-    "checked": "2026-11-06T08:11",
+    "checked": "2026-11-06T09:41",
     "for_title": "2027年3月期第2四半期連結業績予想の修正に関するお知らせ"
    }
   },
@@ -352,7 +393,7 @@
       "date": "2025-12-05"
      }
     ],
-    "checked": "2026-11-06T08:11",
+    "checked": "2026-11-06T09:41",
     "for_title": "子会社の2027年３月期第２四半期業績予想と実績値との差異に関するお知らせ"
    }
   },
@@ -405,7 +446,7 @@
     "status": "not_found",
     "ir_page": "https://www.tear.co.jp/company/ir/event/index.html",
     "recent": [],
-    "checked": "2026-11-06T08:11",
+    "checked": "2026-11-06T09:41",
     "for_title": "特別損失の発生および業績予想の修正に関するお知らせ"
    }
   }

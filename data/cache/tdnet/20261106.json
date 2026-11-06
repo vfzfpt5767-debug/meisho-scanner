@@ -1,9 +1,81 @@
 {
 "date": "2026-11-06",
-"fetched_at": "2026-11-06T17:13:41.643438+09:00",
+"fetched_at": "2026-11-06T18:41:34.015587+09:00",
 "complete": false,
-"total_all_markets": 738,
+"total_all_markets": 765,
 "items": [
+{
+"Tdnet": {
+"id": "1290784",
+"pubdate": "2026-11-06 18:00:00",
+"company_code": "33600",
+"company_name": "シップＨＤ",
+"title": "株式会社チャーム・ケア・コーポレーション（証券コード：6062）に対する公開買付けの開始に関するお知らせ",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261106567511.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": null,
+"markets_string": "東",
+"update_history": null
+}
+},
+{
+"Tdnet": {
+"id": "1290785",
+"pubdate": "2026-11-06 18:00:00",
+"company_code": "60620",
+"company_name": "チャームケア",
+"title": "その他の関係会社の親会社であるシップヘルスケアホールディングス株式会社による当社株券等に対する公開買付けに関する賛同及び応募推奨の意見表明のお知らせ",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261106567703.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": null,
+"markets_string": "東",
+"update_history": null
+}
+},
+{
+"Tdnet": {
+"id": "1290789",
+"pubdate": "2026-11-06 18:00:00",
+"company_code": "79840",
+"company_name": "コクヨ",
+"title": "（開示事項の経過）Thien Long Group Corporationの子会社化及び公開買付けに関するお知らせ（特定子会社の異動を伴う株式取得）",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261106567577.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": null,
+"markets_string": "東",
+"update_history": null
+}
+},
+{
+"Tdnet": {
+"id": "1290779",
+"pubdate": "2026-11-06 17:00:00",
+"company_code": "94760",
+"company_name": "中央経済社ＨＤ",
+"title": "業績予想及び配当予想の修正に関するお知らせ",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261104564483.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/091220261104564483.zip",
+"markets_string": "東名",
+"update_history": null
+}
+},
 {
 "Tdnet": {
 "id": "1290764",
