@@ -75,5 +75,25 @@
 "price": 1877.0,
 "result": -0.03569525839104959,
 "next_day": "2026-11-06"
+},
+{
+"base_day": "2026-11-06",
+"source": "rule_top",
+"code": "3842",
+"name": "ネクストジェン",
+"category": "A",
+"label": "増配",
+"price": 1200.0,
+"result": null
+},
+{
+"base_day": "2026-11-06",
+"source": "rule_sa",
+"code": "3842",
+"name": "ネクストジェン",
+"category": "A",
+"label": "増配",
+"price": 1200.0,
+"result": null
 }
 ]
