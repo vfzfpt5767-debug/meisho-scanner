@@ -1,9 +1,6 @@
 {
  "fire": false,
  "base_day": "2026-11-06",
- "new_keys": [
-  "CHECK:9476",
-  "N:3842"
- ],
- "reason": "起動済み"
+ "new_keys": [],
+ "reason": "AIの判断の取り込み・LINEの記録のあとのページ作り直しなので起動しない"
 }
