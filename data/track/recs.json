@@ -95,5 +95,15 @@
 "label": "増配",
 "price": 1200.0,
 "result": null
+},
+{
+"base_day": "2026-11-06",
+"source": "ai",
+"code": "3842",
+"name": "ネクストジェン",
+"category": "AI",
+"label": "",
+"price": 1200.0,
+"result": null
 }
 ]
