@@ -1,5 +1,5 @@
 {
-"fetched_date": "2026-11-06",
+"fetched_date": "2026-11-07",
 "source": "https://www.nse.or.jp/api/stock/search.json",
 "rows": [
 {
@@ -2345,7 +2345,7 @@
 {
 "simpleListing": 1,
 "stockCode": "655A0",
-"stockName_j": "LTV-X",
+"stockName_j": "ＬＴＶ－Ｘ",
 "stockName_e": "LTV-X Inc.",
 "listedDivision": 3,
 "industryName_j": "情報・通信業",
