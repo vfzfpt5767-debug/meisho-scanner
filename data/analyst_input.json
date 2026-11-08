@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-08T21:16:56.806056+09:00",
+ "generated_at": "2026-11-09T06:21:06.295316+09:00",
  "base_day": "2026-11-06",
  "deadline": "2026-11-09T07:59:00+09:00",
  "price_source": "名証 日報",
@@ -254,7 +254,7 @@
       "date": "2025-11-14"
      }
     ],
-    "checked": "2026-11-08T12:17",
+    "checked": "2026-11-08T21:21",
     "for_title": "2027年3月期第2四半期連結業績予想の修正に関するお知らせ"
    }
   },
@@ -393,7 +393,7 @@
       "date": "2025-12-05"
      }
     ],
-    "checked": "2026-11-08T12:17",
+    "checked": "2026-11-08T21:21",
     "for_title": "子会社の2027年３月期第２四半期業績予想と実績値との差異に関するお知らせ"
    }
   },
@@ -446,7 +446,7 @@
     "status": "not_found",
     "ir_page": "https://www.tear.co.jp/company/ir/event/index.html",
     "recent": [],
-    "checked": "2026-11-08T12:17",
+    "checked": "2026-11-08T21:21",
     "for_title": "特別損失の発生および業績予想の修正に関するお知らせ"
    }
   }
@@ -479,6 +479,144 @@
     "cautions": [],
     "sell_rule": "11/9(月)の終値で売る予定（買ってから1営業日後）。検証：増配でストップ高にならなかった銘柄は1営業日後の終値で売るのが一番よい（平均+2.5%・中央値+1.8%・n=1,320）",
     "material": "増配"
+   }
+  ]
+ },
+ "morning": {
+  "direction": "日経平均先物は前日の日経平均より+1.4% → 上昇して始まりそう",
+  "futures_gap_pct": 1.3932857662371179,
+  "indices": [
+   {
+    "symbol": "^GSPC",
+    "label": "S&P500",
+    "last": 7376.85986328125,
+    "change_pct": 0.3145326640212831,
+    "date": "2026-11-06"
+   },
+   {
+    "symbol": "^IXIC",
+    "label": "ナスダック",
+    "last": 24579.4296875,
+    "change_pct": 1.0875167077935455,
+    "date": "2026-11-06"
+   },
+   {
+    "symbol": "^SOX",
+    "label": "SOX指数（半導体）",
+    "last": 9390.25,
+    "change_pct": 4.207129912011043,
+    "date": "2026-11-06"
+   },
+   {
+    "symbol": "JPY=X",
+    "label": "ドル円",
+    "last": 158.31199645996094,
+    "change_pct": 0.5168290109398566,
+    "date": "2026-11-08"
+   },
+   {
+    "symbol": "NIY=F",
+    "label": "日経平均先物（CME・円建て）",
+    "last": 58235.0,
+    "change_pct": 1.8717746873086583,
+    "date": "2026-11-06"
+   },
+   {
+    "symbol": "^N225",
+    "label": "日経平均",
+    "last": 57434.76953125,
+    "change_pct": -5.964725374397018,
+    "date": "2026-11-06"
+   }
+  ],
+  "adr_top": [
+   {
+    "adr": "IBIDF",
+    "code": "4062",
+    "name": "イビデン",
+    "jp_price": 6147.0,
+    "implied": 6423.644021638793,
+    "gap_pct": 4.500472126871524,
+    "adr_change_pct": 1.4650114021772964,
+    "traded": true,
+    "single": false
+   },
+   {
+    "adr": "SMTOY",
+    "code": "5802",
+    "name": "住友電気工業",
+    "jp_price": 1360.0,
+    "implied": 1417.7376254202682,
+    "gap_pct": 4.2454136338432535,
+    "adr_change_pct": 12.722640027688104,
+    "traded": true,
+    "single": false
+   },
+   {
+    "adr": "MUFG",
+    "code": "8306",
+    "name": "三菱ＵＦＪフィナンシャル・グループ",
+    "jp_price": 3224.0,
+    "implied": 3316.8511599413164,
+    "gap_pct": 2.8799987574849917,
+    "adr_change_pct": -0.804163108808742,
+    "traded": true,
+    "single": false
+   },
+   {
+    "adr": "MHVYF",
+    "code": "7011",
+    "name": "三菱重工業",
+    "jp_price": 2912.5,
+    "implied": 2989.6597683037526,
+    "gap_pct": 2.6492624310301416,
+    "adr_change_pct": 2.162160100163635,
+    "traded": true,
+    "single": false
+   },
+   {
+    "adr": "NMR",
+    "code": "8604",
+    "name": "野村ホールディングス",
+    "jp_price": 1450.0,
+    "implied": 1486.0208411455772,
+    "gap_pct": 2.4841959410742964,
+    "adr_change_pct": -0.94637382147017,
+    "traded": true,
+    "single": false
+   },
+   {
+    "adr": "MITSY",
+    "code": "8031",
+    "name": "三井物産",
+    "jp_price": 4620.0,
+    "implied": 4734.116255349312,
+    "gap_pct": 2.47004881708468,
+    "adr_change_pct": -2.833870284806339,
+    "traded": true,
+    "single": false
+   },
+   {
+    "adr": "TM",
+    "code": "7203",
+    "name": "トヨタ自動車",
+    "jp_price": 3338.0,
+    "implied": 3416.6984998033618,
+    "gap_pct": 2.3576542781114984,
+    "adr_change_pct": -0.8802889200735686,
+    "traded": true,
+    "single": false
+   },
+   {
+    "adr": "SMFG",
+    "code": "8316",
+    "name": "三井住友フィナンシャルグループ",
+    "jp_price": 3008.0,
+    "implied": 3077.427843955298,
+    "gap_pct": 2.308106514471353,
+    "adr_change_pct": -0.7240207819772082,
+    "traded": true,
+    "single": false
    }
   ]
  },
