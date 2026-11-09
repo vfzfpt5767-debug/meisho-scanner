@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-10T05:00:05.316473+09:00",
+ "generated_at": "2026-11-10T06:21:11.430582+09:00",
  "base_day": "2026-11-09",
  "deadline": "2026-11-10T07:59:00+09:00",
  "price_source": "名証 日報",
@@ -80,7 +80,7 @@
     "status": "not_found",
     "ir_page": "https://www.nito.co.jp/IR/",
     "recent": [],
-    "checked": "2026-11-09T20:00",
+    "checked": "2026-11-09T21:21",
     "for_title": "2027年3月期第2四半期(中間期)業績予想と実績値との差異および通期業績予想の修正ならびに配当予想の修正に関するお知らせ"
    }
   },
@@ -404,6 +404,144 @@
     "cautions": [],
     "sell_rule": "11/10(火)の終値で売る予定（買ってから1営業日後）。検証：上方修正でストップ高にならなかった銘柄は1営業日後の終値で売るのが一番よい（平均+2.7%・中央値+1.8%・n=245）",
     "material": "上方修正"
+   }
+  ]
+ },
+ "morning": {
+  "direction": "日経平均先物は前日の日経平均より+4.8% → 上昇して始まりそう",
+  "futures_gap_pct": 4.80694814687419,
+  "indices": [
+   {
+    "symbol": "^GSPC",
+    "label": "S&P500",
+    "last": 7549.93994140625,
+    "change_pct": 2.3462568265193218,
+    "date": "2026-11-09"
+   },
+   {
+    "symbol": "^IXIC",
+    "label": "ナスダック",
+    "last": 25253.138671875,
+    "change_pct": 2.7409463642584786,
+    "date": "2026-11-09"
+   },
+   {
+    "symbol": "^SOX",
+    "label": "SOX指数（半導体）",
+    "last": 10033.9326171875,
+    "change_pct": 6.854797446154248,
+    "date": "2026-11-09"
+   },
+   {
+    "symbol": "JPY=X",
+    "label": "ドル円",
+    "last": 157.92100524902344,
+    "change_pct": 0.2685774723742096,
+    "date": "2026-11-09"
+   },
+   {
+    "symbol": "NIY=F",
+    "label": "日経平均先物（CME・円建て）",
+    "last": 60940.0,
+    "change_pct": 4.80694814687419,
+    "date": "2026-11-09"
+   },
+   {
+    "symbol": "^N225",
+    "label": "日経平均",
+    "last": 57434.76953125,
+    "change_pct": -5.964725374397018,
+    "date": "2026-11-06"
+   }
+  ],
+  "adr_top": [
+   {
+    "adr": "SMTOY",
+    "code": "5802",
+    "name": "住友電気工業",
+    "jp_price": 1435.5,
+    "implied": 1573.7812893851321,
+    "gap_pct": 9.632970350758075,
+    "adr_change_pct": 11.512420962623393,
+    "traded": true,
+    "single": false
+   },
+   {
+    "adr": "IBIDF",
+    "code": "4062",
+    "name": "イビデン",
+    "jp_price": 5932.0,
+    "implied": 6390.300307060323,
+    "gap_pct": 7.725898635541517,
+    "adr_change_pct": 0.3236272692084263,
+    "traded": true,
+    "single": false
+   },
+   {
+    "adr": "FELTY",
+    "code": "6504",
+    "name": "富士電機",
+    "jp_price": 10885.0,
+    "implied": 11385.325386563443,
+    "gap_pct": 4.596466573848823,
+    "adr_change_pct": 5.647053438074456,
+    "traded": true,
+    "single": false
+   },
+   {
+    "adr": "SHECY",
+    "code": "4063",
+    "name": "信越化学工業",
+    "jp_price": 5441.0,
+    "implied": 5600.6592329788455,
+    "gap_pct": 2.9343729641397864,
+    "adr_change_pct": 4.3683574249623325,
+    "traded": true,
+    "single": false
+   },
+   {
+    "adr": "TOTDY",
+    "code": "5332",
+    "name": "ＴＯＴＯ",
+    "jp_price": 5562.0,
+    "implied": 5718.659220613731,
+    "gap_pct": 2.8165987165359674,
+    "adr_change_pct": 5.123732793049274,
+    "traded": true,
+    "single": false
+   },
+   {
+    "adr": "HTHIY",
+    "code": "6501",
+    "name": "日立製作所",
+    "jp_price": 4702.0,
+    "implied": 4813.589477575217,
+    "gap_pct": 2.3732343167847114,
+    "adr_change_pct": 4.974273694390408,
+    "traded": true,
+    "single": false
+   },
+   {
+    "adr": "SMFG",
+    "code": "8316",
+    "name": "三井住友フィナンシャルグループ",
+    "jp_price": 3126.0,
+    "implied": 3197.1686742685506,
+    "gap_pct": 2.2766690425000125,
+    "adr_change_pct": 4.161309493465959,
+    "traded": true,
+    "single": false
+   },
+   {
+    "adr": "MHVYF",
+    "code": "7011",
+    "name": "三菱重工業",
+    "jp_price": 3063.0,
+    "implied": 3121.1335221674335,
+    "gap_pct": 1.8979275927990091,
+    "adr_change_pct": 4.6560904014645965,
+    "traded": true,
+    "single": false
    }
   ]
  },
