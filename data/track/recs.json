@@ -84,7 +84,8 @@
 "category": "A",
 "label": "増配",
 "price": 1200.0,
-"result": null
+"result": 0.03333333333333344,
+"next_day": "2026-11-09"
 },
 {
 "base_day": "2026-11-06",
@@ -94,7 +95,8 @@
 "category": "A",
 "label": "増配",
 "price": 1200.0,
-"result": null
+"result": 0.03333333333333344,
+"next_day": "2026-11-09"
 },
 {
 "base_day": "2026-11-06",
@@ -104,6 +106,37 @@
 "category": "AI",
 "label": "",
 "price": 1200.0,
+"result": 0.03333333333333344,
+"next_day": "2026-11-09"
+},
+{
+"base_day": "2026-11-09",
+"source": "rule_top",
+"code": "6448",
+"name": "ブラザー工業",
+"category": "A",
+"label": "増配",
+"price": 4193.0,
+"result": null
+},
+{
+"base_day": "2026-11-09",
+"source": "rule_sa",
+"code": "6448",
+"name": "ブラザー工業",
+"category": "A",
+"label": "増配",
+"price": 4193.0,
+"result": null
+},
+{
+"base_day": "2026-11-09",
+"source": "rule_sa",
+"code": "1893",
+"name": "五洋建設",
+"category": "A",
+"label": "自社株買い",
+"price": 1302.5,
 "result": null
 }
 ]
