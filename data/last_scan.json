@@ -1,5 +1,5 @@
 {
-"generated_at": "2026-11-09T07:06:08.668737+09:00",
+"generated_at": "2026-11-09T10:00:57.735718+09:00",
 "base_day": "2026-11-06",
 "deadline": "2026-11-09T07:59:00+09:00",
 "price_source": "名証 日報",
@@ -594,6 +594,124 @@
 "nse_quote": 1021.5,
 "shares": 2900,
 "cost": 2962350.0,
+"tob_price": null,
+"tob_gap_pct": null,
+"quote_only": true
+},
+{
+"code": "5984",
+"name": "兼房",
+"single": false,
+"division": "メイン",
+"unit": 100,
+"category": "INFO",
+"score": 0,
+"items": [
+{
+"time": "09:30",
+"date": "11/09",
+"title": "(訂正・数値データ訂正)「2027年３月期 第１四半期決算短信〔日本基準〕（連結）」の一部訂正について",
+"pdf": "https://www.release.tdnet.info/inbs/140120261106567359.pdf",
+"tags": [
+{
+"cat": "INFO",
+"label": "その他",
+"score": 0,
+"reason": ""
+}
+]
+},
+{
+"time": "09:30",
+"date": "11/09",
+"title": "(訂正・数値データ訂正）「2026年３月期 第３四半期決算短信〔日本基準〕（連結）」の一部訂正について",
+"pdf": "https://www.release.tdnet.info/inbs/140120261106567363.pdf",
+"tags": [
+{
+"cat": "INFO",
+"label": "その他",
+"score": 0,
+"reason": ""
+}
+]
+},
+{
+"time": "09:30",
+"date": "11/09",
+"title": "(訂正・数値データ訂正)「2026年３月期 第１四半期決算短信〔日本基準〕（連結）」の一部訂正について",
+"pdf": "https://www.release.tdnet.info/inbs/140120261106567343.pdf",
+"tags": [
+{
+"cat": "INFO",
+"label": "その他",
+"score": 0,
+"reason": ""
+}
+]
+},
+{
+"time": "09:30",
+"date": "11/09",
+"title": "(訂正・数値データ訂正)「2025年３月期 第３四半期決算短信〔日本基準〕（連結）」の一部訂正について",
+"pdf": "https://www.release.tdnet.info/inbs/140120261106567317.pdf",
+"tags": [
+{
+"cat": "INFO",
+"label": "その他",
+"score": 0,
+"reason": ""
+}
+]
+},
+{
+"time": "09:30",
+"date": "11/09",
+"title": "(訂正・数値データ訂正)「2025年３月期 第１四半期決算短信〔日本基準〕（連結）」の一部訂正について",
+"pdf": "https://www.release.tdnet.info/inbs/140120261106567308.pdf",
+"tags": [
+{
+"cat": "INFO",
+"label": "その他",
+"score": 0,
+"reason": ""
+}
+]
+},
+{
+"time": "09:30",
+"date": "11/09",
+"title": "(訂正・数値データ訂正)「2026年３月期 決算短信〔日本基準〕（連結）」の一部訂正について",
+"pdf": "https://www.release.tdnet.info/inbs/140120261106567216.pdf",
+"tags": [
+{
+"cat": "INFO",
+"label": "その他",
+"score": 0,
+"reason": ""
+}
+]
+},
+{
+"time": "09:30",
+"date": "11/09",
+"title": "過年度の有価証券報告書等の訂正報告書の提出及び過年度の決算短信等の訂正に関するお知らせ",
+"pdf": "https://www.release.tdnet.info/inbs/140120261104564745.pdf",
+"tags": [
+{
+"cat": "INFO",
+"label": "その他",
+"score": 0,
+"reason": ""
+}
+]
+}
+],
+"price": 729.0,
+"price_note": "名証の最終気配",
+"nse_close": null,
+"nse_quote": 729.0,
+"shares": 4100,
+"cost": 2988900.0,
 "tob_price": null,
 "tob_gap_pct": null,
 "quote_only": true
