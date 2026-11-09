@@ -1,9 +1,45 @@
 {
 "date": "2026-11-09",
-"fetched_at": "2026-11-09T17:39:11.255596+09:00",
+"fetched_at": "2026-11-09T18:41:10.033884+09:00",
 "complete": false,
-"total_all_markets": 572,
+"total_all_markets": 590,
 "items": [
+{
+"Tdnet": {
+"id": "1291381",
+"pubdate": "2026-11-09 18:30:00",
+"company_code": "69930",
+"company_name": "大黒屋",
+"title": "合同会社広大による大黒屋ホールディングス株式会社（証券コード：6993）の株券等に対する公開買付けの開始に関するお知らせ",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261109569031.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": null,
+"markets_string": "東",
+"update_history": null
+}
+},
+{
+"Tdnet": {
+"id": "1291382",
+"pubdate": "2026-11-09 18:30:00",
+"company_code": "69930",
+"company_name": "大黒屋",
+"title": "合同会社広大による当社株式に対する公開買付け（上場維持前提のMBOの実施）に関する意見表明並びに資本業務提携契約の解消及び業務提携契約締結のお知らせ",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261109570001.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": null,
+"markets_string": "東",
+"update_history": null
+}
+},
 {
 "Tdnet": {
 "id": "1291334",
