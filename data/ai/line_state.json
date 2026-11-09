@@ -128,6 +128,12 @@
     "cash_delta": 0.0
    },
    "base_day": "2026-11-06"
+  },
+  "2026-11-09-1612": {
+   "status": "not_recorded",
+   "mode": "ref",
+   "patch": null,
+   "base_day": "2026-11-09"
   }
  },
  "seen": [
@@ -190,6 +196,36 @@
    "base_day": "2026-11-06",
    "decision": "2026-11-06-1611",
    "asked_at": "2026-11-06T16:12:54.822077+09:00",
+   "status": "open"
+  },
+  {
+   "code": "1893",
+   "name": "五洋建設",
+   "title": "業績予想の修正に関するお知らせ",
+   "pdf": "https://www.release.tdnet.info/inbs/140120261109568799.pdf",
+   "question": "自己株式取得の株数上限が発行済株式の何%か、取得期間、および業績予想の修正（営業利益・純利益の修正前→修正後）",
+   "kind": "revision",
+   "single": false,
+   "category": "A",
+   "stuck": false,
+   "base_day": "2026-11-09",
+   "decision": "2026-11-09-1612",
+   "asked_at": "2026-11-09T16:12:59.872232+09:00",
+   "status": "open"
+  },
+  {
+   "code": "6651",
+   "name": "日東工業",
+   "title": "2027年3月期第2四半期(中間期)業績予想と実績値との差異および通期業績予想の修正ならびに配当予想の修正に関するお知らせ",
+   "pdf": "https://www.release.tdnet.info/inbs/140120261013549775.pdf",
+   "question": "業績予想の修正（営業利益・純利益の修正前→修正後）と配当予想の修正（修正前→修正後）",
+   "kind": "revision",
+   "single": false,
+   "category": "CHECK",
+   "stuck": false,
+   "base_day": "2026-11-09",
+   "decision": "2026-11-09-1612",
+   "asked_at": "2026-11-09T16:12:59.872232+09:00",
    "status": "open"
   }
  ]
