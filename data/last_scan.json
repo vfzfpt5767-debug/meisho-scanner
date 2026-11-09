@@ -1,8 +1,8 @@
 {
-"generated_at": "2026-11-09T16:13:27.038440+09:00",
+"generated_at": "2026-11-09T17:11:07.076413+09:00",
 "base_day": "2026-11-09",
 "deadline": "2026-11-10T07:59:00+09:00",
-"price_source": "名証 相場表（速報）",
+"price_source": "名証 日報",
 "cards": [
 {
 "code": "6651",
@@ -181,6 +181,88 @@
 "tob_price": null,
 "tob_gap_pct": null,
 "quote_only": true
+},
+{
+"code": "9664",
+"name": "御園座",
+"single": true,
+"division": "メイン",
+"unit": 100,
+"category": "A",
+"score": 58,
+"items": [
+{
+"time": "16:20",
+"date": "11/09",
+"title": "令和９年３月期　第２四半期（中間期）決算短信〔日本基準〕（非連結）",
+"pdf": "https://www.release.tdnet.info/inbs/140120261108568381.pdf",
+"tags": [
+{
+"cat": "INFO",
+"label": "決算短信",
+"score": 15,
+"reason": "決算発表（数値はPDFで確認。自動計算はしていません）"
+}
+]
+},
+{
+"time": "16:20",
+"date": "11/09",
+"title": "自己株式の取得及び自己株式立会外買付取引(N-NET3)による自己株式の買付に関するお知らせ",
+"pdf": "https://www.release.tdnet.info/inbs/140120261109569689.pdf",
+"tags": [
+{
+"cat": "A",
+"label": "自社株買い",
+"score": 53,
+"reason": "自己株式取得の決定（規模＝発行済株式に対する%はPDFで確認）"
+}
+]
+}
+],
+"price": 1451.0,
+"price_note": "名証の終値",
+"nse_close": 1451.0,
+"nse_quote": null,
+"shares": 2000,
+"cost": 2902000.0,
+"tob_price": null,
+"tob_gap_pct": null,
+"quote_only": false
+},
+{
+"code": "9471",
+"name": "文溪堂",
+"single": true,
+"division": "メイン",
+"unit": 100,
+"category": "A",
+"score": 53,
+"items": [
+{
+"time": "16:30",
+"date": "11/09",
+"title": "自己株式の取得及び自己株式立会外買付取引（Ｎ－ＮＥＴ３）による自己株式の買付けに関するお知らせ",
+"pdf": "https://www.release.tdnet.info/inbs/140120261102562971.pdf",
+"tags": [
+{
+"cat": "A",
+"label": "自社株買い",
+"score": 53,
+"reason": "自己株式取得の決定（規模＝発行済株式に対する%はPDFで確認）"
+}
+]
+}
+],
+"price": 1122.0,
+"price_note": "名証の終値",
+"nse_close": 1122.0,
+"nse_quote": null,
+"shares": 2600,
+"cost": 2917200.0,
+"tob_price": null,
+"tob_gap_pct": null,
+"quote_only": false
 },
 {
 "code": "138A",
