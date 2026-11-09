@@ -138,5 +138,15 @@
 "label": "自社株買い",
 "price": 1302.5,
 "result": null
+},
+{
+"base_day": "2026-11-09",
+"source": "ai",
+"code": "6448",
+"name": "ブラザー工業",
+"category": "AI",
+"label": "",
+"price": 4193.0,
+"result": null
 }
 ]
