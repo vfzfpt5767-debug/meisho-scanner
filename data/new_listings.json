@@ -1,6 +1,21 @@
 {
- "fetched_date": "2026-11-09",
+ "fetched_date": "2026-11-10",
  "items": [
+  {
+   "date": "2026-11-16",
+   "market": "メイン",
+   "code": "3058",
+   "name": "（株）三洋堂ホールディングス",
+   "ipo": false,
+   "kettei_url": "",
+   "offer_price": null,
+   "header": "",
+   "links": {
+    "（株）三洋堂ホールディングス": "https://ir.sanyodo.co.jp/",
+    "会社概要": "https://www.nse.or.jp/listing/files/kaisya3058.pdf",
+    "有価証券報告書": "https://www.nse.or.jp/listing/files/ichi3058.pdf"
+   }
+  },
   {
    "date": "2026-11-05",
    "market": "ネクスト",
