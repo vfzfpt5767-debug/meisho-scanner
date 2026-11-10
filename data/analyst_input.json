@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-10T17:13:44.408755+09:00",
+ "generated_at": "2026-11-10T18:41:12.151385+09:00",
  "base_day": "2026-11-10",
  "deadline": "2026-11-11T07:59:00+09:00",
  "price_source": "名証 日報",
@@ -73,7 +73,7 @@
     "status": "not_found",
     "ir_page": "https://www.aichi-fg.co.jp/ir/",
     "recent": [],
-    "checked": "2026-11-10T08:11",
+    "checked": "2026-11-10T09:41",
     "for_title": "業績予想の修正、期末配当予想の修正（増配）および自己株式取得に係る事項の決定に関するお知らせ"
    }
   },
@@ -345,7 +345,7 @@
     "status": "not_found",
     "ir_page": "https://www.musashi.co.jp/ir/news/",
     "recent": [],
-    "checked": "2026-11-10T08:11",
+    "checked": "2026-11-10T09:41",
     "for_title": "特別利益の計上に関するお知らせ"
    }
   },
@@ -475,7 +475,7 @@
     "status": "not_found",
     "ir_page": "https://www.k-uno.co.jp:443/maintenance/index.html",
     "recent": [],
-    "checked": "2026-11-10T08:13",
+    "checked": "2026-11-10T09:41",
     "for_title": "2026年９月期通期業績予想の修正、営業外費用（連結）及び特別損失（連結・個別）の計上に関するお知らせ"
    }
   }
