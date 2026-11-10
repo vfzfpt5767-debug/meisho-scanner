@@ -2,12 +2,13 @@
  "138A": {
   "name": "光フードサービス",
   "single": false,
-  "checked": "2026-11-05T17:28",
+  "checked": "2026-11-10T10:28",
   "status": "ok",
   "home": "https://hikari-food-service.jp/",
   "ir_top": "https://hikari-food-service.jp/ir/",
-  "ir_news": "https://hikari-food-service.jp/ir/",
-  "score": 0,
+  "ir_news": "https://hikari-food-service.jp/",
+  "score": 1,
+  "method_v": 2,
   "method": "名証の会社ホームページ→IRページ"
  },
  "1438": {
@@ -24,12 +25,13 @@
  "1444": {
   "name": "ニッソウ",
   "single": false,
-  "checked": "2026-11-05T17:28",
+  "checked": "2026-11-10T10:28",
   "status": "ok",
   "home": "https://reform-nisso.co.jp/company/",
   "ir_top": "https://reform-nisso.co.jp/company/ir/",
   "ir_news": "https://reform-nisso.co.jp/company/ir/",
   "score": 0,
+  "method_v": 2,
   "method": "名証の会社ホームページ→IRページ"
  },
  "1738": {
@@ -46,39 +48,43 @@
  "1766": {
   "name": "東建コーポレーション",
   "single": false,
-  "checked": "2026-11-09T11:45",
+  "checked": "2026-11-10T10:28",
   "status": "unreachable",
   "home": "https://www.token.co.jp/",
+  "method_v": 2,
   "method": "名証の会社ホームページ→IRページ"
  },
  "1777": {
   "name": "川崎設備工業",
   "single": true,
-  "checked": "2026-11-09T11:45",
+  "checked": "2026-11-10T10:28",
   "status": "unreachable",
   "home": "http://kawasaki-sk.co.jp/",
+  "method_v": 2,
   "method": "名証の会社ホームページ→IRページ"
  },
  "1780": {
   "name": "ヤマウラ",
   "single": false,
-  "checked": "2026-11-05T17:28",
+  "checked": "2026-11-10T10:28",
   "status": "ok",
   "home": "https://www.yamaura.co.jp/",
   "ir_top": "https://yamaura.co.jp/ir/",
-  "ir_news": "https://yamaura.co.jp/ir/",
-  "score": 0,
+  "ir_news": "https://yamaura.co.jp/",
+  "score": 3,
+  "method_v": 2,
   "method": "名証の会社ホームページ→IRページ"
  },
  "1801": {
   "name": "大成建設",
   "single": false,
-  "checked": "2026-11-05T17:28",
+  "checked": "2026-11-10T10:28",
   "status": "ok",
   "home": "https://www.taisei.co.jp/",
   "ir_top": "https://www.taisei.co.jp/ir/",
-  "ir_news": "https://www.taisei.co.jp/ir/",
-  "score": 0,
+  "ir_news": "https://www.taisei.co.jp/about_us/wn/2026/",
+  "score": 48,
+  "method_v": 2,
   "method": "名証の会社ホームページ→IRページ"
  },
  "1803": {
@@ -106,9 +112,10 @@
  "1812": {
   "name": "鹿島建設",
   "single": false,
-  "checked": "2026-11-09T11:45",
+  "checked": "2026-11-10T10:28",
   "status": "unreachable",
   "home": "https://www.kajima.co.jp/welcome-j.html",
+  "method_v": 2,
   "method": "名証の会社ホームページ→IRページ"
  },
  "1869": {
@@ -136,20 +143,22 @@
  "1878": {
   "name": "大東建託",
   "single": false,
-  "checked": "2026-11-09T11:45",
+  "checked": "2026-11-10T10:28",
   "status": "unreachable",
   "home": "https://www.kentaku.co.jp/",
+  "method_v": 2,
   "method": "名証の会社ホームページ→IRページ"
  },
  "1892": {
   "name": "徳倉建設",
   "single": true,
-  "checked": "2026-11-05T17:29",
+  "checked": "2026-11-10T10:28",
   "status": "ok",
   "home": "https://www.tokura.co.jp/",
   "ir_top": "https://www.tokura.co.jp/finance/",
-  "ir_news": "https://www.tokura.co.jp/finance/",
-  "score": 0,
+  "ir_news": "https://www.tokura.co.jp/",
+  "score": 2,
+  "method_v": 2,
   "method": "名証の会社ホームページ→IRページ"
  },
  "1893": {
@@ -166,9 +175,10 @@
  "1928": {
   "name": "積水ハウス",
   "single": false,
-  "checked": "2026-11-09T11:45",
+  "checked": "2026-11-10T10:28",
   "status": "unreachable",
   "home": "https://www.sekisuihouse.co.jp/",
+  "method_v": 2,
   "method": "名証の会社ホームページ→IRページ"
  },
  "1946": {
@@ -196,9 +206,10 @@
  "212A": {
   "name": "フィットイージー",
   "single": false,
-  "checked": "2026-11-09T11:45",
+  "checked": "2026-11-10T10:28",
   "status": "unreachable",
   "home": "https://fiteasy.co.jp/",
+  "method_v": 2,
   "method": "名証の会社ホームページ→IRページ"
  },
  "2139": {
@@ -259,9 +270,10 @@
  "2224": {
   "name": "コモ",
   "single": false,
-  "checked": "2026-11-09T11:45",
+  "checked": "2026-11-10T10:29",
   "status": "unreachable",
   "home": "https://www.comoshop.jp/company/",
+  "method_v": 2,
   "method": "名証の会社ホームページ→IRページ"
  },
  "2327": {
@@ -278,12 +290,13 @@
  "2329": {
   "name": "東北新社",
   "single": false,
-  "checked": "2026-11-05T17:29",
+  "checked": "2026-11-10T10:29",
   "status": "ok",
   "home": "https://www.tfc.co.jp/",
   "ir_top": "https://www.tfc.co.jp/ir/investor/performance/",
-  "ir_news": "https://www.tfc.co.jp/ir/investor/performance/",
-  "score": 0,
+  "ir_news": "https://www.tfc.co.jp/",
+  "score": 2,
+  "method_v": 2,
   "method": "名証の会社ホームページ→IRページ"
  },
  "2351": {
@@ -300,23 +313,25 @@
  "2376": {
   "name": "サイネックス",
   "single": false,
-  "checked": "2026-11-05T17:29",
+  "checked": "2026-11-10T10:29",
   "status": "ok",
   "home": "https://www.scinex.co.jp",
   "ir_top": "https://www.scinex.co.jp/ir/",
-  "ir_news": "https://www.scinex.co.jp/ir/",
-  "score": 0,
+  "ir_news": "https://www.scinex.co.jp/news/",
+  "score": 1,
+  "method_v": 2,
   "method": "名証の会社ホームページ→IRページ"
  },
  "2424": {
   "name": "ブラス",
   "single": false,
-  "checked": "2026-11-05T17:29",
+  "checked": "2026-11-10T10:29",
   "status": "ok",
   "home": "https://www.brass.ne.jp/corporate/",
   "ir_top": "https://www.brass.ne.jp/corporate/ir/",
-  "ir_news": "https://www.brass.ne.jp/corporate/ir/",
-  "score": 0,
+  "ir_news": "https://www.brass.ne.jp/corporate/news/",
+  "score": 23,
+  "method_v": 2,
   "method": "名証の会社ホームページ→IRページ"
  },
  "2435": {
@@ -344,75 +359,82 @@
  "246A": {
   "name": "アスア",
   "single": false,
-  "checked": "2026-11-05T17:29",
+  "checked": "2026-11-10T10:29",
   "status": "ok",
   "home": "https://www.asua.ne.jp",
   "ir_top": "https://www.asua.ne.jp/ir_management/",
-  "ir_news": "https://www.asua.ne.jp/ir_management/",
-  "score": 0,
+  "ir_news": "https://www.asua.ne.jp/",
+  "score": 14,
+  "method_v": 2,
   "method": "名証の会社ホームページ→IRページ"
  },
  "2479": {
   "name": "ジェイテック",
   "single": false,
-  "checked": "2026-11-05T17:29",
+  "checked": "2026-11-10T10:29",
   "status": "ok",
   "home": "https://www.j-tec-cor.co.jp/",
   "ir_top": "https://www.j-tec-cor.co.jp/ir/index.html",
-  "ir_news": "https://www.j-tec-cor.co.jp/ir/index.html",
-  "score": 0,
+  "ir_news": "https://www.j-tec-cor.co.jp/news/index.html",
+  "score": 5,
+  "method_v": 2,
   "method": "名証の会社ホームページ→IRページ"
  },
  "2480": {
   "name": "システム・ロケーション",
   "single": false,
-  "checked": "2026-11-05T17:29",
+  "checked": "2026-11-10T10:29",
   "status": "ok",
   "home": "https://slc.jp/",
   "ir_top": "https://slc.jp/ir/",
   "ir_news": "https://slc.jp/ir/",
   "score": 0,
+  "method_v": 2,
   "method": "名証の会社ホームページ→IRページ"
  },
  "2485": {
   "name": "ティア",
   "single": false,
-  "checked": "2026-11-05T17:29",
+  "checked": "2026-11-10T10:29",
   "status": "ok",
   "home": "https://www.tear.co.jp/company/",
   "ir_top": "https://www.tear.co.jp/company/ir/event/index.html",
-  "ir_news": "https://www.tear.co.jp/company/ir/event/index.html",
-  "score": 0,
+  "ir_news": "https://www.tear.co.jp/company/",
+  "score": 10,
+  "method_v": 2,
   "method": "名証の会社ホームページ→IRページ"
  },
  "2551": {
   "name": "マルサンアイ",
   "single": true,
-  "checked": "2026-11-05T17:29",
+  "checked": "2026-11-10T10:29",
   "status": "ok",
   "home": "https://www.marusanai.co.jp/",
   "ir_top": "https://www.marusanai.co.jp/company/ir/",
-  "ir_news": "https://www.marusanai.co.jp/company/ir/",
-  "score": 0,
+  "ir_news": "https://www.marusanai.co.jp/company/ir/library/data/",
+  "score": 3,
+  "method_v": 2,
   "method": "名証の会社ホームページ→IRページ"
  },
  "259A": {
   "name": "ケイ・ウノ",
   "single": true,
-  "checked": "2026-11-09T11:45",
+  "checked": "2026-11-10T10:29",
   "status": "ok",
   "home": "https://www.k-uno.co.jp/",
-  "ir_top": "https://www.k-uno.co.jp:443/maintenance/index.html",
-  "ir_news": "https://www.k-uno.co.jp:443/maintenance/index.html",
-  "score": 0,
+  "ir_top": "https://www.k-uno.co.jp/ir/",
+  "ir_news": "https://www.k-uno.co.jp/ir/",
+  "score": 1,
+  "method_v": 2,
   "method": "名証の会社ホームページ→IRページ"
  },
  "2681": {
   "name": "セカンドリテイリング",
   "single": false,
-  "checked": "2026-11-09T11:45",
+  "checked": "2026-11-10T10:29",
   "status": "unreachable",
   "home": "https://2nd-rtl.com/",
+  "method_v": 2,
   "method": "名証の会社ホームページ→IRページ"
  },
  "2722": {
@@ -451,12 +473,13 @@
  "275A": {
   "name": "ハンワホームズ",
   "single": true,
-  "checked": "2026-11-05T17:29",
+  "checked": "2026-11-10T10:29",
   "status": "ok",
   "home": "https://www.hanwa-ex.com/",
   "ir_top": "https://www.hanwa-ex.com/ir/",
-  "ir_news": "https://www.hanwa-ex.com/ir/",
-  "score": 0,
+  "ir_news": "https://www.hanwa-ex.com/",
+  "score": 13,
+  "method_v": 2,
   "method": "名証の会社ホームページ→IRページ"
  },
  "2778": {
@@ -473,12 +496,13 @@
  "2780": {
   "name": "コメ兵ホールディングス",
   "single": false,
-  "checked": "2026-11-05T17:29",
+  "checked": "2026-11-10T10:29",
   "status": "ok",
   "home": "https://komehyohds.com/",
   "ir_top": "https://komehyohds.com/ir/",
-  "ir_news": "https://komehyohds.com/ir/",
-  "score": 0,
+  "ir_news": "https://komehyohds.com/",
+  "score": 8,
+  "method_v": 2,
   "method": "名証の会社ホームページ→IRページ"
  },
  "2806": {
@@ -506,9 +530,10 @@
  "2902": {
   "name": "太陽化学",
   "single": true,
-  "checked": "2026-11-09T11:45",
+  "checked": "2026-11-10T10:29",
   "status": "unreachable",
   "home": "https://www.taiyokagaku.com/",
+  "method_v": 2,
   "method": "名証の会社ホームページ→IRページ"
  },
  "2983": {
@@ -536,9 +561,10 @@
  "3028": {
   "name": "アルペン",
   "single": false,
-  "checked": "2026-11-09T11:45",
+  "checked": "2026-11-10T10:29",
   "status": "unreachable",
   "home": "https://www.alpen-group.jp/",
+  "method_v": 2,
   "method": "名証の会社ホームページ→IRページ"
  },
  "3032": {
@@ -566,23 +592,25 @@
  "3066": {
   "name": "ＪＢイレブン",
   "single": true,
-  "checked": "2026-11-05T17:30",
+  "checked": "2026-11-10T10:29",
   "status": "ok",
   "home": "http://www.jb11.co.jp/",
   "ir_top": "https://www.jb11.co.jp/ir/index.php",
   "ir_news": "https://www.jb11.co.jp/ir/index.php",
   "score": 0,
+  "method_v": 2,
   "method": "名証の会社ホームページ→IRページ"
  },
  "3086": {
   "name": "Ｊ．フロント　リテイリング",
   "single": false,
-  "checked": "2026-11-05T17:30",
+  "checked": "2026-11-10T10:29",
   "status": "ok",
   "home": "https://www.j-front-retailing.com/",
   "ir_top": "https://www.j-front-retailing.com/ir/",
   "ir_news": "https://www.j-front-retailing.com/ir/",
   "score": 0,
+  "method_v": 2,
   "method": "名証の会社ホームページ→IRページ"
  },
  "3091": {
@@ -610,20 +638,22 @@
  "3138": {
   "name": "富士山マガジンサービス",
   "single": false,
-  "checked": "2026-11-05T17:30",
+  "checked": "2026-11-10T10:29",
   "status": "ok",
   "home": "https://www.fujisan.co.jp/",
   "ir_top": "https://www.fujisan.co.jp/ir/info?link=header",
-  "ir_news": "https://www.fujisan.co.jp/ir/info?link=header",
-  "score": 0,
+  "ir_news": "https://www.fujisan.co.jp/guidance/info/2025/",
+  "score": 3,
+  "method_v": 2,
   "method": "名証の会社ホームページ→IRページ"
  },
  "3184": {
   "name": "ＩＣＤＡホールディングス",
   "single": false,
-  "checked": "2026-11-09T11:45",
+  "checked": "2026-11-10T10:29",
   "status": "unreachable",
   "home": "https://www.icda.jp/",
+  "method_v": 2,
   "method": "名証の会社ホームページ→IRページ"
  },
  "3186": {
@@ -640,39 +670,43 @@
  "3202": {
   "name": "ダイトウボウ",
   "single": false,
-  "checked": "2026-11-09T11:45",
+  "checked": "2026-11-10T10:29",
   "status": "unreachable",
   "home": "http://www.daitobo.co.jp/",
+  "method_v": 2,
   "method": "名証の会社ホームページ→IRページ"
  },
  "3205": {
   "name": "ダイドーリミテッド",
   "single": false,
-  "checked": "2026-11-09T11:45",
+  "checked": "2026-11-10T10:29",
   "status": "unreachable",
   "home": "https://www.daidoh-limited.com/",
+  "method_v": 2,
   "method": "名証の会社ホームページ→IRページ"
  },
  "3221": {
   "name": "ヨシックスホールディングス",
   "single": false,
-  "checked": "2026-11-05T17:30",
+  "checked": "2026-11-10T10:29",
   "status": "ok",
   "home": "https://yossix.co.jp/",
   "ir_top": "https://yossix.co.jp/ir/",
-  "ir_news": "https://yossix.co.jp/ir/",
-  "score": 0,
+  "ir_news": "https://yossix.co.jp/",
+  "score": 1,
+  "method_v": 2,
   "method": "名証の会社ホームページ→IRページ"
  },
  "3232": {
   "name": "三重交通グループホールディングス",
   "single": false,
-  "checked": "2026-11-05T17:30",
+  "checked": "2026-11-10T10:29",
   "status": "ok",
   "home": "https://holdings.sanco.co.jp/",
   "ir_top": "https://holdings.sanco.co.jp/ir/",
   "ir_news": "https://holdings.sanco.co.jp/ir/",
   "score": 0,
+  "method_v": 2,
   "method": "名証の会社ホームページ→IRページ"
  },
  "3320": {
@@ -722,12 +756,13 @@
  "3419": {
   "name": "アートグリーン",
   "single": true,
-  "checked": "2026-11-05T17:30",
+  "checked": "2026-11-10T10:29",
   "status": "ok",
   "home": "http://www.artgreen.co.jp/",
   "ir_top": "https://artgreen.co.jp/ir/",
-  "ir_news": "https://artgreen.co.jp/ir/",
-  "score": 0,
+  "ir_news": "https://artgreen.co.jp/topics/",
+  "score": 12,
+  "method_v": 2,
   "method": "名証の会社ホームページ→IRページ"
  },
  "3422": {
@@ -744,20 +779,22 @@
  "3439": {
   "name": "三ツ知",
   "single": false,
-  "checked": "2026-11-05T17:30",
+  "checked": "2026-11-10T10:29",
   "status": "ok",
   "home": "http://www.mitsuchi.co.jp/",
   "ir_top": "https://www.mitsuchi.co.jp/ir/",
   "ir_news": "https://www.mitsuchi.co.jp/ir/",
   "score": 0,
+  "method_v": 2,
   "method": "名証の会社ホームページ→IRページ"
  },
  "3441": {
   "name": "山王",
   "single": false,
-  "checked": "2026-11-09T11:45",
+  "checked": "2026-11-10T10:29",
   "status": "unreachable",
   "home": "https://www.sanno.co.jp/",
+  "method_v": 2,
   "method": "名証の会社ホームページ→IRページ"
  },
  "3442": {
@@ -796,34 +833,37 @@
  "3469": {
   "name": "デュアルタップ",
   "single": false,
-  "checked": "2026-11-05T17:30",
+  "checked": "2026-11-10T10:29",
   "status": "ok",
   "home": "https://www.dualtap.co.jp/",
   "ir_top": "https://www.dualtap.co.jp/ir/irmessage.html",
-  "ir_news": "https://www.dualtap.co.jp/ir/irmessage.html",
-  "score": 0,
+  "ir_news": "https://www.dualtap.co.jp/",
+  "score": 5,
+  "method_v": 2,
   "method": "名証の会社ホームページ→IRページ"
  },
  "3494": {
   "name": "マリオン",
   "single": false,
-  "checked": "2026-11-05T17:30",
+  "checked": "2026-11-10T10:29",
   "status": "ok",
   "home": "https://www.mullion.co.jp/",
   "ir_top": "https://www.mullion.co.jp/ir/message.html",
   "ir_news": "https://www.mullion.co.jp/ir/message.html",
   "score": 0,
+  "method_v": 2,
   "method": "名証の会社ホームページ→IRページ"
  },
  "3504": {
   "name": "丸八ホールディングス",
   "single": true,
-  "checked": "2026-11-05T17:31",
+  "checked": "2026-11-10T10:29",
   "status": "ok",
   "home": "https://www.maruhachi.co.jp/",
   "ir_top": "https://www.maruhachi.co.jp/ir%E6%83%85%E5%A0%B1",
-  "ir_news": "https://www.maruhachi.co.jp/ir%E6%83%85%E5%A0%B1",
-  "score": 0,
+  "ir_news": "https://www.maruhachi.co.jp/",
+  "score": 8,
+  "method_v": 2,
   "method": "名証の会社ホームページ→IRページ"
  },
  "3524": {
@@ -840,12 +880,13 @@
  "3543": {
   "name": "コメダホールディングス",
   "single": false,
-  "checked": "2026-11-05T17:31",
+  "checked": "2026-11-10T10:29",
   "status": "ok",
   "home": "http://www.komeda-holdings.co.jp/",
   "ir_top": "https://komeda-holdings.co.jp/ir_lib/",
   "ir_news": "https://komeda-holdings.co.jp/ir_lib/",
   "score": 0,
+  "method_v": 2,
   "method": "名証の会社ホームページ→IRページ"
  },
  "3549": {
@@ -862,12 +903,13 @@
  "3556": {
   "name": "リネットジャパングループ",
   "single": false,
-  "checked": "2026-11-05T17:31",
+  "checked": "2026-11-10T10:30",
   "status": "ok",
   "home": "https://corp.renet.jp/",
   "ir_top": "https://corp.renet.jp/ir/",
-  "ir_news": "https://corp.renet.jp/ir/",
-  "score": 0,
+  "ir_news": "https://corp.renet.jp/",
+  "score": 1,
+  "method_v": 2,
   "method": "名証の会社ホームページ→IRページ"
  },
  "3559": {
@@ -895,23 +937,25 @@
  "3577": {
   "name": "東海染工",
   "single": false,
-  "checked": "2026-11-05T17:31",
+  "checked": "2026-11-10T10:30",
   "status": "ok",
   "home": "http://www.tokai-senko.co.jp/",
   "ir_top": "https://tokai-senko.co.jp/ir/",
-  "ir_news": "https://tokai-senko.co.jp/ir/",
-  "score": 0,
+  "ir_news": "https://tokai-senko.co.jp/",
+  "score": 5,
+  "method_v": 2,
   "method": "名証の会社ホームページ→IRページ"
  },
  "3670": {
   "name": "協立情報通信",
   "single": true,
-  "checked": "2026-11-05T17:31",
+  "checked": "2026-11-10T10:30",
   "status": "ok",
   "home": "https://www.kccnet.co.jp/",
   "ir_top": "https://www.kccnet.co.jp/ir/",
-  "ir_news": "https://www.kccnet.co.jp/ir/",
-  "score": 0,
+  "ir_news": "https://www.kccnet.co.jp/",
+  "score": 10,
+  "method_v": 2,
   "method": "名証の会社ホームページ→IRページ"
  },
  "3739": {
@@ -950,12 +994,13 @@
  "377A": {
   "name": "エージェントＩＧホールディングス",
   "single": true,
-  "checked": "2026-11-05T17:31",
+  "checked": "2026-11-10T10:30",
   "status": "ok",
   "home": "https://a-gent.co.jp/",
   "ir_top": "https://a-gent.co.jp/ir/",
   "ir_news": "https://a-gent.co.jp/ir/",
   "score": 0,
+  "method_v": 2,
   "method": "名証の会社ホームページ→IRページ"
  },
  "3808": {
@@ -1005,45 +1050,49 @@
  "3947": {
   "name": "ダイナパック",
   "single": false,
-  "checked": "2026-11-05T17:31",
+  "checked": "2026-11-10T10:30",
   "status": "ok",
   "home": "https://www.dynapac-gr.co.jp/",
   "ir_top": "https://www.dynapac-gr.co.jp/ir/investor.html",
-  "ir_news": "https://www.dynapac-gr.co.jp/ir/investor.html",
-  "score": 0,
+  "ir_news": "https://www.dynapac-gr.co.jp/",
+  "score": 4,
+  "method_v": 2,
   "method": "名証の会社ホームページ→IRページ"
  },
  "3958": {
   "name": "笹徳印刷",
   "single": false,
-  "checked": "2026-11-05T17:31",
+  "checked": "2026-11-10T10:30",
   "status": "ok",
   "home": "https://www.sasatoku.co.jp/",
   "ir_top": "https://www.sasatoku.co.jp/IR/",
   "ir_news": "https://www.sasatoku.co.jp/IR/",
   "score": 0,
+  "method_v": 2,
   "method": "名証の会社ホームページ→IRページ"
  },
  "3974": {
   "name": "ＳＣＡＴ",
   "single": false,
-  "checked": "2026-11-05T17:31",
+  "checked": "2026-11-10T10:30",
   "status": "ok",
   "home": "https://www.scat.inc/",
   "ir_top": "https://www.scat.inc/ir.html",
-  "ir_news": "https://www.scat.inc/ir.html",
-  "score": 0,
+  "ir_news": "https://www.scat.inc/",
+  "score": 6,
+  "method_v": 2,
   "method": "名証の会社ホームページ→IRページ"
  },
  "4062": {
   "name": "イビデン",
   "single": false,
-  "checked": "2026-11-05T17:31",
+  "checked": "2026-11-10T10:30",
   "status": "ok",
   "home": "https://www.ibiden.co.jp/",
   "ir_top": "https://www.ibiden.co.jp/ir/",
   "ir_news": "https://www.ibiden.co.jp/ir/",
   "score": 0,
+  "method_v": 2,
   "method": "名証の会社ホームページ→IRページ"
  },
  "4063": {
@@ -1060,56 +1109,61 @@
  "4072": {
   "name": "電算システムホールディングス",
   "single": false,
-  "checked": "2026-11-05T17:31",
+  "checked": "2026-11-10T10:30",
   "status": "ok",
   "home": "https://www.ds-hd.co.jp/",
   "ir_top": "https://www.ds-hd.co.jp/ir/",
   "ir_news": "https://www.ds-hd.co.jp/ir/",
   "score": 0,
+  "method_v": 2,
   "method": "名証の会社ホームページ→IRページ"
  },
  "4124": {
   "name": "大阪油化工業",
   "single": false,
-  "checked": "2026-11-05T17:31",
+  "checked": "2026-11-10T10:30",
   "status": "ok",
   "home": "https://www.osaka-yuka.co.jp/",
   "ir_top": "https://www.osaka-yuka.co.jp/ir/",
   "ir_news": "https://www.osaka-yuka.co.jp/ir/",
   "score": 0,
+  "method_v": 2,
   "method": "名証の会社ホームページ→IRページ"
  },
  "4125": {
   "name": "三和油化工業",
   "single": false,
-  "checked": "2026-11-05T17:31",
+  "checked": "2026-11-10T10:30",
   "status": "ok",
   "home": "https://www.sanwayuka.co.jp/",
   "ir_top": "https://www.sanwayuka.co.jp/ir/",
   "ir_news": "https://www.sanwayuka.co.jp/ir/",
   "score": 0,
+  "method_v": 2,
   "method": "名証の会社ホームページ→IRページ"
  },
  "418A": {
   "name": "ウリドキ",
   "single": true,
-  "checked": "2026-11-05T17:31",
+  "checked": "2026-11-10T10:30",
   "status": "ok",
   "home": "https://uridoki.co.jp/",
   "ir_top": "https://uridoki.co.jp/ir/",
   "ir_news": "https://uridoki.co.jp/ir/",
   "score": 0,
+  "method_v": 2,
   "method": "名証の会社ホームページ→IRページ"
  },
  "4196": {
   "name": "ネオマーケティング",
   "single": false,
-  "checked": "2026-11-05T17:31",
+  "checked": "2026-11-10T10:30",
   "status": "ok",
   "home": "https://corp.neo-m.jp/",
   "ir_top": "https://neo-m.jp/ir/",
   "ir_news": "https://neo-m.jp/ir/",
   "score": 0,
+  "method_v": 2,
   "method": "名証の会社ホームページ→IRページ"
  },
  "4206": {
@@ -1137,12 +1191,13 @@
  "4247": {
   "name": "ポバール興業",
   "single": false,
-  "checked": "2026-11-05T17:31",
+  "checked": "2026-11-10T10:30",
   "status": "ok",
   "home": "https://www.poval.co.jp/",
   "ir_top": "https://www.poval.co.jp/ir/",
   "ir_news": "https://www.poval.co.jp/ir/",
   "score": 0,
+  "method_v": 2,
   "method": "名証の会社ホームページ→IRページ"
  },
  "4361": {
@@ -1159,12 +1214,13 @@
  "4430": {
   "name": "東海ソフト",
   "single": false,
-  "checked": "2026-11-05T17:32",
+  "checked": "2026-11-10T10:30",
   "status": "ok",
   "home": "http://www.tokai-soft.co.jp/",
   "ir_top": "https://www.tokai-soft.co.jp/ir/index.html",
-  "ir_news": "https://www.tokai-soft.co.jp/ir/index.html",
-  "score": 0,
+  "ir_news": "https://www.tokai-soft.co.jp/",
+  "score": 38,
+  "method_v": 2,
   "method": "名証の会社ホームページ→IRページ"
  },
  "4439": {
@@ -1181,23 +1237,25 @@
  "4445": {
   "name": "リビン・テクノロジーズ",
   "single": false,
-  "checked": "2026-11-05T17:32",
+  "checked": "2026-11-10T10:30",
   "status": "ok",
   "home": "https://www.lvn.co.jp/",
   "ir_top": "https://www.lvn.co.jp/ir/investors/",
   "ir_news": "https://www.lvn.co.jp/ir/investors/",
   "score": 0,
+  "method_v": 2,
   "method": "名証の会社ホームページ→IRページ"
  },
  "4463": {
   "name": "日華化学",
   "single": false,
-  "checked": "2026-11-05T17:32",
+  "checked": "2026-11-10T10:30",
   "status": "ok",
   "home": "https://www.nicca.co.jp/",
   "ir_top": "https://www.nicca.co.jp/ir/",
-  "ir_news": "https://www.nicca.co.jp/ir/",
-  "score": 0,
+  "ir_news": "https://www.nicca.co.jp/topics/",
+  "score": 93,
+  "method_v": 2,
   "method": "名証の会社ホームページ→IRページ"
  },
  "4502": {
@@ -1291,23 +1349,25 @@
  "4760": {
   "name": "アルファ",
   "single": false,
-  "checked": "2026-11-05T17:32",
+  "checked": "2026-11-10T10:30",
   "status": "ok",
   "home": "https://www.popalpha.co.jp/",
   "ir_top": "https://www.popalpha.co.jp/ir/irtop/",
   "ir_news": "https://www.popalpha.co.jp/ir/irtop/",
   "score": 0,
+  "method_v": 2,
   "method": "名証の会社ホームページ→IRページ"
  },
  "4920": {
   "name": "日本色材工業研究所",
   "single": false,
-  "checked": "2026-11-05T17:32",
+  "checked": "2026-11-10T10:30",
   "status": "ok",
   "home": "https://shikizai.com/",
   "ir_top": "https://shikizai.com/ir/",
-  "ir_news": "https://shikizai.com/ir/",
-  "score": 0,
+  "ir_news": "https://shikizai.com/",
+  "score": 2,
+  "method_v": 2,
   "method": "名証の会社ホームページ→IRページ"
  },
  "5020": {
@@ -1368,12 +1428,13 @@
  "5271": {
   "name": "トーヨーアサノ",
   "single": false,
-  "checked": "2026-11-05T17:32",
+  "checked": "2026-11-10T10:30",
   "status": "ok",
   "home": "https://www.toyoasano.co.jp/",
   "ir_top": "https://www.toyoasano.co.jp/ir/",
   "ir_news": "https://www.toyoasano.co.jp/ir/",
   "score": 0,
+  "method_v": 2,
   "method": "名証の会社ホームページ→IRページ"
  },
  "5287": {
@@ -1401,12 +1462,13 @@
  "5332": {
   "name": "ＴＯＴＯ",
   "single": false,
-  "checked": "2026-11-05T17:32",
+  "checked": "2026-11-10T10:30",
   "status": "ok",
   "home": "https://jp.toto.com/",
   "ir_top": "https://jp.toto.com/company/ir/",
-  "ir_news": "https://jp.toto.com/company/ir/",
-  "score": 0,
+  "ir_news": "https://jp.toto.com/",
+  "score": 30,
+  "method_v": 2,
   "method": "名証の会社ホームページ→IRページ"
  },
  "5333": {
@@ -1478,20 +1540,22 @@
  "5363": {
   "name": "東京窯業",
   "single": false,
-  "checked": "2026-11-05T17:32",
+  "checked": "2026-11-10T10:30",
   "status": "ok",
   "home": "https://tyk.co.jp/",
   "ir_top": "https://tyk.co.jp/ir.html",
-  "ir_news": "https://tyk.co.jp/ir.html",
-  "score": 0,
+  "ir_news": "https://tyk.co.jp/news/news.html",
+  "score": 64,
+  "method_v": 2,
   "method": "名証の会社ホームページ→IRページ"
  },
  "5384": {
   "name": "フジミインコーポレーテッド",
   "single": false,
-  "checked": "2026-11-09T11:45",
+  "checked": "2026-11-10T10:30",
   "status": "unreachable",
   "home": "http://www.fujimiinc.co.jp/index.html",
+  "method_v": 2,
   "method": "名証の会社ホームページ→IRページ"
  },
  "5386": {
@@ -1519,12 +1583,13 @@
  "5406": {
   "name": "神戸製鋼所",
   "single": false,
-  "checked": "2026-11-05T17:33",
+  "checked": "2026-11-10T10:30",
   "status": "ok",
   "home": "https://www.kobelco.co.jp/",
   "ir_top": "https://www.kobelco.co.jp/ir/",
-  "ir_news": "https://www.kobelco.co.jp/ir/",
-  "score": 0,
+  "ir_news": "https://www.kobelco.co.jp/releases/2026/",
+  "score": 25,
+  "method_v": 2,
   "method": "名証の会社ホームページ→IRページ"
  },
  "5461": {
@@ -1585,9 +1650,10 @@
  "5530": {
   "name": "日本システムバンク",
   "single": true,
-  "checked": "2026-11-09T11:45",
+  "checked": "2026-11-10T10:30",
   "status": "unreachable",
   "home": "https://www.syb.co.jp/",
+  "method_v": 2,
   "method": "名証の会社ホームページ→IRページ"
  },
  "5589": {
@@ -1637,12 +1703,13 @@
  "5938": {
   "name": "ＬＩＸＩＬ",
   "single": false,
-  "checked": "2026-11-05T17:33",
+  "checked": "2026-11-10T10:30",
   "status": "ok",
   "home": "https://www.lixil.com/jp/",
   "ir_top": "https://www.lixil.com/jp/investor/",
-  "ir_news": "https://www.lixil.com/jp/investor/",
-  "score": 0,
+  "ir_news": "https://www.lixil.com/jp/",
+  "score": 7,
+  "method_v": 2,
   "method": "名証の会社ホームページ→IRページ"
  },
  "5947": {
@@ -1670,10 +1737,13 @@
  "5979": {
   "name": "カネソウ",
   "single": true,
-  "checked": "2026-11-09T11:46",
-  "status": "unreachable",
+  "checked": "2026-11-10T10:30",
+  "status": "ok",
   "home": "http://www.kaneso.co.jp/",
   "ir_top": "https://www.kaneso.co.jp/ir/pdf/第43期定時株主総会招集通知ご通知の一部訂正について .pdf",
+  "ir_news": "https://www.kaneso.co.jp/",
+  "score": 17,
+  "method_v": 2,
   "method": "名証の会社ホームページ→IRページ"
  },
  "5984": {
@@ -1690,94 +1760,100 @@
  "5992": {
   "name": "中央発條",
   "single": false,
-  "checked": "2026-11-05T17:33",
+  "checked": "2026-11-10T10:30",
   "status": "ok",
   "home": "https://www.chkk.co.jp/",
   "ir_top": "https://www.chkk.co.jp/ir/index.html",
   "ir_news": "https://www.chkk.co.jp/ir/index.html",
   "score": 0,
+  "method_v": 2,
   "method": "名証の会社ホームページ→IRページ"
  },
  "5994": {
   "name": "ファインシンター",
   "single": false,
-  "checked": "2026-11-05T17:33",
+  "checked": "2026-11-10T10:31",
   "status": "ok",
   "home": "https://www.fine-sinter.com/",
   "ir_top": "https://www.fine-sinter.com/ir/",
-  "ir_news": "https://www.fine-sinter.com/ir/",
-  "score": 0,
+  "ir_news": "https://www.fine-sinter.com/",
+  "score": 18,
+  "method_v": 2,
   "method": "名証の会社ホームページ→IRページ"
  },
  "6025": {
   "name": "日本ＰＣサービス",
   "single": true,
-  "checked": "2026-11-05T17:33",
+  "checked": "2026-11-10T10:31",
   "status": "ok",
   "home": "http://www.j-pcs.jp/",
   "ir_top": "https://www.j-pcs.jp/ir/",
   "ir_news": "https://www.j-pcs.jp/ir/",
   "score": 0,
+  "method_v": 2,
   "method": "名証の会社ホームページ→IRページ"
  },
  "6029": {
   "name": "アトラグループ",
   "single": false,
-  "checked": "2026-11-09T11:46",
+  "checked": "2026-11-10T10:31",
   "status": "unreachable",
   "home": "https://www.artra-group.co.jp/",
+  "method_v": 2,
   "method": "名証の会社ホームページ→IRページ"
  },
  "6036": {
   "name": "ＫｅｅＰｅｒ技研",
   "single": false,
-  "checked": "2026-11-05T17:33",
-  "status": "ok",
+  "checked": "2026-11-10T10:31",
+  "status": "unreachable",
   "home": "http://www.keepercoating.jp/corp/",
-  "ir_top": "https://keepergiken.co.jp/ir/",
-  "ir_news": "https://keepergiken.co.jp/ir/",
-  "score": 0,
+  "method_v": 2,
   "method": "名証の会社ホームページ→IRページ"
  },
  "6055": {
   "name": "ジャパンマテリアル",
   "single": false,
-  "checked": "2026-11-05T17:33",
+  "checked": "2026-11-10T10:31",
   "status": "ok",
   "home": "https://www.j-materials.jp/",
   "ir_top": "https://www.j-materials.jp/ir/",
   "ir_news": "https://www.j-materials.jp/ir/",
   "score": 0,
+  "method_v": 2,
   "method": "名証の会社ホームページ→IRページ"
  },
  "6074": {
   "name": "ジェイエスエス",
   "single": false,
-  "checked": "2026-11-05T17:33",
+  "checked": "2026-11-10T10:31",
   "status": "ok",
   "home": "https://www.jss-group.co.jp/",
   "ir_top": "https://www.jss-group.co.jp/ir/",
-  "ir_news": "https://www.jss-group.co.jp/ir/",
-  "score": 0,
+  "ir_news": "https://www.jss-group.co.jp/school_news",
+  "score": 34,
+  "method_v": 2,
   "method": "名証の会社ホームページ→IRページ"
  },
  "6103": {
   "name": "オークマ",
   "single": false,
-  "checked": "2026-11-05T17:33",
+  "checked": "2026-11-10T10:31",
   "status": "ok",
   "home": "https://www.okuma.co.jp/",
   "ir_top": "https://www.okuma.co.jp/ir/",
-  "ir_news": "https://www.okuma.co.jp/ir/",
-  "score": 0,
+  "ir_news": "https://www.okuma.co.jp/news/",
+  "score": 1,
+  "method_v": 2,
   "method": "名証の会社ホームページ→IRページ"
  },
  "6111": {
   "name": "旭精機工業",
   "single": true,
-  "checked": "2026-11-09T11:46",
+  "checked": "2026-11-10T10:31",
   "status": "unreachable",
   "home": "https://www.asahiseiki-mfg.co.jp/",
+  "method_v": 2,
   "method": "名証の会社ホームページ→IRページ"
  },
  "6134": {
@@ -1805,20 +1881,22 @@
  "6142": {
   "name": "富士精工",
   "single": true,
-  "checked": "2026-11-05T17:33",
+  "checked": "2026-11-10T10:31",
   "status": "ok",
   "home": "http://www.c-max.co.jp/",
   "ir_top": "https://www.c-max.co.jp/ir/",
-  "ir_news": "https://www.c-max.co.jp/ir/",
-  "score": 0,
+  "ir_news": "https://www.c-max.co.jp/news/index.php",
+  "score": 1,
+  "method_v": 2,
   "method": "名証の会社ホームページ→IRページ"
  },
  "6203": {
   "name": "豊和工業",
   "single": false,
-  "checked": "2026-11-09T11:46",
+  "checked": "2026-11-10T10:31",
   "status": "unreachable",
   "home": "http://www.howa.co.jp/",
+  "method_v": 2,
   "method": "名証の会社ホームページ→IRページ"
  },
  "6225": {
@@ -1835,20 +1913,22 @@
  "624A": {
   "name": "かがやきホールディングス",
   "single": true,
-  "checked": "2026-11-05T17:34",
+  "checked": "2026-11-10T10:31",
   "status": "ok",
   "home": "https://kagayaki-grp.com/holdings/",
   "ir_top": "https://kagayaki-grp.com/holdings/ir/",
-  "ir_news": "https://kagayaki-grp.com/holdings/ir/",
-  "score": 0,
+  "ir_news": "https://kagayaki-grp.com/holdings/news/",
+  "score": 3,
+  "method_v": 2,
   "method": "名証の会社ホームページ→IRページ"
  },
  "6267": {
   "name": "ゼネラルパッカー",
   "single": false,
-  "checked": "2026-11-05T17:34",
+  "checked": "2026-11-10T10:31",
   "status": "no_ir_link",
   "home": "https://www.general-packer.co.jp/",
+  "method_v": 2,
   "method": "名証の会社ホームページ→IRページ"
  },
  "6325": {
@@ -1876,20 +1956,22 @@
  "6340": {
   "name": "澁谷工業",
   "single": false,
-  "checked": "2026-11-05T17:34",
+  "checked": "2026-11-10T10:31",
   "status": "no_ir_link",
   "home": "https://www.shibuya.co.jp/",
+  "method_v": 2,
   "method": "名証の会社ホームページ→IRページ"
  },
  "6342": {
   "name": "太平製作所",
   "single": false,
-  "checked": "2026-11-05T17:34",
+  "checked": "2026-11-10T10:31",
   "status": "ok",
   "home": "http://www.taihei-ss.co.jp/",
   "ir_top": "https://www.taihei-ss.co.jp/ir/",
   "ir_news": "https://www.taihei-ss.co.jp/ir/",
   "score": 0,
+  "method_v": 2,
   "method": "名証の会社ホームページ→IRページ"
  },
  "6345": {
@@ -1917,12 +1999,13 @@
  "6396": {
   "name": "宇野澤組鐵工所",
   "single": false,
-  "checked": "2026-11-05T17:34",
+  "checked": "2026-11-10T10:31",
   "status": "ok",
   "home": "https://www.unozawa.co.jp",
   "ir_top": "https://www.unozawa.co.jp/ir/",
-  "ir_news": "https://www.unozawa.co.jp/ir/",
-  "score": 0,
+  "ir_news": "https://www.unozawa.co.jp/news/",
+  "score": 5,
+  "method_v": 2,
   "method": "名証の会社ホームページ→IRページ"
  },
  "6407": {
@@ -1983,9 +2066,10 @@
  "6465": {
   "name": "ホシザキ",
   "single": false,
-  "checked": "2026-11-05T17:34",
+  "checked": "2026-11-10T10:31",
   "status": "no_ir_link",
   "home": "https://www.hoshizaki.co.jp/",
+  "method_v": 2,
   "method": "名証の会社ホームページ→IRページ"
  },
  "6470": {
@@ -2035,23 +2119,25 @@
  "6508": {
   "name": "明電舎",
   "single": false,
-  "checked": "2026-11-05T17:34",
+  "checked": "2026-11-10T10:31",
   "status": "ok",
   "home": "https://www.meidensha.co.jp/",
   "ir_top": "https://www.meidensha.co.jp/ir/",
-  "ir_news": "https://www.meidensha.co.jp/ir/",
-  "score": 0,
+  "ir_news": "https://www.meidensha.co.jp/news/news_01/news_01_01/",
+  "score": 13,
+  "method_v": 2,
   "method": "名証の会社ホームページ→IRページ"
  },
  "6547": {
   "name": "グリーンズ",
   "single": false,
-  "checked": "2026-11-05T17:34",
+  "checked": "2026-11-10T10:31",
   "status": "ok",
   "home": "https://www.kk-greens.jp/",
   "ir_top": "https://www.kk-greens.jp/ir/",
   "ir_news": "https://www.kk-greens.jp/ir/",
   "score": 0,
+  "method_v": 2,
   "method": "名証の会社ホームページ→IRページ"
  },
  "655A": {
@@ -2068,12 +2154,13 @@
  "6564": {
   "name": "ミダックホールディングス",
   "single": false,
-  "checked": "2026-11-05T17:34",
+  "checked": "2026-11-10T10:31",
   "status": "ok",
   "home": "http://www.midac.jp/",
   "ir_top": "https://www.midac.jp/ir/",
-  "ir_news": "https://www.midac.jp/ir/",
-  "score": 0,
+  "ir_news": "https://www.midac.jp/news/",
+  "score": 16,
+  "method_v": 2,
   "method": "名証の会社ホームページ→IRページ"
  },
  "6565": {
@@ -2123,12 +2210,13 @@
  "6651": {
   "name": "日東工業",
   "single": false,
-  "checked": "2026-11-05T17:34",
+  "checked": "2026-11-10T10:31",
   "status": "ok",
   "home": "https://www.nito.co.jp/",
   "ir_top": "https://www.nito.co.jp/IR/",
   "ir_news": "https://www.nito.co.jp/IR/",
   "score": 0,
+  "method_v": 2,
   "method": "名証の会社ホームページ→IRページ"
  },
  "6655": {
@@ -2156,9 +2244,10 @@
  "6702": {
   "name": "富士通",
   "single": false,
-  "checked": "2026-11-09T11:46",
+  "checked": "2026-11-10T10:31",
   "status": "unreachable",
   "home": "https://www.fujitsu.com/jp/",
+  "method_v": 2,
   "method": "名証の会社ホームページ→IRページ"
  },
  "6718": {
@@ -2208,9 +2297,10 @@
  "6902": {
   "name": "デンソー",
   "single": false,
-  "checked": "2026-11-09T11:46",
+  "checked": "2026-11-10T10:31",
   "status": "unreachable",
   "home": "https://www.denso.com/jp/ja/",
+  "method_v": 2,
   "method": "名証の会社ホームページ→IRページ"
  },
  "6995": {
@@ -2227,12 +2317,13 @@
  "6999": {
   "name": "ＫＯＡ",
   "single": false,
-  "checked": "2026-11-05T17:35",
+  "checked": "2026-11-10T10:31",
   "status": "ok",
   "home": "https://www.koaglobal.com/",
   "ir_top": "https://www.koaglobal.com/ir",
-  "ir_news": "https://www.koaglobal.com/ir",
-  "score": 0,
+  "ir_news": "https://www.koaglobal.com/",
+  "score": 19,
+  "method_v": 2,
   "method": "名証の会社ホームページ→IRページ"
  },
  "7011": {
@@ -2249,34 +2340,37 @@
  "7012": {
   "name": "川崎重工業",
   "single": false,
-  "checked": "2026-11-05T17:35",
+  "checked": "2026-11-10T10:32",
   "status": "ok",
   "home": "http://www.khi.co.jp/",
   "ir_top": "https://www.khi.co.jp/ir/",
-  "ir_news": "https://www.khi.co.jp/ir/",
-  "score": 0,
+  "ir_news": "https://www.khi.co.jp/ir/library/audio/index.html",
+  "score": 18,
+  "method_v": 2,
   "method": "名証の会社ホームページ→IRページ"
  },
  "7059": {
   "name": "コプロ・ホールディングス",
   "single": false,
-  "checked": "2026-11-05T17:35",
+  "checked": "2026-11-10T10:32",
   "status": "ok",
   "home": "https://www.copro-h.co.jp/",
   "ir_top": "https://www.copro-h.co.jp/ir/",
   "ir_news": "https://www.copro-h.co.jp/ir/",
   "score": 0,
+  "method_v": 2,
   "method": "名証の会社ホームページ→IRページ"
  },
  "7073": {
   "name": "ジェイック",
   "single": false,
-  "checked": "2026-11-05T17:35",
+  "checked": "2026-11-10T10:32",
   "status": "ok",
   "home": "https://www.jaic-g.com/",
   "ir_top": "https://www.jaic-g.com/ir/",
   "ir_news": "https://www.jaic-g.com/ir/",
   "score": 0,
+  "method_v": 2,
   "method": "名証の会社ホームページ→IRページ"
  },
  "7075": {
@@ -2293,9 +2387,13 @@
  "7076": {
   "name": "名南Ｍ＆Ａ",
   "single": true,
-  "checked": "2026-11-05T17:35",
-  "status": "no_ir_link",
+  "checked": "2026-11-10T10:32",
+  "status": "ok",
   "home": "https://www.meinan-ma.com/",
+  "ir_top": "https://www.meinan.net/meinan-ma/",
+  "ir_news": "https://www.meinan.net/meinan-ma/info/news-ipo/",
+  "score": 6,
+  "method_v": 2,
   "method": "名証の会社ホームページ→IRページ"
  },
  "7102": {
@@ -2312,12 +2410,13 @@
  "7118": {
   "name": "伸和ホールディングス",
   "single": false,
-  "checked": "2026-11-05T17:35",
+  "checked": "2026-11-10T10:32",
   "status": "ok",
   "home": "https://shinwa-holdings.co.jp/",
   "ir_top": "https://shinwa-holdings.co.jp/ir/management/message/",
   "ir_news": "https://shinwa-holdings.co.jp/ir/management/message/",
   "score": 0,
+  "method_v": 2,
   "method": "名証の会社ホームページ→IRページ"
  },
  "7129": {
@@ -2345,9 +2444,13 @@
  "7203": {
   "name": "トヨタ自動車",
   "single": false,
-  "checked": "2026-11-05T17:35",
-  "status": "no_ir_link",
+  "checked": "2026-11-10T10:32",
+  "status": "ok",
   "home": "https://global.toyota/jp/",
+  "ir_top": "https://global.toyota/jp/",
+  "ir_news": "https://global.toyota/jp/newsroom/corporate/44911652.html?padid=ag478_from_pickup",
+  "score": 3,
+  "method_v": 2,
   "method": "名証の会社ホームページ→IRページ"
  },
  "7213": {
@@ -2364,12 +2467,13 @@
  "7220": {
   "name": "武蔵精密工業",
   "single": false,
-  "checked": "2026-11-05T17:35",
+  "checked": "2026-11-10T10:32",
   "status": "ok",
   "home": "http://www.musashi.co.jp/",
   "ir_top": "https://www.musashi.co.jp/ir/news/",
-  "ir_news": "https://www.musashi.co.jp/ir/news/",
-  "score": 0,
+  "ir_news": "https://www.musashi.co.jp/newsrelease/",
+  "score": 6,
+  "method_v": 2,
   "method": "名証の会社ホームページ→IRページ"
  },
  "7227": {
@@ -2408,12 +2512,13 @@
  "7245": {
   "name": "大同メタル工業",
   "single": false,
-  "checked": "2026-11-05T17:35",
+  "checked": "2026-11-10T10:32",
   "status": "ok",
   "home": "https://www.daidometal.com/jp/",
   "ir_top": "https://www.ir.daidometal.com/",
-  "ir_news": "https://www.ir.daidometal.com/",
-  "score": 0,
+  "ir_news": "https://www.daidometal.com/jp/",
+  "score": 4,
+  "method_v": 2,
   "method": "名証の会社ホームページ→IRページ"
  },
  "7259": {
@@ -2452,64 +2557,67 @@
  "7283": {
   "name": "愛三工業",
   "single": false,
-  "checked": "2026-11-05T17:35",
+  "checked": "2026-11-10T10:32",
   "status": "ok",
   "home": "https://www.aisan-ind.co.jp/",
   "ir_top": "https://www.aisan-ind.co.jp/ir/index.html",
   "ir_news": "https://www.aisan-ind.co.jp/ir/index.html",
   "score": 0,
+  "method_v": 2,
   "method": "名証の会社ホームページ→IRページ"
  },
  "7322": {
   "name": "三十三フィナンシャルグループ",
   "single": false,
-  "checked": "2026-11-05T17:35",
+  "checked": "2026-11-10T10:32",
   "status": "ok",
   "home": "https://www.33fg.co.jp/",
   "ir_top": "https://www.33fg.co.jp/profile/index.html",
-  "ir_news": "https://www.33fg.co.jp/profile/index.html",
-  "score": 0,
+  "ir_news": "https://www.33fg.co.jp/",
+  "score": 7,
+  "method_v": 2,
   "method": "名証の会社ホームページ→IRページ"
  },
  "7362": {
   "name": "Ｔ．Ｓ．Ｉ",
   "single": false,
-  "checked": "2026-11-05T17:35",
+  "checked": "2026-11-10T10:32",
   "status": "ok",
   "home": "https://www.t-s-i.jp/",
   "ir_top": "https://www.t-s-i.jp/ir/index.html",
   "ir_news": "https://www.t-s-i.jp/ir/index.html",
   "score": 0,
+  "method_v": 2,
   "method": "名証の会社ホームページ→IRページ"
  },
  "7369": {
   "name": "メイホーホールディングス",
   "single": false,
-  "checked": "2026-11-05T17:35",
+  "checked": "2026-11-10T10:32",
   "status": "no_ir_link",
   "home": "https://meihoholdings.co.jp/",
+  "method_v": 2,
   "method": "名証の会社ホームページ→IRページ"
  },
  "7380": {
   "name": "十六フィナンシャルグループ",
   "single": false,
-  "checked": "2026-11-05T17:36",
+  "checked": "2026-11-10T10:32",
   "status": "ok",
   "home": "https://www.16fg.co.jp/",
   "ir_top": "https://www.16fg.co.jp/ir/",
-  "ir_news": "https://www.16fg.co.jp/ir/",
-  "score": 0,
+  "ir_news": "https://www.16fg.co.jp/",
+  "score": 13,
+  "method_v": 2,
   "method": "名証の会社ホームページ→IRページ"
  },
  "7389": {
   "name": "あいちフィナンシャルグループ",
   "single": false,
-  "checked": "2026-11-10T19:40",
+  "checked": "2026-11-10T10:32",
   "status": "ok",
   "home": "https://www.aichi-fg.co.jp/",
-  "ir_top": "https://www.aichi-fg.co.jp/ir/",
   "ir_news": "https://www.aichi-fg.co.jp/release/",
-  "score": 0,
   "method": "手入力"
  },
  "7412": {
@@ -2537,28 +2645,31 @@
  "7488": {
   "name": "ヤガミ",
   "single": true,
-  "checked": "2026-11-09T11:46",
+  "checked": "2026-11-10T10:32",
   "status": "unreachable",
   "home": "https://www.yagami-inc.co.jp/index.html",
+  "method_v": 2,
   "method": "名証の会社ホームページ→IRページ"
  },
  "7514": {
   "name": "ヒマラヤ",
   "single": false,
-  "checked": "2026-11-09T11:46",
+  "checked": "2026-11-10T10:32",
   "status": "unreachable",
   "home": "https://www.himaraya.co.jp/front/",
+  "method_v": 2,
   "method": "名証の会社ホームページ→IRページ"
  },
  "7593": {
   "name": "ＶＴホールディングス",
   "single": false,
-  "checked": "2026-11-05T17:36",
+  "checked": "2026-11-10T10:32",
   "status": "ok",
   "home": "http://www.vt-holdings.co.jp/",
   "ir_top": "http://www.vt-holdings.co.jp/ir/index.html",
-  "ir_news": "http://www.vt-holdings.co.jp/ir/index.html",
-  "score": 0,
+  "ir_news": "http://www.vt-holdings.co.jp/news/pr/index.html",
+  "score": 1,
+  "method_v": 2,
   "method": "名証の会社ホームページ→IRページ"
  },
  "7607": {
@@ -2575,17 +2686,22 @@
  "7630": {
   "name": "壱番屋",
   "single": false,
-  "checked": "2026-11-05T17:36",
-  "status": "no_ir_link",
+  "checked": "2026-11-10T10:32",
+  "status": "ok",
   "home": "https://www.ichibanya.co.jp/",
+  "ir_top": "https://www.ichibanya.co.jp/",
+  "ir_news": "https://www.ichibanya.co.jp/",
+  "score": 6,
+  "method_v": 2,
   "method": "名証の会社ホームページ→IRページ"
  },
  "7649": {
   "name": "スギホールディングス",
   "single": false,
-  "checked": "2026-11-09T11:46",
+  "checked": "2026-11-10T10:32",
   "status": "unreachable",
   "home": "https://www.sugi-hd.co.jp/",
+  "method_v": 2,
   "method": "名証の会社ホームページ→IRページ"
  },
  "7675": {
@@ -2613,9 +2729,13 @@
  "7723": {
   "name": "愛知時計電機",
   "single": false,
-  "checked": "2026-11-09T11:46",
-  "status": "unreachable",
+  "checked": "2026-11-10T10:32",
+  "status": "ok",
   "home": "https://www.aichitokei.co.jp/",
+  "ir_top": "https://www.aichitokei.co.jp/ir/news/",
+  "ir_news": "https://www.aichitokei.co.jp/",
+  "score": 2,
+  "method_v": 2,
   "method": "名証の会社ホームページ→IRページ"
  },
  "7747": {
@@ -2665,12 +2785,13 @@
  "7805": {
   "name": "プリントネット",
   "single": false,
-  "checked": "2026-11-05T17:36",
+  "checked": "2026-11-10T10:32",
   "status": "ok",
   "home": "https://printnet.jp/",
   "ir_top": "https://printnet.jp/holders.html",
   "ir_news": "https://printnet.jp/holders.html",
   "score": 0,
+  "method_v": 2,
   "method": "名証の会社ホームページ→IRページ"
  },
  "7870": {
@@ -2698,12 +2819,13 @@
  "7875": {
   "name": "竹田ｉＰホールディングス",
   "single": false,
-  "checked": "2026-11-05T17:36",
+  "checked": "2026-11-10T10:32",
   "status": "ok",
   "home": "https://www.takedaip-hd.co.jp/",
   "ir_top": "https://www.takedaip-hd.co.jp/ir/",
   "ir_news": "https://www.takedaip-hd.co.jp/ir/",
   "score": 0,
+  "method_v": 2,
   "method": "名証の会社ホームページ→IRページ"
  },
  "7878": {
@@ -2731,23 +2853,25 @@
  "7928": {
   "name": "旭化学工業",
   "single": false,
-  "checked": "2026-11-05T17:36",
+  "checked": "2026-11-10T10:32",
   "status": "ok",
   "home": "https://www.asahikagakukogyo.co.jp/",
   "ir_top": "https://www.asahikagakukogyo.co.jp/ir/meeting/",
   "ir_news": "https://www.asahikagakukogyo.co.jp/ir/meeting/",
   "score": 0,
+  "method_v": 2,
   "method": "名証の会社ホームページ→IRページ"
  },
  "7931": {
   "name": "未来工業",
   "single": false,
-  "checked": "2026-11-05T17:36",
+  "checked": "2026-11-10T10:32",
   "status": "ok",
   "home": "http://www.mirai.co.jp/",
   "ir_top": "https://www.mirai.co.jp/ir/news/file/20261023151106.pdf",
-  "ir_news": "https://www.mirai.co.jp/ir/news/file/20261023151106.pdf",
-  "score": 0,
+  "ir_news": "https://www.mirai.co.jp/",
+  "score": 5,
+  "method_v": 2,
   "method": "名証の会社ホームページ→IRページ"
  },
  "7943": {
@@ -2786,17 +2910,22 @@
  "7953": {
   "name": "菊水化学工業",
   "single": false,
-  "checked": "2026-11-09T11:46",
+  "checked": "2026-11-10T10:32",
   "status": "unreachable",
   "home": "https://www.kikusui-chem.co.jp/",
+  "method_v": 2,
   "method": "名証の会社ホームページ→IRページ"
  },
  "7975": {
   "name": "リヒトラブ",
   "single": false,
-  "checked": "2026-11-05T17:36",
-  "status": "no_ir_link",
+  "checked": "2026-11-10T10:32",
+  "status": "ok",
   "home": "https://www.lihit-lab.com/",
+  "ir_top": "https://www.lihit-lab.com/",
+  "ir_news": "https://www.lihit-lab.com/company/news/",
+  "score": 542,
+  "method_v": 2,
   "method": "名証の会社ホームページ→IRページ"
  },
  "7986": {
@@ -2813,12 +2942,13 @@
  "8015": {
   "name": "豊田通商",
   "single": false,
-  "checked": "2026-11-05T17:36",
+  "checked": "2026-11-10T10:32",
   "status": "ok",
   "home": "https://www.toyota-tsusho.com/",
   "ir_top": "https://www.toyota-tsusho.com/ir/",
   "ir_news": "https://www.toyota-tsusho.com/ir/",
   "score": 0,
+  "method_v": 2,
   "method": "名証の会社ホームページ→IRページ"
  },
  "8031": {
@@ -2846,23 +2976,25 @@
  "8076": {
   "name": "カノークス",
   "single": false,
-  "checked": "2026-11-05T17:36",
+  "checked": "2026-11-10T10:32",
   "status": "ok",
   "home": "http://www.canox.co.jp/",
   "ir_top": "https://www.canox.co.jp/ir/library/",
-  "ir_news": "https://www.canox.co.jp/ir/library/",
-  "score": 0,
+  "ir_news": "https://www.canox.co.jp/",
+  "score": 2,
+  "method_v": 2,
   "method": "名証の会社ホームページ→IRページ"
  },
  "8130": {
   "name": "サンゲツ",
   "single": false,
-  "checked": "2026-11-05T17:36",
+  "checked": "2026-11-10T10:32",
   "status": "ok",
   "home": "https://www.sangetsu.co.jp/",
   "ir_top": "https://www.sangetsu.co.jp/company/ir/",
-  "ir_news": "https://www.sangetsu.co.jp/company/ir/",
-  "score": 0,
+  "ir_news": "https://www.sangetsu.co.jp/",
+  "score": 21,
+  "method_v": 2,
   "method": "名証の会社ホームページ→IRページ"
  },
  "8145": {
@@ -2890,39 +3022,43 @@
  "8190": {
   "name": "ヤマナカ",
   "single": true,
-  "checked": "2026-11-09T11:46",
+  "checked": "2026-11-10T10:32",
   "status": "unreachable",
   "home": "http://www.super-yamanaka.co.jp/",
+  "method_v": 2,
   "method": "名証の会社ホームページ→IRページ"
  },
  "8225": {
   "name": "タカチホ",
   "single": false,
-  "checked": "2026-11-05T17:37",
+  "checked": "2026-11-10T10:32",
   "status": "ok",
   "home": "https://kk-takachiho.jp/",
   "ir_top": "https://kk-takachiho.jp/ir/",
   "ir_news": "https://kk-takachiho.jp/ir/",
   "score": 0,
+  "method_v": 2,
   "method": "名証の会社ホームページ→IRページ"
  },
  "8228": {
   "name": "マルイチ産商",
   "single": true,
-  "checked": "2026-11-05T17:37",
+  "checked": "2026-11-10T10:32",
   "status": "ok",
   "home": "https://www.maruichi.com/",
   "ir_top": "https://www.maruichi.com/ir/",
-  "ir_news": "https://www.maruichi.com/ir/",
-  "score": 0,
+  "ir_news": "https://www.maruichi.com/",
+  "score": 7,
+  "method_v": 2,
   "method": "名証の会社ホームページ→IRページ"
  },
  "8285": {
   "name": "三谷産業",
   "single": false,
-  "checked": "2026-11-09T11:46",
+  "checked": "2026-11-10T10:32",
   "status": "unreachable",
   "home": "https://www.mitani.co.jp/",
+  "method_v": 2,
   "method": "名証の会社ホームページ→IRページ"
  },
  "8306": {
@@ -2950,12 +3086,13 @@
  "8316": {
   "name": "三井住友フィナンシャルグループ",
   "single": false,
-  "checked": "2026-11-05T17:37",
+  "checked": "2026-11-10T10:32",
   "status": "ok",
   "home": "https://www.smfg.co.jp/",
   "ir_top": "https://www.smfg.co.jp/investor/financial/individual.html",
-  "ir_news": "https://www.smfg.co.jp/investor/financial/individual.html",
-  "score": 0,
+  "ir_news": "https://www.smfg.co.jp/",
+  "score": 14,
+  "method_v": 2,
   "method": "名証の会社ホームページ→IRページ"
  },
  "8361": {
@@ -2994,20 +3131,22 @@
  "8601": {
   "name": "大和証券グループ本社",
   "single": false,
-  "checked": "2026-11-05T17:37",
+  "checked": "2026-11-10T10:32",
   "status": "ok",
   "home": "https://www.daiwa-grp.jp/",
   "ir_top": "https://www.daiwa-grp.jp/ir/",
   "ir_news": "https://www.daiwa-grp.jp/ir/",
   "score": 0,
+  "method_v": 2,
   "method": "名証の会社ホームページ→IRページ"
  },
  "8604": {
   "name": "野村ホールディングス",
   "single": false,
-  "checked": "2026-11-05T17:37",
+  "checked": "2026-11-10T10:32",
   "status": "no_ir_link",
   "home": "https://www.nomura.com/jp/",
+  "method_v": 2,
   "method": "名証の会社ホームページ→IRページ"
  },
  "8609": {
@@ -3035,20 +3174,22 @@
  "8725": {
   "name": "ＭＳ＆ＡＤインシュアランスグループホールディングス",
   "single": false,
-  "checked": "2026-11-09T11:46",
+  "checked": "2026-11-10T10:32",
   "status": "unreachable",
   "home": "https://www.ms-ad-hd.com/ja/index.html",
+  "method_v": 2,
   "method": "名証の会社ホームページ→IRページ"
  },
  "8803": {
   "name": "平和不動産",
   "single": false,
-  "checked": "2026-11-05T17:37",
+  "checked": "2026-11-10T10:33",
   "status": "ok",
   "home": "https://www.heiwa-net.co.jp/",
   "ir_top": "https://www.heiwa-net.co.jp/ir/",
-  "ir_news": "https://www.heiwa-net.co.jp/ir/",
-  "score": 0,
+  "ir_news": "https://www.heiwa-net.co.jp/",
+  "score": 5,
+  "method_v": 2,
   "method": "名証の会社ホームページ→IRページ"
  },
  "8891": {
@@ -3065,42 +3206,49 @@
  "8904": {
   "name": "ＡＶＡＮＴＩＡ",
   "single": false,
-  "checked": "2026-11-05T17:37",
-  "status": "no_ir_link",
+  "checked": "2026-11-10T10:33",
+  "status": "ok",
   "home": "https://avantia-g.co.jp/",
+  "ir_top": "https://avantia-g.co.jp/",
+  "ir_news": "https://avantia-g.co.jp/portal/news/",
+  "score": 1,
+  "method_v": 2,
   "method": "名証の会社ホームページ→IRページ"
  },
  "8920": {
   "name": "東祥",
   "single": false,
-  "checked": "2026-11-05T17:37",
+  "checked": "2026-11-10T10:33",
   "status": "ok",
   "home": "https://www.to-sho.net/",
   "ir_top": "https://www.to-sho.net/ir/index.html",
   "ir_news": "https://www.to-sho.net/ir/index.html",
   "score": 0,
+  "method_v": 2,
   "method": "名証の会社ホームページ→IRページ"
  },
  "8995": {
   "name": "誠建設工業",
   "single": false,
-  "checked": "2026-11-05T17:37",
+  "checked": "2026-11-10T10:33",
   "status": "ok",
   "home": "https://www.makoto-gr.com/",
   "ir_top": "https://makoto-gr.com/ir/press.html",
-  "ir_news": "https://makoto-gr.com/ir/press.html",
-  "score": 0,
+  "ir_news": "https://makoto-gr.com/",
+  "score": 5,
+  "method_v": 2,
   "method": "名証の会社ホームページ→IRページ"
  },
  "9022": {
   "name": "東海旅客鉄道",
   "single": false,
-  "checked": "2026-11-05T17:37",
+  "checked": "2026-11-10T10:33",
   "status": "ok",
   "home": "https://jr-central.co.jp/",
   "ir_top": "https://company.jr-central.co.jp/",
-  "ir_news": "https://company.jr-central.co.jp/",
-  "score": 0,
+  "ir_news": "https://jr-central.co.jp/news/",
+  "score": 5,
+  "method_v": 2,
   "method": "名証の会社ホームページ→IRページ"
  },
  "9040": {
@@ -3150,9 +3298,13 @@
  "9170": {
   "name": "成友興業",
   "single": true,
-  "checked": "2026-11-05T17:37",
-  "status": "no_ir_link",
+  "checked": "2026-11-10T10:33",
+  "status": "ok",
   "home": "https://seiyukogyo.co.jp/",
+  "ir_top": "https://seiyukogyo.co.jp/",
+  "ir_news": "https://seiyukogyo.co.jp/information",
+  "score": 9,
+  "method_v": 2,
   "method": "名証の会社ホームページ→IRページ"
  },
  "9221": {
@@ -3169,12 +3321,13 @@
  "9249": {
   "name": "日本エコシステム",
   "single": false,
-  "checked": "2026-11-05T17:37",
+  "checked": "2026-11-10T10:33",
   "status": "ok",
   "home": "https://www.jp-eco.co.jp/",
   "ir_top": "https://www.jp-eco.co.jp/ir/",
-  "ir_news": "https://www.jp-eco.co.jp/ir/",
-  "score": 0,
+  "ir_news": "https://www.jp-eco.co.jp/",
+  "score": 5,
+  "method_v": 2,
   "method": "名証の会社ホームページ→IRページ"
  },
  "9306": {
@@ -3213,12 +3366,13 @@
  "9334": {
   "name": "アイビスホールディングス",
   "single": false,
-  "checked": "2026-11-05T17:37",
+  "checked": "2026-11-10T10:33",
   "status": "ok",
   "home": "https://ibisholdings.co.jp/",
   "ir_top": "https://ibisholdings.co.jp/ir/",
   "ir_news": "https://ibisholdings.co.jp/ir/",
   "score": 0,
+  "method_v": 2,
   "method": "名証の会社ホームページ→IRページ"
  },
  "9357": {
@@ -3235,45 +3389,49 @@
  "9359": {
   "name": "伊勢湾海運",
   "single": true,
-  "checked": "2026-11-05T17:37",
+  "checked": "2026-11-10T10:33",
   "status": "ok",
   "home": "https://www.isewan.co.jp/",
-  "ir_top": "https://www.isewan.co.jp/wp-content/uploads/2026/09/96d74794ba253621ed5e276e3c17003f.pdf",
-  "ir_news": "https://www.isewan.co.jp/wp-content/uploads/2026/09/96d74794ba253621ed5e276e3c17003f.pdf",
-  "score": 0,
+  "ir_top": "https://www.isewan.co.jp/wp-content/uploads/2026/11/d8bf670e5af2e9f9d8a5b11f4487d603.pdf",
+  "ir_news": "https://www.isewan.co.jp/",
+  "score": 10,
+  "method_v": 2,
   "method": "名証の会社ホームページ→IRページ"
  },
  "9368": {
   "name": "キムラユニティー",
   "single": false,
-  "checked": "2026-11-05T17:37",
+  "checked": "2026-11-10T10:33",
   "status": "ok",
   "home": "https://www.kimura-unity.co.jp/",
   "ir_top": "https://www.kimura-unity.co.jp/ir/index.html",
   "ir_news": "https://www.kimura-unity.co.jp/ir/index.html",
   "score": 0,
+  "method_v": 2,
   "method": "名証の会社ホームページ→IRページ"
  },
  "9402": {
   "name": "中部日本放送",
   "single": true,
-  "checked": "2026-11-05T17:38",
+  "checked": "2026-11-10T10:33",
   "status": "ok",
   "home": "https://hicbc.com/",
   "ir_top": "https://hicbc.com/corporation/ir/",
-  "ir_news": "https://hicbc.com/corporation/ir/",
-  "score": 0,
+  "ir_news": "https://hicbc.com/",
+  "score": 11,
+  "method_v": 2,
   "method": "名証の会社ホームページ→IRページ"
  },
  "9428": {
   "name": "クロップス",
   "single": false,
-  "checked": "2026-11-05T17:38",
+  "checked": "2026-11-10T10:33",
   "status": "ok",
   "home": "https://www.crops.ne.jp/",
   "ir_top": "https://www.crops.co.jp/ir",
   "ir_news": "https://www.crops.co.jp/ir",
   "score": 0,
+  "method_v": 2,
   "method": "名証の会社ホームページ→IRページ"
  },
  "9471": {
@@ -3334,12 +3492,13 @@
  "9643": {
   "name": "中日本興業",
   "single": true,
-  "checked": "2026-11-05T17:38",
+  "checked": "2026-11-10T10:33",
   "status": "ok",
   "home": "http://www.nakanihonkogyo.co.jp/",
   "ir_top": "http://www.nakanihonkogyo.co.jp/detail/5065",
-  "ir_news": "http://www.nakanihonkogyo.co.jp/detail/5065",
-  "score": 0,
+  "ir_news": "http://www.nakanihonkogyo.co.jp/",
+  "score": 1,
+  "method_v": 2,
   "method": "名証の会社ホームページ→IRページ"
  },
  "9664": {
@@ -3356,12 +3515,13 @@
  "9793": {
   "name": "ダイセキ",
   "single": false,
-  "checked": "2026-11-05T17:38",
+  "checked": "2026-11-10T10:33",
   "status": "ok",
   "home": "https://www.daiseki.co.jp/",
   "ir_top": "https://www.daiseki.co.jp/IR/",
   "ir_news": "https://www.daiseki.co.jp/IR/",
   "score": 0,
+  "method_v": 2,
   "method": "名証の会社ホームページ→IRページ"
  },
  "9900": {
@@ -3389,9 +3549,10 @@
  "9914": {
   "name": "植松商会",
   "single": true,
-  "checked": "2026-11-09T11:46",
+  "checked": "2026-11-10T10:33",
   "status": "unreachable",
   "home": "https://uematsushokai.jp/",
+  "method_v": 2,
   "method": "名証の会社ホームページ→IRページ"
  },
  "9956": {
@@ -3430,12 +3591,13 @@
  "9987": {
   "name": "スズケン",
   "single": false,
-  "checked": "2026-11-05T17:38",
+  "checked": "2026-11-10T10:33",
   "status": "ok",
   "home": "https://www.suzuken.co.jp/",
   "ir_top": "https://www.suzuken.co.jp/ir/stockholder/",
   "ir_news": "https://www.suzuken.co.jp/ir/stockholder/",
   "score": 0,
+  "method_v": 2,
   "method": "名証の会社ホームページ→IRページ"
  }
 }
