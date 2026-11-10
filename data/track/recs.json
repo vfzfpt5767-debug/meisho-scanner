@@ -117,7 +117,8 @@
 "category": "A",
 "label": "増配",
 "price": 4193.0,
-"result": null
+"result": 0.0648700214643454,
+"next_day": "2026-11-10"
 },
 {
 "base_day": "2026-11-09",
@@ -127,7 +128,8 @@
 "category": "A",
 "label": "増配",
 "price": 4193.0,
-"result": null
+"result": 0.0648700214643454,
+"next_day": "2026-11-10"
 },
 {
 "base_day": "2026-11-09",
@@ -137,7 +139,8 @@
 "category": "A",
 "label": "自社株買い",
 "price": 1302.5,
-"result": null
+"result": 0.07869481765834929,
+"next_day": "2026-11-10"
 },
 {
 "base_day": "2026-11-09",
@@ -147,7 +150,8 @@
 "category": "AI",
 "label": "",
 "price": 4193.0,
-"result": null
+"result": 0.0648700214643454,
+"next_day": "2026-11-10"
 },
 {
 "base_day": "2026-11-09",
@@ -157,7 +161,8 @@
 "category": "A",
 "label": "自社株買い",
 "price": 1451.0,
-"result": null
+"result": 0.002756719503790528,
+"next_day": "2026-11-10"
 },
 {
 "base_day": "2026-11-09",
@@ -167,6 +172,27 @@
 "category": "A",
 "label": "自社株買い",
 "price": 1122.0,
+"result": 0.0035650623885918886,
+"next_day": "2026-11-10"
+},
+{
+"base_day": "2026-11-10",
+"source": "rule_top",
+"code": "7220",
+"name": "武蔵精密工業",
+"category": "A",
+"label": "特別利益",
+"price": 2399.0,
+"result": null
+},
+{
+"base_day": "2026-11-10",
+"source": "rule_sa",
+"code": "7220",
+"name": "武蔵精密工業",
+"category": "A",
+"label": "特別利益",
+"price": 2399.0,
 "result": null
 }
 ]
