@@ -194,5 +194,35 @@
 "label": "特別利益",
 "price": 2399.0,
 "result": null
+},
+{
+"base_day": "2026-11-10",
+"source": "rule_top",
+"code": "7389",
+"name": "あいちフィナンシャルグループ",
+"category": "A",
+"label": "増配",
+"price": 1696.0,
+"result": null
+},
+{
+"base_day": "2026-11-10",
+"source": "rule_sa",
+"code": "7389",
+"name": "あいちフィナンシャルグループ",
+"category": "A",
+"label": "増配",
+"price": 1696.0,
+"result": null
+},
+{
+"base_day": "2026-11-10",
+"source": "rule_sa",
+"code": "6899",
+"name": "ＡＳＴＩ",
+"category": "A",
+"label": "特別利益",
+"price": 2140.0,
+"result": null
 }
 ]
