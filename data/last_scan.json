@@ -1,5 +1,5 @@
 {
-"generated_at": "2026-11-10T18:43:04.537388+09:00",
+"generated_at": "2026-11-10T19:35:18.407950+09:00",
 "base_day": "2026-11-10",
 "deadline": "2026-11-11T07:59:00+09:00",
 "price_source": "名証 日報",
@@ -498,6 +498,40 @@
 "nse_quote": 3740.0,
 "shares": 800,
 "cost": 2992000.0,
+"tob_price": null,
+"tob_gap_pct": null,
+"quote_only": true
+},
+{
+"code": "5384",
+"name": "フジミインコーポレーテッド",
+"single": false,
+"division": "プレミア",
+"unit": 100,
+"category": "INFO",
+"score": 0,
+"items": [
+{
+"time": "19:10",
+"date": "11/10",
+"title": "「中長期経営計画2026」詳細版の公表について",
+"pdf": "https://www.release.tdnet.info/inbs/140120261110572199.pdf",
+"tags": [
+{
+"cat": "INFO",
+"label": "その他",
+"score": 0,
+"reason": ""
+}
+]
+}
+],
+"price": 2911.0,
+"price_note": "名証の最終気配",
+"nse_close": null,
+"nse_quote": 2911.0,
+"shares": 1000,
+"cost": 2911000.0,
 "tob_price": null,
 "tob_gap_pct": null,
 "quote_only": true
