@@ -835,3 +835,207 @@ def test_nikkei_close_backup(monkeypatch):
     assert _nikkei_close_on(date(2026, 11, 9)) == 50600.0
     # 3) 最新値が別の日なら使わない（None → 呼び出し側は先物の前日比で代用し、注意を出す）
     assert _nikkei_close_on(date(2026, 11, 10)) is None
+
+
+def _fake_site(pages: dict):
+    """URL → HTML か PDF（bytes）の偽サイト（ネットにつながない）。"""
+    from types import SimpleNamespace
+
+    def fake_fetch(url):
+        if url not in pages:
+            raise AssertionError(f"想定外のURL: {url}")
+        body = pages[url]
+        if isinstance(body, bytes):
+            return SimpleNamespace(content=body, url=url, encoding=None)
+        return SimpleNamespace(content=body.encode("utf-8"), url=url, encoding="utf-8")
+    return fake_fetch
+
+
+def test_ir_doc_date():
+    from scanner import ir
+
+    assert ir.doc_date("2026年11月10日\n各 位\n会 社 名 株式会社ユー・エス・エス") == "2026-11-10"
+    assert ir.doc_date("令和８年11月９日\n各 位") == "2026-11-09"
+    assert ir.doc_date("2026 年 11 月 5 日 各位") == "2026-11-05"
+    assert ir.doc_date("2026.11.10 お知らせ") == "2026-11-10"
+    assert ir.doc_date("各位 会社名") == ""
+    assert ir.near("2026-11-10", "2026-11-11") and not ir.near("2025-11-07", "2026-11-10")
+
+
+def test_ir_lookup_rejects_last_years_document(tmp_path, monkeypatch):
+    """毎年同じタイトルの資料（ニチハの「通期業績予想の修正に関するお知らせ」）で、去年の分を取り違えない。"""
+    import json as _json
+
+    from scanner import ir
+
+    pages = tmp_path / "ir_pages.json"
+    pages.write_text(_json.dumps({"7943": {"status": "ok", "ir_news": "https://n.co.jp/news/"},
+                                  "1111": {"status": "ok", "ir_news": "https://m.co.jp/ir/"}}), encoding="utf-8")
+    monkeypatch.setattr(ir, "PAGES", pages)
+    site = {
+        "https://n.co.jp/news/": ('<li>2026.11.04 <a href="/news/20261104_01.pdf">AWARD 結果発表</a></li>'
+                                  '<li>2025.11.07 <a href="/news/20251107_02.pdf">通期業績予想の修正に関するお知らせ</a></li>'),
+        # 日付の書いていない一覧（中身の日付で見分ける）
+        "https://m.co.jp/ir/": '<a href="/a.pdf">通期業績予想の修正に関するお知らせ</a>',
+        "https://m.co.jp/a.pdf": b"%PDF-1.4 old",
+    }
+    monkeypatch.setattr(ir, "fetch", _fake_site(site))
+    monkeypatch.setattr(ir, "_pdf_text", lambda data, max_chars=3500: "2025年11月7日\n各 位\n通期業績予想の修正に関するお知らせ")
+    r = ir.lookup("7943", "通期業績予想の修正に関するお知らせ", "2026-11-10")
+    assert r["status"] == "not_found" and r["old_match"]["date"] == "2025-11-07"
+    r = ir.lookup("1111", "通期業績予想の修正に関するお知らせ", "2026-11-10")
+    assert r["status"] == "not_found" and r["old_match"]["date"] == "2025-11-07"
+    # 中身の日付が今回と同じなら使う
+    monkeypatch.setattr(ir, "_pdf_text", lambda data, max_chars=3500: "令和８年11月10日\n各 位\n通期業績予想の修正")
+    r = ir.lookup("1111", "通期業績予想の修正に関するお知らせ", "2026-11-10")
+    assert r["status"] == "found" and r["doc_date"] == "2026-11-10" and not r.get("date_unverified")
+
+
+def test_ir_lookup_follows_refresh_and_home(tmp_path, monkeypatch):
+    """あいちFG：一覧は /release/（0秒後に /release/2026/ へ）。そこになければトップページでも探す。"""
+    import json as _json
+
+    from scanner import ir
+
+    pages = tmp_path / "ir_pages.json"
+    pages.write_text(_json.dumps({"7389": {"status": "ok", "ir_news": "https://a.co.jp/release/",
+                                           "home": "https://a.co.jp/"}}), encoding="utf-8")
+    monkeypatch.setattr(ir, "PAGES", pages)
+    title = "業績予想の修正、期末配当予想の修正（増配）および自己株式取得に係る事項の決定に関するお知らせ"
+    site = {
+        "https://a.co.jp/release/": '<meta http-equiv="refresh" content="0;URL=/release/2026/">',
+        "https://a.co.jp/release/2026/": '<li>2026年11月09日 <a href="/r/news20261109.pdf">主要株主の異動に関するお知らせ</a></li>',
+        "https://a.co.jp/": f'<dl><dt>2026年11月10日</dt><dd><a href="/ir/files/pdf/20261110_kessan.pdf">{title}</a></dd></dl>',
+        "https://a.co.jp/ir/files/pdf/20261110_kessan.pdf": b"%PDF-1.4",
+    }
+    monkeypatch.setattr(ir, "fetch", _fake_site(site))
+    monkeypatch.setattr(ir, "_pdf_text", lambda data, max_chars=3500: "2026年11月10日\n各 位\n業績予想の修正")
+    r = ir.lookup("7389", title, "2026-11-10")
+    assert r["status"] == "found" and r["url"].endswith("20261110_kessan.pdf") and "トップページ" in r["note"]
+    # 一覧のページ（meta refresh の先）にあれば、そこで見つける
+    site["https://a.co.jp/release/2026/"] += site["https://a.co.jp/"]
+    r = ir.lookup("7389", title, "2026-11-10")
+    assert r["status"] == "found" and "note" not in r
+
+
+def test_ir_attach_rechecks_stale_cache(tmp_path, monkeypatch):
+    """前に「見つかった」と記録した資料が去年の分なら、探し直す。"""
+    import json as _json
+
+    from scanner import ir
+
+    pages = tmp_path / "ir_pages.json"
+    pages.write_text("{}", encoding="utf-8")
+    monkeypatch.setattr(ir, "PAGES", pages)
+    monkeypatch.setattr(ir, "CACHE", tmp_path / "ir")
+    (tmp_path / "ir").mkdir()
+    title = "通期業績予想の修正に関するお知らせ"
+    (tmp_path / "ir" / "2026-11-10.json").write_text(_json.dumps({f"7943|{title}": {
+        "status": "found", "date": "2025-11-07", "kind": "pdf", "excerpt": "2025年11月7日", "checked": "2026-11-10T08:11"}}),
+        encoding="utf-8")
+    calls = []
+    monkeypatch.setattr(ir, "lookup", lambda code, t, hint="": calls.append(hint) or {"status": "not_found"})
+    data = {"base_day": "2026-11-10", "candidates": [
+        {"code": "7943", "category": "CHECK", "items": [{"time": "11/10 16:10", "title": title,
+                                                         "labels": [{"cat": "CHECK", "label": "業績予想の修正"}]}]}]}
+    ir.attach_ir_checks(data)
+    assert calls == ["2026-11-10"] and data["candidates"][0]["ir_check"]["status"] == "not_found"
+
+
+def test_ir_find_page_prefers_dated_list(monkeypatch):
+    """IRのページに一覧がない会社は、トップページのニュースリリースのページを使う。"""
+    from scanner import ir
+
+    site = {
+        "https://a.co.jp/": ('<a href="/ir/">株主・投資家の皆さまへ</a><a href="/release/">ニュースリリース一覧</a>'
+                             '<a href="/products/">商品</a>'),
+        "https://a.co.jp/ir/": '<p>IRカレンダー 11月 第2四半期決算発表</p><a href="/ir/financialreport/">決算関連情報</a>',
+        "https://a.co.jp/ir/financialreport/": '<a href="/ir/financialreport/financial/">決算短信</a>',
+        "https://a.co.jp/release/": ''.join(f'<li>2026年11月{d:02d}日 <a href="/r/{d}.pdf">お知らせ{d}</a></li>' for d in range(1, 6)),
+    }
+    monkeypatch.setattr(ir, "fetch", _fake_site(site))
+    r = ir.find_ir_page("https://a.co.jp/")
+    assert r["status"] == "ok" and r["ir_news"] == "https://a.co.jp/release/" and r["score"] == 5 and r["method_v"] == 2
+    # IRのページに一覧があれば、そちらを使う（トップのニュースは見に行かない）
+    site["https://a.co.jp/ir/"] = ''.join(f'<li>2026.11.{d:02d} <a href="/ir/{d}.pdf">決算{d}</a></li>' for d in range(1, 4))
+    r = ir.find_ir_page("https://a.co.jp/")
+    assert r["ir_news"] == "https://a.co.jp/ir/" and r["score"] == 3
+
+
+def _hc_setup(tmp_path, monkeypatch, portfolio):
+    import json as _json
+
+    from scanner import human_check as H
+    from scanner import line_actions as L
+
+    inp = tmp_path / "analyst_input.json"
+    inp.write_text(_json.dumps({"base_day": "2026-11-10", "portfolio": portfolio, "stop_limits": [], "candidates": [
+        {"code": "7389", "name": "あいちFG", "category": "A", "score": 71, "price": 1696.0, "unit": 100, "single": False,
+         "items": [{"time": "11/10 16:00", "title": "業績予想の修正、期末配当予想の修正（増配）および自己株式取得",
+                    "pdf": "https://www.release.tdnet.info/inbs/140120261028557901.pdf",
+                    "labels": [{"cat": "CHECK", "label": "業績予想の修正"}, {"cat": "A", "label": "増配"},
+                               {"cat": "A", "label": "自社株買い"}]}]},
+        {"code": "7943", "name": "ニチハ", "category": "CHECK", "score": 45, "price": 2900.0, "unit": 100, "single": False,
+         "items": [{"time": "11/10 16:10", "title": "通期業績予想の修正に関するお知らせ", "pdf": "https://x/b.pdf",
+                    "labels": [{"cat": "CHECK", "label": "業績予想の修正"}]}]},
+        {"code": "9664", "name": "御園座", "category": "A", "score": 50, "price": 1000.0, "unit": 100, "single": True,
+         "items": [{"time": "11/10 15:30", "title": "自己株式の取得に関するお知らせ", "pdf": "https://x/c.pdf",
+                    "labels": [{"cat": "A", "label": "自社株買い"}]}]}]}), encoding="utf-8")
+    monkeypatch.setattr(H, "INPUT", inp)
+    monkeypatch.setattr(L, "STATE", tmp_path / "state.json")
+    monkeypatch.setattr(L, "short_status", lambda pf=None: "保有：（省略）")
+    monkeypatch.setattr(L, "write_status", lambda pf=None: None)
+    return H, L
+
+
+def test_ask_only_affordable(tmp_path, monkeypatch):
+    """今夜の注文のあとで1単位も買えない候補は、確認を頼まない（11/10：百五を買ったあと残り枠154,500円）。"""
+    H, _ = _hc_setup(tmp_path, monkeypatch, {"cash": 304000.0, "term_left": 3000000.0, "term_open": True})
+    d = {"id": "2026-11-10-1712", "base_day": "2026-11-10",
+         "orders": [{"side": "sell", "code": "6448", "shares": 700, "price": 4465},
+                    {"side": "buy", "code": "8368", "shares": 1400, "price": 2032.5}],
+         "ask_human": [{"code": "7389", "question": "上方か下方か"}, {"code": "7943", "question": "上方か下方か"},
+                       {"code": "9664", "question": "何%か"}]}
+    qs = H.pick_questions(d)
+    assert [q["code"] for q in qs] == ["9664"]  # 1単位10万円なら残り枠154,500円で買える
+    d["ask_human"][0]["replace"] = True  # 答えしだいで百五と入れ替える
+    qs = H.pick_questions(d)
+    assert [q["code"] for q in qs] == ["7389", "9664"] and qs[0]["replace"] and not qs[1]["replace"]
+    assert "入れ替えます" in H.ask_text(qs)
+    # 注文がない夜は、残り枠と現金の範囲で聞く
+    qs = H.pick_questions({"base_day": "2026-11-10", "orders": [], "ask_human": [{"code": "7389"}, {"code": "7943"}]})
+    assert [q["code"] for q in qs] == ["7389", "7943"]  # 現金304,000円なら、どちらも1単位は買える
+    qs = H.pick_questions({"base_day": "2026-11-10", "orders": [], "ask_human": [{"code": "7943"}]},
+                          dict(H._load_input(), portfolio={"cash": 200000.0, "term_left": 3000000.0}))
+    assert qs == []  # 現金20万円ではニチハ（29万円）は買えない
+
+
+def test_answer_buttons(tmp_path, monkeypatch):
+    """確認のお願いのボタン：［上方修正］でAIを起動、［わからない］は起動せずに閉じる。"""
+    from datetime import datetime as _dt
+
+    H, L = _hc_setup(tmp_path, monkeypatch, {"cash": 3000000.0, "term_left": 3000000.0, "term_open": True})
+    d = {"id": "2026-11-10-2120", "base_day": "2026-11-10", "orders": [],
+         "ask_human": [{"code": "7389", "question": "上方か下方か"}, {"code": "9664", "question": "何%か"}]}
+    qs = H.pick_questions(d)
+    qr = H.quick_reply(qs, "2026-11-10")
+    labels = [i["action"]["label"] for i in qr["items"]]
+    assert labels == ["7389 上方修正", "7389 下方修正", "7389 ほぼ変わらず", "7389 わからない",
+                      "9664 1%未満", "9664 1〜3%", "9664 3%以上", "9664 わからない"]
+    assert all(len(x) <= 20 for x in labels) and len(qr["items"]) <= 13
+    now = _dt(2026, 11, 10, 21, 30, tzinfo=JST)
+    st = L.load_state()
+    H.register(qs, d, st, now)
+    L.save_state(st)
+    data = qr["items"][0]["action"]["data"]
+    r = L.process({"type": "postback", "data": data, "event_id": "b1"}, now)
+    assert "上方修正" in r["fire"] and r["fire"]
+    r = L.process({"type": "postback", "data": data, "event_id": "b2"}, now)
+    assert "答え済み" in r["text"] and r["fire"] == ""  # 2回押しても1回だけ
+    skip = qr["items"][7]["action"]["data"]
+    r = L.process({"type": "postback", "data": skip, "event_id": "b3"}, now)
+    assert "確認なし" in r["text"] and r["fire"] == ""
+    assert {q["code"]: q["status"] for q in L.load_state()["questions"]} == {"7389": "answered", "9664": "skipped"}
+    # 前のタームのボタンは受け付けない
+    old = data.replace("b=2026-11-10", "b=2026-11-09")
+    assert "前のターム" in L.process({"type": "postback", "data": old, "event_id": "b4"}, now)["text"]

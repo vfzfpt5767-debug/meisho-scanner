@@ -285,7 +285,7 @@ def apply_all(now: datetime | None = None, send_line: bool = True) -> list[str]:
                 extra = (buttons(d, rec.get("mode", "")) or []) if enabled() else []
                 ask = _ask_human(d, now, rec.get("mode", ""))
                 if ask:
-                    extra.append({"type": "text", "text": ask[:4900]})
+                    extra.append(ask)  # 最後のメッセージに付けたボタン（クイックリプライ）だけがLINEに出る
                     log.append("人に確認を頼みました")
                 extra = extra or None
             log.append(send(msg, "ai_test" if test else "ai", extra))
@@ -306,25 +306,32 @@ def apply_all(now: datetime | None = None, send_line: bool = True) -> list[str]:
     return log
 
 
-def _ask_human(d: dict, now: datetime, mode: str) -> str:
-    """見送った候補のうち確認できなかったものを、LINEで人に確認を頼む文（締切前だけ・1晩2件まで）。"""
+def _ask_human(d: dict, now: datetime, mode: str) -> dict | None:
+    """見送った候補のうち確認できなかったものを、LINEで人に確認を頼むメッセージ（締切前だけ・1晩2件まで）。
+    答えのボタン（クイックリプライ）付き。頼むものがなければ None。"""
     if mode not in ("record", "ref"):
-        return ""
+        return None
     try:
-        from .human_check import ask_text, pick_questions, register
+        from .human_check import ask_text, pick_questions, quick_reply, register
         from .line_actions import enabled, load_state, save_state
 
         if not enabled():
-            return ""  # 中継役（返信を受け取るしくみ）がまだ動いていない
+            return None  # 中継役（返信を受け取るしくみ）がまだ動いていない
         qs = pick_questions(d)
         if not qs:
-            return ""
+            return None
         st = load_state()
         new = register(qs, d, st, now)
         save_state(st)
-        return ask_text(new) if new else ""
+        if not new:
+            return None
+        msg = {"type": "text", "text": ask_text(new)[:4900]}
+        qr = quick_reply(new, d.get("base_day", ""))
+        if qr:
+            msg["quickReply"] = qr
+        return msg
     except Exception:  # noqa: BLE001
-        return ""
+        return None
 
 
 def _term_history(base_day: str) -> list[dict]:

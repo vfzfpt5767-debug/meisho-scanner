@@ -393,8 +393,13 @@ def process(payload: dict, now=None) -> dict:
     if kind == "postback":
         q = dict(x.split("=", 1) for x in str(payload.get("data", "")).split("&") if "=" in x)
         act, did = q.get("act", ""), q.get("id", "")
-        d = _decision(did)
-        if d is None:
+        d = _decision(did) if act != "answer" else None
+        if act == "answer":
+            # 確認のお願いのボタン（例：act=answer&code=7389&k=revision&v=up&b=2026-11-10）
+            msg, fire, changed = _button_answer(q, st, now)
+            if fire:
+                result_fire = fire
+        elif d is None:
             msg = "その注文が見つかりませんでした。"
         else:
             ent = st["decisions"].get(did) or _legacy_entry(did, d)
@@ -491,11 +496,33 @@ def process(payload: dict, now=None) -> dict:
     return {"text": msg, "changed": changed, "extra": extra, "fire": result_fire}
 
 
-def _answer(q: dict, ans: str, st: dict, now) -> tuple[str, str]:
-    """確認の答えを保存する。（返事の文, AIを起動するときの文）。"""
-    from .calendar_jp import base_day, order_deadline
-    from .human_check import MAX_ANSWER_FIRES_PER_NIGHT, fire_text, save_answer
+def _button_answer(p: dict, st: dict, now) -> tuple[str, str, bool]:
+    """確認のお願いのボタンが押されたとき。（返事の文, AIを起動するときの文, 記録を変えたか）。"""
+    from .calendar_jp import base_day
+    from .human_check import answer_for, open_questions
 
+    code = str(p.get("code", "")).upper()
+    tb = base_day(now).isoformat()
+    if p.get("b") and p["b"] != tb:
+        return f"{code} の確認は前のターム（{p['b']}）のものなので、受け付けを終えています。", "", False
+    q = next((x for x in open_questions(st, tb) if x.get("code") == code), None)
+    if q is None:
+        return f"{code} の確認は、もう答え済みか受け付けを終えています。", "", False
+    label, ans = answer_for(p.get("k", ""), p.get("v", ""))
+    if not label:
+        return "ボタンの内容が分かりませんでした。数字で返信してください（例：確認 1869 5.2%）。", "", False
+    msg, fire = _answer(q, ans or label, st, now)
+    return msg, fire, True
+
+
+def _answer(q: dict, ans: str, st: dict, now) -> tuple[str, str]:
+    """確認の答えを保存する。（返事の文, AIを起動するときの文）。「わからない」はAIを起動せずに閉じる。"""
+    from .calendar_jp import base_day, order_deadline
+    from .human_check import MAX_ANSWER_FIRES_PER_NIGHT, SKIP_WORDS, fire_text, save_answer, skip_question
+
+    if SKIP_WORDS.match(unicodedata.normalize("NFKC", ans).strip(" 。、!！")):
+        skip_question(q, st, now)
+        return f"了解です。{q['code']} {q.get('name', '')} は確認なしで進めます（AIは起動しません）。", ""
     notes = save_answer(q, ans, st, now)
     msg = f"ありがとうございます。{q['code']} {q.get('name', '')} の答え「{ans[:60]}」を受け取りました。"
     if notes:

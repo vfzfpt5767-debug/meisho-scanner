@@ -1,11 +1,15 @@
 # 名証上場の会社のIRニュースのページの一覧（data/ir_pages.json）を作り直す。
 # 各社の robots.txt で許可されたページだけを、間隔をあけて見る。つながらなかった会社は次の回にやり直す。
 # 手動（Actions →「ir-pages」→「Run workflow」）と、毎週月曜 12:17 JST（03:17 UTC）。
+# 探し方（scanner/ir.py）や手入力の一覧（data/ir_sources.csv）を main で変えたときも、すぐに作り直す。
 name: ir-pages
 
 on:
   schedule:
     - cron: "17 3 * * 1"
+  push:
+    branches: ["main"]
+    paths: ["scanner/ir.py", "data/ir_sources.csv"]
   workflow_dispatch:
 
 permissions:

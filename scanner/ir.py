@@ -31,6 +31,8 @@ CACHE = CACHE_DIR / "ir"
 MAX_LOOKUPS = 8
 RETRY_MIN = 40  # 見つからなかったとき、次に見に行くまでの分
 UA_NAME = "meisho-scanner"
+METHOD_V = 2  # 一覧の探し方の版（2：トップページ・ニュースのページも見比べる。meta refresh をたどる）
+DATE_WINDOW = 2  # 資料の日付が開示日から何日までずれていたら「同じ開示」とみなすか（毎年同じタイトルの資料の取り違え防止）
 
 IR_WORDS = ("IR", "ＩＲ", "投資家", "株主", "Investor", "investor")
 NEWS_WORDS = ("IRニュース", "ＩＲニュース", "IR情報", "IRライブラリ", "適時開示", "IRニュースリリース", "ニュースリリース",
@@ -115,6 +117,68 @@ def links(html: str, base: str) -> list[dict]:
     return out
 
 
+META_REFRESH_RE = re.compile(
+    r"<meta[^>]+http-equiv\s*=\s*[\"']?refresh[\"']?[^>]*content\s*=\s*[\"']\s*(\d+)\s*;\s*url\s*=\s*([^\"'>\s]+)",
+    re.I)
+
+
+def get_page(url: str) -> tuple[str, str]:
+    """ページを開いて（最終URL, HTML）を返す。「0秒後に別のページへ」（meta refresh）は同じサイトの中なら1回だけたどる。"""
+    r = fetch(url)
+    html = _decode(r)
+    m = META_REFRESH_RE.search(html[:5000])
+    if m and int(m[1]) <= 5:
+        nxt = urljoin(r.url, unescape(m[2]))
+        if nxt != r.url and _same_site(nxt, r.url):
+            try:
+                r2 = fetch(nxt)
+                return r2.url, _decode(r2)
+            except (Disallowed, Unreachable):
+                pass
+    return r.url, html
+
+
+# ---------------- 資料の日付 ----------------
+
+DOC_DATE_RE = re.compile(r"(20\d{2})年(\d{1,2})月(\d{1,2})日|(20\d{2})[./\-](\d{1,2})[./\-](\d{1,2})|令和(\d{1,2}|元)年(\d{1,2})月(\d{1,2})日")
+
+
+def doc_date(text: str, head: int = 400) -> str:
+    """資料の先頭にある日付（例：2026年11月10日／令和８年11月９日／2026.11.10）を YYYY-MM-DD で返す。なければ空。"""
+    t = re.sub(r"\s+", "", unicodedata.normalize("NFKC", (text or "")[:head]))
+    m = DOC_DATE_RE.search(t)
+    if not m:
+        return ""
+    if m[1]:
+        y, mo, d = int(m[1]), int(m[2]), int(m[3])
+    elif m[4]:
+        y, mo, d = int(m[4]), int(m[5]), int(m[6])
+    else:
+        y, mo, d = 2018 + (1 if m[7] == "元" else int(m[7])), int(m[8]), int(m[9])
+    try:
+        return datetime(y, mo, d).strftime("%Y-%m-%d")
+    except ValueError:
+        return ""
+
+
+def near(a: str, b: str, days: int = DATE_WINDOW) -> bool:
+    """2つの日付（YYYY-MM-DD）が days 日以内か。どちらかが空なら判定できないので True。"""
+    if not a or not b:
+        return True
+    try:
+        return abs((datetime.fromisoformat(a) - datetime.fromisoformat(b)).days) <= days
+    except ValueError:
+        return True
+
+
+def stale(res: dict, date_hint: str) -> str:
+    """見つかった資料が今回の開示より古い（別の年・別の回）なら、その日付を返す。同じか分からなければ空。"""
+    if not date_hint or res.get("status") != "found":
+        return ""
+    d = res.get("date") or res.get("doc_date") or (doc_date(res.get("excerpt", "")) if res.get("kind") == "pdf" else "")
+    return d if d and not near(d, date_hint) else ""
+
+
 def _decode(r) -> str:
     raw = r.content
     for enc in (r.encoding if r.encoding and r.encoding.lower() not in ("iso-8859-1",) else None, "utf-8", "cp932", "euc-jp"):
@@ -133,45 +197,73 @@ def _same_site(a: str, b: str) -> bool:
     return root(ha) == root(hb)
 
 
+def _news_links(html: str, base: str, limit: int) -> list[str]:
+    """ページの中の「ニュース・お知らせ・リリース」らしいリンク（同じサイトのものだけ）。"""
+    out = []
+    for ln in links(html, base):
+        u = ln["url"]
+        if u.lower().endswith(".pdf") or not _same_site(u, base):
+            continue
+        if any(w in ln["text"] for w in NEWS_WORDS) or re.search(r"(news|release|library|disclosure|tdnet|topics)", u.lower()):
+            out.append(u)
+    return list(dict.fromkeys(out))[:limit]
+
+
 def find_ir_page(home: str) -> dict:
-    """トップページ → IRのページ → IRニュースのページ を探す。"""
+    """トップページ → IRのページ → IRニュースのページ を探す。
+    日付つきの資料が並ぶページほど点数が高い。IRのページに一覧がないとき（点数が低いとき）は、
+    トップページのニュース・リリースのページやトップページ自体も見比べて、一番点数の高いページを使う。"""
     try:
-        r = fetch(home)
+        home_url, html = get_page(home)
     except Disallowed:
-        return {"status": "robots_disallow", "home": home}
+        return {"status": "robots_disallow", "home": home, "method_v": METHOD_V}
     except Unreachable:
-        return {"status": "unreachable", "home": home}
-    html = _decode(r)
+        return {"status": "unreachable", "home": home, "method_v": METHOD_V}
+    # (点数, 優先度) で選ぶ。同点なら IRのページ > IRのニュース > トップのニュース > トップページ
+    scored: dict[str, tuple[int, int]] = {home_url: (_page_score(html), 0)}
+
+    def add(u: str, prio: int) -> None:
+        if u in scored:
+            return
+        try:
+            u2, h = get_page(u)
+        except (Disallowed, Unreachable):
+            return
+        sc = (_page_score(h), prio)
+        scored[u2] = max(scored.get(u2, sc), sc)
+
     cands = []
-    for ln in links(html, r.url):
+    for ln in links(html, home_url):
         t, u = ln["text"], ln["url"]
         score = sum(2 for w in IR_WORDS if w in t) + (2 if re.search(r"/ir(/|$|\.|_)", u.lower()) else 0)
-        if score and _same_site(u, r.url) or score and "ir" in urlparse(u).netloc.split(".")[0]:
+        if score and _same_site(u, home_url) or score and "ir" in urlparse(u).netloc.split(".")[0]:
             cands.append((score, u))
-    if not cands:
-        return {"status": "no_ir_link", "home": home}
-    ir_top = sorted(cands, key=lambda x: -x[0])[0][1]
-    try:
-        r2 = fetch(ir_top)
-    except Disallowed:
-        return {"status": "robots_disallow", "home": home, "ir_top": ir_top}
-    except Unreachable:
-        return {"status": "unreachable", "home": home, "ir_top": ir_top}
-    html2 = _decode(r2)
-    best = (_page_score(html2), r2.url)
-    news = []
-    for ln in links(html2, r2.url):
-        if any(w in ln["text"] for w in NEWS_WORDS) or re.search(r"(news|release|library|disclosure|tdnet)", ln["url"].lower()):
-            news.append(ln["url"])
-    for u in list(dict.fromkeys(news))[:2]:
+    ir_top = ""
+    ir_blocked = False
+    if cands:
+        ir_top = sorted(cands, key=lambda x: -x[0])[0][1]
         try:
-            r3 = fetch(u)
-        except (Disallowed, Unreachable):
-            continue
-        sc = _page_score(_decode(r3))
-        if sc > best[0]:
-            best = (sc, r3.url)
-    return {"status": "ok", "home": home, "ir_top": r2.url, "ir_news": best[1], "score": best[0]}
+            ir_top, html2 = get_page(ir_top)
+            scored[ir_top] = (_page_score(html2), 3)
+            for u in _news_links(html2, ir_top, 2):
+                add(u, 2)
+        except Disallowed:
+            ir_blocked = True
+        except Unreachable:
+            pass
+    if max(v[0] for v in scored.values()) < 2:
+        # IRのページに一覧がない → トップページのニュース・リリースのページも見る（例：あいちFGの /release/）
+        for u in _news_links(html, home_url, 3):
+            add(u, 1)
+    best_url, (best_sc, _) = max(scored.items(), key=lambda kv: kv[1])
+    if best_sc <= 0:
+        if ir_blocked:
+            return {"status": "robots_disallow", "home": home, "ir_top": ir_top, "method_v": METHOD_V}
+        if not cands:
+            return {"status": "no_ir_link", "home": home, "method_v": METHOD_V}
+        best_url = ir_top or best_url
+    return {"status": "ok", "home": home, "ir_top": ir_top or home_url, "ir_news": best_url, "score": best_sc,
+            "method_v": METHOD_V}
 
 
 def _page_score(html: str) -> int:
@@ -218,8 +310,11 @@ def build(limit: int | None = None, only: list[str] | None = None) -> dict:
             break
         m = manual.get(c, {})
         old = pages.get(c, {})
-        if old.get("status") in ("ok", "robots_disallow", "no_ir_link") and not m.get("ir_news") and not m.get("home"):
-            continue  # unreachable・error・no_home は毎回やり直す
+        redo = (old.get("method_v") != METHOD_V and
+                (old.get("status") == "no_ir_link" or old.get("status") == "ok" and (old.get("score") or 0) < 1))
+        if old.get("status") in ("ok", "robots_disallow", "no_ir_link") and not m.get("ir_news") and not m.get("home") \
+                and not redo:
+            continue  # unreachable・error・no_home は毎回やり直す。一覧が見つかっていない会社は新しい探し方で1回やり直す
         todo.append(c)
     # 1) トップページ（名証の基本情報。名証のサイトには3秒おき）
     homes = {}
@@ -293,29 +388,64 @@ def _pdf_text(data: bytes, max_chars: int = 3500) -> str:
 
 
 def lookup(code: str, title: str, date_hint: str = "") -> dict:
-    """IRニュースのページから同じ開示を探す。"""
+    """IRニュースのページから同じ開示を探す。見つからなければ会社のトップページでも探す。
+    date_hint（開示日）があれば、日付が DATE_WINDOW 日以上ずれた資料は「同じタイトルの別の資料」として使わない。"""
     pages = json.loads(PAGES.read_text(encoding="utf-8")) if PAGES.exists() else {}
     ent = pages.get(code)
-    if not ent or ent.get("status") != "ok" or not ent.get("ir_news"):
-        return {"status": "no_ir_page", "note": (ent or {}).get("status", "一覧にない")}
-    page = ent["ir_news"]
+    if not ent:
+        return {"status": "no_ir_page", "note": "一覧にない"}
+    tries = []
+    if ent.get("status") == "ok" and ent.get("ir_news"):
+        tries.append(ent["ir_news"])
+    home = (ent.get("home") or "").strip()
+    if home and home.rstrip("/") not in (t.rstrip("/") for t in tries) and ent.get("status") != "robots_disallow":
+        tries.append(home)
+    if not tries:
+        return {"status": "no_ir_page", "note": ent.get("status", "一覧にない")}
+    first = None
+    for page in tries:
+        res = _lookup_on(page, title, date_hint)
+        if res["status"] == "found":
+            if page != tries[0]:
+                res["note"] = "IRニュースのページになく、会社のトップページで見つけた"
+            return res
+        if first is None:
+            first = res
+        elif res.get("old_match") and not first.get("old_match"):
+            first["old_match"] = res["old_match"]
+    if len(tries) > 1:
+        first["also_checked"] = tries[1:]
+    return first
+
+
+def _lookup_on(page: str, title: str, date_hint: str) -> dict:
+    """1つのページの中で同じ開示を探す。"""
     try:
-        r = fetch(page)
+        page_url, html = get_page(page)
     except Disallowed:
         return {"status": "robots_disallow", "ir_page": page}
     except Unreachable:
         return {"status": "unreachable", "ir_page": page}
+    lns = links(html, page_url)
     best, best_sc = None, 0.0
-    for ln in links(_decode(r), r.url):
+    old = None  # 同じタイトルだが日付が離れている資料（毎年出る「業績予想の修正」など）
+    for ln in lns:
         sc = similarity(title, ln["text"])
+        if date_hint and ln["date"] and not near(ln["date"], date_hint):
+            if sc >= 0.45 and (old is None or sc > old[1]):
+                old = (ln, sc)
+            continue
         if date_hint and ln["date"] == date_hint:
             sc += 0.15
         if sc > best_sc:
             best, best_sc = ln, sc
-    recent = [{"text": ln["text"][:60], "url": ln["url"], "date": ln["date"]}
-              for ln in links(_decode(r), r.url) if ln["date"]][:5]
+    recent = [{"text": ln["text"][:60], "url": ln["url"], "date": ln["date"]} for ln in lns if ln["date"]][:5]
     if not best or best_sc < 0.45:
-        return {"status": "not_found", "ir_page": page, "recent": recent}
+        out = {"status": "not_found", "ir_page": page, "recent": recent}
+        if old:
+            out["old_match"] = {"date": old[0]["date"], "url": old[0]["url"], "text": old[0]["text"][:60],
+                                "note": "同じタイトルの古い資料。今回の開示ではないので使わない"}
+        return out
     out = {"status": "found", "ir_page": page, "url": best["url"], "matched_title": best["text"][:100],
            "similarity": round(best_sc, 2), "date": best["date"]}
     try:
@@ -328,9 +458,9 @@ def lookup(code: str, title: str, date_hint: str = "") -> dict:
         out["excerpt"] = _pdf_text(r2.content)
         out["kind"] = "pdf"
     else:
-        html = _decode(r2)
-        pdfs = [ln["url"] for ln in links(html, r2.url) if ln["url"].lower().endswith(".pdf")]
-        text = re.sub(r"\s+", " ", unescape(re.sub(r"<script.*?</script>|<style.*?</style>|<[^>]+>", " ", html, flags=re.S)))
+        html2 = _decode(r2)
+        pdfs = [ln["url"] for ln in links(html2, r2.url) if ln["url"].lower().endswith(".pdf")]
+        text = re.sub(r"\s+", " ", unescape(re.sub(r"<script.*?</script>|<style.*?</style>|<[^>]+>", " ", html2, flags=re.S)))
         out["excerpt"] = text.strip()[:3500]
         out["kind"] = "html"
         if pdfs:
@@ -341,6 +471,17 @@ def lookup(code: str, title: str, date_hint: str = "") -> dict:
             if r3 is not None and r3.content[:4] == b"%PDF":
                 out["excerpt"] = _pdf_text(r3.content)
                 out["url"], out["kind"] = pdfs[0], "pdf"
+    if out.get("kind") == "pdf":
+        dd = doc_date(out["excerpt"])
+        out["doc_date"] = dd
+        if date_hint and dd and not near(dd, date_hint):
+            return {"status": "not_found", "ir_page": page, "recent": recent,
+                    "old_match": {"date": dd, "url": out["url"], "text": out["matched_title"][:60],
+                                  "note": "同じタイトルだが資料の日付が違う。今回の開示ではないので使わない"}}
+        if date_hint and not best["date"] and not dd:
+            out["date_unverified"] = True  # 日付を確かめられなかった（中身の日付をAIが確認する）
+    elif date_hint and not best["date"]:
+        out["date_unverified"] = True
     return out
 
 
@@ -362,13 +503,15 @@ def attach_ir_checks(data: dict) -> None:
         if not it:
             continue
         key = f"{c['code']}|{it['title']}"
+        md = re.match(r"(\d{2})/(\d{2})", it.get("time", ""))
+        date_hint = f"{data.get('base_day', '')[:4]}-{md[1]}-{md[2]}" if md else ""
         hit = cache.get(key)
+        if hit and stale(hit, date_hint):
+            hit = None  # 前に「見つかった」としたのが別の年・別の回の資料だった → 探し直す
         if hit and (hit.get("status") == "found" or hit.get("status") in ("no_ir_page", "robots_disallow") or
                     (now - datetime.fromisoformat(hit["checked"])).total_seconds() < RETRY_MIN * 60):
             c["ir_check"] = hit
             continue
-        md = re.match(r"(\d{2})/(\d{2})", it.get("time", ""))
-        date_hint = f"{data.get('base_day', '')[:4]}-{md[1]}-{md[2]}" if md else ""
         try:
             res = lookup(c["code"], it["title"], date_hint)
         except Exception as e:  # noqa: BLE001

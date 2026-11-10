@@ -2504,13 +2504,13 @@
  "7389": {
   "name": "あいちフィナンシャルグループ",
   "single": false,
-  "checked": "2026-11-05T17:36",
+  "checked": "2026-11-10T19:40",
   "status": "ok",
-  "home": "https://www.aichi-fg.co.jp",
+  "home": "https://www.aichi-fg.co.jp/",
   "ir_top": "https://www.aichi-fg.co.jp/ir/",
-  "ir_news": "https://www.aichi-fg.co.jp/ir/",
+  "ir_news": "https://www.aichi-fg.co.jp/release/",
   "score": 0,
-  "method": "名証の会社ホームページ→IRページ"
+  "method": "手入力"
  },
  "7412": {
   "name": "アトム",

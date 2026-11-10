@@ -6,6 +6,10 @@ LINEで「このPDFを開いて〇〇を返信して」と頼む。返信が来�
 - 答え：LINEで「確認 1869 5.2%」のように返信（「確認」を省いても、確認待ちがあれば答えとして読む）。
   → data/ai/line_state.json の questions に保存し、data/analyst_input.json の human_answers に足して、AIを起動する。
 - TOB価格を聞いたときは、返ってきた数字を tob_prices.csv にも書く。
+- 今夜の注文のあとに残る買付枠・現金で1単位も買えない候補は聞かない（答えても今夜の注文が変わらないため）。
+  ただし AI が replace: true（答えしだいで今夜の買いをその銘柄に入れ替える）と書いたものは、入れ替えれば買えるなら聞く。
+- 答えやすいように、LINEのボタン（クイックリプライ：上方修正／下方修正／わからない など）を付ける。
+  ボタンは postback（act=answer）で届く。「わからない」はAIを起動せずに確認を閉じる。
 人がブラウザでTDnetのPDFを読むのは問題ない（自動取得はしない）。
 """
 from __future__ import annotations
@@ -47,13 +51,43 @@ def _priority(c: dict, stuck_codes: set[str]) -> tuple:
     return (c.get("category") != "S", c.get("code") not in stuck_codes, not c.get("single"), -(c.get("score") or 0))
 
 
+def _money_after(d: dict, pf: dict) -> tuple[float | None, float | None]:
+    """（今夜の注文のあとに使える額, 今夜の買いをやめたときに使える額）。分からなければ None。
+    使える額＝「今タームの残り買付枠」と「現金（売り代金を足したもの）」の小さいほう。"""
+    try:
+        left, cash = float(pf["term_left"]), float(pf["cash"])
+    except (KeyError, TypeError, ValueError):
+        return None, None
+    buys = sells = 0.0
+    for o in d.get("orders", []) or []:
+        try:
+            v = float(o["shares"]) * float(o["price"])
+        except (KeyError, TypeError, ValueError):
+            continue
+        if o.get("side") == "buy":
+            buys += v
+        elif o.get("side") == "sell":
+            sells += v
+    if pf.get("term_open") is False:
+        left = 0.0
+    return min(left - buys, cash + sells - buys), min(left, cash + sells)
+
+
+def _unit_cost(c: dict) -> float | None:
+    try:
+        return float(c["price"]) * int(c.get("unit") or 100)
+    except (KeyError, TypeError, ValueError):
+        return None
+
+
 def pick_questions(d: dict, data: dict | None = None) -> list[dict]:
-    """AIの判断から、人に確認を頼む候補を選ぶ（最大2件）。"""
+    """AIの判断から、人に確認を頼む候補を選ぶ（最大2件）。今夜買えないものは選ばない。"""
     data = data if data is not None else _load_input()
     cands = {c["code"]: c for c in data.get("candidates", [])} if data else {}
     stuck = {h["code"] for h in (data or {}).get("stop_limits", []) if h.get("kind") == "stop_high"}
+    after, without_buys = _money_after(d, (data or {}).get("portfolio") or {})
     out: list[dict] = []
-    asked = d.get("ask_human") or []
+    asked = list(d.get("ask_human") or [])
     if not asked:
         for s in d.get("skipped", []) or []:
             code = str(s.get("code", "")).strip().upper()
@@ -63,6 +97,13 @@ def pick_questions(d: dict, data: dict | None = None) -> list[dict]:
     for a in asked:
         code = str(a.get("code", "")).strip().upper()
         c = cands.get(code, {})
+        cost = _unit_cost(c)
+        replace = bool(a.get("replace"))
+        if cost is not None and after is not None and cost > after:
+            if not (replace and without_buys is not None and cost <= without_buys):
+                continue  # 今夜の注文のあとでは1単位も買えない → 聞いても今夜の注文は変わらない
+        else:
+            replace = False
         items = c.get("items", [])
         it = next((i for i in items if any(lb.get("cat") in ("S", "A", "CHECK") for lb in i.get("labels", []))),
                   items[0] if items else {})
@@ -72,6 +113,7 @@ def pick_questions(d: dict, data: dict | None = None) -> list[dict]:
             "code": code, "name": a.get("name") or c.get("name", ""), "title": a.get("title") or it.get("title", ""),
             "pdf": a.get("pdf") or it.get("pdf", ""), "question": a.get("question") or q, "kind": a.get("kind") or kind,
             "single": c.get("single"), "category": c.get("category"), "stuck": code in stuck,
+            "labels": labels, "replace": replace,
         })
         if len(out) >= MAX_ASK_PER_NIGHT:
             break
@@ -86,15 +128,68 @@ def _load_input() -> dict:
 
 
 def ask_text(qs: list[dict]) -> str:
-    lines = ["【確認のお願い】AIが開示の中身を確認できなかった候補です。PDFを開いて、数字を返信してください（締切前なら、答えでAIがもう一度判断します）。"]
+    lines = ["【確認のお願い】AIが開示の中身を確認できなかった候補です。PDFを開いて、下のボタンで答えるか、数字を返信してください"
+             "（締切前なら、答えでAIがもう一度判断します）。"]
     for i, q in enumerate(qs, 1):
         tag = "・".join(x for x in ("TOB" if q.get("category") == "S" else "", "ストップ高" if q.get("stuck") else "",
                                     "名証単独" if q.get("single") else "") if x)
         lines.append(f"{i}. {q['code']} {q['name']}{'（' + tag + '）' if tag else ''}\n「{q['title'][:50]}」\n"
-                     f"知りたいこと：{q['question']}\nPDF：{q['pdf']}")
+                     f"知りたいこと：{q['question']}\nPDF：{q['pdf']}"
+                     + ("\n※答えしだいで、今夜の買いをこの銘柄に入れ替えます" if q.get("replace") else ""))
     ex = qs[0]["code"] if qs else "1869"
-    lines.append(f"返信の例：確認 {ex} 5.2%（取得期間 11/6〜12/31）\n分からなければ返信しなくて大丈夫です。")
+    lines.append(f"返信の例：確認 {ex} 5.2%（取得期間 11/6〜12/31）\n分からなければ［わからない］を押すか、返信しなくて大丈夫です。")
     return "\n".join(lines)
+
+
+# ボタン（クイックリプライ）の選択肢：(値, 表示, AIに渡す答え)
+OPTIONS = {
+    "revision": [("up", "上方修正", "上方修正（上振れ）だった"), ("down", "下方修正", "下方修正（下振れ）だった"),
+                 ("flat", "ほぼ変わらず", "修正幅はごく小さい（ほぼ変わらず）")],
+    "dividend": [("up", "増配", "増配だった"), ("down", "減配・据え置き", "減配か据え置きだった")],
+    "buyback": [("lt1", "1%未満", "取得上限は発行済株式の1%未満"), ("1to3", "1〜3%", "取得上限は発行済株式の1〜3%"),
+                ("ge3", "3%以上", "取得上限は発行済株式の3%以上")],
+    "perk": [("up", "新設・拡充", "優待の新設か拡充だった"), ("down", "縮小・廃止", "優待の縮小か廃止だった")],
+    "other": [("good", "良い内容", "良い内容（上方修正・増配など）だった"), ("bad", "悪い内容", "悪い内容（下方修正・減配など）だった")],
+}
+SKIP = ("skip", "わからない", "")
+SKIP_WORDS = re.compile(r"^(わからない|分からない|わかりません|分かりません|不明|スキップ|パス|開けない|ひらけない)$")
+
+
+def _button_kind(q: dict) -> str:
+    """ボタンの種類。タイトルだけでは向きが分からない材料（業績予想の修正・配当予想の修正）を優先して聞く。"""
+    labels = q.get("labels") or []
+    if q.get("kind") in ("tob", "split"):
+        return q["kind"]  # 数字（TOB価格・分割比率）は返信で答えてもらう
+    if any(lb in ("業績予想の修正", "予想と実績の差異") for lb in labels):
+        return "revision"
+    if "配当予想の修正" in labels:
+        return "dividend"
+    return q.get("kind") if q.get("kind") in OPTIONS else "other"
+
+
+def answer_for(kind: str, value: str) -> tuple[str, str]:
+    """ボタンの値 → （表示, AIに渡す答え）。わからない は ("わからない", "")。"""
+    if value == SKIP[0]:
+        return SKIP[1], ""
+    for v, label, ans in OPTIONS.get(kind, []):
+        if v == value:
+            return label, ans + "（LINEのボタンで回答。細かい数字は未確認）"
+    return "", ""
+
+
+def quick_reply(qs: list[dict], base_day: str) -> dict | None:
+    """確認のお願いに付けるボタン（LINEのクイックリプライ。最大13個・表示は20文字まで）。"""
+    items = []
+    for q in qs:
+        kind = _button_kind(q)
+        for v, label, _ in OPTIONS.get(kind, []) + [SKIP]:
+            text = f"{q['code']} {label}"[:20]
+            items.append({"type": "action", "action": {
+                "type": "postback", "label": text,
+                "data": f"act=answer&code={q['code']}&k={kind}&v={v}&b={base_day}",
+                "displayText": f"確認 {q['code']} {label}"}})
+    items = items[:13]
+    return {"items": items} if items else None
 
 
 def register(qs: list[dict], d: dict, st: dict, now: datetime) -> list[dict]:
@@ -167,6 +262,13 @@ def _write_tob_price(code: str, price: float, name: str) -> None:
     lines = [ln for ln in lines if not ln.split(",")[0].strip().upper() == code]
     lines.append(f"{code},{price:g},{name}（LINEで確認）")
     TOB_PRICES_CSV.write_text("\n".join(lines) + "\n", encoding="utf-8")
+
+
+def skip_question(q: dict, st: dict, now: datetime) -> None:
+    """「わからない」：確認を閉じる（AIは起動しない）。"""
+    for x in st.get("questions", []):
+        if x.get("base_day") == q.get("base_day") and x.get("code") == q["code"]:
+            x.update(status="skipped", answered_at=now.isoformat())
 
 
 def answers_for(base_day: str) -> list[dict]:
