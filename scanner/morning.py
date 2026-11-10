@@ -69,6 +69,37 @@ class Morning:
         return s
 
 
+def _nikkei_close_on(base):
+    """基準日の日経平均の終値を、日経平均だけの取得で探す（まとめて取得した表に前日分が無い朝のための予備）。
+
+    1) ^N225 だけの日足（日本時間の日付）に基準日の行があればその終値
+    2) 無ければ、Yahoo の最新値（regularMarketPrice）の時刻が基準日なら、その値（引け後は終値と同じ）
+    見つからなければ None。
+    """
+    try:
+        from datetime import datetime, timedelta, timezone
+
+        import yfinance as yf
+
+        t = yf.Ticker("^N225")
+        h = t.history(period="5d", interval="1d", auto_adjust=False)
+        s = h["Close"].dropna() if h is not None and len(h) else None
+        if s is not None:
+            s = s[[d.date() == base for d in s.index]]
+            if len(s):
+                return float(s.iloc[-1])
+        meta = getattr(t, "history_metadata", None) or {}
+        ts, px = meta.get("regularMarketTime"), meta.get("regularMarketPrice")
+        if ts is not None and px:
+            jst = timezone(timedelta(hours=9))
+            d = ts.astimezone(jst) if isinstance(ts, datetime) else datetime.fromtimestamp(int(ts), jst)
+            if d.date() == base:
+                return float(px)
+    except Exception:  # noqa: BLE001
+        pass
+    return None
+
+
 def _series(df, sym):
     try:
         s = df[sym]["Close"].dropna()
@@ -114,10 +145,16 @@ def build(res) -> Morning:
     # 日経平均先物と日経平均（基準日の終値）の差
     fut, nk = _series(df, "NIY=F"), _series(df, "^N225")
     futures_gap = None
-    if fut is not None and len(fut) and nk is not None and len(nk):
-        nk_base = nk[[d.date() <= ctx.base for d in nk.index]]
-        if len(nk_base) and nk_base.index[-1].date() == ctx.base:
-            futures_gap = float((fut.iloc[-1] / nk_base.iloc[-1] - 1) * 100)
+    if fut is not None and len(fut):
+        nk_close = None
+        if nk is not None and len(nk):
+            nk_base = nk[[d.date() <= ctx.base for d in nk.index]]
+            if len(nk_base) and nk_base.index[-1].date() == ctx.base:
+                nk_close = float(nk_base.iloc[-1])
+        if nk_close is None:  # まとめて取得した表に前日分が無い朝（11/5・11/6・11/10に発生）は、日経平均だけで取り直す
+            nk_close = _nikkei_close_on(ctx.base)
+        if nk_close:
+            futures_gap = float((fut.iloc[-1] / nk_close - 1) * 100)
         elif len(fut) >= 2:
             futures_gap = float((fut.iloc[-1] / fut.iloc[-2] - 1) * 100)
             errors.append("日経平均の基準日の終値がYahooに無いため、先物の前日比で代用")

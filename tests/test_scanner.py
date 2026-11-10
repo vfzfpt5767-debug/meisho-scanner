@@ -802,3 +802,36 @@ def test_delayed_runs_stay_quiet(tmp_path, monkeypatch):
         res = ScanResult(generated_at=when, base_day="2026-11-05", deadline="", price_source="", cards=[card],
                          before_close=[], tob_rows=[])
         assert AI.plan_fire(res, None, {})["fire"] is ok, when
+
+
+def test_nikkei_close_backup(monkeypatch):
+    """まとめて取得した表に前日の日経平均が無い朝：日経平均だけの取得（日足→最新値）で基準日の終値を取る。"""
+    import sys
+    import types
+    from datetime import date, datetime, timedelta, timezone
+
+    import pandas as pd
+
+    from scanner.morning import _nikkei_close_on
+
+    jst = timezone(timedelta(hours=9))
+
+    def fake(rows, meta):
+        class T:
+            def __init__(self, sym):
+                self.history_metadata = meta
+
+            def history(self, **kw):
+                idx = pd.DatetimeIndex([pd.Timestamp(d, tz="Asia/Tokyo") for d, _ in rows])
+                return pd.DataFrame({"Close": [c for _, c in rows]}, index=idx)
+        monkeypatch.setitem(sys.modules, "yfinance", types.SimpleNamespace(Ticker=T))
+
+    # 1) 日経平均だけの日足に基準日の行がある
+    fake([("2026-11-06", 50000.0), ("2026-11-09", 50500.0)], {})
+    assert _nikkei_close_on(date(2026, 11, 9)) == 50500.0
+    # 2) 日足に無い → 最新値の時刻が基準日なら、その値（引け後は終値）
+    ts = int(datetime(2026, 11, 9, 15, 30, tzinfo=jst).timestamp())
+    fake([("2026-11-06", 50000.0)], {"regularMarketTime": ts, "regularMarketPrice": 50600.0})
+    assert _nikkei_close_on(date(2026, 11, 9)) == 50600.0
+    # 3) 最新値が別の日なら使わない（None → 呼び出し側は先物の前日比で代用し、注意を出す）
+    assert _nikkei_close_on(date(2026, 11, 10)) is None
