@@ -1,7 +1,116 @@
 {
 "date": "2026-11-10",
-"fetched_at": "2026-11-10T10:05:41.647786+09:00",
+"fetched_at": "2026-11-10T12:39:14.509291+09:00",
 "complete": false,
-"total_all_markets": 12,
-"items": []
+"total_all_markets": 68,
+"items": [
+{
+"Tdnet": {
+"id": "1291438",
+"pubdate": "2026-11-10 11:30:00",
+"company_code": "70120",
+"company_name": "川崎重",
+"title": "2027年３月期 第２四半期（中間期）決算短信〔ＩＦＲＳ〕（連結）",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261109569857.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/081220261109569857.zip",
+"markets_string": "東名",
+"update_history": null
+}
+},
+{
+"Tdnet": {
+"id": "1291439",
+"pubdate": "2026-11-10 11:30:00",
+"company_code": "70120",
+"company_name": "川崎重",
+"title": "2026年度第2四半期決算説明資料",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261109569870.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": null,
+"markets_string": "東名",
+"update_history": null
+}
+},
+{
+"Tdnet": {
+"id": "1291440",
+"pubdate": "2026-11-10 11:30:00",
+"company_code": "70120",
+"company_name": "川崎重",
+"title": "2031年満期ユーロ円建転換社債型新株予約権付社債及び2033年満期ユーロ円建転換社債型新株予約権付社債（トランジションCB）の転換価額の調整に関するお知らせ",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261109569913.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": null,
+"markets_string": "東名",
+"update_history": null
+}
+},
+{
+"Tdnet": {
+"id": "1291414",
+"pubdate": "2026-11-10 10:30:00",
+"company_code": "94710",
+"company_name": "文渓堂",
+"title": "自己株式立会外買付取引（Ｎ－ＮＥＴ３）による自己株式の取得結果及び自己株式取得終了に関するお知らせ",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261110570476.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": null,
+"markets_string": "名",
+"update_history": null
+}
+},
+{
+"Tdnet": {
+"id": "1291403",
+"pubdate": "2026-11-10 10:00:00",
+"company_code": "30320",
+"company_name": "ゴルフ・ドゥ",
+"title": "2026年10月度 ゴルフドゥ！店舗売上高前年対比に関するお知らせ",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261109568432.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": null,
+"markets_string": "名",
+"update_history": null
+}
+},
+{
+"Tdnet": {
+"id": "1291409",
+"pubdate": "2026-11-10 10:00:00",
+"company_code": "96640",
+"company_name": "御園座",
+"title": "自己株式立会外買付取引(N-NET3)による自己株式の取得結果及び取得終了に関するお知らせ",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261110570451.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": null,
+"markets_string": "名",
+"update_history": null
+}
+}
+]
 }

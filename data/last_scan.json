@@ -1,5 +1,5 @@
 {
-"generated_at": "2026-11-10T10:05:40.798702+09:00",
+"generated_at": "2026-11-10T12:39:13.749924+09:00",
 "base_day": "2026-11-09",
 "deadline": "2026-11-10T07:59:00+09:00",
 "price_source": "名証 日報",
@@ -189,7 +189,7 @@
 "division": "メイン",
 "unit": 100,
 "category": "A",
-"score": 58,
+"score": 63,
 "items": [
 {
 "time": "16:20",
@@ -218,6 +218,20 @@
 "reason": "自己株式取得の決定（規模＝発行済株式に対する%はPDFで確認）"
 }
 ]
+},
+{
+"time": "10:00",
+"date": "11/10",
+"title": "自己株式立会外買付取引(N-NET3)による自己株式の取得結果及び取得終了に関するお知らせ",
+"pdf": "https://www.release.tdnet.info/inbs/140120261110570451.pdf",
+"tags": [
+{
+"cat": "INFO",
+"label": "自社株買いの経過",
+"score": 5,
+"reason": "自社株買いの途中経過・結果"
+}
+]
 }
 ],
 "price": 1451.0,
@@ -237,7 +251,7 @@
 "division": "メイン",
 "unit": 100,
 "category": "A",
-"score": 53,
+"score": 58,
 "items": [
 {
 "time": "16:30",
@@ -252,6 +266,20 @@
 "reason": "自己株式取得の決定（規模＝発行済株式に対する%はPDFで確認）"
 }
 ]
+},
+{
+"time": "10:30",
+"date": "11/10",
+"title": "自己株式立会外買付取引（Ｎ－ＮＥＴ３）による自己株式の取得結果及び自己株式取得終了に関するお知らせ",
+"pdf": "https://www.release.tdnet.info/inbs/140120261110570476.pdf",
+"tags": [
+{
+"cat": "INFO",
+"label": "自社株買いの経過",
+"score": 5,
+"reason": "自社株買いの途中経過・結果"
+}
+]
 }
 ],
 "price": 1122.0,
@@ -260,6 +288,102 @@
 "nse_quote": null,
 "shares": 2600,
 "cost": 2917200.0,
+"tob_price": null,
+"tob_gap_pct": null,
+"quote_only": false
+},
+{
+"code": "7012",
+"name": "川崎重工業",
+"single": false,
+"division": "プレミア",
+"unit": 100,
+"category": "INFO",
+"score": 15,
+"items": [
+{
+"time": "11:30",
+"date": "11/10",
+"title": "2027年３月期 第２四半期（中間期）決算短信〔ＩＦＲＳ〕（連結）",
+"pdf": "https://www.release.tdnet.info/inbs/140120261109569857.pdf",
+"tags": [
+{
+"cat": "INFO",
+"label": "決算短信",
+"score": 15,
+"reason": "決算発表（数値はPDFで確認。自動計算はしていません）"
+}
+]
+},
+{
+"time": "11:30",
+"date": "11/10",
+"title": "2026年度第2四半期決算説明資料",
+"pdf": "https://www.release.tdnet.info/inbs/140120261109569870.pdf",
+"tags": [
+{
+"cat": "INFO",
+"label": "その他",
+"score": 0,
+"reason": ""
+}
+]
+},
+{
+"time": "11:30",
+"date": "11/10",
+"title": "2031年満期ユーロ円建転換社債型新株予約権付社債及び2033年満期ユーロ円建転換社債型新株予約権付社債（トランジションCB）の転換価額の調整に関するお知らせ",
+"pdf": "https://www.release.tdnet.info/inbs/140120261109569913.pdf",
+"tags": [
+{
+"cat": "INFO",
+"label": "その他",
+"score": 0,
+"reason": ""
+}
+]
+}
+],
+"price": 2025.5,
+"price_note": "名証の最終気配",
+"nse_close": null,
+"nse_quote": 2025.5,
+"shares": 1400,
+"cost": 2835700.0,
+"tob_price": null,
+"tob_gap_pct": null,
+"quote_only": true
+},
+{
+"code": "3032",
+"name": "ゴルフ・ドゥ",
+"single": true,
+"division": "ネクスト",
+"unit": 100,
+"category": "INFO",
+"score": 0,
+"items": [
+{
+"time": "10:00",
+"date": "11/10",
+"title": "2026年10月度 ゴルフドゥ！店舗売上高前年対比に関するお知らせ",
+"pdf": "https://www.release.tdnet.info/inbs/140120261109568432.pdf",
+"tags": [
+{
+"cat": "INFO",
+"label": "その他",
+"score": 0,
+"reason": ""
+}
+]
+}
+],
+"price": 198.0,
+"price_note": "名証の終値",
+"nse_close": 198.0,
+"nse_quote": null,
+"shares": 15100,
+"cost": 2989800.0,
 "tob_price": null,
 "tob_gap_pct": null,
 "quote_only": false
