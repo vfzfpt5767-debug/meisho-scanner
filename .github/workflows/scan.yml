@@ -106,18 +106,18 @@ jobs:
 
       - name: Pages の準備
         if: steps.cal.outputs.run == 'true'
-        uses: actions/configure-pages@v5
+        uses: actions/configure-pages@v6
 
       - name: Pages にアップロード
         if: steps.cal.outputs.run == 'true'
-        uses: actions/upload-pages-artifact@v4
+        uses: actions/upload-pages-artifact@v5
         with:
           path: docs
 
       - name: Pages に公開
         id: deploy
         if: steps.cal.outputs.run == 'true'
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
 
       - name: 失敗をLINEで通知
         if: failure()
