@@ -1,5 +1,5 @@
 {
-"generated_at": "2026-11-10T17:11:08.292158+09:00",
+"generated_at": "2026-11-10T17:13:44.408755+09:00",
 "base_day": "2026-11-10",
 "deadline": "2026-11-11T07:59:00+09:00",
 "price_source": "名証 日報",
@@ -577,6 +577,46 @@
 "tob_price": null,
 "tob_gap_pct": null,
 "quote_only": true
+},
+{
+"code": "259A",
+"name": "ケイ・ウノ",
+"single": true,
+"division": "ネクスト",
+"unit": 100,
+"category": "CHECK",
+"score": 10,
+"items": [
+{
+"time": "17:00",
+"date": "11/10",
+"title": "2026年９月期通期業績予想の修正、営業外費用（連結）及び特別損失（連結・個別）の計上に関するお知らせ",
+"pdf": "https://www.release.tdnet.info/inbs/140120261110571432.pdf",
+"tags": [
+{
+"cat": "CHECK",
+"label": "業績予想の修正",
+"score": 40,
+"reason": "上方か下方かタイトルでは不明。PDFで確認"
+},
+{
+"cat": "BAD",
+"label": "特別損失",
+"score": -30,
+"reason": "特別損失・減損の計上"
+}
+]
+}
+],
+"price": 1450.0,
+"price_note": "名証の終値",
+"nse_close": 1450.0,
+"nse_quote": null,
+"shares": 2000,
+"cost": 2900000.0,
+"tob_price": null,
+"tob_gap_pct": null,
+"quote_only": false
 }
 ],
 "before_close": [

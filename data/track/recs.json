@@ -224,5 +224,15 @@
 "label": "特別利益",
 "price": 2140.0,
 "result": null
+},
+{
+"base_day": "2026-11-10",
+"source": "ai",
+"code": "8368",
+"name": "百五銀行",
+"category": "AI",
+"label": "",
+"price": 2032.5,
+"result": null
 }
 ]
