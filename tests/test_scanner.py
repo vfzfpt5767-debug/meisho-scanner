@@ -797,6 +797,7 @@ def test_delayed_runs_stay_quiet(tmp_path, monkeypatch):
     card = Card(code="7203", name="t", single=False, division="", unit=100, category=C.A, score=60,
                 items=[Item("16:00", "11/05", "t", "", [tag])], price=1000, shares=3000)
     for when, ok in (("2026-11-05T10:30:00+09:00", False), ("2026-11-06T01:30:00+09:00", False),
+                     ("2026-11-05T16:12:00+09:00", False), ("2026-11-05T16:30:00+09:00", True),
                      ("2026-11-05T20:40:00+09:00", True), ("2026-11-05T23:45:00+09:00", False)):
         res = ScanResult(generated_at=when, base_day="2026-11-05", deadline="", price_source="", cards=[card],
                          before_close=[], tob_rows=[])

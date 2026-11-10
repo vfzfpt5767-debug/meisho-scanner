@@ -7,7 +7,7 @@ from __future__ import annotations
 
 import json
 import os
-from datetime import datetime
+from datetime import datetime, time
 
 from . import classify as C
 from .config import BUDGET_PER_TERM, DATA_DIR, RECORD_UNTIL
@@ -17,6 +17,7 @@ INPUT = DATA_DIR / "analyst_input.json"
 FIRE_REQ = DATA_DIR / "ai" / "fire_request.json"
 FIRE_STATE = DATA_DIR / "ai" / "fire_state.json"
 MAX_FIRES_PER_NIGHT = 3
+FIRE_FROM = time(16, 30)  # 注文できるタームが始まる時刻。これより前の判断は記録されないので起動しない
 
 RULES = {
     "prefer": "検証で上がった割合60%以上かつ平均+2%以上の材料を優先する",
@@ -130,9 +131,9 @@ def plan_fire(res, pf, data: dict) -> dict:
     req = {"fire": False, "base_day": res.base_day, "new_keys": sorted(new), "reason": ""}
     if os.environ.get("SKIP_AI") == "true":
         req["reason"] = "AIの判断の取り込み・LINEの記録のあとのページ作り直しなので起動しない"
-    elif not (16 <= now.hour and now.time().replace(tzinfo=None) <= RECORD_UNTIL):
-        req["reason"] = (f"臨時起動は16:00〜{RECORD_UNTIL:%H:%M}だけ（遅れて動いた昼・深夜・朝のスキャンからは起動しない。"
-                         "夜は21:15に定時起動）")
+    elif not (FIRE_FROM <= now.time().replace(tzinfo=None) <= RECORD_UNTIL):
+        req["reason"] = (f"臨時起動は{FIRE_FROM:%H:%M}〜{RECORD_UNTIL:%H:%M}だけ（16:30より前の判断は記録されない参考扱いで、"
+                         "1晩の起動回数を無駄にするため。遅れて動いた昼・深夜・朝のスキャンからも起動しない。夜は21:15に定時起動）")
     elif not new:
         req["reason"] = "新しいS・A・要確認・保有警告なし"
     elif night["fires"] >= MAX_FIRES_PER_NIGHT:
