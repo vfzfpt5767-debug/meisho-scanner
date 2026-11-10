@@ -402,8 +402,9 @@ def test_apply_test_mode_keeps_portfolio(tmp_path, monkeypatch):
     c.write_text("key,value\ncash,3000000\n", encoding="utf-8")
     monkeypatch.setattr(P, "HOLDINGS_CSV", h)
     monkeypatch.setattr(P, "CASH_CSV", c)
-    sent = []
-    monkeypatch.setattr("scanner.notify.send", lambda text, kind, extra=None: sent.append(text) or "LINEに送信しました")
+    sent, sent_extra = [], []
+    monkeypatch.setattr("scanner.notify.send", lambda text, kind, extra=None: sent.append(text) or sent_extra.append(extra)
+                        or "LINEに送信しました")
     d = {"version": 1, "created_at": "2026-11-03T04:00:00+09:00", "base_day": "2026-11-02", "test": True,
          "summary": "テスト", "orders": [{"side": "buy", "code": "4445", "name": "X", "shares": 100, "unit": 100,
                                           "price": 1665, "confidence": "高", "reason": "r"}]}
@@ -420,11 +421,16 @@ def test_apply_test_mode_keeps_portfolio(tmp_path, monkeypatch):
     (dec / "2026-11-03-2340.json").write_text(json.dumps(real), encoding="utf-8")
     AD.apply_all(now=datetime(2026, 11, 3, 23, 45, tzinfo=JST))
     assert (h.read_text(), c.read_text()) == before
-    assert sent[-1].startswith("【参考（起きていれば）】")
+    assert sent[-1] == "" and "まだ記録していません" in sent_extra[-1][0]["text"]  # 注文だけの1通（参考）
     (dec / "2026-11-03-2115.json").write_text(json.dumps(real), encoding="utf-8")
     AD.apply_all(now=datetime(2026, 11, 3, 21, 30, tzinfo=JST))
     assert "4445" in h.read_text() and "2833500" in c.read_text()
-    assert sent[-1].startswith("【AIの結論】")
+    assert sent_extra[-1][0]["text"].startswith("【今夜の注文】") and "買い X(4445) 1単位" in sent_extra[-1][0]["text"]
+    # 見送り（注文なし）の判断はLINEを送らない
+    n = len(sent)
+    (dec / "2026-11-03-2200.json").write_text(json.dumps(dict(real, orders=[], summary="見送り")), encoding="utf-8")
+    log = AD.apply_all(now=datetime(2026, 11, 3, 22, 0, tzinfo=JST))
+    assert len(sent) == n and any("送りません" in x for x in log)
 
 
 def test_line_parse_orders():
@@ -477,7 +483,7 @@ def test_line_buttons_flow(tmp_path, monkeypatch):
     (dec / "2026-11-04-2120.json").write_text(_json.dumps(d), encoding="utf-8")
     now = datetime(2026, 11, 4, 21, 25, tzinfo=JST)
     AD.apply_all(now=now)
-    assert sent[-1][1] is None  # 中継役がまだ動いていないときはボタンを付けない
+    assert sent[-1][0] == "" and [m["type"] for m in sent[-1][1]] == ["text"]  # 中継役がまだ動いていないときはボタンを付けない
     L.save_state({**L.load_state(), "enabled": True})
     (dec / "2026-11-04-2120.json").rename(dec / "2026-11-04-2121.json")
     d["id"] = "2026-11-04-2121"
@@ -485,8 +491,10 @@ def test_line_buttons_flow(tmp_path, monkeypatch):
     h.write_text("code,shares,buy_price,buy_date,memo\n6999,1000,1950,2026-10-30\n", encoding="utf-8")
     c.write_text("key,value,memo\ncash,1000000,\n", encoding="utf-8")
     AD.apply_all(now=now)
+    assert sent[-1][0] == "" and len(sent[-1][1]) == 1  # 注文とボタンを1通にまとめる
     btn = sent[-1][1][0]
     assert btn["type"] == "template" and len(btn["template"]["actions"]) == 3
+    assert btn["template"]["text"].split("\n")[1:] == ["売り 6999 10単位", "買い 4445 6単位"]  # 売りが先
     after_ai = h.read_text(encoding="utf-8")
     assert "4445,600" in after_ai and "6999" not in after_ai.split("\n", 1)[1]
     # 注文しなかった → 取り消し（元に戻る）
@@ -529,8 +537,9 @@ def test_ai_fire_skip_and_handled(tmp_path, monkeypatch):
     monkeypatch.setattr(AI, "FIRE_STATE", tmp_path / "fire_state.json")
     monkeypatch.setattr(AI, "FIRE_REQ", tmp_path / "fire_request.json")
     monkeypatch.setattr(AI, "INPUT", tmp_path / "analyst_input.json")
+    monkeypatch.setattr(AI, "_main_run_done", lambda base: True)  # 21:15の定時の判断は取り込み済み
     chk = vars(C.Tag(C.CHECK, "業績予想の修正", 40, ""))
-    a_tag = vars(C.Tag(C.A, "上方修正", 60, ""))
+    a_tag = vars(C.Tag(C.S, "TOB対象", 90, ""))
 
     def card(code, cat, tag):
         return Card(code=code, name=code, single=False, division="", unit=100, category=cat, score=40,
@@ -548,10 +557,12 @@ def test_ai_fire_skip_and_handled(tmp_path, monkeypatch):
                                      "portfolio": {"holdings": []}}), encoding="utf-8")
     assert AI.mark_handled("2026-11-04") == ["CHECK:4445"]
     assert not AI.plan_fire(res, None, {})["fire"]
-    # 3) 新しい開示（新しい候補）が出たら、今までどおり起動する
-    res.cards.append(card("7203", C.A, a_tag))
+    # 3) 21:15のあとに新しいTOB（S）が出たら起動する。A・要確認だけでは起動しない
+    res.cards.append(card("6666", C.A, vars(C.Tag(C.A, "上方修正", 60, ""))))
+    assert not AI.plan_fire(res, None, {"x": 1})["fire"]
+    res.cards.append(card("7203", C.S, a_tag))
     req = AI.plan_fire(res, None, {"x": 1})
-    assert req["fire"] and req["new_keys"] == ["A:7203"]
+    assert req["fire"] and req["new_keys"] == ["S:7203"]
 
 
 def test_ai_skip_publish_and_scan_request(tmp_path, monkeypatch):
@@ -793,12 +804,17 @@ def test_delayed_runs_stay_quiet(tmp_path, monkeypatch):
 
     monkeypatch.setattr(AI, "FIRE_STATE", tmp_path / "fs.json")
     monkeypatch.setattr(AI, "FIRE_REQ", tmp_path / "fr.json")
-    tag = vars(C.Tag(C.A, "上方修正", 60, ""))
-    card = Card(code="7203", name="t", single=False, division="", unit=100, category=C.A, score=60,
+    done = {"v": False}
+    monkeypatch.setattr(AI, "_main_run_done", lambda base: done["v"])
+    tag = vars(C.Tag(C.S, "TOB対象", 90, ""))
+    card = Card(code="7203", name="t", single=False, division="", unit=100, category=C.S, score=90,
                 items=[Item("16:00", "11/05", "t", "", [tag])], price=1000, shares=3000)
-    for when, ok in (("2026-11-05T10:30:00+09:00", False), ("2026-11-06T01:30:00+09:00", False),
-                     ("2026-11-05T16:12:00+09:00", False), ("2026-11-05T16:30:00+09:00", True),
-                     ("2026-11-05T20:40:00+09:00", True), ("2026-11-05T23:45:00+09:00", False)):
+    # 夕方（16:30〜21:15）は臨時起動しない：21:15の定時起動がまとめて判断する（2026-11-10 ユーザー指定）
+    for when, main_done, ok in (("2026-11-05T10:30:00+09:00", True, False), ("2026-11-06T01:30:00+09:00", True, False),
+                                ("2026-11-05T16:30:00+09:00", False, False), ("2026-11-05T20:40:00+09:00", False, False),
+                                ("2026-11-05T22:40:00+09:00", False, False),  # 21:15の判断がまだ
+                                ("2026-11-05T23:45:00+09:00", True, False), ("2026-11-05T22:40:00+09:00", True, True)):
+        done["v"] = main_done
         res = ScanResult(generated_at=when, base_day="2026-11-05", deadline="", price_source="", cards=[card],
                          before_close=[], tob_rows=[])
         assert AI.plan_fire(res, None, {})["fire"] is ok, when
@@ -1039,3 +1055,52 @@ def test_answer_buttons(tmp_path, monkeypatch):
     # 前のタームのボタンは受け付けない
     old = data.replace("b=2026-11-10", "b=2026-11-09")
     assert "前のターム" in L.process({"type": "postback", "data": old, "event_id": "b4"}, now)["text"]
+
+
+def test_earnings_soon_skips_todays_results(tmp_path, monkeypatch):
+    """夜のタームでは、今日の決算（もう発表済み）で「決算が近い」を出さない（2026-11-10 百五銀行の誤報）。"""
+    import json as _json
+    from types import SimpleNamespace
+
+    from scanner import earnings as E
+    from scanner import portfolio as P
+
+    ep = tmp_path / "earnings.json"
+    ep.write_text(_json.dumps({"events": [{"date": "2026-11-10", "code": "8368"}, {"date": "2026-11-11", "code": "7203"}]}),
+                  encoding="utf-8")
+    monkeypatch.setattr(E, "PATH", ep)
+    ctx = SimpleNamespace(base=date(2026, 11, 10))
+    got = P._earnings_soon(ctx, datetime(2026, 11, 10, 18, 40, tzinfo=JST))
+    assert "8368" not in got and "11/11(水)（次の営業日）" in got["7203"]
+    # 朝（基準日は前の営業日）：今日の決算の前に売れるので数える
+    got = P._earnings_soon(ctx, datetime(2026, 11, 11, 6, 20, tzinfo=JST))
+    assert "（今日）" in got["7203"] and "8368" not in got
+
+
+def test_main_run_done(tmp_path, monkeypatch):
+    import json as _json
+
+    from scanner import ai_decision as AD
+    from scanner import ai_input as AI
+
+    monkeypatch.setattr(AD, "LATEST", tmp_path / "latest.json")
+    assert not AI._main_run_done("2026-11-10")
+    AD.LATEST.write_text(_json.dumps({"base_day": "2026-11-10", "created_at": "2026-11-10T18:41:00+09:00",
+                                      "_apply": {"applied_at": "2026-11-10T18:42:34+09:00"}}), encoding="utf-8")
+    assert not AI._main_run_done("2026-11-10")  # 夕方の判断だけ
+    AD.LATEST.write_text(_json.dumps({"base_day": "2026-11-10", "created_at": "2026-11-10T21:15:00+09:00",
+                                      "_apply": {"applied_at": "2026-11-10T21:21:00+09:00"}}), encoding="utf-8")
+    assert AI._main_run_done("2026-11-10") and not AI._main_run_done("2026-11-11")
+
+
+def test_order_message_long_falls_back(monkeypatch):
+    """注文が多くてボタンつきの形（本文160文字まで）に入らないときは、文＋クイックリプライの1通にする。"""
+    from scanner import line_actions as L
+
+    monkeypatch.setattr(L, "enabled", lambda: True)
+    orders = [{"side": "buy", "code": str(1000 + i), "name": "とても長い会社の名前ホールディングス", "shares": 100, "unit": 100}
+              for i in range(6)]
+    m = L.order_message({"id": "x", "deadline": "2026-11-11T07:59:00+09:00", "orders": orders})
+    assert m["type"] == "text" and len(m["quickReply"]["items"]) == 3 and m["text"].count("買い") == 6
+    m = L.order_message({"id": "x", "deadline": "2026-11-11T07:59:00+09:00", "orders": orders[:1]})
+    assert m["type"] == "template" and m["template"]["text"].startswith("【今夜の注文】締切 11/11(水) 07:59")

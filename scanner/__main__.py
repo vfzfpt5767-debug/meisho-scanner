@@ -130,8 +130,10 @@ def main() -> int:
     except Exception as e:  # noqa: BLE001
         print("AI入力の作成でエラー:", type(e).__name__, e)
 
-    # LINE通知（朝：朝レポートの要約を1日1回）
-    if morning_rep is not None and not morning_rep.stale_from:
+    from .config import LINE_REPORTS
+
+    # LINE通知（朝：朝レポートの要約を1日1回）。LINE_REPORTS=False ならページだけ（2026-11-10 ユーザー指定）
+    if LINE_REPORTS and morning_rep is not None and not morning_rep.stale_from:
         try:
             from datetime import datetime as _dt
 
@@ -141,8 +143,8 @@ def main() -> int:
                                               morning.line_text(morning_rep, _dt.fromisoformat(res.deadline)), "morning"))
         except Exception as e:  # noqa: BLE001
             print("LINE通知でエラー:", type(e).__name__, e)
-    # LINE通知（夜：最初の1通＋新しいS・A・保有警告の追加は1晩2通まで）
-    if night_notify_ok(res):
+    # LINE通知（夜：最初の1通＋新しいS・A・保有警告の追加は1晩2通まで）。LINE_REPORTS=False なら送らない
+    if LINE_REPORTS and night_notify_ok(res):
         try:
             from . import notify
 

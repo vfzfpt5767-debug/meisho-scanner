@@ -60,7 +60,8 @@ def _api_usage(tok: str) -> int | None:
 
 
 def send(text: str, kind: str, extra: list[dict] | None = None) -> str:
-    """1通送る（extra にボタンなどのメッセージを足せる。1回の送信＝1通と数える）。結果の説明を返す。"""
+    """1通送る（extra にボタンなどのメッセージを足せる。1回の送信＝1通と数える）。結果の説明を返す。
+    text が空なら、extra のメッセージだけを送る（例：注文とボタンを1つにまとめたメッセージ）。"""
     creds = _creds()
     if not creds:
         return "LINE未設定（Secrets に LINE_CHANNEL_ACCESS_TOKEN と LINE_USER_ID がない）ので送りません"
@@ -73,7 +74,10 @@ def send(text: str, kind: str, extra: list[dict] | None = None) -> str:
     used = max(int(st.get("count", 0)), _api_usage(tok) or 0)
     if used >= MONTHLY_LIMIT:
         return f"今月の送信数が{used}通（上限{MONTHLY_LIMIT}通）に達したので送りません"
-    messages = [{"type": "text", "text": text[:4900]}] + list(extra or [])[:4]
+    messages = ([{"type": "text", "text": text[:4900]}] if text else []) + list(extra or [])
+    messages = messages[:5]
+    if not messages:
+        return "送る内容がないので送りません"
     body = json.dumps({"to": uid, "messages": messages}).encode("utf-8")
     req = urllib.request.Request(PUSH_URL, data=body, method="POST",
                                  headers={"Authorization": f"Bearer {tok}", "Content-Type": "application/json"})

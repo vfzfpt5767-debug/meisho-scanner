@@ -272,23 +272,7 @@ def apply_all(now: datetime | None = None, send_line: bool = True) -> list[str]:
         applied.append(key)
         log.append(f"{key}: {rec['status']} {' / '.join(rec['notes'] + errs)}")
         if send_line:
-            from .notify import send
-
-            if errs:
-                msg = f"{'【テスト】' if test else '【名証スキャナー】'}AIの判断ファイル {key} に形式エラー：{errs[0]}"
-            else:
-                msg = line_text(d, "test" if test else rec.get("mode", "record"))
-            extra = None
-            if not errs and not test:
-                from .line_actions import buttons, enabled
-
-                extra = (buttons(d, rec.get("mode", "")) or []) if enabled() else []
-                ask = _ask_human(d, now, rec.get("mode", ""))
-                if ask:
-                    extra.append(ask)  # 最後のメッセージに付けたボタン（クイックリプライ）だけがLINEに出る
-                    log.append("人に確認を頼みました")
-                extra = extra or None
-            log.append(send(msg, "ai_test" if test else "ai", extra))
+            log.append(_send_line(d, rec, errs, test, key, now))
     APPLIED.parent.mkdir(parents=True, exist_ok=True)
     APPLIED.write_text(json.dumps(applied[-500:], ensure_ascii=False, indent=0), encoding="utf-8")
     if real:
@@ -304,6 +288,38 @@ def apply_all(now: datetime | None = None, send_line: bool = True) -> list[str]:
         with open(out, "a", encoding="utf-8") as f:
             f.write(f"rebuild={'true' if real else 'false'}\n")
     return log
+
+
+def _send_line(d: dict, rec: dict, errs: list[str], test: bool, key: str, now: datetime) -> str:
+    """AIの結論のLINE。売り・買いの注文があるときだけ、注文とボタンを1通にまとめて送る（2026-11-10 ユーザー指定）。
+    見送り（注文なし）・締切後は送らない（LINE_NO_ORDER=True なら見送りも今までの形で送る）。"""
+    from .config import LINE_ASK_HUMAN, LINE_NO_ORDER
+    from .notify import send
+
+    mode = rec.get("mode", "")
+    if errs:
+        return send(f"{'【テスト】' if test else '【名証スキャナー】'}AIの判断ファイル {key} に形式エラー：{errs[0]}",
+                    "ai_test" if test else "failure")
+    if test:
+        return send(line_text(d, "test"), "ai_test")
+    if mode not in ("record", "ref"):
+        return "締切後の判断なので、LINEは送りません"
+    extra: list[dict] = []
+    if d.get("orders"):
+        from .line_actions import order_message
+
+        extra.append(order_message(d, mode))
+    elif LINE_NO_ORDER:
+        from .line_actions import buttons, enabled
+
+        extra = [{"type": "text", "text": line_text(d, mode)[:4900]}] + ((buttons(d, mode) or []) if enabled() else [])
+    if LINE_ASK_HUMAN and extra:
+        ask = _ask_human(d, now, mode)
+        if ask:
+            extra.append(ask)  # 最後のメッセージに付けたボタン（クイックリプライ）だけがLINEに出る
+    if not extra:
+        return "注文がない（見送り）ので、LINEは送りません"
+    return send("", "ai", extra)
 
 
 def _ask_human(d: dict, now: datetime, mode: str) -> dict | None:

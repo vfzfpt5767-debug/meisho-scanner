@@ -1,6 +1,8 @@
 """AIアナリストに渡す入力（data/analyst_input.json）を作り、起動（fire）するか決める。
 
-起動の条件（夜）：新しいS・A・要確認・保有警告が出たとき。1晩に最大3回。
+起動の条件（夜）：AIの本番は21:15の定時起動。臨時起動は、その判断が届いたあと（21:30〜23:30）に、
+新しいTOB（S）か保有銘柄の警告（W）が出たときだけ、1晩1回まで（2026-11-10 ユーザー指定：起動と通知を減らす）。
+FIRE_AFTER_MAIN_RUN=False にすると、前の動き（16:30〜23:30、新しいS・A・要確認・保有警告で、1晩3回まで）に戻る。
 起動は GitHub Actions の「AIアナリストを起動」ステップ（python -m scanner.ai_fire）が、push の後に行う。
 """
 from __future__ import annotations
@@ -10,14 +12,15 @@ import os
 from datetime import datetime, time
 
 from . import classify as C
-from .config import BUDGET_PER_TERM, DATA_DIR, RECORD_UNTIL
+from .config import AI_NIGHT_RUN, BUDGET_PER_TERM, DATA_DIR, FIRE_AFTER_MAIN_RUN, LATE_FIRE_KINDS, RECORD_UNTIL
 from .render_backtest import label_stats
 
 INPUT = DATA_DIR / "analyst_input.json"
 FIRE_REQ = DATA_DIR / "ai" / "fire_request.json"
 FIRE_STATE = DATA_DIR / "ai" / "fire_state.json"
-MAX_FIRES_PER_NIGHT = 3
-FIRE_FROM = time(16, 30)  # 注文できるタームが始まる時刻。これより前の判断は記録されないので起動しない
+MAX_FIRES_PER_NIGHT = 1 if FIRE_AFTER_MAIN_RUN else 3
+# 臨時起動を始める時刻。21:15の定時の判断のあとだけ（前の動きでは、タームが始まる16:30から）
+FIRE_FROM = time(21, 30) if FIRE_AFTER_MAIN_RUN else time(16, 30)
 
 RULES = {
     "prefer": "検証で上がった割合60%以上かつ平均+2%以上の材料を優先する",
@@ -121,6 +124,20 @@ def keys_of(res, pf) -> dict[str, str]:
     return keys
 
 
+def _main_run_done(base_day: str) -> bool:
+    """このタームの21:15の定時の判断（かそのあとの判断）が、もう取り込まれたか。"""
+    try:
+        from .ai_decision import LATEST
+
+        latest = json.loads(LATEST.read_text(encoding="utf-8"))
+        t = datetime.fromisoformat(latest.get("_apply", {}).get("applied_at") or latest["created_at"])
+    except Exception:  # noqa: BLE001
+        return False
+    if latest.get("base_day") != base_day:
+        return False
+    return t.time().replace(tzinfo=None) >= time(AI_NIGHT_RUN.hour, 0) or t.date().isoformat() > base_day
+
+
 def plan_fire(res, pf, data: dict) -> dict:
     """新しいキーがあれば起動の依頼を data/ai/fire_request.json に書く（実際の起動は push の後）。"""
     now = datetime.fromisoformat(res.generated_at)
@@ -128,14 +145,18 @@ def plan_fire(res, pf, data: dict) -> dict:
     night = st.get(res.base_day, {"fires": 0, "keys": []})
     keys = keys_of(res, pf)
     new = {k: v for k, v in keys.items() if k not in night["keys"]}
+    if FIRE_AFTER_MAIN_RUN:
+        new = {k: v for k, v in new.items() if k.split(":", 1)[0] in LATE_FIRE_KINDS}
     req = {"fire": False, "base_day": res.base_day, "new_keys": sorted(new), "reason": ""}
     if os.environ.get("SKIP_AI") == "true":
         req["reason"] = "AIの判断の取り込み・LINEの記録のあとのページ作り直しなので起動しない"
     elif not (FIRE_FROM <= now.time().replace(tzinfo=None) <= RECORD_UNTIL):
-        req["reason"] = (f"臨時起動は{FIRE_FROM:%H:%M}〜{RECORD_UNTIL:%H:%M}だけ（16:30より前の判断は記録されない参考扱いで、"
-                         "1晩の起動回数を無駄にするため。遅れて動いた昼・深夜・朝のスキャンからも起動しない。夜は21:15に定時起動）")
+        req["reason"] = (f"臨時起動は{FIRE_FROM:%H:%M}〜{RECORD_UNTIL:%H:%M}だけ（夜は{AI_NIGHT_RUN:%H:%M}の定時起動がまとめて判断する。"
+                         "遅れて動いた昼・深夜・朝のスキャンからも起動しない）")
+    elif FIRE_AFTER_MAIN_RUN and not _main_run_done(res.base_day):
+        req["reason"] = f"{AI_NIGHT_RUN:%H:%M}の定時の判断がまだ届いていないので起動しない（届かなければ22:30の見張りが起動する）"
     elif not new:
-        req["reason"] = "新しいS・A・要確認・保有警告なし"
+        req["reason"] = ("新しいTOB・保有警告なし" if FIRE_AFTER_MAIN_RUN else "新しいS・A・要確認・保有警告なし")
     elif night["fires"] >= MAX_FIRES_PER_NIGHT:
         req["reason"] = f"今夜の起動は{MAX_FIRES_PER_NIGHT}回に達した"
     else:

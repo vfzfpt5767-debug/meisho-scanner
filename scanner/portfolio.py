@@ -399,8 +399,12 @@ def _sell_rule(h: Holding, ctx, limits: dict) -> tuple[str, str | None]:
 
 
 def _earnings_soon(ctx, now) -> dict[str, str]:
-    """保有銘柄で、決算発表が今日〜2営業日後にあるもの（コード→注意の文）。"""
-    from .calendar_jp import fmt_date, is_business_day, next_business_day
+    """保有銘柄で、このタームのあと（基準日の次の営業日から3営業日）に決算発表があるもの（コード→注意の文）。
+
+    夜のタームでは、今日の決算はもう発表済みか、今夜売っても今日の終値で約定するので決算の前には売れない。
+    だから基準日（今日の終値の日）は数えない（2026-11-10：発表済みの百五銀行に「決算が近い」と出ていた）。
+    朝0:00〜7:59は基準日が前の営業日なので、その日の決算は数える（今のうちに売れば決算の前に売れる）。"""
+    from .calendar_jp import base_day, fmt_date, next_business_day
     from .render_backtest import label_note
 
     try:
@@ -410,7 +414,7 @@ def _earnings_soon(ctx, now) -> dict[str, str]:
     except Exception:  # noqa: BLE001
         return {}
     today = now.date()
-    d = today if is_business_day(today) else next_business_day(today)
+    d = next_business_day(base_day(now))
     days = [d, next_business_day(d), next_business_day(next_business_day(d))]
     names = {0: "今日", 1: "次の営業日", 2: "2営業日後"} if d == today else {0: "次の営業日", 1: "2営業日後", 2: "3営業日後"}
     out = {}

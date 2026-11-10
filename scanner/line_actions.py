@@ -296,6 +296,51 @@ def buttons(d: dict, mode: str) -> list[dict]:
              "template": {"type": "buttons", "text": text[:160], "actions": actions}}]
 
 
+def order_text(d: dict, mode: str = "record") -> str:
+    """AIの注文を短く（例：売り ブラザー工業(6448) 7単位／買い 百五銀行(8368) 14単位）。売りが先。"""
+    head = "【今夜の注文】"
+    try:
+        from .calendar_jp import fmt_date
+
+        dl = datetime.fromisoformat(d["deadline"])
+        head += f"締切 {fmt_date(dl.date())} {dl:%H:%M}"
+    except (KeyError, TypeError, ValueError):
+        pass
+    lines = [head]
+    for o in sorted(d.get("orders", []), key=lambda o: o.get("side") != "sell"):
+        try:
+            unit = int(o.get("unit") or 0)
+            if not unit:
+                from .units import unit_of
+
+                unit = int(unit_of(str(o["code"])) or 100)
+        except Exception:  # noqa: BLE001
+            unit = 100
+        n = int(o["shares"]) // unit
+        side = "売り" if o.get("side") == "sell" else "買い"
+        name = str(o.get("name", "")).strip()[:14]
+        lines.append(f"{side} {name + '(' + str(o['code']) + ')' if name else o['code']} {n}単位")
+    if mode == "ref":
+        lines.append("※まだ記録していません。注文したらボタンを押してください")
+    return "\n".join(lines)
+
+
+def order_message(d: dict, mode: str = "record") -> dict:
+    """注文とボタンを1つにまとめたLINEメッセージ（ボタンつきテンプレートは本文160文字まで。長いときは文＋クイックリプライ）。"""
+    text = order_text(d, mode)
+    if not enabled():
+        return {"type": "text", "text": text}
+    did = d.get("id", "")
+
+    def pb(label, act):
+        return {"type": "postback", "label": label, "data": f"act={act}&id={did}", "displayText": label}
+    actions = [pb("指示どおり注文した", "done"), pb("注文しなかった", "none"), pb("別の注文をした", "other")]
+    if len(text) <= 160:
+        return {"type": "template", "altText": text[:400],
+                "template": {"type": "buttons", "text": text, "actions": actions}}
+    return {"type": "text", "text": text, "quickReply": {"items": [{"type": "action", "action": a} for a in actions]}}
+
+
 def register_decision(d: dict, mode: str, patch: dict | None) -> None:
     """ai_decision の取り込み時に呼ぶ：その注文が記録済みかどうかと、取り消し用の差分を覚える。"""
     st = load_state()
