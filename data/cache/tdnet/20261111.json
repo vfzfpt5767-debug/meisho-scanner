@@ -1,9 +1,45 @@
 {
 "date": "2026-11-11",
-"fetched_at": "2026-11-11T20:56:07.429761+09:00",
+"fetched_at": "2026-11-11T21:21:24.664285+09:00",
 "complete": false,
-"total_all_markets": 774,
+"total_all_markets": 776,
 "items": [
+{
+"Tdnet": {
+"id": "1292930",
+"pubdate": "2026-11-11 21:00:00",
+"company_code": "26120",
+"company_name": "かどや製油",
+"title": "（株）ITG-Gホールディングスによる公開買付届出書の訂正に伴う「かどや製油（株）の普通株式に対する公開買付けの開始に関するお知らせ」の変更について",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261111574588.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": null,
+"markets_string": "東",
+"update_history": null
+}
+},
+{
+"Tdnet": {
+"id": "1292931",
+"pubdate": "2026-11-11 21:00:00",
+"company_code": "26120",
+"company_name": "かどや製油",
+"title": "（変更）「株式会社ITG-Gホールディングスによる当社株式に対する公開買付けに関する賛同の意見表明及び応募推奨のお知らせ」の一部変更に関するお知らせ",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261111573558.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": null,
+"markets_string": "東",
+"update_history": null
+}
+},
 {
 "Tdnet": {
 "id": "1292925",

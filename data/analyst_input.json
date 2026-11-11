@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-11T20:56:06.226879+09:00",
+ "generated_at": "2026-11-11T21:21:23.555564+09:00",
  "base_day": "2026-11-11",
  "deadline": "2026-11-12T07:59:00+09:00",
  "price_source": "名証 日報",
@@ -72,7 +72,7 @@
     "also_checked": [
      "https://www.to-sho.net/"
     ],
-    "checked": "2026-11-11T11:41",
+    "checked": "2026-11-11T12:21",
     "for_title": "剰余金の配当（中間配当）及び期末配当予想の修正（増配）に関するお知らせ"
    }
   },
@@ -143,7 +143,7 @@
     "also_checked": [
      "https://okwave.co.jp/"
     ],
-    "checked": "2026-11-11T11:41",
+    "checked": "2026-11-11T12:21",
     "for_title": "投資有価証券売却益（特別利益）の計上に関するお知らせ"
    }
   },
@@ -226,7 +226,7 @@
    "ir_check": {
     "status": "unreachable",
     "ir_page": "https://www.daidoh-limited.com/",
-    "checked": "2026-11-11T11:41",
+    "checked": "2026-11-11T12:21",
     "for_title": "第２四半期（中間期）連結業績予想と実績値との差異に関するお知らせ"
    }
   }
@@ -249,33 +249,13 @@
  "tob_tracker": [],
  "errors": [],
  "portfolio": {
-  "cash": 584000.0,
+  "cash": 3574400.0,
   "total": 3574400.0,
   "profit": 574400.0,
   "term_left": 3000000,
   "term_open": true,
   "single_bought": true,
-  "holdings": [
-   {
-    "code": "8368",
-    "name": "百五銀行",
-    "shares": 1400,
-    "buy_price": 2032.5,
-    "buy_date": "2026-11-10",
-    "price": 2136.0,
-    "pnl_pct": 5.09,
-    "single": false,
-    "quote_only": true,
-    "unit": 100,
-    "warnings": [
-     "売り時（増配で買ってから1営業日・ストップ高ではない）"
-    ],
-    "notices": [],
-    "cautions": [],
-    "sell_rule": "売り時：買ってから1営業日たった（ストップ高ではない）。今夜売る。検証：増配でストップ高にならなかった銘柄は1営業日後の終値で売るのが一番よい（平均+2.5%・中央値+1.8%・n=1,320）",
-    "material": "増配"
-   }
-  ]
+  "holdings": []
  },
  "new_listings": [
   {
