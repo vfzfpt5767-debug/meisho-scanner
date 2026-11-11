@@ -183,7 +183,8 @@
 "category": "A",
 "label": "特別利益",
 "price": 2399.0,
-"result": null
+"result": -0.09712380158399336,
+"next_day": "2026-11-11"
 },
 {
 "base_day": "2026-11-10",
@@ -193,7 +194,8 @@
 "category": "A",
 "label": "特別利益",
 "price": 2399.0,
-"result": null
+"result": -0.09712380158399336,
+"next_day": "2026-11-11"
 },
 {
 "base_day": "2026-11-10",
@@ -203,7 +205,8 @@
 "category": "A",
 "label": "増配",
 "price": 1696.0,
-"result": null
+"result": 0.04716981132075482,
+"next_day": "2026-11-11"
 },
 {
 "base_day": "2026-11-10",
@@ -213,7 +216,8 @@
 "category": "A",
 "label": "増配",
 "price": 1696.0,
-"result": null
+"result": 0.04716981132075482,
+"next_day": "2026-11-11"
 },
 {
 "base_day": "2026-11-10",
@@ -223,7 +227,8 @@
 "category": "A",
 "label": "特別利益",
 "price": 2140.0,
-"result": null
+"result": -0.03925233644859816,
+"next_day": "2026-11-11"
 },
 {
 "base_day": "2026-11-10",
@@ -233,6 +238,27 @@
 "category": "AI",
 "label": "",
 "price": 2032.5,
+"result": 0.05092250922509223,
+"next_day": "2026-11-11"
+},
+{
+"base_day": "2026-11-11",
+"source": "rule_top",
+"code": "8920",
+"name": "東祥",
+"category": "A",
+"label": "増配",
+"price": 687.0,
+"result": null
+},
+{
+"base_day": "2026-11-11",
+"source": "rule_sa",
+"code": "8920",
+"name": "東祥",
+"category": "A",
+"label": "増配",
+"price": 687.0,
 "result": null
 }
 ]
