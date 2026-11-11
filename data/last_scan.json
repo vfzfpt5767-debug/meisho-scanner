@@ -1,5 +1,5 @@
 {
-"generated_at": "2026-11-11T17:11:07.164119+09:00",
+"generated_at": "2026-11-11T18:41:04.820503+09:00",
 "base_day": "2026-11-11",
 "deadline": "2026-11-12T07:59:00+09:00",
 "price_source": "名証 日報",
@@ -51,6 +51,40 @@
 "tob_price": null,
 "tob_gap_pct": null,
 "quote_only": true
+},
+{
+"code": "3808",
+"name": "オーケーウェブ",
+"single": true,
+"division": "ネクスト",
+"unit": 100,
+"category": "A",
+"score": 40,
+"items": [
+{
+"time": "17:30",
+"date": "11/11",
+"title": "投資有価証券売却益（特別利益）の計上に関するお知らせ",
+"pdf": "https://www.release.tdnet.info/inbs/140120261111574155.pdf",
+"tags": [
+{
+"cat": "A",
+"label": "特別利益",
+"score": 40,
+"reason": "特別利益の計上（一時的な利益）"
+}
+]
+}
+],
+"price": 19.0,
+"price_note": "名証の終値",
+"nse_close": 19.0,
+"nse_quote": null,
+"shares": 157800,
+"cost": 2998200.0,
+"tob_price": null,
+"tob_gap_pct": null,
+"quote_only": false
 },
 {
 "code": "2207",
@@ -206,6 +240,54 @@
 "nse_quote": 161.0,
 "shares": 18600,
 "cost": 2994600.0,
+"tob_price": null,
+"tob_gap_pct": null,
+"quote_only": true
+},
+{
+"code": "7129",
+"name": "ミアヘルサホールディングス",
+"single": false,
+"division": "メイン",
+"unit": 100,
+"category": "INFO",
+"score": 15,
+"items": [
+{
+"time": "17:00",
+"date": "11/11",
+"title": "2027年３月期第２四半期（中間期）決算短信〔日本基準〕(連結)",
+"pdf": "https://www.release.tdnet.info/inbs/140120261111572488.pdf",
+"tags": [
+{
+"cat": "INFO",
+"label": "決算短信",
+"score": 15,
+"reason": "決算発表（数値はPDFで確認。自動計算はしていません）"
+}
+]
+},
+{
+"time": "17:00",
+"date": "11/11",
+"title": "2027年３月期第２四半期（中間期）決算補足説明資料",
+"pdf": "https://www.release.tdnet.info/inbs/140120261111572747.pdf",
+"tags": [
+{
+"cat": "INFO",
+"label": "その他",
+"score": 0,
+"reason": ""
+}
+]
+}
+],
+"price": 1180.0,
+"price_note": "名証の最終気配",
+"nse_close": null,
+"nse_quote": 1180.0,
+"shares": 2500,
+"cost": 2950000.0,
 "tob_price": null,
 "tob_gap_pct": null,
 "quote_only": true

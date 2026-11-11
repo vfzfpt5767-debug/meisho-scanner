@@ -260,5 +260,15 @@
 "label": "増配",
 "price": 687.0,
 "result": null
+},
+{
+"base_day": "2026-11-11",
+"source": "rule_sa",
+"code": "3808",
+"name": "オーケーウェブ",
+"category": "A",
+"label": "特別利益",
+"price": 19.0,
+"result": null
 }
 ]
