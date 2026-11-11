@@ -1,5 +1,5 @@
 {
-"generated_at": "2026-11-11T07:06:10.544961+09:00",
+"generated_at": "2026-11-11T10:18:32.381515+09:00",
 "base_day": "2026-11-10",
 "deadline": "2026-11-11T07:59:00+09:00",
 "price_source": "名証 日報",
@@ -464,6 +464,40 @@
 "nse_quote": 333.0,
 "shares": 9000,
 "cost": 2997000.0,
+"tob_price": null,
+"tob_gap_pct": null,
+"quote_only": true
+},
+{
+"code": "2734",
+"name": "サーラコーポレーション",
+"single": false,
+"division": "プレミア",
+"unit": 100,
+"category": "INFO",
+"score": 5,
+"items": [
+{
+"time": "10:00",
+"date": "11/11",
+"title": "自己株式の取得状況に関するお知らせ（経過報告）",
+"pdf": "https://www.release.tdnet.info/inbs/140120261111572667.pdf",
+"tags": [
+{
+"cat": "INFO",
+"label": "自社株買いの経過",
+"score": 5,
+"reason": "自社株買いの途中経過・結果"
+}
+]
+}
+],
+"price": 1135.0,
+"price_note": "名証の最終気配",
+"nse_close": null,
+"nse_quote": 1135.0,
+"shares": 2600,
+"cost": 2951000.0,
 "tob_price": null,
 "tob_gap_pct": null,
 "quote_only": true

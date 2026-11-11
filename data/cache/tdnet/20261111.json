@@ -1,7 +1,26 @@
 {
 "date": "2026-11-11",
-"fetched_at": "2026-11-11T07:06:11.424385+09:00",
+"fetched_at": "2026-11-11T10:18:33.195531+09:00",
 "complete": false,
-"total_all_markets": 0,
-"items": []
+"total_all_markets": 28,
+"items": [
+{
+"Tdnet": {
+"id": "1292165",
+"pubdate": "2026-11-11 10:00:00",
+"company_code": "27340",
+"company_name": "サーラ",
+"title": "自己株式の取得状況に関するお知らせ（経過報告）",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261111572667.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": null,
+"markets_string": "東名",
+"update_history": null
+}
+}
+]
 }
