@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-12T02:25:14.495505+09:00",
+ "generated_at": "2026-11-12T03:51:54.965503+09:00",
  "base_day": "2026-11-11",
  "deadline": "2026-11-12T07:59:00+09:00",
  "price_source": "名証 日報",
@@ -72,7 +72,7 @@
     "also_checked": [
      "https://www.to-sho.net/"
     ],
-    "checked": "2026-11-11T17:25",
+    "checked": "2026-11-11T18:51",
     "for_title": "剰余金の配当（中間配当）及び期末配当予想の修正（増配）に関するお知らせ"
    }
   },
@@ -143,7 +143,7 @@
     "also_checked": [
      "https://okwave.co.jp/"
     ],
-    "checked": "2026-11-11T17:25",
+    "checked": "2026-11-11T18:51",
     "for_title": "投資有価証券売却益（特別利益）の計上に関するお知らせ"
    }
   },
@@ -226,7 +226,7 @@
    "ir_check": {
     "status": "unreachable",
     "ir_page": "https://www.daidoh-limited.com/",
-    "checked": "2026-11-11T17:25",
+    "checked": "2026-11-11T18:51",
     "for_title": "第２四半期（中間期）連結業績予想と実績値との差異に関するお知らせ"
    }
   }
