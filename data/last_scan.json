@@ -1,8 +1,8 @@
 {
-"generated_at": "2026-11-11T16:11:08.049971+09:00",
+"generated_at": "2026-11-11T17:11:07.164119+09:00",
 "base_day": "2026-11-11",
 "deadline": "2026-11-12T07:59:00+09:00",
-"price_source": "名証 相場表（速報）",
+"price_source": "名証 日報",
 "cards": [
 {
 "code": "8920",
@@ -48,6 +48,232 @@
 "nse_quote": 687.0,
 "shares": 4300,
 "cost": 2954100.0,
+"tob_price": null,
+"tob_gap_pct": null,
+"quote_only": true
+},
+{
+"code": "2207",
+"name": "ｍｅｉｔｏ",
+"single": false,
+"division": "プレミア",
+"unit": 100,
+"category": "INFO",
+"score": 15,
+"items": [
+{
+"time": "16:00",
+"date": "11/11",
+"title": "2027年３月期 第２四半期（中間期）決算短信〔日本基準〕(連結)",
+"pdf": "https://www.release.tdnet.info/inbs/140120261110572395.pdf",
+"tags": [
+{
+"cat": "INFO",
+"label": "決算短信",
+"score": 15,
+"reason": "決算発表（数値はPDFで確認。自動計算はしていません）"
+}
+]
+},
+{
+"time": "16:00",
+"date": "11/11",
+"title": "固定資産の取得（新工場建設）に関するお知らせ",
+"pdf": "https://www.release.tdnet.info/inbs/140120261111572785.pdf",
+"tags": [
+{
+"cat": "INFO",
+"label": "その他",
+"score": 0,
+"reason": ""
+}
+]
+},
+{
+"time": "16:00",
+"date": "11/11",
+"title": "保有株式の縮減方針に関するお知らせ",
+"pdf": "https://www.release.tdnet.info/inbs/140120261111572804.pdf",
+"tags": [
+{
+"cat": "INFO",
+"label": "その他",
+"score": 0,
+"reason": ""
+}
+]
+},
+{
+"time": "16:00",
+"date": "11/11",
+"title": "資本コストや株価を意識した経営の実現に向けた対応について",
+"pdf": "https://www.release.tdnet.info/inbs/140120261111572660.pdf",
+"tags": [
+{
+"cat": "INFO",
+"label": "その他",
+"score": 0,
+"reason": ""
+}
+]
+}
+],
+"price": 3395.0,
+"price_note": "名証の最終気配",
+"nse_close": null,
+"nse_quote": 3395.0,
+"shares": 800,
+"cost": 2716000.0,
+"tob_price": null,
+"tob_gap_pct": null,
+"quote_only": true
+},
+{
+"code": "3670",
+"name": "協立情報通信",
+"single": true,
+"division": "メイン",
+"unit": 100,
+"category": "INFO",
+"score": 15,
+"items": [
+{
+"time": "16:00",
+"date": "11/11",
+"title": "2027年３月期 第２四半期（中間期）決算短信〔日本基準〕(非連結)",
+"pdf": "https://www.release.tdnet.info/inbs/140120261111573722.pdf",
+"tags": [
+{
+"cat": "INFO",
+"label": "決算短信",
+"score": 15,
+"reason": "決算発表（数値はPDFで確認。自動計算はしていません）"
+}
+]
+}
+],
+"price": 1550.0,
+"price_note": "名証の終値",
+"nse_close": 1550.0,
+"nse_quote": null,
+"shares": 1900,
+"cost": 2945000.0,
+"tob_price": null,
+"tob_gap_pct": null,
+"quote_only": false
+},
+{
+"code": "5952",
+"name": "アマテイ",
+"single": false,
+"division": "メイン",
+"unit": 100,
+"category": "INFO",
+"score": 15,
+"items": [
+{
+"time": "16:00",
+"date": "11/11",
+"title": "2027年３月期第２四半期(中間期)決算短信〔日本基準〕(連結)",
+"pdf": "https://www.release.tdnet.info/inbs/140120261110571558.pdf",
+"tags": [
+{
+"cat": "INFO",
+"label": "決算短信",
+"score": 15,
+"reason": "決算発表（数値はPDFで確認。自動計算はしていません）"
+}
+]
+},
+{
+"time": "16:00",
+"date": "11/11",
+"title": "2027年３月期第２四半期(中間期)連結決算補足資料",
+"pdf": "https://www.release.tdnet.info/inbs/140120261110571641.pdf",
+"tags": [
+{
+"cat": "INFO",
+"label": "その他",
+"score": 0,
+"reason": ""
+}
+]
+}
+],
+"price": 161.0,
+"price_note": "名証の最終気配",
+"nse_close": null,
+"nse_quote": 161.0,
+"shares": 18600,
+"cost": 2994600.0,
+"tob_price": null,
+"tob_gap_pct": null,
+"quote_only": true
+},
+{
+"code": "6718",
+"name": "アイホン",
+"single": false,
+"division": "プレミア",
+"unit": 100,
+"category": "INFO",
+"score": 0,
+"items": [
+{
+"time": "16:10",
+"date": "11/11",
+"title": "主要株主の異動及び主要株主である筆頭株主の異動（予定）に関するお知らせ",
+"pdf": "https://www.release.tdnet.info/inbs/140120261111573872.pdf",
+"tags": [
+{
+"cat": "INFO",
+"label": "その他",
+"score": 0,
+"reason": ""
+}
+]
+}
+],
+"price": 2718.0,
+"price_note": "名証の最終気配",
+"nse_close": null,
+"nse_quote": 2718.0,
+"shares": 1100,
+"cost": 2989800.0,
+"tob_price": null,
+"tob_gap_pct": null,
+"quote_only": true
+},
+{
+"code": "7231",
+"name": "トピー工業",
+"single": false,
+"division": "プレミア",
+"unit": 100,
+"category": "INFO",
+"score": 0,
+"items": [
+{
+"time": "16:30",
+"date": "11/11",
+"title": "社員持株会を用いた株式付与施策の実施及び第三者割当による自己株式の処分に関するお知らせ",
+"pdf": "https://www.release.tdnet.info/inbs/140120261109570004.pdf",
+"tags": [
+{
+"cat": "INFO",
+"label": "その他",
+"score": 0,
+"reason": ""
+}
+]
+}
+],
+"price": 3185.0,
+"price_note": "名証の最終気配",
+"nse_close": null,
+"nse_quote": 3185.0,
+"shares": 900,
+"cost": 2866500.0,
 "tob_price": null,
 "tob_gap_pct": null,
 "quote_only": true

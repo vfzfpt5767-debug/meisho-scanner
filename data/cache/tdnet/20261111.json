@@ -1,9 +1,171 @@
 {
 "date": "2026-11-11",
-"fetched_at": "2026-11-11T16:11:09.220133+09:00",
+"fetched_at": "2026-11-11T17:11:08.186844+09:00",
 "complete": false,
-"total_all_markets": 597,
+"total_all_markets": 740,
 "items": [
+{
+"Tdnet": {
+"id": "1292895",
+"pubdate": "2026-11-11 16:30:00",
+"company_code": "72310",
+"company_name": "トピー工",
+"title": "社員持株会を用いた株式付与施策の実施及び第三者割当による自己株式の処分に関するお知らせ",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261109570004.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": null,
+"markets_string": "東名",
+"update_history": null
+}
+},
+{
+"Tdnet": {
+"id": "1292753",
+"pubdate": "2026-11-11 16:10:00",
+"company_code": "67180",
+"company_name": "アイホン",
+"title": "主要株主の異動及び主要株主である筆頭株主の異動（予定）に関するお知らせ",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261111573872.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": null,
+"markets_string": "東名",
+"update_history": null
+}
+},
+{
+"Tdnet": {
+"id": "1292765",
+"pubdate": "2026-11-11 16:00:00",
+"company_code": "22070",
+"company_name": "ｍｅｉｔｏ",
+"title": "2027年３月期 第２四半期（中間期）決算短信〔日本基準〕(連結)",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261110572395.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/081220261110572395.zip",
+"markets_string": "東名",
+"update_history": null
+}
+},
+{
+"Tdnet": {
+"id": "1292766",
+"pubdate": "2026-11-11 16:00:00",
+"company_code": "22070",
+"company_name": "ｍｅｉｔｏ",
+"title": "固定資産の取得（新工場建設）に関するお知らせ",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261111572785.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": null,
+"markets_string": "東名",
+"update_history": null
+}
+},
+{
+"Tdnet": {
+"id": "1292767",
+"pubdate": "2026-11-11 16:00:00",
+"company_code": "22070",
+"company_name": "ｍｅｉｔｏ",
+"title": "保有株式の縮減方針に関するお知らせ",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261111572804.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": null,
+"markets_string": "東名",
+"update_history": null
+}
+},
+{
+"Tdnet": {
+"id": "1292768",
+"pubdate": "2026-11-11 16:00:00",
+"company_code": "22070",
+"company_name": "ｍｅｉｔｏ",
+"title": "資本コストや株価を意識した経営の実現に向けた対応について",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261111572660.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": null,
+"markets_string": "東名",
+"update_history": null
+}
+},
+{
+"Tdnet": {
+"id": "1292779",
+"pubdate": "2026-11-11 16:00:00",
+"company_code": "36700",
+"company_name": "協立情報通信",
+"title": "2027年３月期 第２四半期（中間期）決算短信〔日本基準〕(非連結)",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261111573722.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/081220261111573722.zip",
+"markets_string": "名",
+"update_history": null
+}
+},
+{
+"Tdnet": {
+"id": "1292815",
+"pubdate": "2026-11-11 16:00:00",
+"company_code": "59520",
+"company_name": "アマテイ",
+"title": "2027年３月期第２四半期(中間期)決算短信〔日本基準〕(連結)",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261110571558.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/081220261110571558.zip",
+"markets_string": "東名",
+"update_history": null
+}
+},
+{
+"Tdnet": {
+"id": "1292816",
+"pubdate": "2026-11-11 16:00:00",
+"company_code": "59520",
+"company_name": "アマテイ",
+"title": "2027年３月期第２四半期(中間期)連結決算補足資料",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261110571641.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": null,
+"markets_string": "東名",
+"update_history": null
+}
+},
 {
 "Tdnet": {
 "id": "1292748",
