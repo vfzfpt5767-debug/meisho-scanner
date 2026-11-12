@@ -48,16 +48,19 @@
  "1766": {
   "name": "東建コーポレーション",
   "single": false,
-  "checked": "2026-11-10T10:28",
-  "status": "unreachable",
+  "checked": "2026-11-12T13:02",
+  "status": "ok",
   "home": "https://www.token.co.jp/",
+  "ir_top": "https://www.token.co.jp/ir/investors/",
+  "ir_news": "https://www.token.co.jp/update/",
+  "score": 2,
   "method_v": 2,
   "method": "名証の会社ホームページ→IRページ"
  },
  "1777": {
   "name": "川崎設備工業",
   "single": true,
-  "checked": "2026-11-10T10:28",
+  "checked": "2026-11-12T13:02",
   "status": "unreachable",
   "home": "http://kawasaki-sk.co.jp/",
   "method_v": 2,
@@ -112,7 +115,7 @@
  "1812": {
   "name": "鹿島建設",
   "single": false,
-  "checked": "2026-11-10T10:28",
+  "checked": "2026-11-12T13:02",
   "status": "unreachable",
   "home": "https://www.kajima.co.jp/welcome-j.html",
   "method_v": 2,
@@ -143,7 +146,7 @@
  "1878": {
   "name": "大東建託",
   "single": false,
-  "checked": "2026-11-10T10:28",
+  "checked": "2026-11-12T13:02",
   "status": "unreachable",
   "home": "https://www.kentaku.co.jp/",
   "method_v": 2,
@@ -175,7 +178,7 @@
  "1928": {
   "name": "積水ハウス",
   "single": false,
-  "checked": "2026-11-10T10:28",
+  "checked": "2026-11-12T13:02",
   "status": "unreachable",
   "home": "https://www.sekisuihouse.co.jp/",
   "method_v": 2,
@@ -206,7 +209,7 @@
  "212A": {
   "name": "フィットイージー",
   "single": false,
-  "checked": "2026-11-10T10:28",
+  "checked": "2026-11-12T13:02",
   "status": "unreachable",
   "home": "https://fiteasy.co.jp/",
   "method_v": 2,
@@ -270,7 +273,7 @@
  "2224": {
   "name": "コモ",
   "single": false,
-  "checked": "2026-11-10T10:29",
+  "checked": "2026-11-12T13:02",
   "status": "unreachable",
   "home": "https://www.comoshop.jp/company/",
   "method_v": 2,
@@ -431,7 +434,7 @@
  "2681": {
   "name": "セカンドリテイリング",
   "single": false,
-  "checked": "2026-11-10T10:29",
+  "checked": "2026-11-12T13:02",
   "status": "unreachable",
   "home": "https://2nd-rtl.com/",
   "method_v": 2,
@@ -530,7 +533,7 @@
  "2902": {
   "name": "太陽化学",
   "single": true,
-  "checked": "2026-11-10T10:29",
+  "checked": "2026-11-12T13:02",
   "status": "unreachable",
   "home": "https://www.taiyokagaku.com/",
   "method_v": 2,
@@ -561,7 +564,7 @@
  "3028": {
   "name": "アルペン",
   "single": false,
-  "checked": "2026-11-10T10:29",
+  "checked": "2026-11-12T13:02",
   "status": "unreachable",
   "home": "https://www.alpen-group.jp/",
   "method_v": 2,
@@ -650,7 +653,7 @@
  "3184": {
   "name": "ＩＣＤＡホールディングス",
   "single": false,
-  "checked": "2026-11-10T10:29",
+  "checked": "2026-11-12T13:02",
   "status": "unreachable",
   "home": "https://www.icda.jp/",
   "method_v": 2,
@@ -670,7 +673,7 @@
  "3202": {
   "name": "ダイトウボウ",
   "single": false,
-  "checked": "2026-11-10T10:29",
+  "checked": "2026-11-12T13:02",
   "status": "unreachable",
   "home": "http://www.daitobo.co.jp/",
   "method_v": 2,
@@ -679,7 +682,7 @@
  "3205": {
   "name": "ダイドーリミテッド",
   "single": false,
-  "checked": "2026-11-10T10:29",
+  "checked": "2026-11-12T13:02",
   "status": "unreachable",
   "home": "https://www.daidoh-limited.com/",
   "method_v": 2,
@@ -791,7 +794,7 @@
  "3441": {
   "name": "山王",
   "single": false,
-  "checked": "2026-11-10T10:29",
+  "checked": "2026-11-12T13:02",
   "status": "unreachable",
   "home": "https://www.sanno.co.jp/",
   "method_v": 2,
@@ -1552,7 +1555,7 @@
  "5384": {
   "name": "フジミインコーポレーテッド",
   "single": false,
-  "checked": "2026-11-10T10:30",
+  "checked": "2026-11-12T13:02",
   "status": "unreachable",
   "home": "http://www.fujimiinc.co.jp/index.html",
   "method_v": 2,
@@ -1650,7 +1653,7 @@
  "5530": {
   "name": "日本システムバンク",
   "single": true,
-  "checked": "2026-11-10T10:30",
+  "checked": "2026-11-12T13:02",
   "status": "unreachable",
   "home": "https://www.syb.co.jp/",
   "method_v": 2,
@@ -1796,7 +1799,7 @@
  "6029": {
   "name": "アトラグループ",
   "single": false,
-  "checked": "2026-11-10T10:31",
+  "checked": "2026-11-12T13:02",
   "status": "unreachable",
   "home": "https://www.artra-group.co.jp/",
   "method_v": 2,
@@ -1805,9 +1808,12 @@
  "6036": {
   "name": "ＫｅｅＰｅｒ技研",
   "single": false,
-  "checked": "2026-11-10T10:31",
-  "status": "unreachable",
+  "checked": "2026-11-12T13:02",
+  "status": "ok",
   "home": "http://www.keepercoating.jp/corp/",
+  "ir_top": "https://keepergiken.co.jp/ir/",
+  "ir_news": "https://keepergiken.co.jp/ir/",
+  "score": 0,
   "method_v": 2,
   "method": "名証の会社ホームページ→IRページ"
  },
@@ -1850,7 +1856,7 @@
  "6111": {
   "name": "旭精機工業",
   "single": true,
-  "checked": "2026-11-10T10:31",
+  "checked": "2026-11-12T13:02",
   "status": "unreachable",
   "home": "https://www.asahiseiki-mfg.co.jp/",
   "method_v": 2,
@@ -1893,7 +1899,7 @@
  "6203": {
   "name": "豊和工業",
   "single": false,
-  "checked": "2026-11-10T10:31",
+  "checked": "2026-11-12T13:02",
   "status": "unreachable",
   "home": "http://www.howa.co.jp/",
   "method_v": 2,
@@ -2244,7 +2250,7 @@
  "6702": {
   "name": "富士通",
   "single": false,
-  "checked": "2026-11-10T10:31",
+  "checked": "2026-11-12T13:02",
   "status": "unreachable",
   "home": "https://www.fujitsu.com/jp/",
   "method_v": 2,
@@ -2297,7 +2303,7 @@
  "6902": {
   "name": "デンソー",
   "single": false,
-  "checked": "2026-11-10T10:31",
+  "checked": "2026-11-12T13:02",
   "status": "unreachable",
   "home": "https://www.denso.com/jp/ja/",
   "method_v": 2,
@@ -2614,7 +2620,7 @@
  "7389": {
   "name": "あいちフィナンシャルグループ",
   "single": false,
-  "checked": "2026-11-10T10:32",
+  "checked": "2026-11-12T13:02",
   "status": "ok",
   "home": "https://www.aichi-fg.co.jp/",
   "ir_news": "https://www.aichi-fg.co.jp/release/",
@@ -2645,7 +2651,7 @@
  "7488": {
   "name": "ヤガミ",
   "single": true,
-  "checked": "2026-11-10T10:32",
+  "checked": "2026-11-12T13:02",
   "status": "unreachable",
   "home": "https://www.yagami-inc.co.jp/index.html",
   "method_v": 2,
@@ -2654,7 +2660,7 @@
  "7514": {
   "name": "ヒマラヤ",
   "single": false,
-  "checked": "2026-11-10T10:32",
+  "checked": "2026-11-12T13:02",
   "status": "unreachable",
   "home": "https://www.himaraya.co.jp/front/",
   "method_v": 2,
@@ -2698,7 +2704,7 @@
  "7649": {
   "name": "スギホールディングス",
   "single": false,
-  "checked": "2026-11-10T10:32",
+  "checked": "2026-11-12T13:02",
   "status": "unreachable",
   "home": "https://www.sugi-hd.co.jp/",
   "method_v": 2,
@@ -2910,7 +2916,7 @@
  "7953": {
   "name": "菊水化学工業",
   "single": false,
-  "checked": "2026-11-10T10:32",
+  "checked": "2026-11-12T13:02",
   "status": "unreachable",
   "home": "https://www.kikusui-chem.co.jp/",
   "method_v": 2,
@@ -3022,7 +3028,7 @@
  "8190": {
   "name": "ヤマナカ",
   "single": true,
-  "checked": "2026-11-10T10:32",
+  "checked": "2026-11-12T13:02",
   "status": "unreachable",
   "home": "http://www.super-yamanaka.co.jp/",
   "method_v": 2,
@@ -3055,7 +3061,7 @@
  "8285": {
   "name": "三谷産業",
   "single": false,
-  "checked": "2026-11-10T10:32",
+  "checked": "2026-11-12T13:02",
   "status": "unreachable",
   "home": "https://www.mitani.co.jp/",
   "method_v": 2,
@@ -3174,7 +3180,7 @@
  "8725": {
   "name": "ＭＳ＆ＡＤインシュアランスグループホールディングス",
   "single": false,
-  "checked": "2026-11-10T10:32",
+  "checked": "2026-11-12T13:02",
   "status": "unreachable",
   "home": "https://www.ms-ad-hd.com/ja/index.html",
   "method_v": 2,
@@ -3549,7 +3555,7 @@
  "9914": {
   "name": "植松商会",
   "single": true,
-  "checked": "2026-11-10T10:33",
+  "checked": "2026-11-12T13:02",
   "status": "unreachable",
   "home": "https://uematsushokai.jp/",
   "method_v": 2,
