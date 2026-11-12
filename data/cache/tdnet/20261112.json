@@ -1,16 +1,17 @@
 {
 "date": "2026-11-12",
-"fetched_at": "2026-11-12T11:19:20.044687+09:00",
+"fetched_at": "2026-11-12T11:50:47.293339+09:00",
 "complete": false,
-"total_all_markets": 25,
+"total_all_markets": 59,
 "items": [
 {
+"Tdnet": {
 "id": "1292935",
 "pubdate": "2026-11-12 09:00:00",
 "company_code": "23710",
 "company_name": "カカクコム",
 "title": "（変更）「Kamgras １株式会社による当社株券等に対する公開買付けに関する賛同の意見表明及び応募推奨のお知らせ」の一部変更に関するお知らせ",
-"document_url": "https://www.release.tdnet.info/inbs/140120261112574377.pdf",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261112574377.pdf",
 "url_report_type_summary": null,
 "url_report_type_fs_consolidated": null,
 "url_report_type_fs_non_consolidated": null,
@@ -19,6 +20,7 @@
 "url_xbrl": null,
 "markets_string": "東",
 "update_history": null
+}
 }
 ]
 }
