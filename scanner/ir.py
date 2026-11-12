@@ -29,6 +29,7 @@ PAGES = DATA_DIR / "ir_pages.json"
 SOURCES = ROOT / "data" / "ir_sources.csv"
 CACHE = CACHE_DIR / "ir"
 MAX_LOOKUPS = 8
+MAX_EARNINGS_LOOKUPS = 10  # 決算短信だけの銘柄（勝負モード）。短信の1ページ目で増益・計画超過を見る
 RETRY_MIN = 40  # 見つからなかったとき、次に見に行くまでの分
 UA_NAME = "meisho-scanner"
 METHOD_V = 2  # 一覧の探し方の版（2：トップページ・ニュースのページも見比べる。meta refresh をたどる）
@@ -486,20 +487,22 @@ def _lookup_on(page: str, title: str, date_hint: str) -> dict:
 
 
 def attach_ir_checks(data: dict) -> None:
-    """入力の候補（名証上場・S/A/要確認）に ir_check を付ける。結果は日ごとにキャッシュして、何度も見に行かない。"""
+    """入力の候補（名証上場・S/A/要確認）と、決算短信だけの銘柄（earnings_only）に ir_check を付ける。
+    結果は日ごとにキャッシュして、何度も見に行かない。"""
     if not PAGES.exists():
         return
     stuck = {h["code"] for h in data.get("stop_limits", []) if h.get("kind") == "stop_high"}
     cands = sorted(data.get("candidates", []), key=lambda c: (c.get("category") != "S", c.get("code") not in stuck,
                                                               not c.get("single"), -(c.get("score") or 0)))
+    targets = cands[:MAX_LOOKUPS] + list(data.get("earnings_only", []))[:MAX_EARNINGS_LOOKUPS]
     CACHE.mkdir(parents=True, exist_ok=True)
     path = CACHE / f"{data.get('base_day', 'x')}.json"
     cache = json.loads(path.read_text(encoding="utf-8")) if path.exists() else {}
     now = datetime.now()
-    for c in cands[:MAX_LOOKUPS]:
+    for c in targets:
         items = c.get("items", [])
         it = next((i for i in items if any(lb.get("cat") in ("S", "A", "CHECK") for lb in i.get("labels", []))),
-                  items[0] if items else None)
+                  None) or next((i for i in items if "決算短信" in i.get("title", "")), items[0] if items else None)
         if not it:
             continue
         key = f"{c['code']}|{it['title']}"

@@ -12,7 +12,8 @@ import os
 from datetime import datetime, time
 
 from . import classify as C
-from .config import AI_NIGHT_RUN, BUDGET_PER_TERM, DATA_DIR, FIRE_AFTER_MAIN_RUN, LATE_FIRE_KINDS, RECORD_UNTIL
+from .config import (AI_NIGHT_RUN, BUDGET_PER_TERM, DATA_DIR, EARNINGS_ONLY_MAX, FIRE_AFTER_MAIN_RUN, LATE_FIRE_KINDS,
+                     RECORD_UNTIL, STRATEGY_MODE, TOP10_LINE_DATE, TOP10_LINE_FINAL_EST, TOP10_LINE_NOW)
 from .render_backtest import label_stats
 
 INPUT = DATA_DIR / "analyst_input.json"
@@ -31,6 +32,35 @@ RULES = {
     "price": "約定価格は名証の直近の終値（最終気配を含む）。price がその値",
     "search": "Web検索は1銘柄2〜3回まで。調査は短く",
 }
+# 勝負モード（2026-11-12 ユーザー指定：トップ10に入りたい）では、選び方と確認のルールを入れ替える
+if STRATEGY_MODE == "top10":
+    RULES |= {
+        "prefer": "上がった割合より「大きく上がる可能性」を優先する：ストップ高張り付き＞TOB＞決算サプライズ・上方修正の小〜中型株＞そのほかの好材料",
+        "unverified": "中身を確かめられなくても、タイトルと検証が強い好材料なら自信度「中」で買ってよい。悪材料が混ざる・PTSで売られているものは買わない",
+        "every_night": "毎晩300万円の枠いっぱいに必ず買う（現金のまま寝ない）。見送りは、どの候補にも悪材料が見つかったときだけ",
+    }
+
+
+def strategy_info(pf=None, nights_left: int | None = None) -> dict:
+    """AIに渡す「今の戦略」と、10位ラインまでの距離。"""
+    out = {"mode": STRATEGY_MODE,
+           "goal": ("トップ10（入賞）。平均を少し増やすより、大きく上がる可能性に賭ける" if STRATEGY_MODE == "top10"
+                    else "着実に増やす（勝率の高い材料だけ）"),
+           "top10_line_now": TOP10_LINE_NOW, "top10_line_date": TOP10_LINE_DATE,
+           "top10_line_final_est": TOP10_LINE_FINAL_EST}
+    profit = getattr(pf, "profit", None) if pf is not None else None
+    if profit is not None:
+        out["gap_to_now_line"] = round(TOP10_LINE_NOW - profit)
+        out["gap_to_final_est"] = round(TOP10_LINE_FINAL_EST - profit)
+        if nights_left:
+            need = max(0.0, (TOP10_LINE_FINAL_EST - profit) / nights_left / BUDGET_PER_TERM * 100)
+            out["nights_left"] = nights_left
+            out["need_per_night_pct"] = round(need, 1)  # 300万円で毎晩これだけ上がれば見込みの10位ラインに届く
+    return out
+
+
+def _is_earnings(c) -> bool:
+    return any("決算短信" in it.title for it in c.items)
 
 
 def _bt(label: str) -> dict | None:
@@ -61,6 +91,10 @@ def build(res, pf=None, morning=None, new_listings=None, earnings_today=None, si
         "price_source": res.price_source, "rules": RULES,
         "candidates": [_card(c) for c in cards],
         "other_after_close_count": sum(1 for c in res.cards if c.category not in (C.S, C.A, C.CHECK)),
+        # 決算短信だけの銘柄（タイトルでは良し悪しが分からない）。勝負モードでは、短信の中身（ir_check の excerpt）で
+        # 大幅増益・計画超過・上方修正があれば候補にする（2026-11-12 ユーザー指定：トップ10狙い）
+        "earnings_only": ([_card(c) for c in res.cards if c.category == C.INFO and _is_earnings(c)][:EARNINGS_ONLY_MAX]
+                          if STRATEGY_MODE == "top10" else []),
         "stop_limits": [{"code": h.code, "name": h.name, "kind": h.kind, "stuck": h.stuck, "label": h.label,
                          "price": h.price, "base": h.base, "change_pct": round(h.change_pct, 2),
                          "single": (ctx.universe[h.code].single if h.code in ctx.universe else None),
@@ -91,6 +125,7 @@ def build(res, pf=None, morning=None, new_listings=None, earnings_today=None, si
         out["earnings_today"] = earnings_today
     if simulator:
         out["simulator"] = simulator
+    out["strategy"] = strategy_info(pf, (simulator or {}).get("nights_left"))
     try:
         from .human_check import answers_for
 

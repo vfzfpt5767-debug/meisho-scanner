@@ -6,6 +6,7 @@ from html import escape
 from .units import fmt as ufmt
 from .calendar_jp import fmt_date
 from .config import GITHUB_BRANCH, GITHUB_REPOSITORY
+from .config import TOP10_LINE_DATE, TOP10_LINE_NOW
 from .portfolio import START_CAPITAL, TENTH_LINE_PROFIT, Portfolio
 
 EDIT = f"https://github.com/{GITHUB_REPOSITORY}/edit/{GITHUB_BRANCH}/"
@@ -48,7 +49,9 @@ def section(pf: Portfolio) -> str:
         ("保有株の評価額", _yen(pf.market_value)),
         ("合計資産", _yen(total)),
         ("損益（元手300万円から）", f"{_man(profit, True)}（{(profit / START_CAPITAL * 100):+.1f}%）" if profit is not None else "—"),
-        ("昨年10位ライン（+429万円）との差", _man(gap10, True) if gap10 is not None else "—"),
+        (f"10位ラインの見込み（+{TENTH_LINE_PROFIT / 10000:,.0f}万円）との差", _man(gap10, True) if gap10 is not None else "—"),
+        (f"今の10位（{TOP10_LINE_DATE[5:].replace('-', '/')}の途中経過 +{TOP10_LINE_NOW / 10000:,.0f}万円）との差",
+         _man(profit - TOP10_LINE_NOW, True) if profit is not None else "—"),
         ("今タームの残り購入枠", term),
         ("名証単独銘柄", single),
     ]

@@ -13,12 +13,13 @@ from . import classify as C
 from .calendar_jp import base_day, is_business_day, prev_business_day
 from .config import (BUDGET_PER_TERM, DATA_DIR, ROOT, TOB_SELL_GAP_PCT)
 from .conclusion import Line, best_buy
+from .config import TOP10_LINE_FINAL_EST
 
 HOLDINGS_CSV = ROOT / "holdings.csv"
 CASH_CSV = ROOT / "cash.csv"
 STATE = DATA_DIR / "portfolio_state.json"
 START_CAPITAL = 3_000_000
-TENTH_LINE_PROFIT = 4_290_000  # 昨年10位の利益（+429万円）
+TENTH_LINE_PROFIT = TOP10_LINE_FINAL_EST  # 最終日の10位ラインの見込み（増加額。config で更新）
 
 
 @dataclass

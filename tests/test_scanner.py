@@ -1104,3 +1104,58 @@ def test_order_message_long_falls_back(monkeypatch):
     assert m["type"] == "text" and len(m["quickReply"]["items"]) == 3 and m["text"].count("買い") == 6
     m = L.order_message({"id": "x", "deadline": "2026-11-11T07:59:00+09:00", "orders": orders[:1]})
     assert m["type"] == "template" and m["template"]["text"].startswith("【今夜の注文】締切 11/11(水) 07:59")
+
+
+def test_top10_mode_input(tmp_path, monkeypatch):
+    """勝負モード（2026-11-12 ユーザー指定：トップ10狙い）：決算短信だけの銘柄もAIに渡し、10位ラインまでの距離を入れる。"""
+    from types import SimpleNamespace
+
+    from scanner import ai_input as AI
+    from scanner import ir
+
+    monkeypatch.setattr(AI, "INPUT", tmp_path / "analyst_input.json")
+    monkeypatch.setattr(ir, "PAGES", tmp_path / "none.json")  # IRページの確認はしない
+    a_tag = vars(C.Tag(C.A, "上方修正", 68, ""))
+    info = vars(C.Tag(C.INFO, "決算短信", 15, ""))
+    other = vars(C.Tag(C.INFO, "その他", 0, ""))
+
+    def card(code, cat, items):
+        return Card(code=code, name=code, single=False, division="", unit=100, category=cat, score=40,
+                    items=items, price=1000, shares=3000)
+
+    cards = [card("7203", C.A, [Item("16:00", "11/12", "通期業績予想の修正（上方修正）", "", [a_tag])]),
+             card("2986", C.INFO, [Item("16:00", "11/12", "第３四半期決算説明資料", "", [other]),
+                                   Item("16:00", "11/12", "2026年12月期 第３四半期決算短信〔日本基準〕（連結）", "", [info])]),
+             card("2479", C.INFO, [Item("16:00", "11/12", "譲渡制限付株式報酬としての自己株式処分", "", [other])])]
+    res = ScanResult(generated_at="2026-11-12T21:00:00+09:00", base_day="2026-11-12", deadline="", price_source="",
+                     cards=cards, before_close=[], tob_rows=[])
+    res.ctx = SimpleNamespace(limits={}, universe={})
+    pf = SimpleNamespace(cash=702250, total=3574400, profit=574400, term_left=127850, term_open=True,
+                         single_bought=True, holdings=[])
+    out = AI.build(res, pf, simulator={"nights_left": 11})
+    if AI.STRATEGY_MODE == "top10":
+        assert [c["code"] for c in out["earnings_only"]] == ["2986"]  # 決算短信のない INFO は渡さない
+        assert "every_night" in out["rules"]
+    st = out["strategy"]
+    assert st["gap_to_now_line"] == AI.TOP10_LINE_NOW - 574400
+    assert st["nights_left"] == 11 and st["need_per_night_pct"] > 5
+
+
+def test_ir_check_picks_tanshin_for_earnings_only(tmp_path, monkeypatch):
+    """決算短信だけの銘柄は、説明資料ではなく決算短信のタイトルで会社のIRページを探す。"""
+    from scanner import ir
+
+    pages = tmp_path / "ir_pages.json"
+    pages.write_text("{}", encoding="utf-8")
+    monkeypatch.setattr(ir, "PAGES", pages)
+    monkeypatch.setattr(ir, "CACHE", tmp_path / "ir")
+    titles = []
+    monkeypatch.setattr(ir, "lookup", lambda code, t, hint="": titles.append(t) or {"status": "not_found"})
+    data = {"base_day": "2026-11-12", "candidates": [], "earnings_only": [
+        {"code": "2986", "category": "INFO", "items": [
+            {"time": "11/12 16:00", "title": "第３四半期決算説明資料", "labels": []},
+            {"time": "11/12 16:00", "title": "2026年12月期 第３四半期決算短信〔日本基準〕（連結）",
+             "labels": [{"cat": "INFO", "label": "決算短信"}]}]}]}
+    ir.attach_ir_checks(data)
+    assert titles == ["2026年12月期 第３四半期決算短信〔日本基準〕（連結）"]
+    assert data["earnings_only"][0]["ir_check"]["status"] == "not_found"

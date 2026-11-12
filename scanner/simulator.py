@@ -1,7 +1,8 @@
 """入賞確率シミュレーター。
 
 過去の「名証上場銘柄の夜ごとの候補と翌日の騰落」（reports/sim_nights.json）から夜をランダムに選び、
-残りの売買回数ぶん繰り返して、10位ライン（元手300万円＋429万円＝729万円）を超える確率を戦略ごとに比べる。
+残りの売買回数ぶん繰り返して、10位ライン（元手300万円＋最終日の10位の見込み。config.TOP10_LINE_FINAL_EST）を超える確率を戦略ごとに比べる。
+今の10位（公式サイトの途中経過。config.TOP10_LINE_NOW）を超える確率も出す。
 毎晩、その夜の終値で買って翌営業日の終値で売る前提。1タームに買えるのは300万円まで（資産が300万円未満ならその額まで）。
 """
 from __future__ import annotations
@@ -12,10 +13,11 @@ from dataclasses import dataclass
 from datetime import date, datetime, time
 
 from .calendar_jp import is_business_day, next_business_day
-from .config import BUDGET_PER_TERM, CONTEST_END, ROOT
+from .config import BUDGET_PER_TERM, CONTEST_END, ROOT, STRATEGY_MODE, TOP10_LINE_DATE, TOP10_LINE_FINAL_EST, TOP10_LINE_NOW
 
 NIGHTS = ROOT / "reports" / "sim_nights.json"
-TARGET = 3_000_000 + 4_290_000
+TARGET = 3_000_000 + TOP10_LINE_FINAL_EST
+TARGET_NOW = 3_000_000 + TOP10_LINE_NOW
 RUNS = 20_000
 GOOD = ("S", "A", "STUCK")
 STRATEGIES = {
@@ -34,6 +36,7 @@ class SimResult:
     medians: dict[str, float]
     best: str
     advice: str
+    probs_now: dict[str, float] | None = None  # 今の10位（途中経過）を超える確率
 
 
 def nights_left(now: datetime, base: date) -> int:
@@ -63,10 +66,10 @@ def _night_return(strategy: str, cands: list[dict]) -> float:
 def simulate(start_assets: float, n_nights: int, runs: int = RUNS, seed: int = 7) -> SimResult:
     nights = json.loads(NIGHTS.read_text(encoding="utf-8"))
     rng = random.Random(seed)
-    probs, medians = {}, {}
+    probs, medians, probs_now = {}, {}, {}
     for st in STRATEGIES:
         finals = []
-        hit = 0
+        hit = hit_now = 0
         for _ in range(runs):
             a = start_assets
             for _ in range(n_nights):
@@ -74,18 +77,25 @@ def simulate(start_assets: float, n_nights: int, runs: int = RUNS, seed: int = 7
                 a += min(BUDGET_PER_TERM, a) * r
             finals.append(a)
             hit += a >= TARGET
+            hit_now += a >= TARGET_NOW
         finals.sort()
         probs[st] = hit / runs * 100
+        probs_now[st] = hit_now / runs * 100
         medians[st] = finals[len(finals) // 2]
     best = max(probs, key=lambda k: (probs[k], medians[k]))
     if start_assets >= TARGET:
         advice = "すでに10位ラインを超えています。守り（好材料がない夜は休む）で十分"
         best = "selective"
+    elif STRATEGY_MODE == "top10":
+        # 勝負モード（2026-11-12 ユーザー指定）：休む夜を作らない。確率が低くても、一番高くなるやり方を続ける
+        best = "aggressive"
+        advice = (f"勝負モード：毎晩、大きく上がる可能性が一番高い候補に300万円の枠いっぱい（休む夜を作らない）。"
+                  f"10位ラインの見込みに届く確率 {probs[best]:.1f}%・今の10位を超える確率 {probs_now[best]:.1f}%")
     elif probs[best] < 0.5:
         advice = f"どの戦略でも10位ラインに届く確率は低い（最大{probs[best]:.1f}%）。一番ましなのは「{STRATEGIES[best]}」"
     else:
         advice = f"今夜は「{STRATEGIES[best]}」（10位ラインを超える確率 {probs[best]:.1f}%）"
-    return SimResult(n_nights, start_assets, probs, medians, best, advice)
+    return SimResult(n_nights, start_assets, probs, medians, best, advice, probs_now)
 
 
 def run_for(res, pf) -> SimResult | None:
@@ -104,14 +114,17 @@ def section(r: SimResult) -> str:
 
     rows = "".join(
         f'<div class="reason"><b>{r.probs[k]:.1f}%</b>{"（★おすすめ）" if k == r.best else ""}：{escape(v)}'
-        f'<span class="sub">（最終資産の中央値 {r.medians[k] / 10000:,.0f}万円）</span></div>' for k, v in STRATEGIES.items())
+        f'<span class="sub">（今の10位 {TARGET_NOW / 10000:,.0f}万円を超える確率 {(r.probs_now or {}).get(k, 0):.1f}%・'
+        f'最終資産の中央値 {r.medians[k] / 10000:,.0f}万円）</span></div>' for k, v in STRATEGIES.items())
     return (f'<h2 id="sim">入賞確率シミュレーター</h2><div class="meta"><div class="big"><b>{escape(r.advice)}</b></div>'
-            f'<div class="sub">今の資産 {r.start_assets / 10000:,.0f}万円・残り{r.nights_left}回の売買で、10位ライン（729万円）を'
+            f'<div class="sub">今の資産 {r.start_assets / 10000:,.0f}万円・残り{r.nights_left}回の売買で、10位ラインの見込み（{TARGET / 10000:,.0f}万円）を'
             f'超える確率（{RUNS:,}回のシミュレーション）。過去の名証上場銘柄の候補と翌日の騰落から計算。'
             f'1タームの買いは300万円までなので、1晩の利益は最大でも「300万円×その日の騰落」</div>{rows}</div>')
 
 
 def summary(r: SimResult) -> dict:
     return {"nights_left": r.nights_left, "start_assets": r.start_assets, "target": TARGET, "best": r.best,
-            "best_label": STRATEGIES[r.best], "advice": r.advice,
-            "probs": {STRATEGIES[k]: round(v, 2) for k, v in r.probs.items()}}
+            "best_label": STRATEGIES[r.best], "advice": r.advice, "mode": STRATEGY_MODE,
+            "target_now": TARGET_NOW, "target_now_date": TOP10_LINE_DATE,
+            "probs": {STRATEGIES[k]: round(v, 2) for k, v in r.probs.items()},
+            "probs_now": {STRATEGIES[k]: round(v, 2) for k, v in (r.probs_now or {}).items()}}

@@ -228,6 +228,7 @@ def quick_portfolio(now=None):
 
 def status_text(pf=None, now=None) -> str:
     from .calendar_jp import fmt_date
+    from .config import TOP10_LINE_DATE, TOP10_LINE_NOW
     from .portfolio import TENTH_LINE_PROFIT
 
     now = now or _now()
@@ -243,7 +244,9 @@ def status_text(pf=None, now=None) -> str:
     lines.append(f"保有株の評価額：{pf.market_value:,.0f}円")
     if pf.total is not None:
         gap = pf.profit - TENTH_LINE_PROFIT
-        lines.append(f"合計資産：{pf.total:,.0f}円（損益 {pf.profit:+,.0f}円。10位ラインまで {'あと' + format(-gap, ',.0f') + '円' if gap < 0 else '到達'}）")
+        lines.append(f"合計資産：{pf.total:,.0f}円（損益 {pf.profit:+,.0f}円。10位ラインの見込みまで {'あと' + format(-gap, ',.0f') + '円' if gap < 0 else '到達'}）")
+        now_gap = pf.profit - TOP10_LINE_NOW
+        lines.append(f"今の10位（{TOP10_LINE_DATE[5:].replace('-', '/')}の途中経過）まで {'あと' + format(-now_gap, ',.0f') + '円' if now_gap < 0 else '到達'}")
     if pf.term_open:
         lines.append(f"今タームの残り購入枠：{pf.term_left:,.0f}円（{fmt_date(pf.term_base)}夜〜のターム）")
     else:
