@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-12T20:56:09.313847+09:00",
+ "generated_at": "2026-11-12T21:20:46.498015+09:00",
  "base_day": "2026-11-12",
  "deadline": "2026-11-13T07:59:00+09:00",
  "price_source": "名証 日報",
@@ -582,13 +582,33 @@
  "tob_tracker": [],
  "errors": [],
  "portfolio": {
-  "cash": 3574400.0,
+  "cash": 702250.0,
   "total": 3574400.0,
   "profit": 574400.0,
-  "term_left": 3000000,
+  "term_left": 127850.0,
   "term_open": true,
   "single_bought": true,
-  "holdings": []
+  "holdings": [
+   {
+    "code": "8309",
+    "name": "三井住友トラストグループ",
+    "shares": 1700,
+    "buy_price": 1689.5,
+    "buy_date": "2026-11-12",
+    "price": 1689.5,
+    "pnl_pct": 0.0,
+    "single": false,
+    "quote_only": true,
+    "unit": 100,
+    "warnings": [],
+    "notices": [],
+    "cautions": [
+     "要確認の開示：配当予想の修正"
+    ],
+    "sell_rule": "11/13(金)の終値で売る予定（買ってから1営業日後）。検証：上方修正でストップ高にならなかった銘柄は1営業日後の終値で売るのが一番よい（平均+2.7%・中央値+1.8%・n=245）",
+    "material": "上方修正"
+   }
+  ]
  },
  "new_listings": [
   {
