@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-13T04:13:36.950813+09:00",
+ "generated_at": "2026-11-13T06:04:31.811593+09:00",
  "base_day": "2026-11-12",
  "deadline": "2026-11-13T07:59:00+09:00",
  "price_source": "名証 日報",
@@ -266,7 +266,7 @@
       "date": "2025-12-15"
      }
     ],
-    "checked": "2026-11-12T19:06",
+    "checked": "2026-11-12T21:04",
     "for_title": "第２四半期（中間期）連結業績予想と実績との差異及び通期連結業績予想の修正に関するお知らせ"
    }
   },
@@ -361,7 +361,7 @@
     "also_checked": [
      "https://www.gaiax.co.jp/"
     ],
-    "checked": "2026-11-12T19:06",
+    "checked": "2026-11-12T21:04",
     "for_title": "2026年12月期通期連結業績予想の修正に関するお知らせ"
    }
   },
@@ -406,7 +406,7 @@
     "also_checked": [
      "http://www.taihei-ss.co.jp/"
     ],
-    "checked": "2026-11-12T19:06",
+    "checked": "2026-11-12T21:04",
     "for_title": "業績予想の修正に関するお知らせ"
    }
   },
@@ -573,7 +573,7 @@
     "also_checked": [
      "http://www.kikukawa.co.jp/"
     ],
-    "checked": "2026-11-12T19:06",
+    "checked": "2026-11-12T21:04",
     "for_title": "2027年3月期第2四半期（中間期）業績予想数値と実績値との差異に関するお知らせ"
    }
   }
@@ -653,7 +653,7 @@
     "also_checked": [
      "https://lahd.co.jp/"
     ],
-    "checked": "2026-11-12T19:06",
+    "checked": "2026-11-12T21:04",
     "for_title": "2026年12月期 第３四半期決算短信〔日本基準〕（連結）"
    }
   },
@@ -698,7 +698,7 @@
     "also_checked": [
      "https://www.mullion.co.jp/"
     ],
-    "checked": "2026-11-12T19:06",
+    "checked": "2026-11-12T21:04",
     "for_title": "2026年９月期 決算短信〔日本基準〕（非連結）"
    }
   },
@@ -769,7 +769,7 @@
     "also_checked": [
      "https://tyk.co.jp/"
     ],
-    "checked": "2026-11-12T19:06",
+    "checked": "2026-11-12T21:04",
     "for_title": "2027年3月期　第2四半期（中間期）決算短信［日本基準］（連結）"
    }
   },
@@ -817,7 +817,7 @@
     "status": "not_found",
     "ir_page": "https://www.hoshizaki.co.jp/",
     "recent": [],
-    "checked": "2026-11-12T19:06",
+    "checked": "2026-11-12T21:04",
     "for_title": "2026年12月期第３四半期決算短信〔日本基準〕（連結）"
    }
   },
@@ -916,7 +916,7 @@
     "also_checked": [
      "https://www.j-materials.jp/"
     ],
-    "checked": "2026-11-12T19:06",
+    "checked": "2026-11-12T21:04",
     "for_title": "2027年３月期 第２四半期（中間期）決算短信〔日本基準〕（連結）"
    }
   },
@@ -1047,7 +1047,7 @@
     "also_checked": [
      "https://www.fuluhashi.co.jp/"
     ],
-    "checked": "2026-11-12T19:06",
+    "checked": "2026-11-12T21:04",
     "for_title": "2027年３月期第２四半期（中間期）決算短信〔日本基準〕(連結)"
    }
   },
@@ -1119,7 +1119,7 @@
     "also_checked": [
      "https://www.p-ban.com/corporate/"
     ],
-    "checked": "2026-11-12T19:06",
+    "checked": "2026-11-12T21:04",
     "for_title": "2027年3月期 第2四半期（中間期）決算短信〔日本基準〕（非連結）"
    }
   },
@@ -1194,7 +1194,7 @@
     "also_checked": [
      "https://www.copro-h.co.jp/"
     ],
-    "checked": "2026-11-12T19:06",
+    "checked": "2026-11-12T21:04",
     "for_title": "2027年３月期第２四半期（中間期）決算短信〔日本基準〕(連結)"
    }
   }
@@ -1228,6 +1228,144 @@
     ],
     "sell_rule": "11/13(金)の終値で売る予定（買ってから1営業日後）。検証：上方修正でストップ高にならなかった銘柄は1営業日後の終値で売るのが一番よい（平均+2.7%・中央値+1.8%・n=245）",
     "material": "上方修正"
+   }
+  ]
+ },
+ "morning": {
+  "direction": "日経平均先物は前日の日経平均より+0.6% → 上昇して始まりそう",
+  "futures_gap_pct": 0.6011901473478076,
+  "indices": [
+   {
+    "symbol": "^GSPC",
+    "label": "S&P500",
+    "last": 7592.39990234375,
+    "change_pct": -0.3540968016256807,
+    "date": "2026-11-12"
+   },
+   {
+    "symbol": "^IXIC",
+    "label": "ナスダック",
+    "last": 25366.09375,
+    "change_pct": -0.3930533200078634,
+    "date": "2026-11-12"
+   },
+   {
+    "symbol": "^SOX",
+    "label": "SOX指数（半導体）",
+    "last": 10506.673828125,
+    "change_pct": -0.5436948453402368,
+    "date": "2026-11-12"
+   },
+   {
+    "symbol": "JPY=X",
+    "label": "ドル円",
+    "last": 159.8820037841797,
+    "change_pct": 0.7416287700736435,
+    "date": "2026-11-12"
+   },
+   {
+    "symbol": "NIY=F",
+    "label": "日経平均先物（CME・円建て）",
+    "last": 61185.0,
+    "change_pct": -1.1311303223721425,
+    "date": "2026-11-12"
+   },
+   {
+    "symbol": "^N225",
+    "label": "日経平均",
+    "last": 61248.58984375,
+    "change_pct": 1.305023526824356,
+    "date": "2026-11-11"
+   }
+  ],
+  "adr_top": [
+   {
+    "adr": "NGKSY",
+    "code": "5334",
+    "name": "日本特殊陶業",
+    "jp_price": 3894.0,
+    "implied": 4049.69745713258,
+    "gap_pct": 3.998393865757066,
+    "adr_change_pct": 3.48693270182594,
+    "traded": true,
+    "single": false
+   },
+   {
+    "adr": "FELTY",
+    "code": "6504",
+    "name": "富士電機",
+    "jp_price": 11620.0,
+    "implied": 11659.962138453873,
+    "gap_pct": 0.3439082483121636,
+    "adr_change_pct": -2.3019287909574526,
+    "traded": true,
+    "single": false
+   },
+   {
+    "adr": "TOTDY",
+    "code": "5332",
+    "name": "ＴＯＴＯ",
+    "jp_price": 5704.0,
+    "implied": 5717.002844538171,
+    "gap_pct": 0.22796010761170216,
+    "adr_change_pct": -1.2448153359476577,
+    "traded": true,
+    "single": false
+   },
+   {
+    "adr": "CAJPY",
+    "code": "7751",
+    "name": "キヤノン",
+    "jp_price": 4791.0,
+    "implied": 4793.1625088419305,
+    "gap_pct": 0.0451368992262724,
+    "adr_change_pct": 1.6260146842582035,
+    "traded": true,
+    "single": false
+   },
+   {
+    "adr": "MKTAY",
+    "code": "6586",
+    "name": "マキタ",
+    "jp_price": 5593.0,
+    "implied": 5595.0022607151905,
+    "gap_pct": 0.03579940488449562,
+    "adr_change_pct": -0.846976997654314,
+    "traded": true,
+    "single": false
+   },
+   {
+    "adr": "SHECY",
+    "code": "4063",
+    "name": "信越化学工業",
+    "jp_price": 5791.0,
+    "implied": 5789.525808101208,
+    "gap_pct": -0.025456603329165883,
+    "adr_change_pct": 0.6114542065095652,
+    "traded": true,
+    "single": false
+   },
+   {
+    "adr": "MHVYF",
+    "code": "7011",
+    "name": "三菱重工業",
+    "jp_price": 3155.0,
+    "implied": 3150.369063501664,
+    "gap_pct": -0.1467808715795771,
+    "adr_change_pct": 1.025644938151049,
+    "traded": true,
+    "single": false
+   },
+   {
+    "adr": "FJTSY",
+    "code": "6702",
+    "name": "富士通",
+    "jp_price": 3550.0,
+    "implied": 3542.469971474504,
+    "gap_pct": -0.2121134795914359,
+    "adr_change_pct": 1.0041045864291887,
+    "traded": true,
+    "single": false
    }
   ]
  },
