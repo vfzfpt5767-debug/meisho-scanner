@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-12T07:06:12.889739+09:00",
+ "generated_at": "2026-11-12T11:19:19.098284+09:00",
  "base_day": "2026-11-11",
  "deadline": "2026-11-12T07:59:00+09:00",
  "price_source": "名証 日報",
@@ -72,7 +72,7 @@
     "also_checked": [
      "https://www.to-sho.net/"
     ],
-    "checked": "2026-11-11T22:06",
+    "checked": "2026-11-12T02:19",
     "for_title": "剰余金の配当（中間配当）及び期末配当予想の修正（増配）に関するお知らせ"
    }
   },
@@ -143,7 +143,7 @@
     "also_checked": [
      "https://okwave.co.jp/"
     ],
-    "checked": "2026-11-11T22:06",
+    "checked": "2026-11-12T02:19",
     "for_title": "投資有価証券売却益（特別利益）の計上に関するお知らせ"
    }
   },
@@ -226,7 +226,7 @@
    "ir_check": {
     "status": "unreachable",
     "ir_page": "https://www.daidoh-limited.com/",
-    "checked": "2026-11-11T22:06",
+    "checked": "2026-11-12T02:19",
     "for_title": "第２四半期（中間期）連結業績予想と実績値との差異に関するお知らせ"
    }
   }
@@ -252,148 +252,10 @@
   "cash": 3574400.0,
   "total": 3574400.0,
   "profit": 574400.0,
-  "term_left": 3000000,
-  "term_open": true,
+  "term_left": 3000000.0,
+  "term_open": false,
   "single_bought": true,
   "holdings": []
- },
- "morning": {
-  "direction": "日経平均先物は前日の日経平均より+1.1% → 上昇して始まりそう",
-  "futures_gap_pct": 1.1206951866157278,
-  "indices": [
-   {
-    "symbol": "^GSPC",
-    "label": "S&P500",
-    "last": 7619.3798828125,
-    "change_pct": 1.3090097199449646,
-    "date": "2026-11-11"
-   },
-   {
-    "symbol": "^IXIC",
-    "label": "ナスダック",
-    "last": 25466.189453125,
-    "change_pct": 1.5970733360735068,
-    "date": "2026-11-11"
-   },
-   {
-    "symbol": "^SOX",
-    "label": "SOX指数（半導体）",
-    "last": 10564.111328125,
-    "change_pct": 5.658757468288167,
-    "date": "2026-11-11"
-   },
-   {
-    "symbol": "JPY=X",
-    "label": "ドル円",
-    "last": 159.70899963378906,
-    "change_pct": 1.0925212878180934,
-    "date": "2026-11-11"
-   },
-   {
-    "symbol": "NIY=F",
-    "label": "日経平均先物（CME・円建て）",
-    "last": 61935.0,
-    "change_pct": 3.3800701051577287,
-    "date": "2026-11-11"
-   },
-   {
-    "symbol": "^N225",
-    "label": "日経平均",
-    "last": 60459.578125,
-    "change_pct": 2.8652723073389508,
-    "date": "2026-11-10"
-   }
-  ],
-  "adr_top": [
-   {
-    "adr": "SMTOY",
-    "code": "5802",
-    "name": "住友電気工業",
-    "jp_price": 1581.5,
-    "implied": 1605.5708160920885,
-    "gap_pct": 1.5220244130311977,
-    "adr_change_pct": 13.1818161621567,
-    "traded": true,
-    "single": false
-   },
-   {
-    "adr": "JXHLY",
-    "code": "5020",
-    "name": "ＥＮＥＯＳホールディングス",
-    "jp_price": 1237.5,
-    "implied": 1255.8350639091677,
-    "gap_pct": 1.481621325993343,
-    "adr_change_pct": 0.6195810734284324,
-    "traded": true,
-    "single": false
-   },
-   {
-    "adr": "FELTY",
-    "code": "6504",
-    "name": "富士電機",
-    "jp_price": 11850.0,
-    "implied": 11942.555507752466,
-    "gap_pct": 0.7810591371516074,
-    "adr_change_pct": 5.835698067461359,
-    "traded": true,
-    "single": false
-   },
-   {
-    "adr": "SHECY",
-    "code": "4063",
-    "name": "信越化学工業",
-    "jp_price": 5709.0,
-    "implied": 5745.20070492755,
-    "gap_pct": 0.6340988776939893,
-    "adr_change_pct": 2.1615424483260925,
-    "traded": true,
-    "single": false
-   },
-   {
-    "adr": "NMR",
-    "code": "8604",
-    "name": "野村ホールディングス",
-    "jp_price": 1538.0,
-    "implied": 1542.1027652120206,
-    "gap_pct": 0.26675976671135526,
-    "adr_change_pct": 1.892737614819473,
-    "traded": true,
-    "single": false
-   },
-   {
-    "adr": "CJPRY",
-    "code": "9022",
-    "name": "東海旅客鉄道",
-    "jp_price": 4277.0,
-    "implied": 4287.955777381696,
-    "gap_pct": 0.2561556554055544,
-    "adr_change_pct": -0.593471264263723,
-    "traded": true,
-    "single": false
-   },
-   {
-    "adr": "CAJPY",
-    "code": "7751",
-    "name": "キヤノン",
-    "jp_price": 4690.0,
-    "implied": 4701.169685820124,
-    "gap_pct": 0.23815961236937078,
-    "adr_change_pct": -0.5062423988485665,
-    "traded": true,
-    "single": false
-   },
-   {
-    "adr": "MITSY",
-    "code": "8031",
-    "name": "三井物産",
-    "jp_price": 5026.0,
-    "implied": 5034.430904721903,
-    "gap_pct": 0.16774581619385387,
-    "adr_change_pct": 1.5928039666972316,
-    "traded": true,
-    "single": false
-   }
-  ]
  },
  "new_listings": [
   {
@@ -565,17 +427,17 @@
   }
  ],
  "simulator": {
-  "nights_left": 12,
+  "nights_left": 11,
   "start_assets": 3574400.0,
   "target": 7290000,
   "best": "aggressive",
   "best_label": "毎晩1位候補に全額（要確認だけの夜も買う）",
-  "advice": "どの戦略でも10位ラインに届く確率は低い（最大0.2%）。一番ましなのは「毎晩1位候補に全額（要確認だけの夜も買う）」",
+  "advice": "どの戦略でも10位ラインに届く確率は低い（最大0.1%）。一番ましなのは「毎晩1位候補に全額（要確認だけの夜も買う）」",
   "probs": {
-   "毎晩1位候補に全額（要確認だけの夜も買う）": 0.19,
-   "毎晩上位2銘柄に半分ずつ": 0.07,
-   "S・A・ストップ高張り付きがある夜だけ1位に全額、ない夜は休む": 0.18,
-   "S・A・張り付きがある夜だけ、上位2銘柄に半分ずつ": 0.05
+   "毎晩1位候補に全額（要確認だけの夜も買う）": 0.11,
+   "毎晩上位2銘柄に半分ずつ": 0.05,
+   "S・A・ストップ高張り付きがある夜だけ1位に全額、ない夜は休む": 0.1,
+   "S・A・張り付きがある夜だけ、上位2銘柄に半分ずつ": 0.04
   }
  }
 }
