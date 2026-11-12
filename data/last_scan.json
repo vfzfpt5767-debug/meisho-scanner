@@ -1,9 +1,85 @@
 {
-"generated_at": "2026-11-12T16:11:08.147928+09:00",
+"generated_at": "2026-11-12T17:11:04.558095+09:00",
 "base_day": "2026-11-12",
 "deadline": "2026-11-13T07:59:00+09:00",
-"price_source": "名証 相場表（速報）",
+"price_source": "名証 日報",
 "cards": [
+{
+"code": "8309",
+"name": "三井住友トラストグループ",
+"single": false,
+"division": "プレミア",
+"unit": 100,
+"category": "A",
+"score": 70,
+"items": [
+{
+"time": "16:00",
+"date": "11/12",
+"title": "2027年３月期　第２四半期（中間期）決算短信〔日本基準〕（連結）",
+"pdf": "https://www.release.tdnet.info/inbs/140120261110572294.pdf",
+"tags": [
+{
+"cat": "INFO",
+"label": "決算短信",
+"score": 15,
+"reason": "決算発表（数値はPDFで確認。自動計算はしていません）"
+}
+]
+},
+{
+"time": "16:00",
+"date": "11/12",
+"title": "2027年３月期 連結業績予想及び配当予想の修正に関するお知らせ",
+"pdf": "https://www.release.tdnet.info/inbs/140120261111574480.pdf",
+"tags": [
+{
+"cat": "CHECK",
+"label": "配当予想の修正",
+"score": 60,
+"reason": "増配か減配かタイトルでは不明。PDFで確認"
+}
+]
+},
+{
+"time": "16:00",
+"date": "11/12",
+"title": "自己株式取得に係る事項の決定および自己株式消却に係る事項の決定に関するお知らせ",
+"pdf": "https://www.release.tdnet.info/inbs/140120261112575250.pdf",
+"tags": [
+{
+"cat": "A",
+"label": "自社株買い",
+"score": 53,
+"reason": "自己株式取得の決定（規模＝発行済株式に対する%はPDFで確認）"
+}
+]
+},
+{
+"time": "16:00",
+"date": "11/12",
+"title": "取締役等に対する業績連動型株式報酬制度（RS信託）における株式取得に係る事項の決定に関するお知らせ",
+"pdf": "https://www.release.tdnet.info/inbs/140120261112575867.pdf",
+"tags": [
+{
+"cat": "INFO",
+"label": "その他",
+"score": 0,
+"reason": ""
+}
+]
+}
+],
+"price": 1689.5,
+"price_note": "名証の最終気配",
+"nse_close": null,
+"nse_quote": 1689.5,
+"shares": 1700,
+"cost": 2872150.0,
+"tob_price": null,
+"tob_gap_pct": null,
+"quote_only": true
+},
 {
 "code": "9076",
 "name": "セイノーホールディングス",
@@ -471,6 +547,178 @@
 "quote_only": true
 },
 {
+"code": "3559",
+"name": "ピーバンドットコム",
+"single": false,
+"division": "メイン",
+"unit": 100,
+"category": "INFO",
+"score": 15,
+"items": [
+{
+"time": "16:00",
+"date": "11/12",
+"title": "2027年3月期 第2四半期決算補足資料",
+"pdf": "https://www.release.tdnet.info/inbs/140120261112575215.pdf",
+"tags": [
+{
+"cat": "INFO",
+"label": "その他",
+"score": 0,
+"reason": ""
+}
+]
+},
+{
+"time": "16:00",
+"date": "11/12",
+"title": "2027年3月期 第2四半期（中間期）決算短信〔日本基準〕（非連結）",
+"pdf": "https://www.release.tdnet.info/inbs/140120261112575136.pdf",
+"tags": [
+{
+"cat": "INFO",
+"label": "決算短信",
+"score": 15,
+"reason": "決算発表（数値はPDFで確認。自動計算はしていません）"
+}
+]
+}
+],
+"price": 432.0,
+"price_note": "名証の最終気配",
+"nse_close": null,
+"nse_quote": 432.0,
+"shares": 6900,
+"cost": 2980800.0,
+"tob_price": null,
+"tob_gap_pct": null,
+"quote_only": true
+},
+{
+"code": "7059",
+"name": "コプロ・ホールディングス",
+"single": false,
+"division": "プレミア",
+"unit": 100,
+"category": "INFO",
+"score": 15,
+"items": [
+{
+"time": "16:20",
+"date": "11/12",
+"title": "2027年３月期第２四半期（中間期）決算短信〔日本基準〕(連結)",
+"pdf": "https://www.release.tdnet.info/inbs/140120261111574198.pdf",
+"tags": [
+{
+"cat": "INFO",
+"label": "決算短信",
+"score": 15,
+"reason": "決算発表（数値はPDFで確認。自動計算はしていません）"
+}
+]
+},
+{
+"time": "16:20",
+"date": "11/12",
+"title": "2027年３月期第２四半期決算説明資料",
+"pdf": "https://www.release.tdnet.info/inbs/140120261111574212.pdf",
+"tags": [
+{
+"cat": "INFO",
+"label": "その他",
+"score": 0,
+"reason": ""
+}
+]
+},
+{
+"time": "16:20",
+"date": "11/12",
+"title": "2027年３月期第２四半期決算ファクトブック",
+"pdf": "https://www.release.tdnet.info/inbs/140120261111574222.pdf",
+"tags": [
+{
+"cat": "INFO",
+"label": "その他",
+"score": 0,
+"reason": ""
+}
+]
+},
+{
+"time": "16:20",
+"date": "11/12",
+"title": "剰余金の配当(中間配当)に関するお知らせ",
+"pdf": "https://www.release.tdnet.info/inbs/140120261111574268.pdf",
+"tags": [
+{
+"cat": "INFO",
+"label": "その他",
+"score": 0,
+"reason": ""
+}
+]
+},
+{
+"time": "16:20",
+"date": "11/12",
+"title": "連結子会社からの配当金受領に関するお知らせ",
+"pdf": "https://www.release.tdnet.info/inbs/140120261111574272.pdf",
+"tags": [
+{
+"cat": "INFO",
+"label": "その他",
+"score": 0,
+"reason": ""
+}
+]
+}
+],
+"price": 918.0,
+"price_note": "名証の最終気配",
+"nse_close": null,
+"nse_quote": 918.0,
+"shares": 3200,
+"cost": 2937600.0,
+"tob_price": null,
+"tob_gap_pct": null,
+"quote_only": true
+},
+{
+"code": "8228",
+"name": "マルイチ産商",
+"single": true,
+"division": "メイン",
+"unit": 100,
+"category": "INFO",
+"score": 15,
+"items": [
+{
+"time": "16:40",
+"date": "11/12",
+"title": "2027年3月期　第2四半期（中間期）決算短信〔日本基準〕（連結）",
+"pdf": "https://www.release.tdnet.info/inbs/140120261112574895.pdf",
+"tags": [
+{
+"cat": "INFO",
+"label": "決算短信",
+"score": 15,
+"reason": "決算発表（数値はPDFで確認。自動計算はしていません）"
+}
+]
+}
+],
+"price": 1039.0,
+"price_note": "名証の終値",
+"nse_close": 1039.0,
+"nse_quote": null,
+"shares": 2800,
+"cost": 2909200.0,
+"tob_price": null,
+"tob_gap_pct": null,
+"quote_only": false
+},
+{
 "code": "3549",
 "name": "クスリのアオキホールディングス",
 "single": false,
@@ -534,6 +782,322 @@
 "nse_quote": 222.0,
 "shares": 13500,
 "cost": 2997000.0,
+"tob_price": null,
+"tob_gap_pct": null,
+"quote_only": true
+},
+{
+"code": "3670",
+"name": "協立情報通信",
+"single": true,
+"division": "メイン",
+"unit": 100,
+"category": "INFO",
+"score": 0,
+"items": [
+{
+"time": "16:30",
+"date": "11/12",
+"title": "2027年３月期　第２四半期決算説明資料",
+"pdf": "https://www.release.tdnet.info/inbs/140120261111573777.pdf",
+"tags": [
+{
+"cat": "INFO",
+"label": "その他",
+"score": 0,
+"reason": ""
+}
+]
+}
+],
+"price": 1540.0,
+"price_note": "名証の終値",
+"nse_close": 1540.0,
+"nse_quote": null,
+"shares": 1900,
+"cost": 2926000.0,
+"tob_price": null,
+"tob_gap_pct": null,
+"quote_only": false
+},
+{
+"code": "3504",
+"name": "丸八ホールディングス",
+"single": true,
+"division": "メイン",
+"unit": 100,
+"category": "CHECK",
+"score": 45,
+"items": [
+{
+"time": "16:00",
+"date": "11/12",
+"title": "2027年３月期 第２四半期（中間期）決算短信〔日本基準〕(連結)",
+"pdf": "https://www.release.tdnet.info/inbs/140120261112574711.pdf",
+"tags": [
+{
+"cat": "INFO",
+"label": "決算短信",
+"score": 15,
+"reason": "決算発表（数値はPDFで確認。自動計算はしていません）"
+}
+]
+},
+{
+"time": "16:00",
+"date": "11/12",
+"title": "第２四半期（中間期）連結業績予想と実績との差異及び通期連結業績予想の修正に関するお知らせ",
+"pdf": "https://www.release.tdnet.info/inbs/140120261112574753.pdf",
+"tags": [
+{
+"cat": "CHECK",
+"label": "業績予想の修正",
+"score": 40,
+"reason": "上方か下方かタイトルでは不明。PDFで確認"
+}
+]
+},
+{
+"time": "16:00",
+"date": "11/12",
+"title": "株主名簿管理人変更のお知らせ",
+"pdf": "https://www.release.tdnet.info/inbs/140120261111574156.pdf",
+"tags": [
+{
+"cat": "INFO",
+"label": "その他",
+"score": 0,
+"reason": ""
+}
+]
+}
+],
+"price": 1391.0,
+"price_note": "名証の終値",
+"nse_close": 1391.0,
+"nse_quote": null,
+"shares": 2100,
+"cost": 2921100.0,
+"tob_price": null,
+"tob_gap_pct": null,
+"quote_only": false
+},
+{
+"code": "3775",
+"name": "ガイアックス",
+"single": true,
+"division": "ネクスト",
+"unit": 100,
+"category": "CHECK",
+"score": 45,
+"items": [
+{
+"time": "16:00",
+"date": "11/12",
+"title": "2026年12月期通期連結業績予想の修正に関するお知らせ",
+"pdf": "https://www.release.tdnet.info/inbs/140120261111573296.pdf",
+"tags": [
+{
+"cat": "CHECK",
+"label": "業績予想の修正",
+"score": 40,
+"reason": "上方か下方かタイトルでは不明。PDFで確認"
+}
+]
+},
+{
+"time": "16:00",
+"date": "11/12",
+"title": "2026年12月期　第３四半期決算短信〔日本基準〕(連結)",
+"pdf": "https://www.release.tdnet.info/inbs/140120261112575487.pdf",
+"tags": [
+{
+"cat": "INFO",
+"label": "決算短信",
+"score": 15,
+"reason": "決算発表（数値はPDFで確認。自動計算はしていません）"
+}
+]
+},
+{
+"time": "17:00",
+"date": "11/12",
+"title": "2026年12月期　第3四半期決算説明資料",
+"pdf": "https://www.release.tdnet.info/inbs/140120261112575918.pdf",
+"tags": [
+{
+"cat": "INFO",
+"label": "その他",
+"score": 0,
+"reason": ""
+}
+]
+}
+],
+"price": 437.0,
+"price_note": "名証の終値",
+"nse_close": 437.0,
+"nse_quote": null,
+"shares": 6800,
+"cost": 2971600.0,
+"tob_price": null,
+"tob_gap_pct": null,
+"quote_only": false
+},
+{
+"code": "6342",
+"name": "太平製作所",
+"single": false,
+"division": "メイン",
+"unit": 100,
+"category": "CHECK",
+"score": 40,
+"items": [
+{
+"time": "16:00",
+"date": "11/12",
+"title": "業績予想の修正に関するお知らせ",
+"pdf": "https://www.release.tdnet.info/inbs/140120261111574276.pdf",
+"tags": [
+{
+"cat": "CHECK",
+"label": "業績予想の修正",
+"score": 40,
+"reason": "上方か下方かタイトルでは不明。PDFで確認"
+}
+]
+}
+],
+"price": 3060.0,
+"price_note": "名証の最終気配",
+"nse_close": null,
+"nse_quote": 3060.0,
+"shares": 900,
+"cost": 2754000.0,
+"tob_price": null,
+"tob_gap_pct": null,
+"quote_only": true
+},
+{
+"code": "3739",
+"name": "コムシード",
+"single": true,
+"division": "ネクスト",
+"unit": 100,
+"category": "CHECK",
+"score": 28,
+"items": [
+{
+"time": "16:00",
+"date": "11/12",
+"title": "第2四半期（累計）連結業績予想と実績値との差異に関するお知らせ",
+"pdf": "https://www.release.tdnet.info/inbs/140120261112575748.pdf",
+"tags": [
+{
+"cat": "CHECK",
+"label": "予想と実績の差異",
+"score": 23,
+"reason": "予想と実績の差。良し悪しはPDFで確認"
+}
+]
+},
+{
+"time": "16:00",
+"date": "11/12",
+"title": "2027年3月期 第2四半期（中間期）決算短信〔日本基準〕（連結）",
+"pdf": "https://www.release.tdnet.info/inbs/140120261112575760.pdf",
+"tags": [
+{
+"cat": "INFO",
+"label": "決算短信",
+"score": 15,
+"reason": "決算発表（数値はPDFで確認。自動計算はしていません）"
+}
+]
+},
+{
+"time": "16:00",
+"date": "11/12",
+"title": "2027年3月期第2四半期決算補足説明資料",
+"pdf": "https://www.release.tdnet.info/inbs/140120261112575773.pdf",
+"tags": [
+{
+"cat": "INFO",
+"label": "その他",
+"score": 0,
+"reason": ""
+}
+]
+},
+{
+"time": "16:00",
+"date": "11/12",
+"title": "代表取締役社長CEOによる2027年3月期第2四半期決算に寄せたメッセージ公開について",
+"pdf": "https://www.release.tdnet.info/inbs/140120261112575779.pdf",
+"tags": [
+{
+"cat": "INFO",
+"label": "その他",
+"score": 0,
+"reason": ""
+}
+]
+}
+],
+"price": 120.0,
+"price_note": "名証の終値",
+"nse_close": 120.0,
+"nse_quote": null,
+"shares": 25000,
+"cost": 3000000.0,
+"tob_price": null,
+"tob_gap_pct": null,
+"quote_only": false
+},
+{
+"code": "6346",
+"name": "キクカワエンタープライズ",
+"single": false,
+"division": "メイン",
+"unit": 100,
+"category": "CHECK",
+"score": 28,
+"items": [
+{
+"time": "16:00",
+"date": "11/12",
+"title": "2027年3月期第2四半期（中間期）決算短信［日本基準］（非連結）",
+"pdf": "https://www.release.tdnet.info/inbs/140120261102562561.pdf",
+"tags": [
+{
+"cat": "INFO",
+"label": "決算短信",
+"score": 15,
+"reason": "決算発表（数値はPDFで確認。自動計算はしていません）"
+}
+]
+},
+{
+"time": "16:00",
+"date": "11/12",
+"title": "2027年3月期第2四半期（中間期）業績予想数値と実績値との差異に関するお知らせ",
+"pdf": "https://www.release.tdnet.info/inbs/140120261111574230.pdf",
+"tags": [
+{
+"cat": "CHECK",
+"label": "予想と実績の差異",
+"score": 23,
+"reason": "予想と実績の差。良し悪しはPDFで確認"
+}
+]
+}
+],
+"price": 5380.0,
+"price_note": "名証の最終気配",
+"nse_close": null,
+"nse_quote": 5380.0,
+"shares": 500,
+"cost": 2690000.0,
 "tob_price": null,
 "tob_gap_pct": null,
 "quote_only": true
