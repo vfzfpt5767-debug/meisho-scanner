@@ -249,7 +249,8 @@
 "category": "A",
 "label": "増配",
 "price": 687.0,
-"result": null
+"result": 0.02183406113537112,
+"next_day": "2026-11-12"
 },
 {
 "base_day": "2026-11-11",
@@ -259,7 +260,8 @@
 "category": "A",
 "label": "増配",
 "price": 687.0,
-"result": null
+"result": 0.02183406113537112,
+"next_day": "2026-11-12"
 },
 {
 "base_day": "2026-11-11",
@@ -269,6 +271,27 @@
 "category": "A",
 "label": "特別利益",
 "price": 19.0,
+"result": 0.0,
+"next_day": "2026-11-12"
+},
+{
+"base_day": "2026-11-12",
+"source": "rule_top",
+"code": "9076",
+"name": "セイノーホールディングス",
+"category": "A",
+"label": "増配",
+"price": 2694.5,
+"result": null
+},
+{
+"base_day": "2026-11-12",
+"source": "rule_sa",
+"code": "9076",
+"name": "セイノーホールディングス",
+"category": "A",
+"label": "増配",
+"price": 2694.5,
 "result": null
 }
 ]
