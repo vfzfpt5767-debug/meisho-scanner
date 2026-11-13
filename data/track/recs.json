@@ -428,5 +428,15 @@
 "label": "",
 "price": 3185.0,
 "result": null
+},
+{
+"base_day": "2026-11-13",
+"source": "ai",
+"code": "7871",
+"name": "フクビ化学工業",
+"category": "AI",
+"label": "",
+"price": 999.0,
+"result": null
 }
 ]
