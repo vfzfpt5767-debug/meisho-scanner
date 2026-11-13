@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-13T22:59:28.793114+09:00",
+ "generated_at": "2026-11-13T23:00:50.543195+09:00",
  "base_day": "2026-11-13",
  "deadline": "2026-11-16T07:59:00+09:00",
  "price_source": "名証 日報",
@@ -1604,30 +1604,13 @@
  ],
  "errors": [],
  "portfolio": {
-  "cash": 699400.0,
+  "cash": 799300.0,
   "total": 3739300.0,
   "profit": 739300.0,
-  "term_left": 0.0,
+  "term_left": 60000.0,
   "term_open": true,
   "single_bought": true,
   "holdings": [
-   {
-    "code": "7871",
-    "name": "フクビ化学工業",
-    "shares": 100,
-    "buy_price": 999.0,
-    "buy_date": "2026-11-13",
-    "price": 999.0,
-    "pnl_pct": 0.0,
-    "single": false,
-    "quote_only": true,
-    "unit": 100,
-    "warnings": [],
-    "notices": [],
-    "cautions": [],
-    "sell_rule": "11/16(月)の終値で売る予定（買ってから1営業日後）。検証：優待新設・拡充でストップ高にならなかった銘柄は1営業日後の終値で売るのが一番よい（平均+3.5%・中央値+2.9%・n=425）",
-    "material": "優待新設・拡充"
-   },
    {
     "code": "1438",
     "name": "岐阜造園",
