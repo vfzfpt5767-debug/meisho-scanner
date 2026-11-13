@@ -10,15 +10,29 @@ permissions:
   contents: write
   actions: write
 
-concurrency:
-  group: line-event
-  cancel-in-progress: false
+# concurrency（同時に1つ）は使わない：待ちが2つ以上になると、GitHub が古い待ちを取り消してしまい、
+# ボタンを続けて押したときに1件が消えていた（2026-11-13 22:59 の「別の注文をした」）。
+# 代わりに下の「前に届いた分を待つ」で順番を守り、保存はやり直しつき（fetch → 処理 → push）で重ならないようにする。
 
 jobs:
   handle:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
+      - name: 前に届いたLINEの処理が終わるのを待つ（届いた順に処理する）
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          for i in $(seq 1 36); do
+            n=$(gh run list --workflow line-event.yml --limit 30 --json databaseId,status \
+                --jq '[.[] | select(.databaseId < ${{ github.run_id }} and (.status | test("queued|in_progress|waiting|pending|requested")))] | length' \
+                || echo 0)
+            if [ "$n" = "0" ]; then break; fi
+            echo "前の処理 ${n} 件を待っています"
+            sleep 5
+          done
+
       - uses: actions/checkout@v5
         with:
           ref: main

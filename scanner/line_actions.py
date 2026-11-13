@@ -310,6 +310,8 @@ def order_text(d: dict, mode: str = "record") -> str:
     except (KeyError, TypeError, ValueError):
         pass
     lines = [head]
+    if d.get("replaces") and mode == "record":
+        lines.append(f"※{_hm(d['replaces'])}の注文の代わり（前の記録は取り消し済み）")
     for o in sorted(d.get("orders", []), key=lambda o: o.get("side") != "sell"):
         try:
             unit = int(o.get("unit") or 0)
@@ -419,6 +421,86 @@ def _price_for(code: str, did: str | None, now) -> float | None:
     return q.contest_price if q else None
 
 
+def _hm(did: str) -> str:
+    """判断のID（2026-11-13-2118）→「21:18」。形が違えばそのまま。"""
+    m = re.fullmatch(r"\d{4}-\d{2}-\d{2}-(\d{2})(\d{2})", str(did))
+    return f"{m[1]}:{m[2]}" if m else str(did)
+
+
+def _same_text(a: str, b: str) -> bool:
+    def n(x: str) -> str:
+        return re.sub(r"\s", "", unicodedata.normalize("NFKC", x))
+
+    return n(a) == n(b)
+
+
+def _recent_same(st: dict, text: str, now, minutes: int = 30) -> dict | None:
+    """少し前に同じ文で記録した手入力（取り消していないもの）。同じ文を2回送ったときの二重記録を防ぐ（2026-11-13）。"""
+    aw = st.get("awaiting") or {}
+    for m in reversed(st.get("manual", [])):
+        pt = m.get("patch") or {}
+        if m.get("undone") or not _same_text(m.get("text", ""), text):
+            continue
+        if not (pt.get("added") or pt.get("removed") or pt.get("cash_delta")):
+            continue  # 何も記録できなかった返信は数えない
+        try:
+            at = datetime.fromisoformat(m["at"])
+        except (KeyError, ValueError):
+            continue
+        if (now - at).total_seconds() > minutes * 60:
+            return None
+        if aw.get("since") and aw["since"] >= m["at"]:
+            return None  # そのあとに「別の注文をした」が押された＝返信し直し
+        return m
+    return None
+
+
+def _undo_manual(st: dict, did: str) -> tuple[list[str], int]:
+    """その判断に対して「別の注文」で記録した手入力を取り消す。(メモ, 取り消した件数)。"""
+    notes, n = [], 0
+    for m in st.get("manual", []):
+        if m.get("decision") == did and not m.get("undone") and m.get("patch"):
+            notes += revert_patch(m["patch"])
+            m["undone"] = True
+            n += 1
+    return notes, n
+
+
+def replace_decision(old_id: str, new_id: str) -> tuple[bool, str]:
+    """AIの入れ替え（replaces）：前の判断の自動記録を取り消す。(入れ替えてよいか, メモ)。
+
+    ユーザーがまだボタンで返事していない（自動記録のまま）なら取り消す。「注文した」「別の注文をした」と
+    返事済みなら入れ替えない（もう注文が出ている）。
+    """
+    st = load_state()
+    ent = st["decisions"].get(old_id)
+    if ent is None:
+        return False, f"入れ替え前の注文（{old_id}）が見つかりません"
+    status = ent.get("status")
+    if status in ("confirmed", "custom"):
+        return False, f"{_hm(old_id)}の注文は「注文した」「別の注文をした」と返事済み"
+    if status == "replaced":
+        return False, f"{_hm(old_id)}の注文はもう入れ替え済み"
+    notes = []
+    if status == "recorded" and ent.get("patch"):
+        notes = revert_patch(ent["patch"])
+    ent.update(status="replaced", replaced_by=new_id)
+    st["decisions"][old_id] = ent
+    save_state(st)
+    return True, f"{_hm(old_id)}の注文の記録を取り消して入れ替え" + ("（" + "／".join(notes) + "）" if notes else "")
+
+
+def user_status(did: str) -> str:
+    """判断へのユーザーの返事（preflight の表示用）。"""
+    ent = load_state()["decisions"].get(did) or {}
+    return {"recorded": "ユーザー未確認（まだ注文していない可能性。入れ替え可）",
+            "confirmed": "ユーザーが「指示どおり注文した」と返事（入れ替え不可）",
+            "custom": "ユーザーが「別の注文をした」と返事（入れ替え不可）",
+            "undone": "ユーザーが「注文しなかった」と返事（記録は取り消し済み）",
+            "replaced": "あとの判断に入れ替え済み",
+            "not_recorded": "保有には記録していない（参考）"}.get(ent.get("status", ""), "")
+
+
 def process(payload: dict, now=None) -> dict:
     """Worker から届いた1件を処理する。返り値：{"text": LINEで送る文, "changed": bool}。"""
     from .calendar_jp import base_day
@@ -451,7 +533,10 @@ def process(payload: dict, now=None) -> dict:
             msg = "その注文が見つかりませんでした。"
         else:
             ent = st["decisions"].get(did) or _legacy_entry(did, d)
-            if act == "done" and ent["status"] == "custom":
+            if ent.get("status") == "replaced":
+                msg = (f"この注文は、あとのAIの注文（{_hm(ent.get('replaced_by', ''))}）に入れ替えました。"
+                       "新しいほうのLINEのボタンを押してください。")
+            elif act == "done" and ent["status"] == "custom":
                 msg = "今は「別の注文」の内容で記録しています。直すときは「別の注文をした」を押して、もう一度返信してください。"
             elif act == "done":
                 if ent["status"] in ("recorded", "confirmed"):
@@ -470,6 +555,18 @@ def process(payload: dict, now=None) -> dict:
                     msg = "AIの注文の記録を取り消しました。" + ("（" + "／".join(notes) + "）" if notes else "")
                     if ent["patch"].get("legacy_note"):
                         msg += ent["patch"]["legacy_note"]
+                elif ent["status"] == "custom":
+                    # 「別の注文をした」で記録した内容を取り消す（もう一度「別の注文」を返信し直すとき・注文しなかったとき）
+                    notes, n = _undo_manual(st, did)
+                    if n:
+                        ent["status"] = "undone"
+                        changed = True
+                        msg = "「別の注文」で記録した内容を取り消しました。" + ("（" + "／".join(notes) + "）" if notes else "")
+                    else:
+                        msg = ("「別の注文」で記録した内容が見つからず、取り消せませんでした。"
+                               "ページの holdings.csv / cash.csv で直してください。")
+                elif ent["status"] == "undone":
+                    msg = "この注文の記録は、もう取り消してあります（記録は変えていません）。"
                 else:
                     msg = "この注文はもともと記録していません。"
                 if act == "other":
@@ -495,6 +592,10 @@ def process(payload: dict, now=None) -> dict:
         else:
             from .human_check import ANSWER_HEAD, match_answer
 
+            force = False
+            tn = unicodedata.normalize("NFKC", text).strip()
+            if tn.startswith("追加"):  # 「追加 買い 1438 1400」＝同じ内容でも、もう一度記録する
+                force, text = True, tn[2:].strip(" :：、,")
             universe, _ = nse_list.load(refresh=False)
             orders = parse_orders(text, set(universe) or None)
             q, ans = (match_answer(text, st, base_day(now).isoformat())
@@ -506,6 +607,9 @@ def process(payload: dict, now=None) -> dict:
                     result_fire = fire
             elif not orders:
                 msg = "読み取れませんでした。\n" + HELP
+            elif not force and (dup := _recent_same(st, text, now)) is not None:
+                msg = (f"同じ内容を{datetime.fromisoformat(dup['at']):%H:%M}にもう記録してあるので、二重には記録しませんでした。"
+                       "本当にもう一度同じ注文をしたときは、先頭に「追加」を付けて送ってください（例：追加 買い 1438 1400）。")
             else:
                 aw = st.get("awaiting") or {}
                 did = aw.get("decision")
@@ -525,7 +629,7 @@ def process(payload: dict, now=None) -> dict:
                              else base_day(now).isoformat())
                     mid = f"LINE {now:%m/%d %H:%M}"
                     patch, notes = apply_orders(orders, stamp, mid)
-                    st["manual"].append({"id": mid, "text": text, "patch": patch, "at": now.isoformat()})
+                    st["manual"].append({"id": mid, "text": text, "patch": patch, "at": now.isoformat(), "decision": did})
                     if did and did in st["decisions"]:
                         st["decisions"][did]["status"] = "custom"
                     st["awaiting"] = None

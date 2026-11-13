@@ -28,6 +28,7 @@ import csv
 import io
 import json
 import os
+import re
 import sys
 from datetime import date, datetime, timedelta
 from pathlib import Path
@@ -77,6 +78,9 @@ def validate(d: dict) -> list[str]:
             errs.append(f"{p}.reason がありません")
     if buy_total > BUDGET_PER_TERM:
         errs.append(f"買いの合計 {buy_total:,.0f}円 が1タームの上限 {BUDGET_PER_TERM:,}円 を超えています")
+    rep = d.get("replaces")
+    if rep is not None and not re.fullmatch(r"\d{4}-\d{2}-\d{2}-\d{4}", str(rep)):
+        errs.append("replaces は入れ替える前の判断のID（例：2026-11-13-2118）")
     ask = d.get("ask_human", [])
     if ask is not None and (not isinstance(ask, list) or any(not isinstance(a, dict) or not a.get("code") for a in ask)):
         errs.append("ask_human は [{\"code\": \"1869\", \"question\": \"…\"}] のような形にしてください")
@@ -244,13 +248,25 @@ def apply_all(now: datetime | None = None, send_line: bool = True) -> list[str]:
                 rec["status"] = (f"参考（{RECORD_FROM:%H:%M}〜{RECORD_UNTIL:%H:%M}の外に届いた指示）のため、"
                                  "保有の自動記録はしませんでした")
             else:
-                from .line_actions import make_patch, snapshot
+                from .line_actions import make_patch, replace_decision, snapshot
 
-                rec["mode"] = "record"
-                pre = snapshot()
-                rec["notes"] = apply_to_portfolio(d, now)
-                rec["patch"] = make_patch(pre, snapshot())
-                rec["status"] = "取り込み済み（保有に記録）"
+                ok, why = (True, "")
+                if d.get("replaces"):
+                    # 前の判断（ユーザー未確認）の自動記録を取り消してから、こちらを記録する（2026-11-13：
+                    # 21:20の注文が記録済みのため、あとのTOB（岐阜造園）を「枠不足」で見送ってしまった）
+                    ok, why = replace_decision(str(d["replaces"]), d["id"])
+                if not ok:
+                    rec["mode"] = "ref"
+                    rec["notes"].append(f"入れ替えできません（{why}）")
+                    rec["status"] = "入れ替え前の注文に返事済みのため、参考として送りました（保有には記録していません）"
+                else:
+                    rec["mode"] = "record"
+                    if why:
+                        rec["notes"].append(why)
+                    pre = snapshot()
+                    rec["notes"] += apply_to_portfolio(d, now)
+                    rec["patch"] = make_patch(pre, snapshot())
+                    rec["status"] = "取り込み済み（保有に記録）"
             d["deadline"] = d.get("deadline") or deadline.isoformat()
         d["_apply"] = rec
         if not test and not errs:
@@ -415,13 +431,33 @@ def preflight(input_path: Path, trigger: str, test: bool, now: datetime | None =
         lines.append(f"recorded={'true' if recordable(now) and term_open else 'false'}"
                      f"（{RECORD_FROM:%H:%M}〜{RECORD_UNTIL:%H:%M}に届いた注文だけ保有に記録。false なら参考として送られる）")
         hist = _term_history(tb.isoformat()) if history is None else history
+        from .line_actions import load_state, user_status
+
+        lst = load_state()["decisions"]
+        free_cash, free_term = 0.0, 0.0
+        replaceable = []
         for h in hist:
             ap = h.get("_apply", {})
             od = "、".join(f"{'買い' if o['side'] == 'buy' else '売り'}{o['code']} {ufmt(o['code'], o['shares'], o.get('unit'))}"
                           for o in h.get("orders", [])) or "注文なし"
-            lines.append(f"term_decision={h.get('id', '')}：{od}（{ap.get('status', '')}）")
+            us = user_status(h.get("id", ""))
+            lines.append(f"term_decision={h.get('id', '')}：{od}（{ap.get('status', '')}" + (f"／{us}" if us else "") + "）")
+            ent = lst.get(h.get("id", "")) or {}
+            if ent.get("status") == "recorded" and ent.get("patch") and h.get("orders"):
+                replaceable.append(h["id"])
+                free_cash -= float(ent["patch"].get("cash_delta", 0))
+                free_term += sum(float(r[1]) * float(r[2]) for r in ent["patch"].get("added", [])
+                                 if len(r) >= 4 and r[3] == tb.isoformat())
         if not hist:
             lines.append("term_decision=なし（このタームの判断はまだない）")
+        if replaceable:
+            pf = d.get("portfolio", {}) if d else {}
+            try:
+                lines.append(f"if_replaced={','.join(replaceable)} を取り消したときの今タームの残り枠="
+                             f"{float(pf.get('term_left', 0)) + free_term:,.0f}円・現金={float(pf.get('cash', 0)) + free_cash:,.0f}円"
+                             "（入れ替えるときはこの額で計算し、判断ファイルに \"replaces\": \"<ID>\" を書く）")
+            except (TypeError, ValueError):
+                pass
     sub = "decisions/test/" if test else "decisions/"
     lines.append(f"output={sub}{now:%Y-%m-%d-%H%M}")
     if test:

@@ -1175,3 +1175,147 @@ def test_card_sort_mixed_categories():
     assert len(cards) == 6
     s_order = [c.code for c in cards if c.category == C.S]
     assert s_order == ["1438", "1111"]  # S は「TOB価格未入力」が先
+
+
+def _line_env(tmp_path, monkeypatch, holdings, cash):
+    from scanner import ai_decision as AD
+    from scanner import line_actions as L
+    from scanner import portfolio as P
+    from scanner.sources.nse_list import Listing
+    from scanner.sources.nse_prices import Quote
+
+    h = tmp_path / "holdings.csv"
+    h.write_text("code,shares,buy_price,buy_date,memo\n" + holdings, encoding="utf-8")
+    c = tmp_path / "cash.csv"
+    c.write_text(f"key,value,memo\ncash,{cash},\n", encoding="utf-8")
+    dec = tmp_path / "decisions"
+    dec.mkdir()
+    for mod, attr, val in ((P, "HOLDINGS_CSV", h), (P, "CASH_CSV", c), (AD, "DECISIONS", dec),
+                           (AD, "LATEST", tmp_path / "latest.json"), (AD, "APPLIED", tmp_path / "applied.json"),
+                           (AD, "HISTORY", tmp_path / "history.jsonl"), (L, "STATE", tmp_path / "state.json"),
+                           (L, "STATUS", tmp_path / "status.json")):
+        monkeypatch.setattr(mod, attr, val)
+    monkeypatch.setattr(L, "short_status", lambda pf=None: "保有：（省略）")
+    monkeypatch.setattr(L, "write_status", lambda pf=None: None)
+    monkeypatch.setattr(L, "latest_quotes", lambda base: {"1438": Quote("1438", "岐阜造園", quote=2100),
+                                                          "8309": Quote("8309", "三井住友トラストG", quote=1786.5)})
+    uni = {k: Listing(k, k, False, "", 100, "") for k in ("8309", "4125", "1438", "7871")}
+    monkeypatch.setattr("scanner.sources.nse_list.load", lambda refresh=False: (uni, None))
+    sent = []
+    monkeypatch.setattr("scanner.notify.send", lambda text, kind, extra=None: sent.append((text, extra)) or "LINEに送信しました")
+    L.save_state({**L.load_state(), "enabled": True})
+    return h, c, dec, sent
+
+
+def _ord(side, code, shares, price):
+    return {"side": side, "code": code, "shares": shares, "unit": 100, "price": price, "confidence": "中", "reason": "r"}
+
+
+def test_line_duplicate_and_undo_messages(tmp_path, monkeypatch):
+    """2026-11-13：同じ返信を2回送ると二重に記録しようとして「現金不足」と出た／取り消し済みに「もともと記録していません」と出た。"""
+    import json as _json
+
+    from scanner import ai_decision as AD
+    from scanner import line_actions as L
+
+    h, c, dec, _ = _line_env(tmp_path, monkeypatch, "8309,1700,1689.5,2026-11-12,AI x\n", 702250)
+    d = {"version": 1, "created_at": "2026-11-13T21:18:00+09:00", "base_day": "2026-11-13", "summary": "t",
+         "orders": [_ord("sell", "8309", 1700, 1786.5), _ord("buy", "4125", 900, 3185)]}
+    (dec / "2026-11-13-2118.json").write_text(_json.dumps(d), encoding="utf-8")
+    now = datetime(2026, 11, 13, 21, 20, tzinfo=JST)
+    AD.apply_all(now=now)
+    later = datetime(2026, 11, 13, 22, 58, tzinfo=JST)
+    r = L.process({"type": "postback", "data": "act=other&id=2026-11-13-2118", "event_id": "a"}, later)
+    assert "返信してください" in r["text"] and "8309,1700" in h.read_text(encoding="utf-8")
+    text = "売り 8309 全部\n買い 1438 1400"
+    r = L.process({"type": "text", "text": text, "event_id": "b"}, later)
+    assert r["changed"] and "1438,1400,2100" in h.read_text(encoding="utf-8")
+    assert "cash,799300" in c.read_text(encoding="utf-8")
+    # 同じ文をもう一度 → 二重に記録しない（現金不足とも言わない）
+    r = L.process({"type": "text", "text": text, "event_id": "c"}, later)
+    assert not r["changed"] and "二重には記録しませんでした" in r["text"] and "現金不足" not in r["text"]
+    assert h.read_text(encoding="utf-8").count("1438") == 1
+    # 「追加」を付ければ、同じ文でももう一度記録しにいく（ここでは現金が足りないので、その旨が出る）
+    r = L.process({"type": "text", "text": "追加 " + text, "event_id": "c2"}, later)
+    assert "二重" not in r["text"] and "現金不足" in r["text"]
+    # 別の注文をした をもう一度 → 手入力の記録を取り消して返信待ち（もともと記録していません、とは言わない）
+    r = L.process({"type": "postback", "data": "act=other&id=2026-11-13-2118", "event_id": "d"}, later)
+    assert "「別の注文」で記録した内容を取り消しました" in r["text"] and "もともと" not in r["text"]
+    assert "8309,1700" in h.read_text(encoding="utf-8") and "1438" not in h.read_text(encoding="utf-8")
+    assert "cash,702250" in c.read_text(encoding="utf-8")
+    # 返信し直しは二重とみなさない
+    r = L.process({"type": "text", "text": text, "event_id": "e"}, later)
+    assert r["changed"] and "1438,1400,2100" in h.read_text(encoding="utf-8")
+    # 注文しなかった（手入力も取り消し）→ もう一度押しても「取り消し済み」
+    r = L.process({"type": "postback", "data": "act=none&id=2026-11-13-2118", "event_id": "f"}, later)
+    assert r["changed"] and "取り消しました" in r["text"]
+    r = L.process({"type": "postback", "data": "act=none&id=2026-11-13-2118", "event_id": "g"}, later)
+    assert "もう取り消してあります" in r["text"] and "もともと" not in r["text"]
+
+
+def test_ai_replaces_unconfirmed(tmp_path, monkeypatch):
+    """2026-11-13：21:20の注文が記録済み（ユーザー未確認）のため、あとのTOBを「枠不足」で見送った → 入れ替えられるように。"""
+    import json as _json
+
+    from scanner import ai_decision as AD
+    from scanner import line_actions as L
+
+    h, c, dec, sent = _line_env(tmp_path, monkeypatch, "8309,1700,1689.5,2026-11-12,AI x\n", 702250)
+    d1 = {"version": 1, "created_at": "2026-11-13T21:18:00+09:00", "base_day": "2026-11-13", "summary": "t",
+          "orders": [_ord("sell", "8309", 1700, 1786.5), _ord("buy", "4125", 900, 3185)]}
+    (dec / "2026-11-13-2118.json").write_text(_json.dumps(d1), encoding="utf-8")
+    AD.apply_all(now=datetime(2026, 11, 13, 21, 20, tzinfo=JST))
+    assert "4125,900" in h.read_text(encoding="utf-8")
+    # 事前チェック：未確認の判断と、取り消したときの残り枠・現金が出る
+    inp = tmp_path / "input.json"
+    inp.write_text(_json.dumps({"base_day": "2026-11-13", "generated_at": "2026-11-13T22:50:00+09:00",
+                                "portfolio": {"term_left": 133500, "cash": 872800}}), encoding="utf-8")
+    hist = [_json.loads(x) for x in AD.HISTORY.read_text(encoding="utf-8").splitlines()]
+    ok, lines = AD.preflight(inp, "fire", False, now=datetime(2026, 11, 13, 22, 51, tzinfo=JST), history=hist)
+    txt = "\n".join(lines)
+    assert "入れ替え可" in txt and "if_replaced=2026-11-13-2118" in txt
+    assert "残り枠=3,000,000円" in txt and "現金=702,250円" in txt
+    # 入れ替えの判断：売り 8309 は残し、買いを 4125 → 1438
+    d2 = {"version": 1, "created_at": "2026-11-13T22:51:00+09:00", "base_day": "2026-11-13",
+          "summary": "入れ替え：岐阜造園", "replaces": "2026-11-13-2118",
+          "orders": [_ord("sell", "8309", 1700, 1786.5), _ord("buy", "1438", 1400, 2100)]}
+    assert AD.validate(d2) == []
+    assert AD.validate(dict(d2, replaces="21:18"))
+    (dec / "2026-11-13-2251.json").write_text(_json.dumps(d2), encoding="utf-8")
+    log = AD.apply_all(now=datetime(2026, 11, 13, 22, 52, tzinfo=JST))
+    rows = h.read_text(encoding="utf-8")
+    assert "1438,1400,2100" in rows and "4125" not in rows and "8309" not in rows.split("\n", 1)[1]
+    assert "cash,799300" in c.read_text(encoding="utf-8")
+    assert "入れ替え" in log[0]
+    assert "21:18の注文の代わり" in str(sent[-1][1])
+    # 古い注文のボタンは「入れ替えました」
+    r = L.process({"type": "postback", "data": "act=done&id=2026-11-13-2118", "event_id": "x"},
+                  datetime(2026, 11, 13, 22, 55, tzinfo=JST))
+    assert "入れ替えました" in r["text"] and not r["changed"]
+    # 新しいほうの「注文しなかった」は、入れ替えた分の記録を取り消す
+    r = L.process({"type": "postback", "data": "act=none&id=2026-11-13-2251", "event_id": "y"},
+                  datetime(2026, 11, 13, 22, 56, tzinfo=JST))
+    assert r["changed"] and "8309,1700" in h.read_text(encoding="utf-8") and "cash,702250" in c.read_text(encoding="utf-8")
+
+
+def test_ai_replaces_confirmed_is_reference(tmp_path, monkeypatch):
+    """ユーザーが「指示どおり注文した」と返事済みなら、入れ替えずに参考として送る。"""
+    import json as _json
+
+    from scanner import ai_decision as AD
+    from scanner import line_actions as L
+
+    h, c, dec, sent = _line_env(tmp_path, monkeypatch, "8309,1700,1689.5,2026-11-12,AI x\n", 702250)
+    d1 = {"version": 1, "created_at": "2026-11-13T21:18:00+09:00", "base_day": "2026-11-13", "summary": "t",
+          "orders": [_ord("sell", "8309", 1700, 1786.5), _ord("buy", "4125", 900, 3185)]}
+    (dec / "2026-11-13-2118.json").write_text(_json.dumps(d1), encoding="utf-8")
+    AD.apply_all(now=datetime(2026, 11, 13, 21, 20, tzinfo=JST))
+    L.process({"type": "postback", "data": "act=done&id=2026-11-13-2118", "event_id": "a"},
+              datetime(2026, 11, 13, 21, 30, tzinfo=JST))
+    before = h.read_text(encoding="utf-8"), c.read_text(encoding="utf-8")
+    d2 = {"version": 1, "created_at": "2026-11-13T22:51:00+09:00", "base_day": "2026-11-13", "summary": "入れ替え",
+          "replaces": "2026-11-13-2118", "orders": [_ord("sell", "8309", 1700, 1786.5), _ord("buy", "1438", 1400, 2100)]}
+    (dec / "2026-11-13-2251.json").write_text(_json.dumps(d2), encoding="utf-8")
+    log = AD.apply_all(now=datetime(2026, 11, 13, 22, 52, tzinfo=JST))
+    assert "参考" in log[0]
+    assert (h.read_text(encoding="utf-8"), c.read_text(encoding="utf-8")) == before
