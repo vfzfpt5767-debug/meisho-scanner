@@ -358,5 +358,45 @@
 "label": "自社株買い",
 "price": 5704.0,
 "result": null
+},
+{
+"base_day": "2026-11-13",
+"source": "rule_sa",
+"code": "4125",
+"name": "三和油化工業",
+"category": "A",
+"label": "上方修正",
+"price": 3185.0,
+"result": null
+},
+{
+"base_day": "2026-11-13",
+"source": "rule_sa",
+"code": "8361",
+"name": "大垣共立銀行",
+"category": "A",
+"label": "増配",
+"price": 1520.0,
+"result": null
+},
+{
+"base_day": "2026-11-13",
+"source": "rule_sa",
+"code": "8306",
+"name": "三菱ＵＦＪフィナンシャル・グループ",
+"category": "A",
+"label": "自社株買い",
+"price": 3475.0,
+"result": null
+},
+{
+"base_day": "2026-11-13",
+"source": "rule_sa",
+"code": "7871",
+"name": "フクビ化学工業",
+"category": "A",
+"label": "増配",
+"price": 999.0,
+"result": null
 }
 ]
