@@ -86,6 +86,22 @@ def _shares(price: float | None, unit: int) -> tuple[int | None, float | None]:
     return lots * unit, lots * unit * price
 
 
+def card_sort_key(c: Card) -> tuple[int, float, float, str]:
+    """候補の並び順：S は「TOB価格未入力」→ 差が大きい順。ほかは点数順。
+
+    S とほかの区分が同じリストに入るので、どの区分でも (整数, 数値, 数値, 時刻の文字列) の同じ形にする。
+    （2026-11-13：17:00 の岐阜造園(1438)へのTOB（S）と、買い手の積水ハウス(1928)の開示（TOB関連・0点）が
+    並んだとき、形が違うキーを比べて TypeError で止まり、それ以降のスキャンがすべて失敗した）
+    """
+    t = c.items[0].time if c.items else ""
+    if c.category == C.S:
+        return (0 if c.tob_gap_pct is None else 1, -(c.tob_gap_pct or 0), -c.score, t)
+    if c.category == C.CHECK:
+        prio = any(tg["label"] in PRIORITY_CHECK_LABELS for it in c.items for tg in it.tags)
+        return (0 if prio else 1, -c.score, 0, t)
+    return (0, -c.score, 0, t)
+
+
 def run(now: datetime | None = None) -> ScanResult:
     now = now or now_jst()
     base = base_day(now)
@@ -210,17 +226,8 @@ def run(now: datetime | None = None) -> ScanResult:
             if c.tob_price and c.price:
                 c.tob_gap_pct = (c.tob_price / c.price - 1) * 100
 
-    # 並び順：S は「TOB価格未入力」→ 差が大きい順。ほかは点数順
-    def sort_key(c: Card):
-        if c.category == C.S:
-            return (0 if c.tob_gap_pct is None else 1, -(c.tob_gap_pct or 0), -c.score)
-        if c.category == C.CHECK:
-            prio = any(t["label"] in PRIORITY_CHECK_LABELS for it in c.items for t in it.tags)
-            return (0 if prio else 1, -c.score, c.items[0].time)
-        return (0, -c.score, c.items[0].time)
-
-    cards.sort(key=sort_key)
-    before_cards.sort(key=sort_key)
+    cards.sort(key=card_sort_key)
+    before_cards.sort(key=card_sort_key)
 
     # 5) TOBトラッカー
     tob_rows: list[TobRow] = []

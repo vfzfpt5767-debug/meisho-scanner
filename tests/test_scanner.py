@@ -3,7 +3,7 @@ from datetime import date, datetime
 from scanner import classify as C
 from scanner.calendar_jp import JST, base_day, is_business_day, order_deadline
 from scanner.render import render
-from scanner.scan import Card, Item, ScanResult
+from scanner.scan import Card, Item, ScanResult, card_sort_key
 
 
 def cats(title, code="1234"):
@@ -1159,3 +1159,19 @@ def test_ir_check_picks_tanshin_for_earnings_only(tmp_path, monkeypatch):
     ir.attach_ir_checks(data)
     assert titles == ["2026年12月期 第３四半期決算短信〔日本基準〕（連結）"]
     assert data["earnings_only"][0]["ir_check"]["status"] == "not_found"
+
+
+def test_card_sort_mixed_categories():
+    """S（TOB）と0点の候補（自社株TOBなど）が同じリストにあっても並べ替えで止まらない（2026-11-13 の失敗）。"""
+    def card(code, cat, score, time="17:00", gap=None):
+        c = Card(code=code, name=code, single=False, division="", unit=100, category=cat, score=score,
+                 items=[Item(time=time, date="11/13", title="", pdf="", tags=[])])
+        c.tob_gap_pct = gap
+        return c
+
+    cards = [card("6676", C.SELF_TOB, 0, "16:30"), card("1438", C.S, 100), card("1928", C.TOB_REL, 0),
+             card("4125", C.A, 60, "16:00"), card("6407", C.CHECK, 30), card("1111", C.S, 100, gap=20.0)]
+    cards.sort(key=card_sort_key)  # 以前はここで TypeError
+    assert len(cards) == 6
+    s_order = [c.code for c in cards if c.category == C.S]
+    assert s_order == ["1438", "1111"]  # S は「TOB価格未入力」が先
