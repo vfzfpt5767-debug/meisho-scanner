@@ -268,7 +268,7 @@
    "base_day": "2026-11-12"
   },
   "2026-11-13-2118": {
-   "status": "undone",
+   "status": "custom",
    "mode": "record",
    "patch": {
     "removed": [
@@ -323,7 +323,8 @@
   "01M6ZQANK3NWVQ5VWP3CC42YJG",
   "01M75P93B7VT3WPM6R8EVVGTNQ",
   "01M77WJ5FH2MV8E1XWZH44W5MT",
-  "01M7AK6S86JNE8GZ3HGZ1PDXRF"
+  "01M7AK6S86JNE8GZ3HGZ1PDXRF",
+  "01M7AK72K9VGWYP1G3GDB26QEN"
  ],
  "manual": [
   {
@@ -343,12 +344,35 @@
     "cash_delta": -187700.0
    },
    "at": "2026-11-06T01:59:30.351349+09:00"
+  },
+  {
+   "id": "LINE 11/13 22:58",
+   "text": "売り 8309 全部\n買い 1438 1400",
+   "patch": {
+    "removed": [
+     [
+      "8309",
+      "1700",
+      "1689.5",
+      "2026-11-12",
+      "AI 2026-11-12-2118"
+     ]
+    ],
+    "added": [
+     [
+      "1438",
+      "1400",
+      "2100",
+      "2026-11-13",
+      "LINE 11/13 22:58"
+     ]
+    ],
+    "cash_delta": 97050.0
+   },
+   "at": "2026-11-13T22:58:51.577036+09:00"
   }
  ],
- "awaiting": {
-  "decision": "2026-11-13-2118",
-  "since": "2026-11-13T22:58:19.534510+09:00"
- },
+ "awaiting": null,
  "enabled": true,
  "questions": [
   {
