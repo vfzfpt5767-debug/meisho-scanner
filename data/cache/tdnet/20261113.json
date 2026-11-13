@@ -1,7 +1,134 @@
 {
 "date": "2026-11-13",
-"fetched_at": "2026-11-13T07:06:14.620348+09:00",
+"fetched_at": "2026-11-13T10:57:12.890321+09:00",
 "complete": false,
-"total_all_markets": 0,
-"items": []
+"total_all_markets": 43,
+"items": [
+{
+"Tdnet": {
+"id": "1294116",
+"pubdate": "2026-11-13 08:00:00",
+"company_code": "35560",
+"company_name": "Ｇ－リネットジャパン",
+"title": "2026年9月期 決算短信〔日本基準〕（連結）",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261112576374.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/081220261112576374.zip",
+"markets_string": "東名",
+"update_history": null
+}
+},
+{
+"Tdnet": {
+"id": "1294117",
+"pubdate": "2026-11-13 08:00:00",
+"company_code": "35560",
+"company_name": "Ｇ－リネットジャパン",
+"title": "2026年9月期決算補足資料",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261112576447.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": null,
+"markets_string": "東名",
+"update_history": null
+}
+},
+{
+"Tdnet": {
+"id": "1294118",
+"pubdate": "2026-11-13 08:00:00",
+"company_code": "35560",
+"company_name": "Ｇ－リネットジャパン",
+"title": "通期連結業績予想と実績値との差異及び個別決算における前事業年度の実績値との差異に関するお知らせ",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261112576474.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": null,
+"markets_string": "東名",
+"update_history": null
+}
+},
+{
+"Tdnet": {
+"id": "1294119",
+"pubdate": "2026-11-13 08:00:00",
+"company_code": "35560",
+"company_name": "Ｇ－リネットジャパン",
+"title": "事業計画及び成長可能性に関する事項",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261112576503.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": null,
+"markets_string": "東名",
+"update_history": null
+}
+},
+{
+"Tdnet": {
+"id": "1294120",
+"pubdate": "2026-11-13 08:00:00",
+"company_code": "35560",
+"company_name": "Ｇ－リネットジャパン",
+"title": "2027年9月期配当予想（初配）及び株主優待制度の変更に関するお知らせ",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261112576528.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": null,
+"markets_string": "東名",
+"update_history": null
+}
+},
+{
+"Tdnet": {
+"id": "1294121",
+"pubdate": "2026-11-13 08:00:00",
+"company_code": "35560",
+"company_name": "Ｇ－リネットジャパン",
+"title": "定款一部変更に関するお知らせ",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261112576538.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": null,
+"markets_string": "東名",
+"update_history": null
+}
+},
+{
+"Tdnet": {
+"id": "1294122",
+"pubdate": "2026-11-13 08:00:00",
+"company_code": "35560",
+"company_name": "Ｇ－リネットジャパン",
+"title": "役員人事に関するお知らせ",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261112576547.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": null,
+"markets_string": "東名",
+"update_history": null
+}
+}
+]
 }

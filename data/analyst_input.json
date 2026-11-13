@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-13T07:06:13.362111+09:00",
+ "generated_at": "2026-11-13T10:57:11.984264+09:00",
  "base_day": "2026-11-12",
  "deadline": "2026-11-13T07:59:00+09:00",
  "price_source": "名証 日報",
@@ -179,6 +179,129 @@
    }
   },
   {
+   "code": "3556",
+   "name": "リネットジャパングループ",
+   "category": "CHECK",
+   "score": 54,
+   "single": false,
+   "price": 897.0,
+   "price_note": "名証の最終気配",
+   "quote_only": true,
+   "unit": 100,
+   "shares_for_budget": 3300,
+   "tob_price": null,
+   "tob_gap_pct": null,
+   "model_prob": null,
+   "items": [
+    {
+     "time": "11/13 08:00",
+     "title": "2026年9月期 決算短信〔日本基準〕（連結）",
+     "pdf": "https://www.release.tdnet.info/inbs/140120261112576374.pdf",
+     "labels": [
+      {
+       "cat": "INFO",
+       "label": "決算短信",
+       "backtest_next_day": {
+        "up": 40.7,
+        "mean": -0.36,
+        "median": -0.52,
+        "p10": -8.2,
+        "n": 19890
+       }
+      }
+     ]
+    },
+    {
+     "time": "11/13 08:00",
+     "title": "2026年9月期決算補足資料",
+     "pdf": "https://www.release.tdnet.info/inbs/140120261112576447.pdf",
+     "labels": []
+    },
+    {
+     "time": "11/13 08:00",
+     "title": "通期連結業績予想と実績値との差異及び個別決算における前事業年度の実績値との差異に関するお知らせ",
+     "pdf": "https://www.release.tdnet.info/inbs/140120261112576474.pdf",
+     "labels": [
+      {
+       "cat": "CHECK",
+       "label": "予想と実績の差異",
+       "backtest_next_day": {
+        "up": 37.55,
+        "mean": -0.7,
+        "median": -0.79,
+        "p10": -10.11,
+        "n": 1891
+       }
+      }
+     ]
+    },
+    {
+     "time": "11/13 08:00",
+     "title": "事業計画及び成長可能性に関する事項",
+     "pdf": "https://www.release.tdnet.info/inbs/140120261112576503.pdf",
+     "labels": []
+    },
+    {
+     "time": "11/13 08:00",
+     "title": "2027年9月期配当予想（初配）及び株主優待制度の変更に関するお知らせ",
+     "pdf": "https://www.release.tdnet.info/inbs/140120261112576528.pdf",
+     "labels": [
+      {
+       "cat": "CHECK",
+       "label": "優待の変更",
+       "backtest_next_day": {
+        "up": 62.84,
+        "mean": 1.44,
+        "median": 0.98,
+        "p10": -5.0,
+        "n": 522
+       }
+      }
+     ]
+    },
+    {
+     "time": "11/13 08:00",
+     "title": "定款一部変更に関するお知らせ",
+     "pdf": "https://www.release.tdnet.info/inbs/140120261112576538.pdf",
+     "labels": []
+    },
+    {
+     "time": "11/13 08:00",
+     "title": "役員人事に関するお知らせ",
+     "pdf": "https://www.release.tdnet.info/inbs/140120261112576547.pdf",
+     "labels": []
+    }
+   ],
+   "ir_check": {
+    "status": "not_found",
+    "ir_page": "https://corp.renet.jp/",
+    "recent": [
+     {
+      "text": "",
+      "url": "https://ssl4.eir-parts.net/doc/3556/tdnet/2914416/00.pdf",
+      "date": "2026-11-13"
+     },
+     {
+      "text": "",
+      "url": "https://ssl4.eir-parts.net/doc/3556/tdnet/2914418/00.pdf",
+      "date": "2026-11-13"
+     },
+     {
+      "text": "",
+      "url": "https://ssl4.eir-parts.net/doc/3556/tdnet/2914420/00.pdf",
+      "date": "2026-11-13"
+     },
+     {
+      "text": "",
+      "url": "https://corp.renet.jp/wp/wp-content/uploads/2026/10/20261030.pdf",
+      "date": "2026-11-13"
+     }
+    ],
+    "checked": "2026-11-13T01:57",
+    "for_title": "通期連結業績予想と実績値との差異及び個別決算における前事業年度の実績値との差異に関するお知らせ"
+   }
+  },
+  {
    "code": "3504",
    "name": "丸八ホールディングス",
    "category": "CHECK",
@@ -266,7 +389,7 @@
       "date": "2025-12-15"
      }
     ],
-    "checked": "2026-11-12T22:06",
+    "checked": "2026-11-13T01:57",
     "for_title": "第２四半期（中間期）連結業績予想と実績との差異及び通期連結業績予想の修正に関するお知らせ"
    }
   },
@@ -361,7 +484,7 @@
     "also_checked": [
      "https://www.gaiax.co.jp/"
     ],
-    "checked": "2026-11-12T22:06",
+    "checked": "2026-11-13T01:57",
     "for_title": "2026年12月期通期連結業績予想の修正に関するお知らせ"
    }
   },
@@ -406,7 +529,7 @@
     "also_checked": [
      "http://www.taihei-ss.co.jp/"
     ],
-    "checked": "2026-11-12T22:06",
+    "checked": "2026-11-13T01:57",
     "for_title": "業績予想の修正に関するお知らせ"
    }
   },
@@ -541,39 +664,12 @@
     }
    ],
    "ir_check": {
-    "status": "not_found",
+    "status": "unreachable",
     "ir_page": "https://www.kikukawa.co.jp/news/",
-    "recent": [
-     {
-      "text": "2026年度第2四半期決算短信［日本基準］（非連結）［PDF］をアップしました 2026.11.12",
-      "url": "https://www.kikukawa.co.jp/2026/11/12/2026%e5%b9%b4%e5%ba%a6%e7%ac%ac2%e5%9b%9b%e5%8d%8a%e6%9c%9f%e6%b1%ba%e7%ae%97%e7%9f%ad%e4%bf%a1%ef%bc%bb%e6%97%a5%e6%9c%ac%e5%9f%ba%e6%ba%96%ef%bc%bd%ef%bc%88%e9%9d%9e%e9%80%a3%e7%b5%90%ef%bc%89/",
-      "date": "2026-11-12"
-     },
-     {
-      "text": "創立第129周年記念式典 2026.11.02",
-      "url": "https://www.kikukawa.co.jp/2026/11/02/%e5%89%b5%e7%ab%8b%e7%ac%ac129%e5%91%a8%e5%b9%b4%e8%a8%98%e5%bf%b5%e5%bc%8f%e5%85%b8/",
-      "date": "2026-11-02"
-     },
-     {
-      "text": "2026年度第1四半期決算短信［日本基準］（非連結）［PDF］をアップしました 2026.08.10",
-      "url": "https://www.kikukawa.co.jp/2026/08/10/2026%e5%b9%b4%e5%ba%a6%e7%ac%ac1%e5%9b%9b%e5%8d%8a%e6%9c%9f%e6%b1%ba%e7%ae%97%e7%9f%ad%e4%bf%a1%ef%bc%bb%e6%97%a5%e6%9c%ac%e5%9f%ba%e6%ba%96%ef%bc%bd%ef%bc%88%e9%9d%9e%e9%80%a3%e7%b5%90%ef%bc%89/",
-      "date": "2026-08-10"
-     },
-     {
-      "text": "「第145期定時株主総会招集ご通知［PDF］」をアップしました 2026.06.02",
-      "url": "https://www.kikukawa.co.jp/2026/06/02/%e3%80%8c%e7%ac%ac145%e6%9c%9f%e5%ae%9a%e6%99%82%e6%a0%aa%e4%b8%bb%e7%b7%8f%e4%bc%9a%e6%8b%9b%e9%9b%86%e3%81%94%e9%80%9a%e7%9f%a5%ef%bc%bbpdf%ef%bc%bd%e3%80%8d%e3%82%92%e3%82%a2%e3%83%83%e3%83%97/",
-      "date": "2026-06-02"
-     },
-     {
-      "text": "JPCA Show 2026 に出展致します。 2026.06.01",
-      "url": "https://www.kikukawa.co.jp/2026/06/01/jpca-show-2026-%e3%81%ab%e5%87%ba%e5%b1%95%e8%87%b4%e3%81%97%e3%81%be%e3%81%99%e3%80%82/",
-      "date": "2026-06-01"
-     }
-    ],
     "also_checked": [
      "http://www.kikukawa.co.jp/"
     ],
-    "checked": "2026-11-12T22:06",
+    "checked": "2026-11-13T01:57",
     "for_title": "2027年3月期第2四半期（中間期）業績予想数値と実績値との差異に関するお知らせ"
    }
   }
@@ -653,7 +749,7 @@
     "also_checked": [
      "https://lahd.co.jp/"
     ],
-    "checked": "2026-11-12T22:06",
+    "checked": "2026-11-13T01:57",
     "for_title": "2026年12月期 第３四半期決算短信〔日本基準〕（連結）"
    }
   },
@@ -698,7 +794,7 @@
     "also_checked": [
      "https://www.mullion.co.jp/"
     ],
-    "checked": "2026-11-12T22:06",
+    "checked": "2026-11-13T01:57",
     "for_title": "2026年９月期 決算短信〔日本基準〕（非連結）"
    }
   },
@@ -769,7 +865,7 @@
     "also_checked": [
      "https://tyk.co.jp/"
     ],
-    "checked": "2026-11-12T22:06",
+    "checked": "2026-11-13T01:57",
     "for_title": "2027年3月期　第2四半期（中間期）決算短信［日本基準］（連結）"
    }
   },
@@ -817,7 +913,7 @@
     "status": "not_found",
     "ir_page": "https://www.hoshizaki.co.jp/",
     "recent": [],
-    "checked": "2026-11-12T22:06",
+    "checked": "2026-11-13T01:57",
     "for_title": "2026年12月期第３四半期決算短信〔日本基準〕（連結）"
    }
   },
@@ -916,7 +1012,7 @@
     "also_checked": [
      "https://www.j-materials.jp/"
     ],
-    "checked": "2026-11-12T22:06",
+    "checked": "2026-11-13T01:57",
     "for_title": "2027年３月期 第２四半期（中間期）決算短信〔日本基準〕（連結）"
    }
   },
@@ -1047,7 +1143,7 @@
     "also_checked": [
      "https://www.fuluhashi.co.jp/"
     ],
-    "checked": "2026-11-12T22:06",
+    "checked": "2026-11-13T01:57",
     "for_title": "2027年３月期第２四半期（中間期）決算短信〔日本基準〕(連結)"
    }
   },
@@ -1119,7 +1215,7 @@
     "also_checked": [
      "https://www.p-ban.com/corporate/"
     ],
-    "checked": "2026-11-12T22:06",
+    "checked": "2026-11-13T01:57",
     "for_title": "2027年3月期 第2四半期（中間期）決算短信〔日本基準〕（非連結）"
    }
   },
@@ -1194,7 +1290,7 @@
     "also_checked": [
      "https://www.copro-h.co.jp/"
     ],
-    "checked": "2026-11-12T22:06",
+    "checked": "2026-11-13T01:57",
     "for_title": "2027年３月期第２四半期（中間期）決算短信〔日本基準〕(連結)"
    }
   }
@@ -1206,8 +1302,8 @@
   "cash": 702250.0,
   "total": 3574400.0,
   "profit": 574400.0,
-  "term_left": 127850.0,
-  "term_open": true,
+  "term_left": 3000000.0,
+  "term_open": false,
   "single_bought": true,
   "holdings": [
    {
@@ -1228,144 +1324,6 @@
     ],
     "sell_rule": "11/13(金)の終値で売る予定（買ってから1営業日後）。検証：上方修正でストップ高にならなかった銘柄は1営業日後の終値で売るのが一番よい（平均+2.7%・中央値+1.8%・n=245）",
     "material": "上方修正"
-   }
-  ]
- },
- "morning": {
-  "direction": "日経平均先物は前日の日経平均より+0.8% → 上昇して始まりそう",
-  "futures_gap_pct": 0.8067168085951648,
-  "indices": [
-   {
-    "symbol": "^GSPC",
-    "label": "S&P500",
-    "last": 7592.39990234375,
-    "change_pct": -0.3540968016256807,
-    "date": "2026-11-12"
-   },
-   {
-    "symbol": "^IXIC",
-    "label": "ナスダック",
-    "last": 25366.09375,
-    "change_pct": -0.3930533200078634,
-    "date": "2026-11-12"
-   },
-   {
-    "symbol": "^SOX",
-    "label": "SOX指数（半導体）",
-    "last": 10506.673828125,
-    "change_pct": -0.5436948453402368,
-    "date": "2026-11-12"
-   },
-   {
-    "symbol": "JPY=X",
-    "label": "ドル円",
-    "last": 159.78900146484375,
-    "change_pct": 0.683028021349319,
-    "date": "2026-11-12"
-   },
-   {
-    "symbol": "NIY=F",
-    "label": "日経平均先物（CME・円建て）",
-    "last": 61310.0,
-    "change_pct": -0.9291427648056905,
-    "date": "2026-11-12"
-   },
-   {
-    "symbol": "^N225",
-    "label": "日経平均",
-    "last": 61248.58984375,
-    "change_pct": 1.305023526824356,
-    "date": "2026-11-11"
-   }
-  ],
-  "adr_top": [
-   {
-    "adr": "NGKSY",
-    "code": "5334",
-    "name": "日本特殊陶業",
-    "jp_price": 3894.0,
-    "implied": 4047.341774521605,
-    "gap_pct": 3.9378986780073344,
-    "adr_change_pct": 3.48693270182594,
-    "traded": true,
-    "single": false
-   },
-   {
-    "adr": "FELTY",
-    "code": "6504",
-    "name": "富士電機",
-    "jp_price": 11620.0,
-    "implied": 11653.179614488829,
-    "gap_pct": 0.28553885102262644,
-    "adr_change_pct": -2.3019287909574526,
-    "traded": true,
-    "single": false
-   },
-   {
-    "adr": "CAJPY",
-    "code": "7751",
-    "name": "キヤノン",
-    "jp_price": 4791.0,
-    "implied": 4790.374357457,
-    "gap_pct": -0.013058704717183733,
-    "adr_change_pct": 1.6260146842582035,
-    "traded": true,
-    "single": false
-   },
-   {
-    "adr": "MKTAY",
-    "code": "6586",
-    "name": "マキタ",
-    "jp_price": 5593.0,
-    "implied": 5591.747684373761,
-    "gap_pct": -0.02239076749934732,
-    "adr_change_pct": -0.846976997654314,
-    "traded": true,
-    "single": false
-   },
-   {
-    "adr": "SHECY",
-    "code": "4063",
-    "name": "信越化学工業",
-    "jp_price": 5791.0,
-    "implied": 5789.354924200456,
-    "gap_pct": -0.028407456389989427,
-    "adr_change_pct": 0.6670419163987473,
-    "traded": true,
-    "single": false
-   },
-   {
-    "adr": "TOTDY",
-    "code": "5332",
-    "name": "ＴＯＴＯ",
-    "jp_price": 5704.0,
-    "implied": 5700.873249813036,
-    "gap_pct": -0.054816798509194076,
-    "adr_change_pct": -1.4661205300772195,
-    "traded": true,
-    "single": false
-   },
-   {
-    "adr": "MHVYF",
-    "code": "7011",
-    "name": "三菱重工業",
-    "jp_price": 3155.0,
-    "implied": 3148.5365143545737,
-    "gap_pct": -0.20486483820685297,
-    "adr_change_pct": 1.025644938151049,
-    "traded": true,
-    "single": false
-   },
-   {
-    "adr": "FJTSY",
-    "code": "6702",
-    "name": "富士通",
-    "jp_price": 3550.0,
-    "implied": 3540.4093397853376,
-    "gap_pct": -0.270159442666551,
-    "adr_change_pct": 1.0041045864291887,
-    "traded": true,
-    "single": false
    }
   ]
  },
@@ -1724,26 +1682,26 @@
   }
  ],
  "simulator": {
-  "nights_left": 11,
+  "nights_left": 10,
   "start_assets": 3574400.0,
   "target": 6750000,
   "best": "aggressive",
   "best_label": "毎晩1位候補に全額（要確認だけの夜も買う）",
-  "advice": "勝負モード：毎晩、大きく上がる可能性が一番高い候補に300万円の枠いっぱい（休む夜を作らない）。10位ラインの見込みに届く確率 0.5%・今の10位を超える確率 7.4%",
+  "advice": "勝負モード：毎晩、大きく上がる可能性が一番高い候補に300万円の枠いっぱい（休む夜を作らない）。10位ラインの見込みに届く確率 0.4%・今の10位を超える確率 6.1%",
   "mode": "top10",
   "target_now": 5405800,
   "target_now_date": "2026-11-12",
   "probs": {
-   "毎晩1位候補に全額（要確認だけの夜も買う）": 0.52,
-   "毎晩上位2銘柄に半分ずつ": 0.19,
-   "S・A・ストップ高張り付きがある夜だけ1位に全額、ない夜は休む": 0.39,
-   "S・A・張り付きがある夜だけ、上位2銘柄に半分ずつ": 0.24
+   "毎晩1位候補に全額（要確認だけの夜も買う）": 0.36,
+   "毎晩上位2銘柄に半分ずつ": 0.14,
+   "S・A・ストップ高張り付きがある夜だけ1位に全額、ない夜は休む": 0.27,
+   "S・A・張り付きがある夜だけ、上位2銘柄に半分ずつ": 0.14
   },
   "probs_now": {
-   "毎晩1位候補に全額（要確認だけの夜も買う）": 7.38,
-   "毎晩上位2銘柄に半分ずつ": 4.24,
-   "S・A・ストップ高張り付きがある夜だけ1位に全額、ない夜は休む": 6.14,
-   "S・A・張り付きがある夜だけ、上位2銘柄に半分ずつ": 4.51
+   "毎晩1位候補に全額（要確認だけの夜も買う）": 6.09,
+   "毎晩上位2銘柄に半分ずつ": 3.47,
+   "S・A・ストップ高張り付きがある夜だけ1位に全額、ない夜は休む": 4.98,
+   "S・A・張り付きがある夜だけ、上位2銘柄に半分ずつ": 3.6
   }
  },
  "strategy": {
@@ -1754,7 +1712,7 @@
   "top10_line_final_est": 3750000,
   "gap_to_now_line": 1831400,
   "gap_to_final_est": 3175600,
-  "nights_left": 11,
-  "need_per_night_pct": 9.6
+  "nights_left": 10,
+  "need_per_night_pct": 10.6
  }
 }

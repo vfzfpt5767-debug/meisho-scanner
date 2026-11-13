@@ -1,5 +1,5 @@
 {
-"generated_at": "2026-11-13T07:06:13.362111+09:00",
+"generated_at": "2026-11-13T10:57:11.984264+09:00",
 "base_day": "2026-11-12",
 "deadline": "2026-11-13T07:59:00+09:00",
 "price_source": "名証 日報",
@@ -819,6 +819,124 @@
 "tob_price": null,
 "tob_gap_pct": null,
 "quote_only": false
+},
+{
+"code": "3556",
+"name": "リネットジャパングループ",
+"single": false,
+"division": "メイン",
+"unit": 100,
+"category": "CHECK",
+"score": 54,
+"items": [
+{
+"time": "08:00",
+"date": "11/13",
+"title": "2026年9月期 決算短信〔日本基準〕（連結）",
+"pdf": "https://www.release.tdnet.info/inbs/140120261112576374.pdf",
+"tags": [
+{
+"cat": "INFO",
+"label": "決算短信",
+"score": 15,
+"reason": "決算発表（数値はPDFで確認。自動計算はしていません）"
+}
+]
+},
+{
+"time": "08:00",
+"date": "11/13",
+"title": "2026年9月期決算補足資料",
+"pdf": "https://www.release.tdnet.info/inbs/140120261112576447.pdf",
+"tags": [
+{
+"cat": "INFO",
+"label": "その他",
+"score": 0,
+"reason": ""
+}
+]
+},
+{
+"time": "08:00",
+"date": "11/13",
+"title": "通期連結業績予想と実績値との差異及び個別決算における前事業年度の実績値との差異に関するお知らせ",
+"pdf": "https://www.release.tdnet.info/inbs/140120261112576474.pdf",
+"tags": [
+{
+"cat": "CHECK",
+"label": "予想と実績の差異",
+"score": 23,
+"reason": "予想と実績の差。良し悪しはPDFで確認"
+}
+]
+},
+{
+"time": "08:00",
+"date": "11/13",
+"title": "事業計画及び成長可能性に関する事項",
+"pdf": "https://www.release.tdnet.info/inbs/140120261112576503.pdf",
+"tags": [
+{
+"cat": "INFO",
+"label": "その他",
+"score": 0,
+"reason": ""
+}
+]
+},
+{
+"time": "08:00",
+"date": "11/13",
+"title": "2027年9月期配当予想（初配）及び株主優待制度の変更に関するお知らせ",
+"pdf": "https://www.release.tdnet.info/inbs/140120261112576528.pdf",
+"tags": [
+{
+"cat": "CHECK",
+"label": "優待の変更",
+"score": 44,
+"reason": "株主優待の変更。拡充か縮小かPDFで確認"
+}
+]
+},
+{
+"time": "08:00",
+"date": "11/13",
+"title": "定款一部変更に関するお知らせ",
+"pdf": "https://www.release.tdnet.info/inbs/140120261112576538.pdf",
+"tags": [
+{
+"cat": "INFO",
+"label": "その他",
+"score": 0,
+"reason": ""
+}
+]
+},
+{
+"time": "08:00",
+"date": "11/13",
+"title": "役員人事に関するお知らせ",
+"pdf": "https://www.release.tdnet.info/inbs/140120261112576547.pdf",
+"tags": [
+{
+"cat": "INFO",
+"label": "その他",
+"score": 0,
+"reason": ""
+}
+]
+}
+],
+"price": 897.0,
+"price_note": "名証の最終気配",
+"nse_close": null,
+"nse_quote": 897.0,
+"shares": 3300,
+"cost": 2960100.0,
+"tob_price": null,
+"tob_gap_pct": null,
+"quote_only": true
 },
 {
 "code": "3504",
