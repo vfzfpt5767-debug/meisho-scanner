@@ -294,7 +294,7 @@
    "base_day": "2026-11-13"
   },
   "2026-11-13-2251": {
-   "status": "recorded",
+   "status": "undone",
    "mode": "record",
    "patch": {
     "removed": [],
@@ -325,7 +325,8 @@
   "01M77WJ5FH2MV8E1XWZH44W5MT",
   "01M7AK6S86JNE8GZ3HGZ1PDXRF",
   "01M7AK72K9VGWYP1G3GDB26QEN",
-  "01M7AK88EXTSPW4ZY9S21T0XCD"
+  "01M7AK88EXTSPW4ZY9S21T0XCD",
+  "01M7AK941RK8CZVGGK3MCN6N81"
  ],
  "manual": [
   {
