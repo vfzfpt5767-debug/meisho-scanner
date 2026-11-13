@@ -1,5 +1,5 @@
 {
-"generated_at": "2026-11-13T17:11:07.419653+09:00",
+"generated_at": "2026-11-13T22:49:37.742944+09:00",
 "base_day": "2026-11-13",
 "deadline": "2026-11-16T07:59:00+09:00",
 "price_source": "名証 日報",
@@ -491,6 +491,54 @@
 "quote_only": true
 },
 {
+"code": "3138",
+"name": "富士山マガジンサービス",
+"single": false,
+"division": "メイン",
+"unit": 100,
+"category": "INFO",
+"score": 20,
+"items": [
+{
+"time": "15:30",
+"date": "11/13",
+"title": "2026年12月期第3四半期決算短信〔日本基準〕（連結）",
+"pdf": "https://www.release.tdnet.info/inbs/140120261113577581.pdf",
+"tags": [
+{
+"cat": "INFO",
+"label": "決算短信",
+"score": 15,
+"reason": "決算発表（数値はPDFで確認。自動計算はしていません）"
+}
+]
+},
+{
+"time": "19:05",
+"date": "11/13",
+"title": "2026年12月期　第3四半期決算短信［日本基準］（連結）の一部修正について",
+"pdf": "https://www.release.tdnet.info/inbs/140120261113580338.pdf",
+"tags": [
+{
+"cat": "INFO",
+"label": "決算短信",
+"score": 15,
+"reason": "決算発表（数値はPDFで確認。自動計算はしていません）"
+}
+]
+}
+],
+"price": 1118.0,
+"price_note": "名証の最終気配",
+"nse_close": null,
+"nse_quote": 1118.0,
+"shares": 2600,
+"cost": 2906800.0,
+"tob_price": null,
+"tob_gap_pct": null,
+"quote_only": true
+},
+{
 "code": "2169",
 "name": "ＣＤＳ",
 "single": false,
@@ -582,40 +630,6 @@
 "nse_quote": 471.0,
 "shares": 6300,
 "cost": 2967300.0,
-"tob_price": null,
-"tob_gap_pct": null,
-"quote_only": true
-},
-{
-"code": "3138",
-"name": "富士山マガジンサービス",
-"single": false,
-"division": "メイン",
-"unit": 100,
-"category": "INFO",
-"score": 15,
-"items": [
-{
-"time": "15:30",
-"date": "11/13",
-"title": "2026年12月期第3四半期決算短信〔日本基準〕（連結）",
-"pdf": "https://www.release.tdnet.info/inbs/140120261113577581.pdf",
-"tags": [
-{
-"cat": "INFO",
-"label": "決算短信",
-"score": 15,
-"reason": "決算発表（数値はPDFで確認。自動計算はしていません）"
-}
-]
-}
-],
-"price": 1118.0,
-"price_note": "名証の最終気配",
-"nse_close": null,
-"nse_quote": 1118.0,
-"shares": 2600,
-"cost": 2906800.0,
 "tob_price": null,
 "tob_gap_pct": null,
 "quote_only": true
@@ -1747,6 +1761,68 @@
 "quote_only": true
 },
 {
+"code": "4445",
+"name": "リビン・テクノロジーズ",
+"single": false,
+"division": "メイン",
+"unit": 100,
+"category": "INFO",
+"score": 15,
+"items": [
+{
+"time": "17:00",
+"date": "11/13",
+"title": "取締役候補者の選任及び執行役員人事に関するお知らせ",
+"pdf": "https://www.release.tdnet.info/inbs/140120261113579036.pdf",
+"tags": [
+{
+"cat": "INFO",
+"label": "その他",
+"score": 0,
+"reason": ""
+}
+]
+},
+{
+"time": "17:00",
+"date": "11/13",
+"title": "2026年９月期　通期決算説明資料",
+"pdf": "https://www.release.tdnet.info/inbs/140120261113579025.pdf",
+"tags": [
+{
+"cat": "INFO",
+"label": "その他",
+"score": 0,
+"reason": ""
+}
+]
+},
+{
+"time": "17:00",
+"date": "11/13",
+"title": "2026年９月期　決算短信〔日本基準〕（連結）",
+"pdf": "https://www.release.tdnet.info/inbs/140120261113578975.pdf",
+"tags": [
+{
+"cat": "INFO",
+"label": "決算短信",
+"score": 15,
+"reason": "決算発表（数値はPDFで確認。自動計算はしていません）"
+}
+]
+}
+],
+"price": 1770.0,
+"price_note": "名証の最終気配",
+"nse_close": null,
+"nse_quote": 1770.0,
+"shares": 1600,
+"cost": 2832000.0,
+"tob_price": null,
+"tob_gap_pct": null,
+"quote_only": true
+},
+{
 "code": "6651",
 "name": "日東工業",
 "single": false,
@@ -1776,6 +1852,68 @@
 "nse_quote": 4175.0,
 "shares": 700,
 "cost": 2922500.0,
+"tob_price": null,
+"tob_gap_pct": null,
+"quote_only": true
+},
+{
+"code": "1438",
+"name": "岐阜造園",
+"single": false,
+"division": "メイン",
+"unit": 100,
+"category": "S",
+"score": 110,
+"items": [
+{
+"time": "17:00",
+"date": "11/13",
+"title": "2026年９月期　決算短信〔日本基準〕（連結）",
+"pdf": "https://www.release.tdnet.info/inbs/140120261113579695.pdf",
+"tags": [
+{
+"cat": "INFO",
+"label": "決算短信",
+"score": 15,
+"reason": "決算発表（数値はPDFで確認。自動計算はしていません）"
+}
+]
+},
+{
+"time": "17:00",
+"date": "11/13",
+"title": "その他の関係会社である積水ハウス株式会社による当社株券等に対する公開買付けに関する賛同の意見表明及び応募推奨のお知らせ",
+"pdf": "https://www.release.tdnet.info/inbs/140120261113580052.pdf",
+"tags": [
+{
+"cat": "S",
+"label": "TOB対象（意見表明）",
+"score": 100,
+"reason": "他社によるTOB（公開買付け）の対象。TOB価格を tob_prices.csv に入力すると差額を計算します"
+}
+]
+},
+{
+"time": "17:00",
+"date": "11/13",
+"title": "株式会社岐阜造園（証券コード：1438）に対する公開買付けの開始に関するお知らせ",
+"pdf": "https://www.release.tdnet.info/inbs/140120261113578490.pdf",
+"tags": [
+{
+"cat": "S",
+"label": "TOB対象（買い手側の開示から検出）",
+"score": 100,
+"reason": "積水ハウスがこの会社へのTOBを発表。対象会社側の開示も確認してください"
+}
+]
+}
+],
+"price": 2100.0,
+"price_note": "名証の最終気配",
+"nse_close": null,
+"nse_quote": 2100.0,
+"shares": 1400,
+"cost": 2940000.0,
 "tob_price": null,
 "tob_gap_pct": null,
 "quote_only": true
@@ -2019,6 +2157,108 @@
 "quote_only": true
 },
 {
+"code": "1928",
+"name": "積水ハウス",
+"single": false,
+"division": "プレミア",
+"unit": 100,
+"category": "TOB_REL",
+"score": 0,
+"items": [
+{
+"time": "17:00",
+"date": "11/13",
+"title": "株式会社岐阜造園（証券コード：1438）に対する公開買付けの開始に関するお知らせ",
+"pdf": "https://www.release.tdnet.info/inbs/140120261113578490.pdf",
+"tags": [
+{
+"cat": "TOB_REL",
+"label": "他社へのTOB（買い手側）",
+"score": 0,
+"reason": "証券コード1438の会社へのTOB（買う側の開示）"
+}
+]
+}
+],
+"price": 3617.0,
+"price_note": "名証の最終気配",
+"nse_close": null,
+"nse_quote": 3617.0,
+"shares": 800,
+"cost": 2893600.0,
+"tob_price": null,
+"tob_gap_pct": null,
+"quote_only": true
+},
+{
+"code": "3221",
+"name": "ヨシックスホールディングス",
+"single": false,
+"division": "プレミア",
+"unit": 100,
+"category": "INFO",
+"score": 0,
+"items": [
+{
+"time": "17:00",
+"date": "11/13",
+"title": "2027年３月期 10月度 店舗数の状況及び月次売上高前年対比のお知らせ",
+"pdf": "https://www.release.tdnet.info/inbs/140120261113579382.pdf",
+"tags": [
+{
+"cat": "INFO",
+"label": "その他",
+"score": 0,
+"reason": ""
+}
+]
+}
+],
+"price": 3145.0,
+"price_note": "名証の最終気配",
+"nse_close": null,
+"nse_quote": 3145.0,
+"shares": 900,
+"cost": 2830500.0,
+"tob_price": null,
+"tob_gap_pct": null,
+"quote_only": true
+},
+{
+"code": "2376",
+"name": "サイネックス",
+"single": false,
+"division": "メイン",
+"unit": 100,
+"category": "INFO",
+"score": 0,
+"items": [
+{
+"time": "17:15",
+"date": "11/13",
+"title": "（訂正・数値データ訂正）「令和9年3月期第2四半期（中間期）決算短信〔日本基準〕（連結）」の一部訂正について",
+"pdf": "https://www.release.tdnet.info/inbs/140120261113579950.pdf",
+"tags": [
+{
+"cat": "INFO",
+"label": "その他",
+"score": 0,
+"reason": ""
+}
+]
+}
+],
+"price": 762.0,
+"price_note": "名証の最終気配",
+"nse_close": null,
+"nse_quote": 762.0,
+"shares": 3900,
+"cost": 2971800.0,
+"tob_price": null,
+"tob_gap_pct": null,
+"quote_only": true
+},
+{
 "code": "3346",
 "name": "ヒロタグループホールディングス",
 "single": true,
@@ -2127,6 +2367,40 @@
 "tob_price": null,
 "tob_gap_pct": null,
 "quote_only": true
+},
+{
+"code": "418A",
+"name": "ウリドキ",
+"single": true,
+"division": "ネクスト",
+"unit": 100,
+"category": "CHECK",
+"score": 40,
+"items": [
+{
+"time": "18:00",
+"date": "11/13",
+"title": "業績予想の修正に関するお知らせ",
+"pdf": "https://www.release.tdnet.info/inbs/140120261113579363.pdf",
+"tags": [
+{
+"cat": "CHECK",
+"label": "業績予想の修正",
+"score": 40,
+"reason": "上方か下方かタイトルでは不明。PDFで確認"
+}
+]
+}
+],
+"price": 1622.0,
+"price_note": "名証の終値",
+"nse_close": 1622.0,
+"nse_quote": null,
+"shares": 1800,
+"cost": 2919600.0,
+"tob_price": null,
+"tob_gap_pct": null,
+"quote_only": false
 },
 {
 "code": "4124",
@@ -4249,7 +4523,38 @@
 "quote_only": false
 }
 ],
-"tob_rows": [],
+"tob_rows": [
+{
+"code": "1438",
+"name": "岐阜造園",
+"single": false,
+"first_date": "2026-11-13",
+"status": "進行中",
+"events": [
+{
+"id": "1296213",
+"date": "2026-11-13",
+"time": "17:00",
+"title": "その他の関係会社である積水ハウス株式会社による当社株券等に対する公開買付けに関する賛同の意見表明及び応募推奨のお知らせ",
+"pdf": "https://www.release.tdnet.info/inbs/140120261113580052.pdf",
+"label": "TOB対象（意見表明）"
+},
+{
+"id": "1296215",
+"date": "2026-11-13",
+"time": "17:00",
+"title": "株式会社岐阜造園（証券コード：1438）に対する公開買付けの開始に関するお知らせ",
+"pdf": "https://www.release.tdnet.info/inbs/140120261113578490.pdf",
+"label": "買い手側の開示（積水ハウス）"
+}
+],
+"price": 2100.0,
+"price_note": "名証",
+"tob_price": null,
+"gap_pct": null,
+"sell_signal": false
+}
+],
 "errors": [],
 "notes": [
 "TDnetのPDF/XBRLは自動では読みません（TDnetのrobots.txtが自動取得を拒否しているため）。分類はタイトルの文言から判定しています。修正率・TOB価格などはPDFで確認してください。"

@@ -398,5 +398,35 @@
 "label": "増配",
 "price": 999.0,
 "result": null
+},
+{
+"base_day": "2026-11-13",
+"source": "rule_top",
+"code": "1438",
+"name": "岐阜造園",
+"category": "S",
+"label": "TOB対象（意見表明）",
+"price": 2100.0,
+"result": null
+},
+{
+"base_day": "2026-11-13",
+"source": "rule_sa",
+"code": "1438",
+"name": "岐阜造園",
+"category": "S",
+"label": "TOB対象（意見表明）",
+"price": 2100.0,
+"result": null
+},
+{
+"base_day": "2026-11-13",
+"source": "ai",
+"code": "4125",
+"name": "三和油化工業",
+"category": "AI",
+"label": "",
+"price": 3185.0,
+"result": null
 }
 ]
