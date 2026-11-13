@@ -282,7 +282,8 @@
 "category": "A",
 "label": "増配",
 "price": 2694.5,
-"result": null
+"result": -0.06197810354425681,
+"next_day": "2026-11-13"
 },
 {
 "base_day": "2026-11-12",
@@ -292,7 +293,8 @@
 "category": "A",
 "label": "増配",
 "price": 2694.5,
-"result": null
+"result": -0.06197810354425681,
+"next_day": "2026-11-13"
 },
 {
 "base_day": "2026-11-12",
@@ -302,7 +304,8 @@
 "category": "A",
 "label": "自社株買い",
 "price": 1689.5,
-"result": null
+"result": 0.05741343592778936,
+"next_day": "2026-11-13"
 },
 {
 "base_day": "2026-11-12",
@@ -312,7 +315,8 @@
 "category": "A",
 "label": "自社株買い",
 "price": 1689.5,
-"result": null
+"result": 0.05741343592778936,
+"next_day": "2026-11-13"
 },
 {
 "base_day": "2026-11-12",
@@ -322,6 +326,37 @@
 "category": "AI",
 "label": "",
 "price": 1689.5,
+"result": 0.05741343592778936,
+"next_day": "2026-11-13"
+},
+{
+"base_day": "2026-11-13",
+"source": "rule_top",
+"code": "259A",
+"name": "ケイ・ウノ",
+"category": "A",
+"label": "優待新設・拡充",
+"price": 1470.0,
+"result": null
+},
+{
+"base_day": "2026-11-13",
+"source": "rule_sa",
+"code": "259A",
+"name": "ケイ・ウノ",
+"category": "A",
+"label": "優待新設・拡充",
+"price": 1470.0,
+"result": null
+},
+{
+"base_day": "2026-11-13",
+"source": "rule_sa",
+"code": "4063",
+"name": "信越化学工業",
+"category": "A",
+"label": "自社株買い",
+"price": 5704.0,
 "result": null
 }
 ]
