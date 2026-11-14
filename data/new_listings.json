@@ -1,6 +1,23 @@
 {
- "fetched_date": "2026-11-13",
+ "fetched_date": "2026-11-14",
  "items": [
+  {
+   "date": "2026-12-17",
+   "market": "ネクスト",
+   "code": "680A",
+   "name": "パイフォトニクス（株）",
+   "ipo": true,
+   "kettei_url": "",
+   "offer_price": null,
+   "header": "",
+   "links": {
+    "パイフォトニクス（株）": "https://www.piphotonics.com",
+    "会社概要": "https://www.nse.or.jp/listing/files/kaisya680A.pdf",
+    "Ⅰの部": "https://www.nse.or.jp/listing/files/ichi680A.pdf",
+    "確認書": "https://www.nse.or.jp/listing/files/kakunin680A.pdf",
+    "発行決議": "https://www.nse.or.jp/listing/files/press_hakkou680A.pdf"
+   }
+  },
   {
    "date": "2026-11-16",
    "market": "メイン",
