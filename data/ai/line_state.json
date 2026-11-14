@@ -310,6 +310,16 @@
     "cash_delta": -99900.0
    },
    "base_day": "2026-11-13"
+  },
+  "2026-11-14-2115": {
+   "status": "recorded",
+   "mode": "record",
+   "patch": {
+    "removed": [],
+    "added": [],
+    "cash_delta": 0.0
+   },
+   "base_day": "2026-11-13"
   }
  },
  "seen": [
