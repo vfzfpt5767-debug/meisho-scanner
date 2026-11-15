@@ -1,5 +1,5 @@
 {
-"generated_at": "2026-11-15T21:17:42.661275+09:00",
+"generated_at": "2026-11-15T23:58:44.540458+09:00",
 "base_day": "2026-11-13",
 "deadline": "2026-11-16T07:59:00+09:00",
 "price_source": "名証 日報",
@@ -1891,68 +1891,6 @@
 "quote_only": true
 },
 {
-"code": "1438",
-"name": "岐阜造園",
-"single": false,
-"division": "メイン",
-"unit": 100,
-"category": "S",
-"score": 110,
-"items": [
-{
-"time": "17:00",
-"date": "11/13",
-"title": "2026年９月期　決算短信〔日本基準〕（連結）",
-"pdf": "https://www.release.tdnet.info/inbs/140120261113579695.pdf",
-"tags": [
-{
-"cat": "INFO",
-"label": "決算短信",
-"score": 15,
-"reason": "決算発表（数値はPDFで確認。自動計算はしていません）"
-}
-]
-},
-{
-"time": "17:00",
-"date": "11/13",
-"title": "その他の関係会社である積水ハウス株式会社による当社株券等に対する公開買付けに関する賛同の意見表明及び応募推奨のお知らせ",
-"pdf": "https://www.release.tdnet.info/inbs/140120261113580052.pdf",
-"tags": [
-{
-"cat": "S",
-"label": "TOB対象（意見表明）",
-"score": 100,
-"reason": "他社によるTOB（公開買付け）の対象。TOB価格を tob_prices.csv に入力すると差額を計算します"
-}
-]
-},
-{
-"time": "17:00",
-"date": "11/13",
-"title": "株式会社岐阜造園（証券コード：1438）に対する公開買付けの開始に関するお知らせ",
-"pdf": "https://www.release.tdnet.info/inbs/140120261113578490.pdf",
-"tags": [
-{
-"cat": "S",
-"label": "TOB対象（買い手側の開示から検出）",
-"score": 100,
-"reason": "積水ハウスがこの会社へのTOBを発表。対象会社側の開示も確認してください"
-}
-]
-}
-],
-"price": 2100.0,
-"price_note": "名証の最終気配",
-"nse_close": null,
-"nse_quote": 2100.0,
-"shares": 1400,
-"cost": 2940000.0,
-"tob_price": null,
-"tob_gap_pct": null,
-"quote_only": true
-},
-{
 "code": "3028",
 "name": "アルペン",
 "single": false,
@@ -2538,6 +2476,68 @@
 "cost": 2944000.0,
 "tob_price": null,
 "tob_gap_pct": null,
+"quote_only": true
+},
+{
+"code": "1438",
+"name": "岐阜造園",
+"single": false,
+"division": "メイン",
+"unit": 100,
+"category": "S",
+"score": 110,
+"items": [
+{
+"time": "17:00",
+"date": "11/13",
+"title": "2026年９月期　決算短信〔日本基準〕（連結）",
+"pdf": "https://www.release.tdnet.info/inbs/140120261113579695.pdf",
+"tags": [
+{
+"cat": "INFO",
+"label": "決算短信",
+"score": 15,
+"reason": "決算発表（数値はPDFで確認。自動計算はしていません）"
+}
+]
+},
+{
+"time": "17:00",
+"date": "11/13",
+"title": "その他の関係会社である積水ハウス株式会社による当社株券等に対する公開買付けに関する賛同の意見表明及び応募推奨のお知らせ",
+"pdf": "https://www.release.tdnet.info/inbs/140120261113580052.pdf",
+"tags": [
+{
+"cat": "S",
+"label": "TOB対象（意見表明）",
+"score": 100,
+"reason": "他社によるTOB（公開買付け）の対象。TOB価格を tob_prices.csv に入力すると差額を計算します"
+}
+]
+},
+{
+"time": "17:00",
+"date": "11/13",
+"title": "株式会社岐阜造園（証券コード：1438）に対する公開買付けの開始に関するお知らせ",
+"pdf": "https://www.release.tdnet.info/inbs/140120261113578490.pdf",
+"tags": [
+{
+"cat": "S",
+"label": "TOB対象（買い手側の開示から検出）",
+"score": 100,
+"reason": "積水ハウスがこの会社へのTOBを発表。対象会社側の開示も確認してください"
+}
+]
+}
+],
+"price": 2100.0,
+"price_note": "名証の最終気配",
+"nse_close": null,
+"nse_quote": 2100.0,
+"shares": 1400,
+"cost": 2940000.0,
+"tob_price": 2770.0,
+"tob_gap_pct": 31.9047619047619,
 "quote_only": true
 },
 {
@@ -4584,8 +4584,8 @@
 ],
 "price": 2100.0,
 "price_note": "名証",
-"tob_price": null,
-"gap_pct": null,
+"tob_price": 2770.0,
+"gap_pct": 31.9047619047619,
 "sell_signal": false
 }
 ],
