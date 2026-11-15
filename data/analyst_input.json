@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-14T21:17:22.929141+09:00",
+ "generated_at": "2026-11-15T21:17:42.661275+09:00",
  "base_day": "2026-11-13",
  "deadline": "2026-11-16T07:59:00+09:00",
  "price_source": "名証 日報",
@@ -103,7 +103,7 @@
     "also_checked": [
      "https://www.k-uno.co.jp/"
     ],
-    "checked": "2026-11-14T12:17",
+    "checked": "2026-11-15T12:18",
     "for_title": "個別業績の前期実績値との差異に関するお知らせ"
    }
   },
@@ -189,7 +189,7 @@
     "also_checked": [
      "https://www.sanwayuka.co.jp/"
     ],
-    "checked": "2026-11-14T12:17",
+    "checked": "2026-11-15T12:18",
     "for_title": "2027年３月期第２四半期（中間期）連結業績予想と実績との差異及び通期業績予想の上方修正、期末配当予想の修正（増配）に関するお知らせ"
    }
   },
@@ -519,7 +519,7 @@
     "also_checked": [
      "https://www.meinan-ma.com/"
     ],
-    "checked": "2026-11-14T12:17",
+    "checked": "2026-11-15T12:18",
     "for_title": "通期連結業績予想の修正及び配当予想の修正に関するお知らせ"
    }
   },
@@ -714,7 +714,7 @@
     "also_checked": [
      "https://www.gifu-zohen.co.jp/"
     ],
-    "checked": "2026-11-14T12:17",
+    "checked": "2026-11-15T12:18",
     "for_title": "その他の関係会社である積水ハウス株式会社による当社株券等に対する公開買付けに関する賛同の意見表明及び応募推奨のお知らせ"
    }
   },
@@ -884,12 +884,12 @@
     "also_checked": [
      "https://uridoki.co.jp/"
     ],
-    "checked": "2026-11-14T12:17",
+    "checked": "2026-11-15T12:18",
     "for_title": "業績予想の修正に関するお知らせ"
    }
   }
  ],
- "other_after_close_count": 37,
+ "other_after_close_count": 38,
  "earnings_only": [
   {
    "code": "3138",
@@ -976,7 +976,7 @@
     "also_checked": [
      "https://www.fujisan.co.jp/"
     ],
-    "checked": "2026-11-14T12:17",
+    "checked": "2026-11-15T12:18",
     "for_title": "2026年12月期第3四半期決算短信〔日本基準〕（連結）"
    }
   },
@@ -1053,7 +1053,7 @@
     "also_checked": [
      "https://www.cds-japan.jp/ja/"
     ],
-    "checked": "2026-11-14T12:17",
+    "checked": "2026-11-15T12:18",
     "for_title": "2026年12月期　第3四半期決算短信〔日本基準〕（連結）"
    }
   },
@@ -1133,7 +1133,7 @@
       "date": "2026-09-09"
      }
     ],
-    "checked": "2026-11-14T12:17",
+    "checked": "2026-11-15T12:18",
     "for_title": "2027年３月期 第２四半期（中間期）決算短信〔日本基準〕（連結）"
    }
   },
@@ -1201,7 +1201,7 @@
       "date": "2025-12-15"
      }
     ],
-    "checked": "2026-11-14T12:17",
+    "checked": "2026-11-15T12:18",
     "for_title": "2027年6月期 第1四半期決算短信〔日本基準〕（連結）"
    }
   },
@@ -1272,7 +1272,7 @@
     "also_checked": [
      "https://www.washingtonhotel.co.jp/"
     ],
-    "checked": "2026-11-14T12:17",
+    "checked": "2026-11-15T12:18",
     "for_title": "2027年３月期第２四半期（中間期）決算短信〔日本基準〕(非連結)"
    }
   },
@@ -1410,7 +1410,7 @@
     "also_checked": [
      "https://ltv-x.jp/"
     ],
-    "checked": "2026-11-14T12:17",
+    "checked": "2026-11-15T12:18",
     "for_title": "2027年３月期第２四半期（中間期）決算短信〔日本基準〕（非連結）"
    }
   },
@@ -1487,7 +1487,7 @@
     "also_checked": [
      "http://www.midac.jp/"
     ],
-    "checked": "2026-11-14T12:17",
+    "checked": "2026-11-15T12:18",
     "for_title": "2027年3月期 第2四半期（中間期）決算短信［日本基準］（連結）"
    }
   },
@@ -1532,7 +1532,7 @@
     "also_checked": [
      "https://shinwa-holdings.co.jp/"
     ],
-    "checked": "2026-11-14T12:17",
+    "checked": "2026-11-15T12:18",
     "for_title": "2027年３月期 第２四半期（中間期）決算短信〔日本基準〕（連結）"
    }
   },
@@ -1604,10 +1604,10 @@
  ],
  "errors": [],
  "portfolio": {
-  "cash": 799300.0,
+  "cash": 199900.0,
   "total": 3739300.0,
   "profit": 739300.0,
-  "term_left": 60000.0,
+  "term_left": 0.0,
   "term_open": true,
   "single_bought": true,
   "holdings": [
@@ -1629,6 +1629,23 @@
     ],
     "sell_rule": "11/16(月)の終値で売る予定（買ってから1営業日後）。検証：TOB（S）でストップ高にならなかった銘柄は1営業日後の終値で売るのが一番よい（平均+2.0%・中央値+0.6%・n=100）",
     "material": "TOB（S）"
+   },
+   {
+    "code": "7871",
+    "name": "フクビ化学工業",
+    "shares": 600,
+    "buy_price": 999.0,
+    "buy_date": "2026-11-13",
+    "price": 999.0,
+    "pnl_pct": 0.0,
+    "single": false,
+    "quote_only": true,
+    "unit": 100,
+    "warnings": [],
+    "notices": [],
+    "cautions": [],
+    "sell_rule": "11/16(月)の終値で売る予定（買ってから1営業日後）。検証：増配でストップ高にならなかった銘柄は1営業日後の終値で売るのが一番よい（平均+2.5%・中央値+1.8%・n=1,320）",
+    "material": "増配"
    }
   ]
  },

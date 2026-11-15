@@ -1,5 +1,5 @@
 {
-"generated_at": "2026-11-14T21:17:22.929141+09:00",
+"generated_at": "2026-11-15T21:17:42.661275+09:00",
 "base_day": "2026-11-13",
 "deadline": "2026-11-16T07:59:00+09:00",
 "price_source": "名証 日報",
@@ -1818,6 +1818,40 @@
 "nse_quote": 1770.0,
 "shares": 1600,
 "cost": 2832000.0,
+"tob_price": null,
+"tob_gap_pct": null,
+"quote_only": true
+},
+{
+"code": "7790",
+"name": "バルコス",
+"single": true,
+"division": "ネクスト",
+"unit": 100,
+"category": "INFO",
+"score": 15,
+"items": [
+{
+"time": "17:00",
+"date": "11/15",
+"title": "2026年12月期第3四半期決算短信〔日本基準〕（連結）",
+"pdf": "https://www.release.tdnet.info/inbs/140120261115580504.pdf",
+"tags": [
+{
+"cat": "INFO",
+"label": "決算短信",
+"score": 15,
+"reason": "決算発表（数値はPDFで確認。自動計算はしていません）"
+}
+]
+}
+],
+"price": 1250.0,
+"price_note": "名証の最終気配",
+"nse_close": null,
+"nse_quote": 1250.0,
+"shares": 2400,
+"cost": 3000000.0,
 "tob_price": null,
 "tob_gap_pct": null,
 "quote_only": true
