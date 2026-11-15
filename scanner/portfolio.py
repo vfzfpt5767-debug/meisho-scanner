@@ -246,7 +246,7 @@ def build(res, now: datetime | None = None) -> Portfolio:
 
     earn = _earnings_soon(ctx, now)
     for h in holdings:
-        h.sell_rule, sell_now = _sell_rule(h, ctx, limits)
+        h.sell_rule, sell_now = _sell_rule(h, ctx, limits, tob.get(h.code))
         if sell_now:
             h.warnings.append(sell_now)
         if h.code in earn:
@@ -364,7 +364,7 @@ def _days_held(h: Holding, base) -> int:
     return n
 
 
-def _sell_rule(h: Holding, ctx, limits: dict) -> tuple[str, str | None]:
+def _sell_rule(h: Holding, ctx, limits: dict, tob_row=None) -> tuple[str, str | None]:
     """売り時の目安（文, 今夜売るべきなら警告の文）。
 
     ストップ高張り付き中は「張り付きが外れた日の終値で売る」。そうでなければ、材料ごとに検証で決めた日
@@ -381,6 +381,16 @@ def _sell_rule(h: Holding, ctx, limits: dict) -> tuple[str, str | None]:
         st = bt.get("holding", {}).get("ストップ高張り付き", {}).get("rules", {}).get("stop", {})
         note = f"（検証：平均{st['mean']:+.1f}%・n={st['n']}）" if st.get("n") else ""
         return f"今日もストップ高張り付き → 持ち続ける。張り付きが外れた日の終値で売る{note}", None
+    # TOBの対象でTOB価格が分かっているもの：TOB価格との差が TOB_SELL_GAP_PCT 以内になるまで持つ（2026-11-15）
+    # （岐阜造園：買値2,100円・TOB価格2,770円。11/16はストップ高の上限2,600円までしか上がれない）
+    if tob_row is not None and getattr(tob_row, "tob_price", None) and getattr(tob_row, "gap_pct", None) is not None:
+        from .config import TOB_SELL_GAP_PCT
+
+        if tob_row.gap_pct > TOB_SELL_GAP_PCT:
+            return (f"TOB価格{tob_row.tob_price:,.0f}円まであと{tob_row.gap_pct:+.1f}% → 持ち続ける。"
+                    f"差が{TOB_SELL_GAP_PCT:g}%以内になった日の終値で売る"), None
+        return (f"TOB価格{tob_row.tob_price:,.0f}円との差が{tob_row.gap_pct:+.1f}%（{TOB_SELL_GAP_PCT:g}%以内）→ 今夜売る",
+                None)  # 警告（TOB価格に到達）は build() が付ける
     ex = bt.get("exit_rules", {})
     rule = ex.get(h.material) or {}
     if rule.get("n", 0) < 30:

@@ -324,7 +324,12 @@ def order_text(d: dict, mode: str = "record") -> str:
         n = int(o["shares"]) // unit
         side = "売り" if o.get("side") == "sell" else "買い"
         name = str(o.get("name", "")).strip()[:14]
-        lines.append(f"{side} {name + '(' + str(o['code']) + ')' if name else o['code']} {n}単位")
+        amt = ""
+        try:
+            amt = f"（{int(o['shares']) * float(o['price']) / 10000:,.1f}万円）"  # 注文画面の購入金額と見比べられるように（2026-11-15）
+        except (KeyError, TypeError, ValueError):
+            pass
+        lines.append(f"{side} {name + '(' + str(o['code']) + ')' if name else o['code']} {n}単位{amt}")
     if mode == "ref":
         lines.append("※まだ記録していません。注文したらボタンを押してください")
     return "\n".join(lines)

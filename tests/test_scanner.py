@@ -494,7 +494,7 @@ def test_line_buttons_flow(tmp_path, monkeypatch):
     assert sent[-1][0] == "" and len(sent[-1][1]) == 1  # 注文とボタンを1通にまとめる
     btn = sent[-1][1][0]
     assert btn["type"] == "template" and len(btn["template"]["actions"]) == 3
-    assert btn["template"]["text"].split("\n")[1:] == ["売り 6999 10単位", "買い 4445 6単位"]  # 売りが先
+    assert btn["template"]["text"].split("\n")[1:] == ["売り 6999 10単位（200.0万円）", "買い 4445 6単位（99.9万円）"]  # 売りが先・金額つき
     after_ai = h.read_text(encoding="utf-8")
     assert "4445,600" in after_ai and "6999" not in after_ai.split("\n", 1)[1]
     # 注文しなかった → 取り消し（元に戻る）
@@ -1319,3 +1319,78 @@ def test_ai_replaces_confirmed_is_reference(tmp_path, monkeypatch):
     log = AD.apply_all(now=datetime(2026, 11, 13, 22, 52, tzinfo=JST))
     assert "参考" in log[0]
     assert (h.read_text(encoding="utf-8"), c.read_text(encoding="utf-8")) == before
+
+
+def test_fit_to_budget_term_limit(tmp_path, monkeypatch):
+    """2026-11-15：残り枠6万円なのに「フクビ化学 6単位（599,400円）」を指示した。取り込み時に取り消す・減らす。"""
+    import json as _json
+    from datetime import datetime as _dt
+    from zoneinfo import ZoneInfo
+
+    from scanner import ai_decision as AD
+    from scanner import line_actions as L
+    from scanner import portfolio as P
+
+    h = tmp_path / "holdings.csv"
+    h.write_text("code,shares,buy_price,buy_date,memo\n1438,1400,2100,2026-11-13,LINE\n", encoding="utf-8")
+    c = tmp_path / "cash.csv"
+    c.write_text("key,value,memo\ncash,799300,\n", encoding="utf-8")
+    dec = tmp_path / "decisions"
+    dec.mkdir()
+    for mod, attr, val in ((P, "HOLDINGS_CSV", h), (P, "CASH_CSV", c), (AD, "DECISIONS", dec),
+                           (AD, "LATEST", tmp_path / "latest.json"), (AD, "APPLIED", tmp_path / "applied.json"),
+                           (AD, "HISTORY", tmp_path / "history.jsonl"), (L, "STATE", tmp_path / "state.json"),
+                           (L, "STATUS", tmp_path / "status.json")):
+        monkeypatch.setattr(mod, attr, val)
+    monkeypatch.setattr(L, "write_status", lambda pf=None: None)
+    monkeypatch.setattr("scanner.ai_input.mark_handled", lambda b: None)
+    sent = []
+    monkeypatch.setattr("scanner.notify.send", lambda text, kind, extra=None: sent.append((text, extra)) or "ok")
+
+    def dec_of(shares, price, code="7871"):
+        return {"version": 1, "created_at": "2026-11-15T21:20:00+09:00", "base_day": "2026-11-13",
+                "summary": "フクビ化学工業(7871)を6単位（600株）買い",
+                "orders": [{"side": "buy", "code": code, "name": "フクビ化学工業", "shares": shares, "unit": 100,
+                            "price": price, "confidence": "中", "reason": "増配"}]}
+
+    # validate（AIが push 前に使う）：残り枠を超える買いはエラー
+    assert AD.budget_errors(dec_of(600, 999))
+    assert not AD.budget_errors(dec_of(0 + 100, 590))  # 59,000円は枠内
+
+    # 取り込み：1単位（99,900円）も入らないので取り消し。保有・現金は変えず、LINEも送らない
+    p = dec / "2026-11-15-2116.json"
+    p.write_text(_json.dumps(dec_of(600, 999), ensure_ascii=False), encoding="utf-8")
+    now = _dt(2026, 11, 15, 21, 17, tzinfo=ZoneInfo("Asia/Tokyo"))
+    log = AD.apply_all(now)
+    assert "取り消しました" in "\n".join(log)
+    assert "7871" not in h.read_text(encoding="utf-8")
+    assert "cash,799300" in c.read_text(encoding="utf-8")
+    saved = _json.loads(p.read_text(encoding="utf-8"))
+    assert saved["orders"] == [] and saved["orders_original"][0]["shares"] == 600
+    assert saved["skipped"][0]["code"] == "7871" and "見送り" in saved["summary"]
+    assert not any(e for _, e in sent)  # 注文がなくなったのでLINEは送らない
+
+    # 減らせるときは減らす：残り枠6万円・株価290円 → 2単位（58,000円）
+    p2 = dec / "2026-11-15-2130.json"
+    p2.write_text(_json.dumps(dec_of(1000, 290, "3346"), ensure_ascii=False), encoding="utf-8")
+    AD.apply_all(_dt(2026, 11, 15, 21, 31, tzinfo=ZoneInfo("Asia/Tokyo")))
+    assert "3346,200,290" in h.read_text(encoding="utf-8")
+    assert "cash,741300" in c.read_text(encoding="utf-8")
+    assert "（5.8万円）" in _json.dumps(sent[-1][1], ensure_ascii=False)
+
+
+def test_sell_rule_holds_tob_until_price(monkeypatch):
+    """TOB価格まで差があるうちは持つ（岐阜造園：TOB 2,770円、11/16はストップ高でも2,600円まで）。"""
+    from datetime import date as _d
+    from types import SimpleNamespace
+
+    from scanner import portfolio as P
+
+    h = P.Holding(code="1438", shares=1400, buy_price=2100, buy_date=_d(2026, 11, 13), buy_time=None)
+    ctx = SimpleNamespace(base=_d(2026, 11, 16), disclosures=[], now=None)
+    near = SimpleNamespace(tob_price=2770, gap_pct=(2770 / 2600 - 1) * 100)
+    rule, sell = P._sell_rule(h, ctx, {}, near)
+    assert sell is None and "持ち続ける" in rule
+    there = SimpleNamespace(tob_price=2770, gap_pct=(2770 / 2755 - 1) * 100)
+    rule, _ = P._sell_rule(h, ctx, {}, there)
+    assert "今夜売る" in rule

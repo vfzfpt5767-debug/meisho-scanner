@@ -87,6 +87,26 @@ def validate(d: dict) -> list[str]:
     return errs
 
 
+def budget_errors(d: dict) -> list[str]:
+    """今タームの残り購入枠・現金を超える買いがあればエラー文（AIが validate で使う）。
+    入れ替え（replaces）のときは、前の判断で自動記録した買い（メモ「AI <ID>」の行）を除いて計算する。"""
+    try:
+        excl = f"AI {d['replaces']}" if d.get("replaces") else None
+        left, cash, have = term_budget(d["base_day"], excl)
+    except Exception:  # noqa: BLE001
+        return []
+    out = []
+    buys = sum(int(o["shares"]) * float(o["price"]) for o in d.get("orders", []) if o.get("side") == "buy")
+    sells = sum(min(int(o["shares"]), have.get(str(o["code"]).strip().upper(), 0)) * float(o["price"])
+                for o in d.get("orders", []) if o.get("side") == "sell")
+    how = "株数＝（残り枠と現金の小さいほう ÷（株価×売買単位））の切り捨て×売買単位 で計算し直してください"
+    if buys > left + 0.5:
+        out.append(f"買いの合計 {buys:,.0f}円 が今タームの残り購入枠 {left:,.0f}円 を超えています。{how}")
+    if cash is not None and buys > cash + sells + 0.5:
+        out.append(f"買いの合計 {buys:,.0f}円 が現金（売りの代金を含めて {cash + sells:,.0f}円）を超えています。{how}")
+    return out
+
+
 def _human_ok(d: dict, now: datetime) -> bool:
     """人の確認の答えで起動された判断か（締切前なら 23:30 以降でも記録してよい）。"""
     if d.get("trigger") != "human":
@@ -123,6 +143,86 @@ def _write_csv(path: Path, head: list[str], rows: list[list[str]]) -> None:
     for r in rows:
         w.writerow(r)
     path.write_text("\n".join(head) + "\n" + buf.getvalue(), encoding="utf-8")
+
+
+def term_budget(base_day: str, exclude_memo: str | None = None) -> tuple[float, float | None, dict[str, int]]:
+    """（今タームの残り購入枠, 現金, 保有株数）。今タームの買い＝買った日がこのタームの基準日の保有。
+    exclude_memo を渡すと、そのメモの行（その判断で自動記録した買い）を除いて計算する。"""
+    from .portfolio import load_cash, load_holdings
+
+    holdings, _ = load_holdings()
+    cash, _, _ = load_cash()
+    base = date.fromisoformat(base_day)
+    if exclude_memo:
+        mine = [h for h in holdings if h.memo.strip() == exclude_memo]
+        holdings = [h for h in holdings if h.memo.strip() != exclude_memo]
+        if cash is not None:
+            cash += sum(h.cost for h in mine)
+    bought = sum(h.cost for h in holdings if h.term_base() == base)
+    have: dict[str, int] = {}
+    for h in holdings:
+        have[h.code] = have.get(h.code, 0) + h.shares
+    return max(0.0, BUDGET_PER_TERM - bought), cash, have
+
+
+def fit_to_budget(d: dict) -> list[str]:
+    """AIの買い注文を、今タームの残り購入枠（1タームに買えるのは合計300万円まで）と現金に収める（2026-11-15）。
+    超える買いは、買える単位まで減らす。1単位も買えなければ取り消して「見送り」に移す。
+    （11/15：残り枠6万円なのにAIが「6単位＝59,940円」と計算を間違え、599,400円の買いをLINEで指示した）
+    返り値は直した内容のメモ。直したときは d["orders"]・d["summary"] を書き換え、元の注文を d["orders_original"] に残す。"""
+    from .units import unit_of
+
+    left, cash, have = term_budget(d["base_day"])
+    cash = float("inf") if cash is None else cash
+    for o in d.get("orders", []) or []:
+        if o.get("side") == "sell":
+            code = str(o["code"]).strip().upper()
+            sold = min(int(o["shares"]), have.get(code, 0))
+            cash += sold * float(o["price"])  # 売った代金は使える。ただし枠は戻らない
+    kept, notes = [], []
+    for o in d.get("orders", []) or []:
+        if o.get("side") != "buy":
+            kept.append(o)
+            continue
+        code, pr, sh = str(o["code"]).strip().upper(), float(o["price"]), int(o["shares"])
+        try:
+            unit = int(o.get("unit") or unit_of(code) or 100)
+        except Exception:  # noqa: BLE001
+            unit = 100
+        cap = min(left, cash)
+        max_sh = int(cap // (pr * unit)) * unit if pr > 0 else 0
+        name = str(o.get("name", "")).strip()
+        if sh > max_sh:
+            need = sh * pr
+            if max_sh <= 0:
+                notes.append(f"買い {code} {name} {sh // unit}単位（{need:,.0f}円）は、今タームの残り枠 {left:,.0f}円・"
+                             f"現金 {min(cash, 1e12):,.0f}円 では1単位（{pr * unit:,.0f}円）も買えないため取り消しました")
+                d.setdefault("skipped", []).insert(0, {"code": code, "name": name,
+                    "reason": f"枠不足で取り消し（{sh // unit}単位＝{need:,.0f}円・残り枠{left:,.0f}円・1単位{pr * unit:,.0f}円）"})
+                continue
+            notes.append(f"買い {code} {name} を {sh // unit}単位（{need:,.0f}円）→{max_sh // unit}単位（{max_sh * pr:,.0f}円）に減らしました"
+                         f"（今タームの残り枠 {left:,.0f}円・現金 {min(cash, 1e12):,.0f}円）")
+            o["shares"] = sh = max_sh
+            o["reason"] = f"［株数を枠に合わせて修正］{o.get('reason', '')}"
+        left -= sh * pr
+        cash -= sh * pr
+        kept.append(o)
+    if notes:
+        d["orders_original"] = d.get("orders_original") or json.loads(json.dumps(d.get("orders", [])))
+        d["orders"] = kept
+        d["budget_fix"] = notes
+        if kept:
+            parts = []
+            for o in kept:
+                try:
+                    u = int(o.get("unit") or 100)
+                except (TypeError, ValueError):
+                    u = 100
+                parts.append(f"{'買い' if o['side'] == 'buy' else '売り'} {o.get('name', '')}({o['code']}) {int(o['shares']) // u}単位")
+            d["summary"] = "枠に合わせて修正：" + "、".join(parts)
+        else:
+            d["summary"] = "今夜は見送り（AIの買い注文が今タームの残り購入枠を超えていたため取り消し）"
+    return notes
 
 
 def apply_to_portfolio(d: dict, now: datetime) -> list[str]:
@@ -221,6 +321,24 @@ def _pending(applied: list[str]) -> list[tuple[str, Path]]:
     return [(k, p) for k, p in out if k not in applied]
 
 
+def _fit_and_save(d: dict, path: Path) -> list[str]:
+    """枠に合わせて直し、直したときは判断ファイル（.json）にも書き戻す（ボタンの処理が同じ注文を読むため）。"""
+    try:
+        notes = fit_to_budget(d)
+    except Exception as e:  # noqa: BLE001
+        return [f"枠のチェックに失敗（{type(e).__name__}: {e}）"]
+    if notes:
+        try:
+            raw = json.loads(path.read_text(encoding="utf-8"))
+            for k in ("orders", "orders_original", "summary", "skipped", "budget_fix"):
+                if k in d:
+                    raw[k] = d[k]
+            path.write_text(json.dumps(raw, ensure_ascii=False, indent=1), encoding="utf-8")
+        except Exception as e:  # noqa: BLE001
+            notes.append(f"判断ファイルへの書き戻しに失敗（{type(e).__name__}）")
+    return notes
+
+
 def apply_all(now: datetime | None = None, send_line: bool = True) -> list[str]:
     from .calendar_jp import now_jst, order_deadline
 
@@ -244,6 +362,7 @@ def apply_all(now: datetime | None = None, send_line: bool = True) -> list[str]:
                 rec["mode"] = "late"
                 rec["status"] = "注文締切を過ぎていたため、保有の自動記録はしませんでした"
             elif not recordable(now) and not _human_ok(d, now):
+                rec["notes"] += _fit_and_save(d, path)
                 rec["mode"] = "ref"
                 rec["status"] = (f"参考（{RECORD_FROM:%H:%M}〜{RECORD_UNTIL:%H:%M}の外に届いた指示）のため、"
                                  "保有の自動記録はしませんでした")
@@ -263,6 +382,7 @@ def apply_all(now: datetime | None = None, send_line: bool = True) -> list[str]:
                     rec["mode"] = "record"
                     if why:
                         rec["notes"].append(why)
+                    rec["notes"] += _fit_and_save(d, path)
                     pre = snapshot()
                     rec["notes"] += apply_to_portfolio(d, now)
                     rec["patch"] = make_patch(pre, snapshot())
@@ -657,6 +777,8 @@ def main() -> int:
         path = Path(sys.argv[2])
         d = json.loads(path.read_text(encoding="utf-8"))
         errs = validate(d)
+        if not errs and not d.get("test") and path.resolve().parent != TEST_DIR.resolve():
+            errs += budget_errors(d)
         if path.resolve().parent == TEST_DIR.resolve() and d.get("test") is not True:
             errs.append('テストモードのファイルには "test": true を入れてください')
         print("OK" if not errs else "\n".join(errs))
