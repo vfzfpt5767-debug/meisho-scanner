@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-15T23:58:44.540458+09:00",
+ "generated_at": "2026-11-16T06:21:08.367417+09:00",
  "base_day": "2026-11-13",
  "deadline": "2026-11-16T07:59:00+09:00",
  "price_source": "名証 日報",
@@ -103,7 +103,7 @@
     "also_checked": [
      "https://www.k-uno.co.jp/"
     ],
-    "checked": "2026-11-15T14:58",
+    "checked": "2026-11-15T21:21",
     "for_title": "個別業績の前期実績値との差異に関するお知らせ"
    }
   },
@@ -189,7 +189,7 @@
     "also_checked": [
      "https://www.sanwayuka.co.jp/"
     ],
-    "checked": "2026-11-15T14:58",
+    "checked": "2026-11-15T21:21",
     "for_title": "2027年３月期第２四半期（中間期）連結業績予想と実績との差異及び通期業績予想の上方修正、期末配当予想の修正（増配）に関するお知らせ"
    }
   },
@@ -532,7 +532,7 @@
     "also_checked": [
      "https://www.meinan-ma.com/"
     ],
-    "checked": "2026-11-15T14:58",
+    "checked": "2026-11-15T21:21",
     "for_title": "通期連結業績予想の修正及び配当予想の修正に関するお知らせ"
    }
   },
@@ -796,7 +796,7 @@
     "also_checked": [
      "https://uridoki.co.jp/"
     ],
-    "checked": "2026-11-15T14:58",
+    "checked": "2026-11-15T21:21",
     "for_title": "業績予想の修正に関するお知らせ"
    }
   },
@@ -977,7 +977,7 @@
     "also_checked": [
      "https://www.fujisan.co.jp/"
     ],
-    "checked": "2026-11-15T14:58",
+    "checked": "2026-11-15T21:21",
     "for_title": "2026年12月期第3四半期決算短信〔日本基準〕（連結）"
    }
   },
@@ -1054,7 +1054,7 @@
     "also_checked": [
      "https://www.cds-japan.jp/ja/"
     ],
-    "checked": "2026-11-15T14:58",
+    "checked": "2026-11-15T21:21",
     "for_title": "2026年12月期　第3四半期決算短信〔日本基準〕（連結）"
    }
   },
@@ -1134,7 +1134,7 @@
       "date": "2026-09-09"
      }
     ],
-    "checked": "2026-11-15T14:58",
+    "checked": "2026-11-15T21:21",
     "for_title": "2027年３月期 第２四半期（中間期）決算短信〔日本基準〕（連結）"
    }
   },
@@ -1202,7 +1202,7 @@
       "date": "2025-12-15"
      }
     ],
-    "checked": "2026-11-15T14:58",
+    "checked": "2026-11-15T21:21",
     "for_title": "2027年6月期 第1四半期決算短信〔日本基準〕（連結）"
    }
   },
@@ -1273,7 +1273,7 @@
     "also_checked": [
      "https://www.washingtonhotel.co.jp/"
     ],
-    "checked": "2026-11-15T14:58",
+    "checked": "2026-11-15T21:21",
     "for_title": "2027年３月期第２四半期（中間期）決算短信〔日本基準〕(非連結)"
    }
   },
@@ -1411,7 +1411,7 @@
     "also_checked": [
      "https://ltv-x.jp/"
     ],
-    "checked": "2026-11-15T14:58",
+    "checked": "2026-11-15T21:21",
     "for_title": "2027年３月期第２四半期（中間期）決算短信〔日本基準〕（非連結）"
    }
   },
@@ -1488,7 +1488,7 @@
     "also_checked": [
      "http://www.midac.jp/"
     ],
-    "checked": "2026-11-15T14:58",
+    "checked": "2026-11-15T21:21",
     "for_title": "2027年3月期 第2四半期（中間期）決算短信［日本基準］（連結）"
    }
   },
@@ -1533,7 +1533,7 @@
     "also_checked": [
      "https://shinwa-holdings.co.jp/"
     ],
-    "checked": "2026-11-15T14:58",
+    "checked": "2026-11-15T21:21",
     "for_title": "2027年３月期 第２四半期（中間期）決算短信〔日本基準〕（連結）"
    }
   },
@@ -1630,6 +1630,144 @@
     ],
     "sell_rule": "TOB価格2,770円まであと+31.9% → 持ち続ける。差が1%以内になった日の終値で売る",
     "material": "TOB（S）"
+   }
+  ]
+ },
+ "morning": {
+  "direction": "日経平均先物は前日の日経平均より-0.1% → ほぼ横ばい",
+  "futures_gap_pct": -0.1265106109321512,
+  "indices": [
+   {
+    "symbol": "^GSPC",
+    "label": "S&P500",
+    "last": 7561.669921875,
+    "change_pct": -0.40474660007389085,
+    "date": "2026-11-13"
+   },
+   {
+    "symbol": "^IXIC",
+    "label": "ナスダック",
+    "last": 25136.26953125,
+    "change_pct": -0.9060139497874764,
+    "date": "2026-11-13"
+   },
+   {
+    "symbol": "^SOX",
+    "label": "SOX指数（半導体）",
+    "last": 10146.3203125,
+    "change_pct": -3.4297223768755547,
+    "date": "2026-11-13"
+   },
+   {
+    "symbol": "JPY=X",
+    "label": "ドル円",
+    "last": 159.60000610351562,
+    "change_pct": -0.17200556465011285,
+    "date": "2026-11-15"
+   },
+   {
+    "symbol": "NIY=F",
+    "label": "日経平均先物（CME・円建て）",
+    "last": 61065.0,
+    "change_pct": -0.21732736363933025,
+    "date": "2026-11-13"
+   },
+   {
+    "symbol": "^N225",
+    "label": "日経平均",
+    "last": 61142.3515625,
+    "change_pct": 0.53106805270422,
+    "date": "2026-11-13"
+   }
+  ],
+  "adr_top": [
+   {
+    "adr": "SMFG",
+    "code": "8316",
+    "name": "三井住友フィナンシャルグループ",
+    "jp_price": 3275.0,
+    "implied": 3292.792655664047,
+    "gap_pct": 0.5432871958487517,
+    "adr_change_pct": 1.5182557207347402,
+    "traded": true,
+    "single": false
+   },
+   {
+    "adr": "NGKSY",
+    "code": "5334",
+    "name": "日本特殊陶業",
+    "jp_price": 3841.0,
+    "implied": 3857.696283119014,
+    "gap_pct": 0.43468584012011924,
+    "adr_change_pct": -1.245328866226092,
+    "traded": true,
+    "single": false
+   },
+   {
+    "adr": "CJPRY",
+    "code": "9022",
+    "name": "東海旅客鉄道",
+    "jp_price": 4473.0,
+    "implied": 4487.5457656785175,
+    "gap_pct": 0.32519037957785546,
+    "adr_change_pct": 2.7859245225528184,
+    "traded": true,
+    "single": false
+   },
+   {
+    "adr": "MUFG",
+    "code": "8306",
+    "name": "三菱ＵＦＪフィナンシャル・グループ",
+    "jp_price": 3475.0,
+    "implied": 3482.911946287889,
+    "gap_pct": 0.22768190756514706,
+    "adr_change_pct": 0.36781574117725757,
+    "traded": true,
+    "single": false
+   },
+   {
+    "adr": "MITSY",
+    "code": "8031",
+    "name": "三井物産",
+    "jp_price": 5100.0,
+    "implied": 5108.710003621328,
+    "gap_pct": 0.1707843847319257,
+    "adr_change_pct": 1.0404837310687087,
+    "traded": true,
+    "single": false
+   },
+   {
+    "adr": "MKTAY",
+    "code": "6586",
+    "name": "マキタ",
+    "jp_price": 5570.0,
+    "implied": 5577.91437245413,
+    "gap_pct": 0.14208927206695865,
+    "adr_change_pct": -0.1425698246239948,
+    "traded": true,
+    "single": false
+   },
+   {
+    "adr": "MHVYF",
+    "code": "7011",
+    "name": "三菱重工業",
+    "jp_price": 2920.5,
+    "implied": 2922.148327048522,
+    "gap_pct": 0.05643989209114242,
+    "adr_change_pct": -7.2478476348392995,
+    "traded": true,
+    "single": false
+   },
+   {
+    "adr": "CAJPY",
+    "code": "7751",
+    "name": "キヤノン",
+    "jp_price": 4832.0,
+    "implied": 4831.64638731964,
+    "gap_pct": -0.007318143219370299,
+    "adr_change_pct": 0.8997016184752349,
+    "traded": true,
+    "single": false
    }
   ]
  },
