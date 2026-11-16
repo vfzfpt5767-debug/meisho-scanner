@@ -1,9 +1,45 @@
 {
 "date": "2026-11-16",
-"fetched_at": "2026-11-16T17:11:06.812866+09:00",
+"fetched_at": "2026-11-16T18:41:15.634574+09:00",
 "complete": false,
-"total_all_markets": 336,
+"total_all_markets": 415,
 "items": [
+{
+"Tdnet": {
+"id": "1296684",
+"pubdate": "2026-11-16 17:15:00",
+"company_code": "79460",
+"company_name": "光陽社",
+"title": "特別利益の計上、通期連結業績予想の修正（上方修正）及び配当予想の修正（増配）に関するお知らせ",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261113579619.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/091220261113579619.zip",
+"markets_string": "名",
+"update_history": null
+}
+},
+{
+"Tdnet": {
+"id": "1296724",
+"pubdate": "2026-11-16 16:55:00",
+"company_code": "88910",
+"company_name": "ＡＭＧＨＤ",
+"title": "2027年３月期　第２四半期（中間期）決算短信〔日本基準〕（連結）",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261116580711.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/081220261116580711.zip",
+"markets_string": "東名",
+"update_history": null
+}
+},
 {
 "Tdnet": {
 "id": "1296661",

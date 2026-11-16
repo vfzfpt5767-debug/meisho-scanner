@@ -1,9 +1,55 @@
 {
-"generated_at": "2026-11-16T17:11:06.020765+09:00",
+"generated_at": "2026-11-16T18:41:14.656128+09:00",
 "base_day": "2026-11-16",
 "deadline": "2026-11-17T07:59:00+09:00",
 "price_source": "名証 日報",
 "cards": [
+{
+"code": "7946",
+"name": "光陽社",
+"single": true,
+"division": "メイン",
+"unit": 100,
+"category": "A",
+"score": 78,
+"items": [
+{
+"time": "17:15",
+"date": "11/16",
+"title": "特別利益の計上、通期連結業績予想の修正（上方修正）及び配当予想の修正（増配）に関するお知らせ",
+"pdf": "https://www.release.tdnet.info/inbs/140120261113579619.pdf",
+"tags": [
+{
+"cat": "A",
+"label": "上方修正",
+"score": 68,
+"reason": "業績予想の上方修正（修正率はPDFで確認）"
+},
+{
+"cat": "A",
+"label": "増配",
+"score": 61,
+"reason": "配当の増額・復活・記念配当"
+},
+{
+"cat": "A",
+"label": "特別利益",
+"score": 40,
+"reason": "特別利益の計上（一時的な利益）"
+}
+]
+}
+],
+"price": 341.0,
+"price_note": "名証の終値",
+"nse_close": 341.0,
+"nse_quote": null,
+"shares": 8700,
+"cost": 2966700.0,
+"tob_price": null,
+"tob_gap_pct": null,
+"quote_only": false
+},
 {
 "code": "7593",
 "name": "ＶＴホールディングス",
@@ -161,6 +207,40 @@
 "tob_price": null,
 "tob_gap_pct": null,
 "quote_only": false
+},
+{
+"code": "8891",
+"name": "ＡＭＧホールディングス",
+"single": false,
+"division": "メイン",
+"unit": 100,
+"category": "INFO",
+"score": 15,
+"items": [
+{
+"time": "16:55",
+"date": "11/16",
+"title": "2027年３月期　第２四半期（中間期）決算短信〔日本基準〕（連結）",
+"pdf": "https://www.release.tdnet.info/inbs/140120261116580711.pdf",
+"tags": [
+{
+"cat": "INFO",
+"label": "決算短信",
+"score": 15,
+"reason": "決算発表（数値はPDFで確認。自動計算はしていません）"
+}
+]
+}
+],
+"price": 1988.0,
+"price_note": "名証の最終気配",
+"nse_close": null,
+"nse_quote": 1988.0,
+"shares": 1500,
+"cost": 2982000.0,
+"tob_price": null,
+"tob_gap_pct": null,
+"quote_only": true
 },
 {
 "code": "3086",

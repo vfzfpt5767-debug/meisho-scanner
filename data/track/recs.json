@@ -479,5 +479,25 @@
 "label": "自社株買い",
 "price": 2163.0,
 "result": null
+},
+{
+"base_day": "2026-11-16",
+"source": "rule_top",
+"code": "7946",
+"name": "光陽社",
+"category": "A",
+"label": "上方修正",
+"price": 341.0,
+"result": null
+},
+{
+"base_day": "2026-11-16",
+"source": "rule_sa",
+"code": "7946",
+"name": "光陽社",
+"category": "A",
+"label": "上方修正",
+"price": 341.0,
+"result": null
 }
 ]
