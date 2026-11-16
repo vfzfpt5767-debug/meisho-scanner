@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-17T04:48:29.066163+09:00",
+ "generated_at": "2026-11-17T06:14:10.714600+09:00",
  "base_day": "2026-11-16",
  "deadline": "2026-11-17T07:59:00+09:00",
  "price_source": "名証 日報",
@@ -155,7 +155,7 @@
     "also_checked": [
      "http://www.vt-holdings.co.jp/"
     ],
-    "checked": "2026-11-16T19:48",
+    "checked": "2026-11-16T21:14",
     "for_title": "個別決算における投資有価証券売却益(特別利益)の計上に関するお知らせ"
    }
   },
@@ -163,7 +163,7 @@
    "code": "7283",
    "name": "愛三工業",
    "category": "A",
-   "score": 58,
+   "score": 54,
    "single": false,
    "price": 2163.0,
    "price_note": "名証の最終気配",
@@ -218,7 +218,7 @@
     "also_checked": [
      "https://www.aisan-ind.co.jp/"
     ],
-    "checked": "2026-11-16T19:48",
+    "checked": "2026-11-16T21:14",
     "for_title": "自己株式取得に係る事項の決定及び自己株式の消却に関するお知らせ"
    }
   },
@@ -295,7 +295,7 @@
     "also_checked": [
      "https://www.upcon.co.jp/"
     ],
-    "checked": "2026-11-16T19:48",
+    "checked": "2026-11-16T21:14",
     "for_title": "2027年1月期通期の業績予想の修正に関するお知らせ"
    }
   },
@@ -406,7 +406,7 @@
     "also_checked": [
      "http://www.keepercoating.jp/corp/"
     ],
-    "checked": "2026-11-16T19:48",
+    "checked": "2026-11-16T21:14",
     "for_title": "出光興産株式会社との戦略的資本業務提携契約に関するお知らせ"
    }
   }
@@ -490,7 +490,7 @@
     "also_checked": [
      "https://www.popalpha.co.jp/"
     ],
-    "checked": "2026-11-16T19:48",
+    "checked": "2026-11-16T21:14",
     "for_title": "（訂正・数値データ訂正）「2026年８月期決算短信〔日本基準〕（連結）」の一部訂正に関するお知らせ"
    }
   }
@@ -563,6 +563,144 @@
     "cautions": [],
     "sell_rule": "11/17(火)の終値で売る予定（買ってから1営業日後）。検証：上方修正でストップ高にならなかった銘柄は1営業日後の終値で売るのが一番よい（平均+2.7%・中央値+1.8%・n=245）",
     "material": "上方修正"
+   }
+  ]
+ },
+ "morning": {
+  "direction": "日経平均先物は前日の日経平均より-0.8% → 下落して始まりそう",
+  "futures_gap_pct": -0.7995371259638784,
+  "indices": [
+   {
+    "symbol": "^GSPC",
+    "label": "S&P500",
+    "last": 7416.58984375,
+    "change_pct": -1.9186248490601354,
+    "date": "2026-11-16"
+   },
+   {
+    "symbol": "^IXIC",
+    "label": "ナスダック",
+    "last": 24509.7578125,
+    "change_pct": -2.492461015231817,
+    "date": "2026-11-16"
+   },
+   {
+    "symbol": "^SOX",
+    "label": "SOX指数（半導体）",
+    "last": 9610.65234375,
+    "change_pct": -5.279430889739123,
+    "date": "2026-11-16"
+   },
+   {
+    "symbol": "JPY=X",
+    "label": "ドル円",
+    "last": 159.46499633789062,
+    "change_pct": -0.25645264244527066,
+    "date": "2026-11-16"
+   },
+   {
+    "symbol": "NIY=F",
+    "label": "日経平均先物（CME・円建て）",
+    "last": 59185.0,
+    "change_pct": -3.0786866453778705,
+    "date": "2026-11-16"
+   },
+   {
+    "symbol": "^N225",
+    "label": "日経平均",
+    "last": 61142.3515625,
+    "change_pct": 0.53106805270422,
+    "date": "2026-11-13"
+   }
+  ],
+  "adr_top": [
+   {
+    "adr": "TAK",
+    "code": "4502",
+    "name": "武田薬品工業",
+    "jp_price": 6937.0,
+    "implied": 6932.021021338309,
+    "gap_pct": -0.0717742347079553,
+    "adr_change_pct": 0.7932807926880336,
+    "traded": true,
+    "single": false
+   },
+   {
+    "adr": "MKTAY",
+    "code": "6586",
+    "name": "マキタ",
+    "jp_price": 5550.0,
+    "implied": 5540.41582896953,
+    "gap_pct": -0.172687766314783,
+    "adr_change_pct": -0.5711043984156006,
+    "traded": true,
+    "single": false
+   },
+   {
+    "adr": "TM",
+    "code": "7203",
+    "name": "トヨタ自動車",
+    "jp_price": 3428.0,
+    "implied": 3421.925020720129,
+    "gap_pct": -0.17721643173486124,
+    "adr_change_pct": 0.6896444227231235,
+    "traded": true,
+    "single": false
+   },
+   {
+    "adr": "NPSCY",
+    "code": "5401",
+    "name": "日本製鉄",
+    "jp_price": 695.1,
+    "implied": 693.4069571495886,
+    "gap_pct": -0.24356824203876082,
+    "adr_change_pct": 0.45662055716786387,
+    "traded": true,
+    "single": false
+   },
+   {
+    "adr": "CJPRY",
+    "code": "9022",
+    "name": "東海旅客鉄道",
+    "jp_price": 4552.0,
+    "implied": 4534.658738878163,
+    "gap_pct": -0.38095916348500625,
+    "adr_change_pct": 1.1412256932096465,
+    "traded": true,
+    "single": false
+   },
+   {
+    "adr": "DNZOY",
+    "code": "6902",
+    "name": "デンソー",
+    "jp_price": 1940.0,
+    "implied": 1931.685758091003,
+    "gap_pct": -0.4285691705668615,
+    "adr_change_pct": -0.0829206346093403,
+    "traded": true,
+    "single": false
+   },
+   {
+    "adr": "FJTSY",
+    "code": "6702",
+    "name": "富士通",
+    "jp_price": 3524.0,
+    "implied": 3507.8662688724844,
+    "gap_pct": -0.4578243793279091,
+    "adr_change_pct": 2.23672632834484,
+    "traded": true,
+    "single": false
+   },
+   {
+    "adr": "CAJPY",
+    "code": "7751",
+    "name": "キヤノン",
+    "jp_price": 4870.0,
+    "implied": 4837.120323106151,
+    "gap_pct": -0.675147369483553,
+    "adr_change_pct": 0.23117468043880596,
+    "traded": true,
+    "single": false
    }
   ]
  },
