@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-16T20:56:04.744147+09:00",
+ "generated_at": "2026-11-16T21:20:48.786996+09:00",
  "base_day": "2026-11-16",
  "deadline": "2026-11-17T07:59:00+09:00",
  "price_source": "名証 日報",
@@ -521,10 +521,10 @@
  ],
  "errors": [],
  "portfolio": {
-  "cash": 799300.0,
+  "cash": 15000.0,
   "total": 4439300.0,
   "profit": 1439300.0,
-  "term_left": 3000000,
+  "term_left": 2215700.0,
   "term_open": true,
   "single_bought": true,
   "holdings": [
@@ -546,6 +546,23 @@
     ],
     "sell_rule": "今日もストップ高張り付き → 持ち続ける。張り付きが外れた日の終値で売る（検証：平均+12.9%・n=752）",
     "material": "TOB（S）"
+   },
+   {
+    "code": "7946",
+    "name": "光陽社",
+    "shares": 2300,
+    "buy_price": 341.0,
+    "buy_date": "2026-11-16",
+    "price": 341.0,
+    "pnl_pct": 0.0,
+    "single": true,
+    "quote_only": false,
+    "unit": 100,
+    "warnings": [],
+    "notices": [],
+    "cautions": [],
+    "sell_rule": "11/17(火)の終値で売る予定（買ってから1営業日後）。検証：上方修正でストップ高にならなかった銘柄は1営業日後の終値で売るのが一番よい（平均+2.7%・中央値+1.8%・n=245）",
+    "material": "上方修正"
    }
   ]
  },
