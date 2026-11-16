@@ -1,5 +1,5 @@
 {
-"generated_at": "2026-11-16T22:41:08.304633+09:00",
+"generated_at": "2026-11-17T01:57:54.726552+09:00",
 "base_day": "2026-11-16",
 "deadline": "2026-11-17T07:59:00+09:00",
 "price_source": "名証 日報",
@@ -690,9 +690,9 @@
 },
 {
 "code": "3058",
-"name": "三洋堂ＨＤ",
+"name": "三洋堂ホールディングス",
 "single": false,
-"division": "",
+"division": "メイン",
 "unit": 100,
 "category": "INFO",
 "score": 0,
@@ -841,7 +841,7 @@
 "notes": [
 "TDnetのPDF/XBRLは自動では読みません（TDnetのrobots.txtが自動取得を拒否しているため）。分類はタイトルの文言から判定しています。修正率・TOB価格などはPDFで確認してください。"
 ],
-"universe_count": 326,
+"universe_count": 327,
 "single_count": 65,
 "stale_from": ""
 }

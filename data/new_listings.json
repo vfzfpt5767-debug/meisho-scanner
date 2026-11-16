@@ -1,6 +1,23 @@
 {
- "fetched_date": "2026-11-16",
+ "fetched_date": "2026-11-17",
  "items": [
+  {
+   "date": "2026-12-21",
+   "market": "ネクスト",
+   "code": "687A",
+   "name": "（株）コスモルート",
+   "ipo": true,
+   "kettei_url": "",
+   "offer_price": null,
+   "header": "",
+   "links": {
+    "（株）コスモルート": "https://www.cosmoroot.co.jp",
+    "会社概要": "https://www.nse.or.jp/listing/files/kaisya687A.pdf",
+    "Ⅰの部": "https://www.nse.or.jp/listing/files/ichi687A.pdf",
+    "確認書": "https://www.nse.or.jp/listing/files/kakunin687A.pdf",
+    "発行決議": "https://www.nse.or.jp/listing/files/press_hakkou687A.pdf"
+   }
+  },
   {
    "date": "2026-12-17",
    "market": "ネクスト",

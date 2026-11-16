@@ -1,5 +1,5 @@
 {
-"fetched_date": "2026-11-16",
+"fetched_date": "2026-11-17",
 "source": "https://www.nse.or.jp/api/stock/search.json",
 "rows": [
 {
@@ -672,6 +672,18 @@
 "industryName_e": "Wholesale Trade",
 "stockUrl_e": "",
 "accountingTerm": "0820",
+"tradingUnit": "100"
+},
+{
+"simpleListing": 0,
+"stockCode": "30580",
+"stockName_j": "三洋堂ホールディングス",
+"stockName_e": "Sanyodo Holdings Inc.",
+"listedDivision": 2,
+"industryName_j": "小売業",
+"industryName_e": "Retail Trade",
+"stockUrl_e": "https://ir.sanyodo.co.jp/english/",
+"accountingTerm": "0331",
 "tradingUnit": "100"
 },
 {
