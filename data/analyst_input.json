@@ -1,8 +1,8 @@
 {
- "generated_at": "2026-11-16T16:11:11.637292+09:00",
+ "generated_at": "2026-11-16T17:11:06.020765+09:00",
  "base_day": "2026-11-16",
  "deadline": "2026-11-17T07:59:00+09:00",
- "price_source": "名証 相場表（速報）",
+ "price_source": "名証 日報",
  "rules": {
   "prefer": "上がった割合より「大きく上がる可能性」を優先する：ストップ高張り付き＞TOB＞決算サプライズ・上方修正の小〜中型株＞そのほかの好材料",
   "unverified": "中身を確かめられなくても、タイトルと検証が強い好材料なら自信度「中」で買ってよい。悪材料が混ざる・PTSで売られているものは買わない",
@@ -84,8 +84,71 @@
     "also_checked": [
      "http://www.vt-holdings.co.jp/"
     ],
-    "checked": "2026-11-16T07:11",
+    "checked": "2026-11-16T08:11",
     "for_title": "個別決算における投資有価証券売却益(特別利益)の計上に関するお知らせ"
+   }
+  },
+  {
+   "code": "7283",
+   "name": "愛三工業",
+   "category": "A",
+   "score": 58,
+   "single": false,
+   "price": 2163.0,
+   "price_note": "名証の最終気配",
+   "quote_only": true,
+   "unit": 100,
+   "shares_for_budget": 1300,
+   "tob_price": null,
+   "tob_gap_pct": null,
+   "model_prob": null,
+   "items": [
+    {
+     "time": "11/16 16:30",
+     "title": "自己株式取得に係る事項の決定及び自己株式の消却に関するお知らせ",
+     "pdf": "https://www.release.tdnet.info/inbs/140120261116581448.pdf",
+     "labels": [
+      {
+       "cat": "A",
+       "label": "自社株買い",
+       "backtest_next_day": {
+        "up": 65.99,
+        "mean": 2.31,
+        "median": 1.35,
+        "p10": -4.32,
+        "n": 1729
+       }
+      }
+     ]
+    },
+    {
+     "time": "11/16 16:30",
+     "title": "自己株式の取得及び自己株式立会外買付取引（ToSTNeT-3）による自己株式の買付けに関するお知らせ",
+     "pdf": "https://www.release.tdnet.info/inbs/140120261116581450.pdf",
+     "labels": [
+      {
+       "cat": "A",
+       "label": "自社株買い",
+       "backtest_next_day": {
+        "up": 65.99,
+        "mean": 2.31,
+        "median": 1.35,
+        "p10": -4.32,
+        "n": 1729
+       }
+      }
+     ]
+    }
+   ],
+   "ir_check": {
+    "status": "not_found",
+    "ir_page": "https://www.aisan-ind.co.jp/ir/index.html",
+    "recent": [],
+    "also_checked": [
+     "https://www.aisan-ind.co.jp/"
+    ],
+    "checked": "2026-11-16T08:11",
+    "for_title": "自己株式取得に係る事項の決定及び自己株式の消却に関するお知らせ"
    }
   },
   {
@@ -143,25 +206,25 @@
       "date": "2026-11-02"
      },
      {
-      "text": "第646号（2026/10/30発行）お見積り・6",
-      "url": "https://www.upcon.co.jp/archive/17381/",
-      "date": "2026-10-30"
-     },
-     {
       "text": "名古屋証券取引所主催 「株式投資サマーセミナー2026」で当社代表が登壇",
       "url": "https://www.upcon.co.jp/archive/17394/",
       "date": "2026-11-03"
      },
      {
-      "text": "ホームページ再開のお知らせ",
-      "url": "https://www.upcon.co.jp/archive/17348/",
-      "date": "2026-10-30"
+      "text": "第649号（2026/11/10発行）第19回川崎国際環境技術展",
+      "url": "https://www.upcon.co.jp/archive/17408/",
+      "date": "2026-11-10"
+     },
+     {
+      "text": "第648号（2026/11/6発行）お見積り・７",
+      "url": "https://www.upcon.co.jp/archive/17403/",
+      "date": "2026-11-06"
      }
     ],
     "also_checked": [
      "https://www.upcon.co.jp/"
     ],
-    "checked": "2026-11-16T07:11",
+    "checked": "2026-11-16T08:11",
     "for_title": "2027年1月期通期の業績予想の修正に関するお知らせ"
    }
   },
@@ -272,12 +335,12 @@
     "also_checked": [
      "http://www.keepercoating.jp/corp/"
     ],
-    "checked": "2026-11-16T07:11",
+    "checked": "2026-11-16T08:11",
     "for_title": "出光興産株式会社との戦略的資本業務提携契約に関するお知らせ"
    }
   }
  ],
- "other_after_close_count": 3,
+ "other_after_close_count": 5,
  "earnings_only": [
   {
    "code": "4760",
@@ -308,7 +371,7 @@
     "also_checked": [
      "https://www.popalpha.co.jp/"
     ],
-    "checked": "2026-11-16T07:11",
+    "checked": "2026-11-16T08:11",
     "for_title": "（訂正・数値データ訂正）「2026年８月期決算短信〔日本基準〕（連結）」の一部訂正に関するお知らせ"
    }
   }
@@ -342,8 +405,8 @@
   "cash": 799300.0,
   "total": 4439300.0,
   "profit": 1439300.0,
-  "term_left": 3000000.0,
-  "term_open": false,
+  "term_left": 3000000,
+  "term_open": true,
   "single_bought": true,
   "holdings": [
    {
@@ -411,42 +474,32 @@
  ],
  "earnings_today": [
   {
-   "code": "7953",
-   "name": "菊水化学工業",
-   "kind": "第２四半期"
-  },
-  {
-   "code": "8891",
-   "name": "ＡＭＧホールディングス",
-   "kind": "第２四半期"
-  },
-  {
    "code": "6036",
    "name": "ＫｅｅＰｅｒ技研",
    "kind": "第１四半期"
   }
  ],
  "simulator": {
-  "nights_left": 8,
+  "nights_left": 9,
   "start_assets": 4439300.0,
   "target": 6750000,
   "best": "aggressive",
   "best_label": "毎晩1位候補に全額（要確認だけの夜も買う）",
-  "advice": "勝負モード：毎晩、大きく上がる可能性が一番高い候補に300万円の枠いっぱい（休む夜を作らない）。10位ラインの見込みに届く確率 1.4%・今の10位を超える確率 19.6%",
+  "advice": "勝負モード：毎晩、大きく上がる可能性が一番高い候補に300万円の枠いっぱい（休む夜を作らない）。10位ラインの見込みに届く確率 1.8%・今の10位を超える確率 22.8%",
   "mode": "top10",
   "target_now": 5405800,
   "target_now_date": "2026-11-12",
   "probs": {
-   "毎晩1位候補に全額（要確認だけの夜も買う）": 1.43,
-   "毎晩上位2銘柄に半分ずつ": 0.65,
-   "S・A・ストップ高張り付きがある夜だけ1位に全額、ない夜は休む": 1.09,
-   "S・A・張り付きがある夜だけ、上位2銘柄に半分ずつ": 0.76
+   "毎晩1位候補に全額（要確認だけの夜も買う）": 1.85,
+   "毎晩上位2銘柄に半分ずつ": 0.85,
+   "S・A・ストップ高張り付きがある夜だけ1位に全額、ない夜は休む": 1.47,
+   "S・A・張り付きがある夜だけ、上位2銘柄に半分ずつ": 0.91
   },
   "probs_now": {
-   "毎晩1位候補に全額（要確認だけの夜も買う）": 19.56,
-   "毎晩上位2銘柄に半分ずつ": 14.36,
-   "S・A・ストップ高張り付きがある夜だけ1位に全額、ない夜は休む": 14.86,
-   "S・A・張り付きがある夜だけ、上位2銘柄に半分ずつ": 13.88
+   "毎晩1位候補に全額（要確認だけの夜も買う）": 22.8,
+   "毎晩上位2銘柄に半分ずつ": 18.36,
+   "S・A・ストップ高張り付きがある夜だけ1位に全額、ない夜は休む": 17.78,
+   "S・A・張り付きがある夜だけ、上位2銘柄に半分ずつ": 16.75
   }
  },
  "strategy": {
@@ -457,7 +510,7 @@
   "top10_line_final_est": 3750000,
   "gap_to_now_line": 966500,
   "gap_to_final_est": 2310700,
-  "nights_left": 8,
-  "need_per_night_pct": 9.6
+  "nights_left": 9,
+  "need_per_night_pct": 8.6
  }
 }

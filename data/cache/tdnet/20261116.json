@@ -1,9 +1,117 @@
 {
 "date": "2026-11-16",
-"fetched_at": "2026-11-16T16:11:12.653482+09:00",
+"fetched_at": "2026-11-16T17:11:06.812866+09:00",
 "complete": false,
-"total_all_markets": 252,
+"total_all_markets": 336,
 "items": [
+{
+"Tdnet": {
+"id": "1296661",
+"pubdate": "2026-11-16 16:30:00",
+"company_code": "24670",
+"company_name": "ＶＬＣセキュリティ",
+"title": "2027年３月期 第２四半期（中間期）決算短信〔日本基準〕（連結）",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261116581227.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/081220261116581227.zip",
+"markets_string": "名",
+"update_history": null
+}
+},
+{
+"Tdnet": {
+"id": "1296662",
+"pubdate": "2026-11-16 16:30:00",
+"company_code": "24670",
+"company_name": "ＶＬＣセキュリティ",
+"title": "2027年３月期 第２四半期決算説明資料",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261116581237.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": null,
+"markets_string": "名",
+"update_history": null
+}
+},
+{
+"Tdnet": {
+"id": "1296663",
+"pubdate": "2026-11-16 16:30:00",
+"company_code": "24670",
+"company_name": "ＶＬＣセキュリティ",
+"title": "減損損失、仕入先支援出資損失（特別損失）、繰延税金負債の取崩し及びその他有価証券の期末時価に関するお知らせ",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261116581477.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": null,
+"markets_string": "名",
+"update_history": null
+}
+},
+{
+"Tdnet": {
+"id": "1296673",
+"pubdate": "2026-11-16 16:30:00",
+"company_code": "72830",
+"company_name": "愛三工",
+"title": "自己株式取得に係る事項の決定及び自己株式の消却に関するお知らせ",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261116581448.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": null,
+"markets_string": "東名",
+"update_history": null
+}
+},
+{
+"Tdnet": {
+"id": "1296674",
+"pubdate": "2026-11-16 16:30:00",
+"company_code": "72830",
+"company_name": "愛三工",
+"title": "自己株式の取得及び自己株式立会外買付取引（ToSTNeT-3）による自己株式の買付けに関するお知らせ",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261116581450.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": null,
+"markets_string": "東名",
+"update_history": null
+}
+},
+{
+"Tdnet": {
+"id": "1296640",
+"pubdate": "2026-11-16 16:00:00",
+"company_code": "60550",
+"company_name": "Ｊマテリアル",
+"title": "主要株主及び主要株主である筆頭株主の異動に関するお知らせ",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261116580657.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": null,
+"markets_string": "東名",
+"update_history": null
+}
+},
 {
 "Tdnet": {
 "id": "1296480",

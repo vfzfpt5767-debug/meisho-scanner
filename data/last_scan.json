@@ -1,8 +1,8 @@
 {
-"generated_at": "2026-11-16T16:11:11.637292+09:00",
+"generated_at": "2026-11-16T17:11:06.020765+09:00",
 "base_day": "2026-11-16",
 "deadline": "2026-11-17T07:59:00+09:00",
-"price_source": "名証 相場表（速報）",
+"price_source": "名証 日報",
 "cards": [
 {
 "code": "7593",
@@ -51,6 +51,116 @@
 "tob_price": null,
 "tob_gap_pct": null,
 "quote_only": true
+},
+{
+"code": "7283",
+"name": "愛三工業",
+"single": false,
+"division": "プレミア",
+"unit": 100,
+"category": "A",
+"score": 58,
+"items": [
+{
+"time": "16:30",
+"date": "11/16",
+"title": "自己株式取得に係る事項の決定及び自己株式の消却に関するお知らせ",
+"pdf": "https://www.release.tdnet.info/inbs/140120261116581448.pdf",
+"tags": [
+{
+"cat": "A",
+"label": "自社株買い",
+"score": 53,
+"reason": "自己株式取得の決定（規模＝発行済株式に対する%はPDFで確認）"
+}
+]
+},
+{
+"time": "16:30",
+"date": "11/16",
+"title": "自己株式の取得及び自己株式立会外買付取引（ToSTNeT-3）による自己株式の買付けに関するお知らせ",
+"pdf": "https://www.release.tdnet.info/inbs/140120261116581450.pdf",
+"tags": [
+{
+"cat": "A",
+"label": "自社株買い",
+"score": 53,
+"reason": "自己株式取得の決定（規模＝発行済株式に対する%はPDFで確認）"
+}
+]
+}
+],
+"price": 2163.0,
+"price_note": "名証の最終気配",
+"nse_close": null,
+"nse_quote": 2163.0,
+"shares": 1300,
+"cost": 2811900.0,
+"tob_price": null,
+"tob_gap_pct": null,
+"quote_only": true
+},
+{
+"code": "2467",
+"name": "ＶＬＣセキュリティ",
+"single": true,
+"division": "ネクスト",
+"unit": 100,
+"category": "BAD",
+"score": 15,
+"items": [
+{
+"time": "16:30",
+"date": "11/16",
+"title": "2027年３月期 第２四半期（中間期）決算短信〔日本基準〕（連結）",
+"pdf": "https://www.release.tdnet.info/inbs/140120261116581227.pdf",
+"tags": [
+{
+"cat": "INFO",
+"label": "決算短信",
+"score": 15,
+"reason": "決算発表（数値はPDFで確認。自動計算はしていません）"
+}
+]
+},
+{
+"time": "16:30",
+"date": "11/16",
+"title": "2027年３月期 第２四半期決算説明資料",
+"pdf": "https://www.release.tdnet.info/inbs/140120261116581237.pdf",
+"tags": [
+{
+"cat": "INFO",
+"label": "その他",
+"score": 0,
+"reason": ""
+}
+]
+},
+{
+"time": "16:30",
+"date": "11/16",
+"title": "減損損失、仕入先支援出資損失（特別損失）、繰延税金負債の取崩し及びその他有価証券の期末時価に関するお知らせ",
+"pdf": "https://www.release.tdnet.info/inbs/140120261116581477.pdf",
+"tags": [
+{
+"cat": "BAD",
+"label": "特別損失",
+"score": -30,
+"reason": "特別損失・減損の計上"
+}
+]
+}
+],
+"price": 273.0,
+"price_note": "名証の終値",
+"nse_close": 273.0,
+"nse_quote": null,
+"shares": 10900,
+"cost": 2975700.0,
+"tob_price": null,
+"tob_gap_pct": null,
+"quote_only": false
 },
 {
 "code": "3086",
@@ -150,6 +260,40 @@
 "nse_quote": 3368.0,
 "shares": 800,
 "cost": 2694400.0,
+"tob_price": null,
+"tob_gap_pct": null,
+"quote_only": true
+},
+{
+"code": "6055",
+"name": "ジャパンマテリアル",
+"single": false,
+"division": "プレミア",
+"unit": 100,
+"category": "INFO",
+"score": 0,
+"items": [
+{
+"time": "16:00",
+"date": "11/16",
+"title": "主要株主及び主要株主である筆頭株主の異動に関するお知らせ",
+"pdf": "https://www.release.tdnet.info/inbs/140120261116580657.pdf",
+"tags": [
+{
+"cat": "INFO",
+"label": "その他",
+"score": 0,
+"reason": ""
+}
+]
+}
+],
+"price": 1580.0,
+"price_note": "名証の最終気配",
+"nse_close": null,
+"nse_quote": 1580.0,
+"shares": 1800,
+"cost": 2844000.0,
 "tob_price": null,
 "tob_gap_pct": null,
 "quote_only": true
