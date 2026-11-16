@@ -1,7 +1,24 @@
 {
 "date": "2026-11-16",
-"fetched_at": "2026-11-16T10:08:57.306012+09:00",
+"fetched_at": "2026-11-16T10:50:54.409551+09:00",
 "complete": false,
-"total_all_markets": 11,
-"items": []
+"total_all_markets": 19,
+"items": [
+{
+"id": "1296363",
+"pubdate": "2026-11-16 10:00:00",
+"company_code": "70590",
+"company_name": "コプロＨＤ",
+"title": "2026年10月度 在籍技術者数、稼働技術者数・稼働率の月次開示に関するお知らせ",
+"document_url": "https://www.release.tdnet.info/inbs/140120261116580684.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": null,
+"markets_string": "東名",
+"update_history": null
+}
+]
 }

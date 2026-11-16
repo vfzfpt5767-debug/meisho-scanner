@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-16T10:08:56.372672+09:00",
+ "generated_at": "2026-11-16T10:50:53.507664+09:00",
  "base_day": "2026-11-13",
  "deadline": "2026-11-16T07:59:00+09:00",
  "price_source": "名証 日報",
@@ -103,7 +103,7 @@
     "also_checked": [
      "https://www.k-uno.co.jp/"
     ],
-    "checked": "2026-11-16T01:08",
+    "checked": "2026-11-16T01:50",
     "for_title": "個別業績の前期実績値との差異に関するお知らせ"
    }
   },
@@ -189,7 +189,7 @@
     "also_checked": [
      "https://www.sanwayuka.co.jp/"
     ],
-    "checked": "2026-11-16T01:08",
+    "checked": "2026-11-16T01:50",
     "for_title": "2027年３月期第２四半期（中間期）連結業績予想と実績との差異及び通期業績予想の上方修正、期末配当予想の修正（増配）に関するお知らせ"
    }
   },
@@ -532,7 +532,7 @@
     "also_checked": [
      "https://www.meinan-ma.com/"
     ],
-    "checked": "2026-11-16T01:08",
+    "checked": "2026-11-16T01:50",
     "for_title": "通期連結業績予想の修正及び配当予想の修正に関するお知らせ"
    }
   },
@@ -796,7 +796,7 @@
     "also_checked": [
      "https://uridoki.co.jp/"
     ],
-    "checked": "2026-11-16T01:08",
+    "checked": "2026-11-16T01:50",
     "for_title": "業績予想の修正に関するお知らせ"
    }
   },
@@ -890,7 +890,7 @@
    ]
   }
  ],
- "other_after_close_count": 38,
+ "other_after_close_count": 39,
  "earnings_only": [
   {
    "code": "3138",
@@ -977,7 +977,7 @@
     "also_checked": [
      "https://www.fujisan.co.jp/"
     ],
-    "checked": "2026-11-16T01:08",
+    "checked": "2026-11-16T01:50",
     "for_title": "2026年12月期第3四半期決算短信〔日本基準〕（連結）"
    }
   },
@@ -1054,7 +1054,7 @@
     "also_checked": [
      "https://www.cds-japan.jp/ja/"
     ],
-    "checked": "2026-11-16T01:08",
+    "checked": "2026-11-16T01:50",
     "for_title": "2026年12月期　第3四半期決算短信〔日本基準〕（連結）"
    }
   },
@@ -1134,7 +1134,7 @@
       "date": "2026-09-09"
      }
     ],
-    "checked": "2026-11-16T01:08",
+    "checked": "2026-11-16T01:50",
     "for_title": "2027年３月期 第２四半期（中間期）決算短信〔日本基準〕（連結）"
    }
   },
@@ -1202,7 +1202,7 @@
       "date": "2025-12-15"
      }
     ],
-    "checked": "2026-11-16T01:08",
+    "checked": "2026-11-16T01:50",
     "for_title": "2027年6月期 第1四半期決算短信〔日本基準〕（連結）"
    }
   },
@@ -1273,7 +1273,7 @@
     "also_checked": [
      "https://www.washingtonhotel.co.jp/"
     ],
-    "checked": "2026-11-16T01:08",
+    "checked": "2026-11-16T01:50",
     "for_title": "2027年３月期第２四半期（中間期）決算短信〔日本基準〕(非連結)"
    }
   },
@@ -1411,7 +1411,7 @@
     "also_checked": [
      "https://ltv-x.jp/"
     ],
-    "checked": "2026-11-16T01:08",
+    "checked": "2026-11-16T01:50",
     "for_title": "2027年３月期第２四半期（中間期）決算短信〔日本基準〕（非連結）"
    }
   },
@@ -1460,6 +1460,11 @@
     "ir_page": "https://www.midac.jp/news/",
     "recent": [
      {
+      "text": "電子メールの送受信障害回復について",
+      "url": "https://www.midac.jp/news/20261116_0350.html",
+      "date": "2026-11-16"
+     },
+     {
       "text": "電子メールの送受信障害について",
       "url": "https://www.midac.jp/news/20261113_0349.html",
       "date": "2026-11-13"
@@ -1478,17 +1483,12 @@
       "text": "産廃情報ネットの公開情報を更新しました",
       "url": "https://www.midac.jp/news/20261030_0346.html",
       "date": "2026-10-30"
-     },
-     {
-      "text": "弊社ウェブサイト緊急メンテナンスのお詫び（完了）",
-      "url": "https://www.midac.jp/news/20261022_0345.html",
-      "date": "2026-10-22"
      }
     ],
     "also_checked": [
      "http://www.midac.jp/"
     ],
-    "checked": "2026-11-16T01:08",
+    "checked": "2026-11-16T01:50",
     "for_title": "2027年3月期 第2四半期（中間期）決算短信［日本基準］（連結）"
    }
   },
@@ -1533,7 +1533,7 @@
     "also_checked": [
      "https://shinwa-holdings.co.jp/"
     ],
-    "checked": "2026-11-16T01:08",
+    "checked": "2026-11-16T01:50",
     "for_title": "2027年３月期 第２四半期（中間期）決算短信〔日本基準〕（連結）"
    }
   },

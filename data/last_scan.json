@@ -1,5 +1,5 @@
 {
-"generated_at": "2026-11-16T10:08:56.372672+09:00",
+"generated_at": "2026-11-16T10:50:53.507664+09:00",
 "base_day": "2026-11-13",
 "deadline": "2026-11-16T07:59:00+09:00",
 "price_source": "名証 日報",
@@ -1886,6 +1886,40 @@
 "nse_quote": 4175.0,
 "shares": 700,
 "cost": 2922500.0,
+"tob_price": null,
+"tob_gap_pct": null,
+"quote_only": true
+},
+{
+"code": "7059",
+"name": "コプロ・ホールディングス",
+"single": false,
+"division": "プレミア",
+"unit": 100,
+"category": "INFO",
+"score": 0,
+"items": [
+{
+"time": "10:00",
+"date": "11/16",
+"title": "2026年10月度 在籍技術者数、稼働技術者数・稼働率の月次開示に関するお知らせ",
+"pdf": "https://www.release.tdnet.info/inbs/140120261116580684.pdf",
+"tags": [
+{
+"cat": "INFO",
+"label": "その他",
+"score": 0,
+"reason": ""
+}
+]
+}
+],
+"price": 930.0,
+"price_note": "名証の最終気配",
+"nse_close": null,
+"nse_quote": 930.0,
+"shares": 3200,
+"cost": 2976000.0,
 "tob_price": null,
 "tob_gap_pct": null,
 "quote_only": true
