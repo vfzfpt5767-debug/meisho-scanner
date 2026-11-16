@@ -1,16 +1,17 @@
 {
 "date": "2026-11-16",
-"fetched_at": "2026-11-16T10:50:54.409551+09:00",
+"fetched_at": "2026-11-16T16:11:12.653482+09:00",
 "complete": false,
-"total_all_markets": 19,
+"total_all_markets": 252,
 "items": [
 {
-"id": "1296363",
-"pubdate": "2026-11-16 10:00:00",
-"company_code": "70590",
-"company_name": "コプロＨＤ",
-"title": "2026年10月度 在籍技術者数、稼働技術者数・稼働率の月次開示に関するお知らせ",
-"document_url": "https://www.release.tdnet.info/inbs/140120261116580684.pdf",
+"Tdnet": {
+"id": "1296480",
+"pubdate": "2026-11-16 15:30:00",
+"company_code": "30860",
+"company_name": "Ｊフロント",
+"title": "２０２６年１０月度　Ｊ．フロントリテイリング　連結売上収益報告（ＩＦＲＳ）",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261116581222.pdf",
 "url_report_type_summary": null,
 "url_report_type_fs_consolidated": null,
 "url_report_type_fs_non_consolidated": null,
@@ -19,6 +20,385 @@
 "url_xbrl": null,
 "markets_string": "東名",
 "update_history": null
+}
+},
+{
+"Tdnet": {
+"id": "1296516",
+"pubdate": "2026-11-16 15:30:00",
+"company_code": "47600",
+"company_name": "アルファ",
+"title": "（訂正・数値データ訂正）「2026年８月期決算短信〔日本基準〕（連結）」の一部訂正に関するお知らせ",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261110571563.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/081220261110571563.zip",
+"markets_string": "東名",
+"update_history": null
+}
+},
+{
+"Tdnet": {
+"id": "1296522",
+"pubdate": "2026-11-16 15:30:00",
+"company_code": "50750",
+"company_name": "アップコン",
+"title": "名古屋証券取引所メイン市場への市場区分変更申請に関するお知らせ",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261116581118.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": null,
+"markets_string": "名",
+"update_history": null
+}
+},
+{
+"Tdnet": {
+"id": "1296523",
+"pubdate": "2026-11-16 15:30:00",
+"company_code": "50750",
+"company_name": "アップコン",
+"title": "2027年1月期通期の業績予想の修正に関するお知らせ",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261116581254.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/091220261116581254.zip",
+"markets_string": "名",
+"update_history": null
+}
+},
+{
+"Tdnet": {
+"id": "1296533",
+"pubdate": "2026-11-16 15:30:00",
+"company_code": "60360",
+"company_name": "ＫｅｅＰｅｒ技研",
+"title": "2027年6月期 第1四半期決算短信［日本基準］（非連結）",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261116581145.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/081220261116581145.zip",
+"markets_string": "東名",
+"update_history": null
+}
+},
+{
+"Tdnet": {
+"id": "1296534",
+"pubdate": "2026-11-16 15:30:00",
+"company_code": "60360",
+"company_name": "ＫｅｅＰｅｒ技研",
+"title": "2027年6月期第1四半期 決算説明会資料",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261116581193.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": null,
+"markets_string": "東名",
+"update_history": null
+}
+},
+{
+"Tdnet": {
+"id": "1296535",
+"pubdate": "2026-11-16 15:30:00",
+"company_code": "60360",
+"company_name": "ＫｅｅＰｅｒ技研",
+"title": "株式の売出し及び主要株主の異動に関するお知らせ",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261116581228.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": null,
+"markets_string": "東名",
+"update_history": null
+}
+},
+{
+"Tdnet": {
+"id": "1296536",
+"pubdate": "2026-11-16 15:30:00",
+"company_code": "60360",
+"company_name": "ＫｅｅＰｅｒ技研",
+"title": "出光興産株式会社との戦略的資本業務提携契約に関するお知らせ",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261116581238.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": null,
+"markets_string": "東名",
+"update_history": null
+}
+},
+{
+"Tdnet": {
+"id": "1296537",
+"pubdate": "2026-11-16 15:30:00",
+"company_code": "60360",
+"company_name": "ＫｅｅＰｅｒ技研",
+"title": "VTホールディングス株式会社による当社株式売却及び業務提携継続に関するお知らせ",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261116581275.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": null,
+"markets_string": "東名",
+"update_history": null
+}
+},
+{
+"Tdnet": {
+"id": "1296544",
+"pubdate": "2026-11-16 15:30:00",
+"company_code": "61360",
+"company_name": "ＯＳＧ",
+"title": "取締役及び執行役員の異動に関するお知らせ",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261111574497.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": null,
+"markets_string": "東名",
+"update_history": null
+}
+},
+{
+"Tdnet": {
+"id": "1296569",
+"pubdate": "2026-11-16 15:30:00",
+"company_code": "75930",
+"company_name": "ＶＴＨＤ",
+"title": "個別決算における投資有価証券売却益(特別利益)の計上に関するお知らせ",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261116580638.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": null,
+"markets_string": "東名",
+"update_history": null
+}
+},
+{
+"Tdnet": {
+"id": "1296570",
+"pubdate": "2026-11-16 15:30:00",
+"company_code": "75930",
+"company_name": "ＶＴＨＤ",
+"title": "KeePer技研株式会社の株式売却および業務提携継続に関するお知らせ",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261116580640.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": null,
+"markets_string": "東名",
+"update_history": null
+}
+},
+{
+"Tdnet": {
+"id": "1296446",
+"pubdate": "2026-11-16 15:00:00",
+"company_code": "90730",
+"company_name": "京極運輸",
+"title": "（訂正）「代表取締役の異動に関するお知らせ」の一部訂正について",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261116580980.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": null,
+"markets_string": "東名",
+"update_history": null
+}
+},
+{
+"Tdnet": {
+"id": "1296431",
+"pubdate": "2026-11-16 14:30:00",
+"company_code": "33200",
+"company_name": "クロスプラス",
+"title": "自己株式の取得状況及び取得終了に関するお知らせ",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261116581180.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": null,
+"markets_string": "東名",
+"update_history": null
+}
+},
+{
+"Tdnet": {
+"id": "1296421",
+"pubdate": "2026-11-16 13:30:00",
+"company_code": "30580",
+"company_name": "三洋堂ＨＤ",
+"title": "2027年3月期　第2四半期（中間期）決算説明資料",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261113580298.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": null,
+"markets_string": "東名",
+"update_history": null
+}
+},
+{
+"Tdnet": {
+"id": "1296415",
+"pubdate": "2026-11-16 13:00:00",
+"company_code": "79530",
+"company_name": "菊水化学工業",
+"title": "2027年３月期　第２四半期（中間期）決算短信[日本基準]（連結）",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261116580712.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/081220261116580712.zip",
+"markets_string": "東名",
+"update_history": null
+}
+},
+{
+"Tdnet": {
+"id": "1296416",
+"pubdate": "2026-11-16 13:00:00",
+"company_code": "79530",
+"company_name": "菊水化学工業",
+"title": "2027年３月期第２四半期累計期間連結業績予想値と実績値との差異に関するお知らせ",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261116580745.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": null,
+"markets_string": "東名",
+"update_history": null
+}
+},
+{
+"Tdnet": {
+"id": "1296406",
+"pubdate": "2026-11-16 12:30:00",
+"company_code": "61710",
+"company_name": "土木管理総合試験所",
+"title": "主要株主の異動（予定）ならびに公開買付けに準ずる行為として政令で定める買い集め行為に関するお知らせ",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261116580683.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": null,
+"markets_string": "東",
+"update_history": null
+}
+},
+{
+"Tdnet": {
+"id": "1296401",
+"pubdate": "2026-11-16 12:00:00",
+"company_code": "90480",
+"company_name": "名鉄",
+"title": "2027年3月期 第2四半期決算説明会資料",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261113580322.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": null,
+"markets_string": "東名",
+"update_history": null
+}
+},
+{
+"Tdnet": {
+"id": "1296402",
+"pubdate": "2026-11-16 12:00:00",
+"company_code": "91700",
+"company_name": "成友興業",
+"title": "中期経営計画策定に関するお知らせ",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261116581008.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": null,
+"markets_string": "名",
+"update_history": null
+}
+},
+{
+"Tdnet": {
+"id": "1296369",
+"pubdate": "2026-11-16 10:30:00",
+"company_code": "66760",
+"company_name": "ＢＵＦＦＡＬＯ",
+"title": "自己株式立会外買付取引（ToSTNeT-３）による自己株式の取得結果に関するお知らせ",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261116580671.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": null,
+"markets_string": "東名",
+"update_history": null
+}
+},
+{
+"Tdnet": {
+"id": "1296363",
+"pubdate": "2026-11-16 10:00:00",
+"company_code": "70590",
+"company_name": "コプロＨＤ",
+"title": "2026年10月度 在籍技術者数、稼働技術者数・稼働率の月次開示に関するお知らせ",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261116580684.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": null,
+"markets_string": "東名",
+"update_history": null
+}
 }
 ]
 }
