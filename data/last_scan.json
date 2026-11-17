@@ -1,140 +1,60 @@
 {
-"generated_at": "2026-11-17T13:25:57.206133+09:00",
-"base_day": "2026-11-16",
-"deadline": "2026-11-17T07:59:00+09:00",
-"price_source": "名証 日報",
+"generated_at": "2026-11-17T16:11:07.614668+09:00",
+"base_day": "2026-11-17",
+"deadline": "2026-11-18T07:59:00+09:00",
+"price_source": "名証 相場表（速報）",
 "cards": [
 {
-"code": "7946",
-"name": "光陽社",
-"single": true,
+"code": "6029",
+"name": "アトラグループ",
+"single": false,
 "division": "メイン",
 "unit": 100,
-"category": "A",
-"score": 78,
-"items": [
-{
-"time": "17:15",
-"date": "11/16",
-"title": "特別利益の計上、通期連結業績予想の修正（上方修正）及び配当予想の修正（増配）に関するお知らせ",
-"pdf": "https://www.release.tdnet.info/inbs/140120261113579619.pdf",
-"tags": [
-{
-"cat": "A",
-"label": "上方修正",
-"score": 68,
-"reason": "業績予想の上方修正（修正率はPDFで確認）"
-},
-{
-"cat": "A",
-"label": "増配",
-"score": 58,
-"reason": "配当の増額・復活・記念配当"
-},
-{
-"cat": "A",
-"label": "特別利益",
-"score": 40,
-"reason": "特別利益の計上（一時的な利益）"
-}
-]
-}
-],
-"price": 341.0,
-"price_note": "名証の終値",
-"nse_close": 341.0,
-"nse_quote": null,
-"shares": 8700,
-"cost": 2966700.0,
-"tob_price": null,
-"tob_gap_pct": null,
-"quote_only": false
-},
-{
-"code": "7593",
-"name": "ＶＴホールディングス",
-"single": false,
-"division": "プレミア",
-"unit": 100,
-"category": "A",
-"score": 62,
+"category": "CHECK",
+"score": 7,
 "items": [
 {
 "time": "15:30",
-"date": "11/16",
-"title": "個別決算における投資有価証券売却益(特別利益)の計上に関するお知らせ",
-"pdf": "https://www.release.tdnet.info/inbs/140120261116580638.pdf",
-"tags": [
-{
-"cat": "A",
-"label": "特別利益",
-"score": 40,
-"reason": "特別利益の計上（一時的な利益）"
-}
-]
-},
-{
-"time": "15:30",
-"date": "11/16",
-"title": "KeePer技研株式会社の株式売却および業務提携継続に関するお知らせ",
-"pdf": "https://www.release.tdnet.info/inbs/140120261116580640.pdf",
+"date": "11/17",
+"title": "REMED JAPAN株式会社との資本業務提携及び第三者割当増資の引受けによる同社株式取得（持分法適用関連会社化）",
+"pdf": "https://www.release.tdnet.info/inbs/140120261117582016.pdf",
 "tags": [
 {
 "cat": "A",
 "label": "業務提携",
 "score": 57,
 "reason": "業務・資本提携（規模はPDFで確認）"
+},
+{
+"cat": "BAD",
+"label": "増資・売出し",
+"score": -50,
+"reason": "公募増資・第三者割当・売出し（株数が増えて下がりやすい）"
 }
 ]
 }
 ],
-"price": 523.0,
+"price": 170.0,
 "price_note": "名証の最終気配",
 "nse_close": null,
-"nse_quote": 523.0,
-"shares": 5700,
-"cost": 2981100.0,
+"nse_quote": 170.0,
+"shares": 17600,
+"cost": 2992000.0,
 "tob_price": null,
 "tob_gap_pct": null,
 "quote_only": true
-},
+}
+],
+"before_close": [
 {
 "code": "7283",
 "name": "愛三工業",
 "single": false,
 "division": "プレミア",
 "unit": 100,
-"category": "A",
-"score": 59,
+"category": "INFO",
+"score": 5,
 "items": [
-{
-"time": "16:30",
-"date": "11/16",
-"title": "自己株式取得に係る事項の決定及び自己株式の消却に関するお知らせ",
-"pdf": "https://www.release.tdnet.info/inbs/140120261116581448.pdf",
-"tags": [
-{
-"cat": "A",
-"label": "自社株買い",
-"score": 49,
-"reason": "自己株式取得の決定（規模＝発行済株式に対する%はPDFで確認）"
-}
-]
-},
-{
-"time": "16:30",
-"date": "11/16",
-"title": "自己株式の取得及び自己株式立会外買付取引（ToSTNeT-3）による自己株式の買付けに関するお知らせ",
-"pdf": "https://www.release.tdnet.info/inbs/140120261116581450.pdf",
-"tags": [
-{
-"cat": "A",
-"label": "自社株買い",
-"score": 49,
-"reason": "自己株式取得の決定（規模＝発行済株式に対する%はPDFで確認）"
-}
-]
-},
 {
 "time": "11:00",
 "date": "11/17",
@@ -150,670 +70,12 @@
 ]
 }
 ],
-"price": 2163.0,
+"price": 2113.0,
 "price_note": "名証の最終気配",
 "nse_close": null,
-"nse_quote": 2163.0,
-"shares": 1300,
-"cost": 2811900.0,
-"tob_price": null,
-"tob_gap_pct": null,
-"quote_only": true
-},
-{
-"code": "2467",
-"name": "ＶＬＣセキュリティ",
-"single": true,
-"division": "ネクスト",
-"unit": 100,
-"category": "BAD",
-"score": 15,
-"items": [
-{
-"time": "16:30",
-"date": "11/16",
-"title": "2027年３月期 第２四半期（中間期）決算短信〔日本基準〕（連結）",
-"pdf": "https://www.release.tdnet.info/inbs/140120261116581227.pdf",
-"tags": [
-{
-"cat": "INFO",
-"label": "決算短信",
-"score": 15,
-"reason": "決算発表（数値はPDFで確認。自動計算はしていません）"
-}
-]
-},
-{
-"time": "16:30",
-"date": "11/16",
-"title": "2027年３月期 第２四半期決算説明資料",
-"pdf": "https://www.release.tdnet.info/inbs/140120261116581237.pdf",
-"tags": [
-{
-"cat": "INFO",
-"label": "その他",
-"score": 0,
-"reason": ""
-}
-]
-},
-{
-"time": "16:30",
-"date": "11/16",
-"title": "減損損失、仕入先支援出資損失（特別損失）、繰延税金負債の取崩し及びその他有価証券の期末時価に関するお知らせ",
-"pdf": "https://www.release.tdnet.info/inbs/140120261116581477.pdf",
-"tags": [
-{
-"cat": "BAD",
-"label": "特別損失",
-"score": -30,
-"reason": "特別損失・減損の計上"
-}
-]
-}
-],
-"price": 273.0,
-"price_note": "名証の終値",
-"nse_close": 273.0,
-"nse_quote": null,
-"shares": 10900,
-"cost": 2975700.0,
-"tob_price": null,
-"tob_gap_pct": null,
-"quote_only": false
-},
-{
-"code": "8891",
-"name": "ＡＭＧホールディングス",
-"single": false,
-"division": "メイン",
-"unit": 100,
-"category": "INFO",
-"score": 15,
-"items": [
-{
-"time": "16:55",
-"date": "11/16",
-"title": "2027年３月期　第２四半期（中間期）決算短信〔日本基準〕（連結）",
-"pdf": "https://www.release.tdnet.info/inbs/140120261116580711.pdf",
-"tags": [
-{
-"cat": "INFO",
-"label": "決算短信",
-"score": 15,
-"reason": "決算発表（数値はPDFで確認。自動計算はしていません）"
-}
-]
-}
-],
-"price": 1988.0,
-"price_note": "名証の最終気配",
-"nse_close": null,
-"nse_quote": 1988.0,
-"shares": 1500,
-"cost": 2982000.0,
-"tob_price": null,
-"tob_gap_pct": null,
-"quote_only": true
-},
-{
-"code": "3086",
-"name": "Ｊ．フロント　リテイリング",
-"single": false,
-"division": "プレミア",
-"unit": 100,
-"category": "INFO",
-"score": 0,
-"items": [
-{
-"time": "15:30",
-"date": "11/16",
-"title": "２０２６年１０月度　Ｊ．フロントリテイリング　連結売上収益報告（ＩＦＲＳ）",
-"pdf": "https://www.release.tdnet.info/inbs/140120261116581222.pdf",
-"tags": [
-{
-"cat": "INFO",
-"label": "その他",
-"score": 0,
-"reason": ""
-}
-]
-}
-],
-"price": 3144.0,
-"price_note": "名証の最終気配",
-"nse_close": null,
-"nse_quote": 3144.0,
-"shares": 900,
-"cost": 2829600.0,
-"tob_price": null,
-"tob_gap_pct": null,
-"quote_only": true
-},
-{
-"code": "4760",
-"name": "アルファ",
-"single": false,
-"division": "メイン",
-"unit": 100,
-"category": "INFO",
-"score": 0,
-"items": [
-{
-"time": "15:30",
-"date": "11/16",
-"title": "（訂正・数値データ訂正）「2026年８月期決算短信〔日本基準〕（連結）」の一部訂正に関するお知らせ",
-"pdf": "https://www.release.tdnet.info/inbs/140120261110571563.pdf",
-"tags": [
-{
-"cat": "INFO",
-"label": "その他",
-"score": 0,
-"reason": ""
-}
-]
-}
-],
-"price": 1120.0,
-"price_note": "名証の最終気配",
-"nse_close": null,
-"nse_quote": 1120.0,
-"shares": 2600,
-"cost": 2912000.0,
-"tob_price": null,
-"tob_gap_pct": null,
-"quote_only": true
-},
-{
-"code": "6136",
-"name": "オーエスジー",
-"single": false,
-"division": "プレミア",
-"unit": 100,
-"category": "INFO",
-"score": 0,
-"items": [
-{
-"time": "15:30",
-"date": "11/16",
-"title": "取締役及び執行役員の異動に関するお知らせ",
-"pdf": "https://www.release.tdnet.info/inbs/140120261111574497.pdf",
-"tags": [
-{
-"cat": "INFO",
-"label": "その他",
-"score": 0,
-"reason": ""
-}
-]
-}
-],
-"price": 3368.0,
-"price_note": "名証の最終気配",
-"nse_close": null,
-"nse_quote": 3368.0,
-"shares": 800,
-"cost": 2694400.0,
-"tob_price": null,
-"tob_gap_pct": null,
-"quote_only": true
-},
-{
-"code": "6055",
-"name": "ジャパンマテリアル",
-"single": false,
-"division": "プレミア",
-"unit": 100,
-"category": "INFO",
-"score": 0,
-"items": [
-{
-"time": "16:00",
-"date": "11/16",
-"title": "主要株主及び主要株主である筆頭株主の異動に関するお知らせ",
-"pdf": "https://www.release.tdnet.info/inbs/140120261116580657.pdf",
-"tags": [
-{
-"cat": "INFO",
-"label": "その他",
-"score": 0,
-"reason": ""
-}
-]
-}
-],
-"price": 1580.0,
-"price_note": "名証の最終気配",
-"nse_close": null,
-"nse_quote": 1580.0,
-"shares": 1800,
-"cost": 2844000.0,
-"tob_price": null,
-"tob_gap_pct": null,
-"quote_only": true
-},
-{
-"code": "5075",
-"name": "アップコン",
-"single": true,
-"division": "ネクスト",
-"unit": 100,
-"category": "CHECK",
-"score": 40,
-"items": [
-{
-"time": "15:30",
-"date": "11/16",
-"title": "名古屋証券取引所メイン市場への市場区分変更申請に関するお知らせ",
-"pdf": "https://www.release.tdnet.info/inbs/140120261116581118.pdf",
-"tags": [
-{
-"cat": "INFO",
-"label": "その他",
-"score": 0,
-"reason": ""
-}
-]
-},
-{
-"time": "15:30",
-"date": "11/16",
-"title": "2027年1月期通期の業績予想の修正に関するお知らせ",
-"pdf": "https://www.release.tdnet.info/inbs/140120261116581254.pdf",
-"tags": [
-{
-"cat": "CHECK",
-"label": "業績予想の修正",
-"score": 40,
-"reason": "上方か下方かタイトルでは不明。PDFで確認"
-}
-]
-}
-],
-"price": 980.0,
-"price_note": "名証の終値",
-"nse_close": 980.0,
-"nse_quote": null,
-"shares": 3000,
-"cost": 2940000.0,
-"tob_price": null,
-"tob_gap_pct": null,
-"quote_only": false
-},
-{
-"code": "6036",
-"name": "ＫｅｅＰｅｒ技研",
-"single": false,
-"division": "プレミア",
-"unit": 100,
-"category": "CHECK",
-"score": 17,
-"items": [
-{
-"time": "15:30",
-"date": "11/16",
-"title": "2027年6月期 第1四半期決算短信［日本基準］（非連結）",
-"pdf": "https://www.release.tdnet.info/inbs/140120261116581145.pdf",
-"tags": [
-{
-"cat": "INFO",
-"label": "決算短信",
-"score": 15,
-"reason": "決算発表（数値はPDFで確認。自動計算はしていません）"
-}
-]
-},
-{
-"time": "15:30",
-"date": "11/16",
-"title": "2027年6月期第1四半期 決算説明会資料",
-"pdf": "https://www.release.tdnet.info/inbs/140120261116581193.pdf",
-"tags": [
-{
-"cat": "INFO",
-"label": "その他",
-"score": 0,
-"reason": ""
-}
-]
-},
-{
-"time": "15:30",
-"date": "11/16",
-"title": "株式の売出し及び主要株主の異動に関するお知らせ",
-"pdf": "https://www.release.tdnet.info/inbs/140120261116581228.pdf",
-"tags": [
-{
-"cat": "BAD",
-"label": "増資・売出し",
-"score": -50,
-"reason": "公募増資・第三者割当・売出し（株数が増えて下がりやすい）"
-}
-]
-},
-{
-"time": "15:30",
-"date": "11/16",
-"title": "出光興産株式会社との戦略的資本業務提携契約に関するお知らせ",
-"pdf": "https://www.release.tdnet.info/inbs/140120261116581238.pdf",
-"tags": [
-{
-"cat": "A",
-"label": "業務提携",
-"score": 57,
-"reason": "業務・資本提携（規模はPDFで確認）"
-}
-]
-},
-{
-"time": "15:30",
-"date": "11/16",
-"title": "VTホールディングス株式会社による当社株式売却及び業務提携継続に関するお知らせ",
-"pdf": "https://www.release.tdnet.info/inbs/140120261116581275.pdf",
-"tags": [
-{
-"cat": "A",
-"label": "業務提携",
-"score": 57,
-"reason": "業務・資本提携（規模はPDFで確認）"
-}
-]
-}
-],
-"price": 1768.0,
-"price_note": "名証の最終気配",
-"nse_close": null,
-"nse_quote": 1768.0,
-"shares": 1600,
-"cost": 2828800.0,
-"tob_price": null,
-"tob_gap_pct": null,
-"quote_only": true
-}
-],
-"before_close": [
-{
-"code": "6676",
-"name": "バッファロー",
-"single": false,
-"division": "プレミア",
-"unit": 100,
-"category": "INFO",
-"score": 5,
-"items": [
-{
-"time": "10:30",
-"date": "11/16",
-"title": "自己株式立会外買付取引（ToSTNeT-３）による自己株式の取得結果に関するお知らせ",
-"pdf": "https://www.release.tdnet.info/inbs/140120261116580671.pdf",
-"tags": [
-{
-"cat": "INFO",
-"label": "自社株買いの経過",
-"score": 5,
-"reason": "自社株買いの途中経過・結果"
-}
-]
-}
-],
-"price": 3095.0,
-"price_note": "名証の最終気配",
-"nse_close": null,
-"nse_quote": 3095.0,
-"shares": 900,
-"cost": 2785500.0,
-"tob_price": null,
-"tob_gap_pct": null,
-"quote_only": true
-},
-{
-"code": "3320",
-"name": "クロスプラス",
-"single": false,
-"division": "メイン",
-"unit": 100,
-"category": "INFO",
-"score": 5,
-"items": [
-{
-"time": "14:30",
-"date": "11/16",
-"title": "自己株式の取得状況及び取得終了に関するお知らせ",
-"pdf": "https://www.release.tdnet.info/inbs/140120261116581180.pdf",
-"tags": [
-{
-"cat": "INFO",
-"label": "自社株買いの経過",
-"score": 5,
-"reason": "自社株買いの途中経過・結果"
-}
-]
-}
-],
-"price": 1263.0,
-"price_note": "名証の最終気配",
-"nse_close": null,
-"nse_quote": 1263.0,
-"shares": 2300,
-"cost": 2904900.0,
-"tob_price": null,
-"tob_gap_pct": null,
-"quote_only": true
-},
-{
-"code": "7059",
-"name": "コプロ・ホールディングス",
-"single": false,
-"division": "プレミア",
-"unit": 100,
-"category": "INFO",
-"score": 0,
-"items": [
-{
-"time": "10:00",
-"date": "11/16",
-"title": "2026年10月度 在籍技術者数、稼働技術者数・稼働率の月次開示に関するお知らせ",
-"pdf": "https://www.release.tdnet.info/inbs/140120261116580684.pdf",
-"tags": [
-{
-"cat": "INFO",
-"label": "その他",
-"score": 0,
-"reason": ""
-}
-]
-}
-],
-"price": 926.0,
-"price_note": "名証の最終気配",
-"nse_close": null,
-"nse_quote": 926.0,
-"shares": 3200,
-"cost": 2963200.0,
-"tob_price": null,
-"tob_gap_pct": null,
-"quote_only": true
-},
-{
-"code": "9048",
-"name": "名古屋鉄道",
-"single": false,
-"division": "プレミア",
-"unit": 100,
-"category": "INFO",
-"score": 0,
-"items": [
-{
-"time": "12:00",
-"date": "11/16",
-"title": "2027年3月期 第2四半期決算説明会資料",
-"pdf": "https://www.release.tdnet.info/inbs/140120261113580322.pdf",
-"tags": [
-{
-"cat": "INFO",
-"label": "その他",
-"score": 0,
-"reason": ""
-}
-]
-}
-],
-"price": 2034.5,
-"price_note": "名証の最終気配",
-"nse_close": null,
-"nse_quote": 2034.5,
+"nse_quote": 2113.0,
 "shares": 1400,
-"cost": 2848300.0,
-"tob_price": null,
-"tob_gap_pct": null,
-"quote_only": true
-},
-{
-"code": "9170",
-"name": "成友興業",
-"single": true,
-"division": "メイン",
-"unit": 100,
-"category": "INFO",
-"score": 0,
-"items": [
-{
-"time": "12:00",
-"date": "11/16",
-"title": "中期経営計画策定に関するお知らせ",
-"pdf": "https://www.release.tdnet.info/inbs/140120261116581008.pdf",
-"tags": [
-{
-"cat": "INFO",
-"label": "その他",
-"score": 0,
-"reason": ""
-}
-]
-}
-],
-"price": 1055.0,
-"price_note": "名証の終値",
-"nse_close": 1055.0,
-"nse_quote": null,
-"shares": 2800,
-"cost": 2954000.0,
-"tob_price": null,
-"tob_gap_pct": null,
-"quote_only": false
-},
-{
-"code": "3058",
-"name": "三洋堂ホールディングス",
-"single": false,
-"division": "メイン",
-"unit": 100,
-"category": "INFO",
-"score": 0,
-"items": [
-{
-"time": "13:30",
-"date": "11/16",
-"title": "2027年3月期　第2四半期（中間期）決算説明資料",
-"pdf": "https://www.release.tdnet.info/inbs/140120261113580298.pdf",
-"tags": [
-{
-"cat": "INFO",
-"label": "その他",
-"score": 0,
-"reason": ""
-}
-]
-}
-],
-"price": 727.0,
-"price_note": "名証の最終気配",
-"nse_close": null,
-"nse_quote": 727.0,
-"shares": 4100,
-"cost": 2980700.0,
-"tob_price": null,
-"tob_gap_pct": null,
-"quote_only": true
-},
-{
-"code": "9073",
-"name": "京極運輸商事",
-"single": false,
-"division": "メイン",
-"unit": 100,
-"category": "INFO",
-"score": 0,
-"items": [
-{
-"time": "15:00",
-"date": "11/16",
-"title": "（訂正）「代表取締役の異動に関するお知らせ」の一部訂正について",
-"pdf": "https://www.release.tdnet.info/inbs/140120261116580980.pdf",
-"tags": [
-{
-"cat": "INFO",
-"label": "その他",
-"score": 0,
-"reason": ""
-}
-]
-}
-],
-"price": 1358.0,
-"price_note": "名証の最終気配",
-"nse_close": null,
-"nse_quote": 1358.0,
-"shares": 2200,
-"cost": 2987600.0,
-"tob_price": null,
-"tob_gap_pct": null,
-"quote_only": true
-},
-{
-"code": "7953",
-"name": "菊水化学工業",
-"single": false,
-"division": "メイン",
-"unit": 100,
-"category": "CHECK",
-"score": 28,
-"items": [
-{
-"time": "13:00",
-"date": "11/16",
-"title": "2027年３月期　第２四半期（中間期）決算短信[日本基準]（連結）",
-"pdf": "https://www.release.tdnet.info/inbs/140120261116580712.pdf",
-"tags": [
-{
-"cat": "INFO",
-"label": "決算短信",
-"score": 15,
-"reason": "決算発表（数値はPDFで確認。自動計算はしていません）"
-}
-]
-},
-{
-"time": "13:00",
-"date": "11/16",
-"title": "2027年３月期第２四半期累計期間連結業績予想値と実績値との差異に関するお知らせ",
-"pdf": "https://www.release.tdnet.info/inbs/140120261116580745.pdf",
-"tags": [
-{
-"cat": "CHECK",
-"label": "予想と実績の差異",
-"score": 23,
-"reason": "予想と実績の差。良し悪しはPDFで確認"
-}
-]
-}
-],
-"price": 403.0,
-"price_note": "名証の最終気配",
-"nse_close": null,
-"nse_quote": 403.0,
-"shares": 7400,
-"cost": 2982200.0,
+"cost": 2958200.0,
 "tob_price": null,
 "tob_gap_pct": null,
 "quote_only": true
@@ -844,11 +106,11 @@
 "label": "買い手側の開示（積水ハウス）"
 }
 ],
-"price": 2600.0,
+"price": 2758.0,
 "price_note": "名証",
 "tob_price": 2770.0,
-"gap_pct": 6.538461538461537,
-"sell_signal": false
+"gap_pct": 0.435097897026826,
+"sell_signal": true
 }
 ],
 "errors": [],

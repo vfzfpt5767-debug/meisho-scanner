@@ -458,7 +458,8 @@
 "category": "A",
 "label": "業務提携",
 "price": 523.0,
-"result": null
+"result": -0.007648183556405397,
+"next_day": "2026-11-17"
 },
 {
 "base_day": "2026-11-16",
@@ -468,7 +469,8 @@
 "category": "A",
 "label": "業務提携",
 "price": 523.0,
-"result": null
+"result": -0.007648183556405397,
+"next_day": "2026-11-17"
 },
 {
 "base_day": "2026-11-16",
@@ -478,7 +480,8 @@
 "category": "A",
 "label": "自社株買い",
 "price": 2163.0,
-"result": null
+"result": -0.02311604253351829,
+"next_day": "2026-11-17"
 },
 {
 "base_day": "2026-11-16",
@@ -488,7 +491,8 @@
 "category": "A",
 "label": "上方修正",
 "price": 341.0,
-"result": null
+"result": 0.04105571847507328,
+"next_day": "2026-11-17"
 },
 {
 "base_day": "2026-11-16",
@@ -498,7 +502,8 @@
 "category": "A",
 "label": "上方修正",
 "price": 341.0,
-"result": null
+"result": 0.04105571847507328,
+"next_day": "2026-11-17"
 },
 {
 "base_day": "2026-11-16",
@@ -508,6 +513,7 @@
 "category": "AI",
 "label": "",
 "price": 341.0,
-"result": null
+"result": 0.04105571847507328,
+"next_day": "2026-11-17"
 }
 ]

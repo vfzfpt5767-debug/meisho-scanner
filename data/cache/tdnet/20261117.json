@@ -1,9 +1,45 @@
 {
 "date": "2026-11-17",
-"fetched_at": "2026-11-17T13:25:57.994266+09:00",
+"fetched_at": "2026-11-17T16:11:08.551201+09:00",
 "complete": false,
-"total_all_markets": 35,
+"total_all_markets": 96,
 "items": [
+{
+"Tdnet": {
+"id": "1296849",
+"pubdate": "2026-11-17 15:30:00",
+"company_code": "60290",
+"company_name": "アトラＧ",
+"title": "REMED JAPAN株式会社との資本業務提携及び第三者割当増資の引受けによる同社株式取得（持分法適用関連会社化）",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261117582016.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": null,
+"markets_string": "東名",
+"update_history": null
+}
+},
+{
+"Tdnet": {
+"id": "1296858",
+"pubdate": "2026-11-17 15:30:00",
+"company_code": "71330",
+"company_name": "Ｇ－ヒュウガプライマ",
+"title": "自己株式の取得及び自己株式の公開買付けの開始に関するお知らせ",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261110570522.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": null,
+"markets_string": "東",
+"update_history": null
+}
+},
 {
 "Tdnet": {
 "id": "1296788",
