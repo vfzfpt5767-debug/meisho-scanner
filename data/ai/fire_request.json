@@ -1,6 +1,8 @@
 {
  "fire": false,
  "base_day": "2026-11-17",
- "new_keys": [],
+ "new_keys": [
+  "W:6029"
+ ],
  "reason": "AIの判断の取り込み・LINEの記録のあとのページ作り直しなので起動しない"
 }
