@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-17T08:00:37.397274+09:00",
+ "generated_at": "2026-11-17T12:59:42.595882+09:00",
  "base_day": "2026-11-16",
  "deadline": "2026-11-17T07:59:00+09:00",
  "price_source": "名証 日報",
@@ -155,7 +155,7 @@
     "also_checked": [
      "http://www.vt-holdings.co.jp/"
     ],
-    "checked": "2026-11-16T23:00",
+    "checked": "2026-11-17T03:59",
     "for_title": "個別決算における投資有価証券売却益(特別利益)の計上に関するお知らせ"
    }
   },
@@ -163,7 +163,7 @@
    "code": "7283",
    "name": "愛三工業",
    "category": "A",
-   "score": 54,
+   "score": 59,
    "single": false,
    "price": 2163.0,
    "price_note": "名証の最終気配",
@@ -209,6 +209,18 @@
        }
       }
      ]
+    },
+    {
+     "time": "11/17 11:00",
+     "title": "自己株式立会外買付取引（ToSTNeT-3）による自己株式の取得結果及び取得終了並びに自己株式の消却に関するお知らせ",
+     "pdf": "https://www.release.tdnet.info/inbs/140120261116581507.pdf",
+     "labels": [
+      {
+       "cat": "INFO",
+       "label": "自社株買いの経過",
+       "backtest_next_day": null
+      }
+     ]
     }
    ],
    "ir_check": {
@@ -218,7 +230,7 @@
     "also_checked": [
      "https://www.aisan-ind.co.jp/"
     ],
-    "checked": "2026-11-16T23:00",
+    "checked": "2026-11-17T03:59",
     "for_title": "自己株式取得に係る事項の決定及び自己株式の消却に関するお知らせ"
    }
   },
@@ -267,11 +279,6 @@
     "ir_page": "https://www.upcon.co.jp/archive/date/2026/",
     "recent": [
      {
-      "text": "「第19回川崎国際環境技術展」出展のお知らせ",
-      "url": "https://www.upcon.co.jp/archive/17362/",
-      "date": "2026-11-02"
-     },
-     {
       "text": "「ハイウェイテクノフェア2026」出展のお知らせ",
       "url": "https://www.upcon.co.jp/archive/17264/",
       "date": "2026-11-02"
@@ -290,12 +297,17 @@
       "text": "第648号（2026/11/6発行）お見積り・７",
       "url": "https://www.upcon.co.jp/archive/17403/",
       "date": "2026-11-06"
+     },
+     {
+      "text": "第647号（2026/11/3発行）株式投資サマーセミナー2026 ・3",
+      "url": "https://www.upcon.co.jp/archive/17400/",
+      "date": "2026-11-03"
      }
     ],
     "also_checked": [
      "https://www.upcon.co.jp/"
     ],
-    "checked": "2026-11-16T23:00",
+    "checked": "2026-11-17T03:59",
     "for_title": "2027年1月期通期の業績予想の修正に関するお知らせ"
    }
   },
@@ -406,7 +418,7 @@
     "also_checked": [
      "http://www.keepercoating.jp/corp/"
     ],
-    "checked": "2026-11-16T23:00",
+    "checked": "2026-11-17T03:59",
     "for_title": "出光興産株式会社との戦略的資本業務提携契約に関するお知らせ"
    }
   }
@@ -490,7 +502,7 @@
     "also_checked": [
      "https://www.popalpha.co.jp/"
     ],
-    "checked": "2026-11-16T23:00",
+    "checked": "2026-11-17T03:59",
     "for_title": "（訂正・数値データ訂正）「2026年８月期決算短信〔日本基準〕（連結）」の一部訂正に関するお知らせ"
    }
   }

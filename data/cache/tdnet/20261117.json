@@ -1,7 +1,26 @@
 {
 "date": "2026-11-17",
-"fetched_at": "2026-11-17T08:00:38.235529+09:00",
+"fetched_at": "2026-11-17T12:59:43.361703+09:00",
 "complete": false,
-"total_all_markets": 0,
-"items": []
+"total_all_markets": 35,
+"items": [
+{
+"Tdnet": {
+"id": "1296788",
+"pubdate": "2026-11-17 11:00:00",
+"company_code": "72830",
+"company_name": "愛三工",
+"title": "自己株式立会外買付取引（ToSTNeT-3）による自己株式の取得結果及び取得終了並びに自己株式の消却に関するお知らせ",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261116581507.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": null,
+"markets_string": "東名",
+"update_history": null
+}
+}
+]
 }
