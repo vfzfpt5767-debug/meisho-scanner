@@ -401,7 +401,8 @@
   "01M7AK9NB4XEK47GF37H59DH9Q",
   "01M7FVBWTPZG8442TPG3AGWFGR",
   "01M7JPA5K53K6ZTVM697JN5KKN",
-  "01M7MR5D9CF3SSXX534A8WHTZQ"
+  "01M7MR5D9CF3SSXX534A8WHTZQ",
+  "01M7MRXS4D5GA7N87FJ1NMKKEN"
  ],
  "manual": [
   {
@@ -460,6 +461,25 @@
    "at": "2026-11-13T22:59:19.138603+09:00",
    "undone": true,
    "note": "二重に届いた返信（何も記録していない）。2026-11-13 手で整理"
+  },
+  {
+   "id": "LINE 11/17 21:50",
+   "text": "買い 6029 176単位 170円",
+   "patch": {
+    "removed": [],
+    "added": [
+     [
+      "6029",
+      "17600",
+      "170",
+      "2026-11-17",
+      "LINE 11/17 21:50"
+     ]
+    ],
+    "cash_delta": -2992000.0
+   },
+   "at": "2026-11-17T21:50:46.939010+09:00",
+   "decision": null
   }
  ],
  "awaiting": null,
