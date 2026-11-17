@@ -358,7 +358,7 @@
    "base_day": "2026-11-16"
   },
   "2026-11-17-2118": {
-   "status": "recorded",
+   "status": "confirmed",
    "mode": "record",
    "patch": {
     "removed": [
@@ -400,7 +400,8 @@
   "01M7AK941RK8CZVGGK3MCN6N81",
   "01M7AK9NB4XEK47GF37H59DH9Q",
   "01M7FVBWTPZG8442TPG3AGWFGR",
-  "01M7JPA5K53K6ZTVM697JN5KKN"
+  "01M7JPA5K53K6ZTVM697JN5KKN",
+  "01M7MR5D9CF3SSXX534A8WHTZQ"
  ],
  "manual": [
   {
