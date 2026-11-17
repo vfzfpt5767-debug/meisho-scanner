@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-17T20:56:06.710002+09:00",
+ "generated_at": "2026-11-17T21:20:04.024584+09:00",
  "base_day": "2026-11-17",
  "deadline": "2026-11-18T07:59:00+09:00",
  "price_source": "名証 日報",
@@ -95,52 +95,13 @@
  ],
  "errors": [],
  "portfolio": {
-  "cash": 15000.0,
+  "cash": 4692700.0,
   "total": 4692700.0,
   "profit": 1692700.0,
   "term_left": 3000000,
   "term_open": true,
   "single_bought": true,
-  "holdings": [
-   {
-    "code": "1438",
-    "name": "岐阜造園",
-    "shares": 1400,
-    "buy_price": 2100.0,
-    "buy_date": "2026-11-13",
-    "price": 2758.0,
-    "pnl_pct": 31.33,
-    "single": false,
-    "quote_only": false,
-    "unit": 100,
-    "warnings": [
-     "TOB価格に到達（差+0.4%）"
-    ],
-    "notices": [],
-    "cautions": [],
-    "sell_rule": "TOB価格2,770円との差が+0.4%（1%以内）→ 今夜売る",
-    "material": "TOB（S）"
-   },
-   {
-    "code": "7946",
-    "name": "光陽社",
-    "shares": 2300,
-    "buy_price": 341.0,
-    "buy_date": "2026-11-16",
-    "price": 355.0,
-    "pnl_pct": 4.11,
-    "single": true,
-    "quote_only": false,
-    "unit": 100,
-    "warnings": [
-     "売り時（上方修正で買ってから1営業日・ストップ高ではない）"
-    ],
-    "notices": [],
-    "cautions": [],
-    "sell_rule": "売り時：買ってから1営業日たった（ストップ高ではない）。今夜売る。検証：上方修正でストップ高にならなかった銘柄は1営業日後の終値で売るのが一番よい（平均+2.7%・中央値+1.8%・n=245）",
-    "material": "上方修正"
-   }
-  ]
+  "holdings": []
  },
  "new_listings": [
   {
