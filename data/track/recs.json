@@ -515,5 +515,25 @@
 "price": 341.0,
 "result": 0.04105571847507328,
 "next_day": "2026-11-17"
+},
+{
+"base_day": "2026-11-17",
+"source": "rule_top",
+"code": "6029",
+"name": "アトラグループ",
+"category": "A",
+"label": "業務提携",
+"price": 170.0,
+"result": null
+},
+{
+"base_day": "2026-11-17",
+"source": "rule_sa",
+"code": "6029",
+"name": "アトラグループ",
+"category": "A",
+"label": "業務提携",
+"price": 170.0,
+"result": null
 }
 ]

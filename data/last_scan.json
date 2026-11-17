@@ -1,5 +1,5 @@
 {
-"generated_at": "2026-11-17T21:51:18.926923+09:00",
+"generated_at": "2026-11-17T22:41:19.196346+09:00",
 "base_day": "2026-11-17",
 "deadline": "2026-11-18T07:59:00+09:00",
 "price_source": "名証 日報",
@@ -10,8 +10,8 @@
 "single": false,
 "division": "メイン",
 "unit": 100,
-"category": "CHECK",
-"score": 7,
+"category": "A",
+"score": 57,
 "items": [
 {
 "time": "15:30",
@@ -24,12 +24,6 @@
 "label": "業務提携",
 "score": 57,
 "reason": "業務・資本提携（規模はPDFで確認）"
-},
-{
-"cat": "BAD",
-"label": "増資・売出し",
-"score": -50,
-"reason": "公募増資・第三者割当・売出し（株数が増えて下がりやすい）"
 }
 ]
 }
