@@ -41,6 +41,20 @@ def test_good_bad_check():
     assert cats("自己株式の取得状況に関するお知らせ")[0] == (C.INFO, "自社株買いの経過")
 
 
+def test_underwriting_other_company_is_not_dilution():
+    # 当社が他社の第三者割当増資を引き受ける側（アトラグループ 2026-11-17）→ 業務提携（A）だけ。増資（BAD）は付けない
+    t = "REMED JAPAN株式会社との資本業務提携及び第三者割当増資の引受けによる同社株式取得（持分法適用関連会社化）"
+    assert cats(t) == [(C.A, "業務提携")]
+    assert C.card_category(C.classify(t)) == C.A
+    # 「引き受け」＋「子会社化」も同じ
+    assert (C.BAD, "増資・売出し") not in cats("株式会社ABCが実施する第三者割当増資の引き受け（子会社化）に関するお知らせ")
+    # 当社が増資する側は、今までどおり悪材料
+    assert (C.BAD, "増資・売出し") in cats("第三者割当による新株式の発行及び資本業務提携に関するお知らせ")
+    assert (C.BAD, "増資・売出し") in cats("公募による新株式発行及び株式の売出しに関するお知らせ")
+    # 「引受け」があっても、相手の株を取得・出資する話でなければ悪材料のまま
+    assert (C.BAD, "増資・売出し") in cats("新株式発行及び株式の売出し並びに主要株主の異動（引受けに関する契約）に関するお知らせ")
+
+
 def test_card_category():
     up = C.classify("業績予想の修正（上方修正）に関するお知らせ")
     chk = C.classify("業績予想の修正に関するお知らせ")

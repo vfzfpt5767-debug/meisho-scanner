@@ -46,6 +46,15 @@ def _has(t: str, *words: str) -> bool:
     return any(w in t for w in words)
 
 
+def _underwrites_other(t: str) -> bool:
+    """当社が他社の増資を引き受けて、その会社の株を取得・出資する側の開示か。
+
+    例：「REMED JAPAN株式会社との資本業務提携及び第三者割当増資の引受けによる同社株式取得（持分法適用関連会社化）」
+    増資するのは相手の会社なので、当社の悪材料（増資・売出し）にはしない。
+    """
+    return _has(t, "引受け", "引き受け") and _has(t, "株式取得", "株式の取得", "出資", "持分法", "子会社化")
+
+
 CODE_IN_TITLE = re.compile(r"証券コード[:：]?\s*([0-9][0-9A-Z]{3})")
 
 
@@ -201,6 +210,8 @@ def _classify(title: str, own_code: str = "") -> list[Tag]:
         pass  # 従業員向けなどの小さな処分は無視
     elif _has(t, "譲渡制限付", "株式報酬", "ストック・オプション", "ストックオプション"):
         pass  # 役員・従業員向けの報酬は無視
+    elif _underwrites_other(t):
+        pass  # 当社が他社の第三者割当増資を引き受ける側（当社の株数は増えない。2026-11-17 アトラグループで誤判定）
     elif _has(t, "MSワラント", "行使価額修正条項", "転換価額修正条項") and _has(t, "発行") and not _has(t, "発行された"):
         tags.append(Tag(BAD, "MSワラント", -60, "行使価額修正条項付きの新株予約権（株価の重しになりやすい）"))
     elif _has(t, "新株予約権") and _has(t, "発行") and not _has(t, "発行された", "発行済"):
