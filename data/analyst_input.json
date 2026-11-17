@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-18T03:43:54.647126+09:00",
+ "generated_at": "2026-11-18T04:59:52.342944+09:00",
  "base_day": "2026-11-17",
  "deadline": "2026-11-18T07:59:00+09:00",
  "price_source": "名証 日報",
@@ -51,7 +51,7 @@
    "ir_check": {
     "status": "unreachable",
     "ir_page": "https://www.artra-group.co.jp/",
-    "checked": "2026-11-17T18:43",
+    "checked": "2026-11-17T19:59",
     "for_title": "REMED JAPAN株式会社との資本業務提携及び第三者割当増資の引受けによる同社株式取得（持分法適用関連会社化）"
    }
   }
