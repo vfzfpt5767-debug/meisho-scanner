@@ -1,5 +1,5 @@
 {
-"generated_at": "2026-11-18T17:11:20.765115+09:00",
+"generated_at": "2026-11-18T18:41:20.660244+09:00",
 "base_day": "2026-11-18",
 "deadline": "2026-11-19T07:59:00+09:00",
 "price_source": "名証 日報",
@@ -136,6 +136,40 @@
 "nse_quote": 3175.0,
 "shares": 900,
 "cost": 2857500.0,
+"tob_price": null,
+"tob_gap_pct": null,
+"quote_only": true
+},
+{
+"code": "138A",
+"name": "光フードサービス",
+"single": false,
+"division": "ネクスト",
+"unit": 100,
+"category": "INFO",
+"score": 0,
+"items": [
+{
+"time": "17:30",
+"date": "11/18",
+"title": "本社移転日決定に関するお知らせ",
+"pdf": "https://www.release.tdnet.info/inbs/140120261112576514.pdf",
+"tags": [
+{
+"cat": "INFO",
+"label": "その他",
+"score": 0,
+"reason": ""
+}
+]
+}
+],
+"price": 3055.0,
+"price_note": "名証の最終気配",
+"nse_close": null,
+"nse_quote": 3055.0,
+"shares": 900,
+"cost": 2749500.0,
 "tob_price": null,
 "tob_gap_pct": null,
 "quote_only": true
