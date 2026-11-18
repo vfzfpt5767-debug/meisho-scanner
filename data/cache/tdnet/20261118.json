@@ -1,7 +1,56 @@
 {
 "date": "2026-11-18",
-"fetched_at": "2026-11-18T07:06:10.835038+09:00",
+"fetched_at": "2026-11-18T11:57:48.362271+09:00",
 "complete": false,
-"total_all_markets": 0,
-"items": []
+"total_all_markets": 27,
+"items": [
+{
+"id": "1296946",
+"pubdate": "2026-11-18 11:00:00",
+"company_code": "30860",
+"company_name": "Ｊフロント",
+"title": "主要株主である筆頭株主の異動に関するお知らせ",
+"document_url": "https://www.release.tdnet.info/inbs/140120261118582533.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": null,
+"markets_string": "東名",
+"update_history": null
+},
+{
+"id": "1296942",
+"pubdate": "2026-11-18 10:00:00",
+"company_code": "85220",
+"company_name": "名古屋銀",
+"title": "（訂正）「2027年3月期第2四半期（中間期）決算短信〔日本基準〕（連結）」の一部訂正について",
+"document_url": "https://www.release.tdnet.info/inbs/140120261117582361.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": null,
+"markets_string": "東名",
+"update_history": null
+},
+{
+"id": "1296930",
+"pubdate": "2026-11-18 09:30:00",
+"company_code": "79430",
+"company_name": "ニチハ",
+"title": "2027年3月期第2四半期(中間期)決算説明資料",
+"document_url": "https://www.release.tdnet.info/inbs/140120261117582288.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": null,
+"markets_string": "東名",
+"update_history": null
+}
+]
 }
