@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-19T04:39:05.393369+09:00",
+ "generated_at": "2026-11-19T06:21:11.014101+09:00",
  "base_day": "2026-11-18",
  "deadline": "2026-11-19T07:59:00+09:00",
  "price_source": "名証 日報",
@@ -36,6 +36,144 @@
   "term_open": true,
   "single_bought": true,
   "holdings": []
+ },
+ "morning": {
+  "direction": "日経平均先物は前日の日経平均より-0.4% → 下落して始まりそう",
+  "futures_gap_pct": -0.3969214025143497,
+  "indices": [
+   {
+    "symbol": "^GSPC",
+    "label": "S&P500",
+    "last": 7323.6298828125,
+    "change_pct": -0.2302272838388908,
+    "date": "2026-11-18"
+   },
+   {
+    "symbol": "^IXIC",
+    "label": "ナスダック",
+    "last": 24429.884765625,
+    "change_pct": 0.41722425687398257,
+    "date": "2026-11-18"
+   },
+   {
+    "symbol": "^SOX",
+    "label": "SOX指数（半導体）",
+    "last": 9652.796875,
+    "change_pct": 0.10284263941913174,
+    "date": "2026-11-18"
+   },
+   {
+    "symbol": "JPY=X",
+    "label": "ドル円",
+    "last": 159.33900451660156,
+    "change_pct": -0.11533790380581221,
+    "date": "2026-11-18"
+   },
+   {
+    "symbol": "NIY=F",
+    "label": "日経平均先物（CME・円建て）",
+    "last": 58790.0,
+    "change_pct": -0.16980811682798524,
+    "date": "2026-11-18"
+   },
+   {
+    "symbol": "^N225",
+    "label": "日経平均",
+    "last": 58860.4296875,
+    "change_pct": -1.3435513079307349,
+    "date": "2026-11-17"
+   }
+  ],
+  "adr_top": [
+   {
+    "adr": "NGKSY",
+    "code": "5334",
+    "name": "日本特殊陶業",
+    "jp_price": 3598.0,
+    "implied": 3701.7255858929375,
+    "gap_pct": 2.8828678680638653,
+    "adr_change_pct": 1.3953490729937235,
+    "traded": true,
+    "single": false
+   },
+   {
+    "adr": "DNZOY",
+    "code": "6902",
+    "name": "デンソー",
+    "jp_price": 1935.5,
+    "implied": 1934.2145157216596,
+    "gap_pct": -0.06641613424647197,
+    "adr_change_pct": 0.5000034968058342,
+    "traded": true,
+    "single": false
+   },
+   {
+    "adr": "BRTHY",
+    "code": "6448",
+    "name": "ブラザー工業",
+    "jp_price": 4376.0,
+    "implied": 4372.383366312356,
+    "gap_pct": -0.08264702211252528,
+    "adr_change_pct": 8.68597078060802,
+    "traded": true,
+    "single": false
+   },
+   {
+    "adr": "NPSCY",
+    "code": "5401",
+    "name": "日本製鉄",
+    "jp_price": 690.5,
+    "implied": 689.1448445621219,
+    "gap_pct": -0.19625712351601932,
+    "adr_change_pct": -0.6818229354116467,
+    "traded": true,
+    "single": false
+   },
+   {
+    "adr": "NMR",
+    "code": "8604",
+    "name": "野村ホールディングス",
+    "jp_price": 1476.0,
+    "implied": 1472.3230276900413,
+    "gap_pct": -0.24911736517335692,
+    "adr_change_pct": -1.1777367082920653,
+    "traded": true,
+    "single": false
+   },
+   {
+    "adr": "CAJPY",
+    "code": "7751",
+    "name": "キヤノン",
+    "jp_price": 4782.0,
+    "implied": 4766.3776679458915,
+    "gap_pct": -0.32669033990189167,
+    "adr_change_pct": -1.1892983313755767,
+    "traded": true,
+    "single": false
+   },
+   {
+    "adr": "FJTSY",
+    "code": "6702",
+    "name": "富士通",
+    "jp_price": 3389.0,
+    "implied": 3377.627290990178,
+    "gap_pct": -0.3355771321871259,
+    "adr_change_pct": -0.18886173253532812,
+    "traded": true,
+    "single": false
+   },
+   {
+    "adr": "CJPRY",
+    "code": "9022",
+    "name": "東海旅客鉄道",
+    "jp_price": 4451.0,
+    "implied": 4435.723711628979,
+    "gap_pct": -0.3432102532244685,
+    "adr_change_pct": -1.560285539551709,
+    "traded": true,
+    "single": false
+   }
+  ]
  },
  "new_listings": [
   {
