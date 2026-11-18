@@ -1,9 +1,117 @@
 {
 "date": "2026-11-18",
-"fetched_at": "2026-11-18T16:11:11.636063+09:00",
+"fetched_at": "2026-11-18T17:11:21.518824+09:00",
 "complete": false,
-"total_all_markets": 98,
+"total_all_markets": 142,
 "items": [
+{
+"Tdnet": {
+"id": "1297058",
+"pubdate": "2026-11-18 17:00:00",
+"company_code": "655A0",
+"company_name": "ＬＴＶ－Ｘ",
+"title": "第三者割当増資の結果に関するお知らせ",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261118582890.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": null,
+"markets_string": "名",
+"update_history": null
+}
+},
+{
+"Tdnet": {
+"id": "1297048",
+"pubdate": "2026-11-18 16:30:00",
+"company_code": "66760",
+"company_name": "ＢＵＦＦＡＬＯ",
+"title": "自己株式の公開買付け開始に関するお知らせ",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261117582319.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": null,
+"markets_string": "東名",
+"update_history": null
+}
+},
+{
+"Tdnet": {
+"id": "1297029",
+"pubdate": "2026-11-18 16:00:00",
+"company_code": "38080",
+"company_name": "オーケーウェブ",
+"title": "株式会社オーケーウェブ2027年６月期第１四半期決算説明会資料",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261118582191.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": null,
+"markets_string": "名",
+"update_history": null
+}
+},
+{
+"Tdnet": {
+"id": "1297031",
+"pubdate": "2026-11-18 16:00:00",
+"company_code": "47120",
+"company_name": "ＫｅｙＨ",
+"title": "株式会社HYBE JAPANによる当社株式に対する公開買付けに関する意見表明のお知らせ",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261118582725.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": null,
+"markets_string": "東",
+"update_history": null
+}
+},
+{
+"Tdnet": {
+"id": "1297037",
+"pubdate": "2026-11-18 16:00:00",
+"company_code": "68990",
+"company_name": "ＡＳＴＩ",
+"title": "主要株主及び主要株主である筆頭株主の異動に関するお知らせ",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261015551522.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": null,
+"markets_string": "東名",
+"update_history": null
+}
+},
+{
+"Tdnet": {
+"id": "1297038",
+"pubdate": "2026-11-18 16:00:00",
+"company_code": "85080",
+"company_name": "Ｊトラスト",
+"title": "公開買付けへの応募及び持分法適用関連会社の異動に関するお知らせ",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261117582273.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": null,
+"markets_string": "東",
+"update_history": null
+}
+},
 {
 "Tdnet": {
 "id": "1296985",
