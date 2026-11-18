@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-18T20:56:06.967303+09:00",
+ "generated_at": "2026-11-18T21:18:57.528038+09:00",
  "base_day": "2026-11-18",
  "deadline": "2026-11-19T07:59:00+09:00",
  "price_source": "名証 日報",
@@ -29,33 +29,13 @@
  ],
  "errors": [],
  "portfolio": {
-  "cash": 1700700.0,
+  "cash": 4780700.0,
   "total": 4780700.0,
   "profit": 1780700.0,
   "term_left": 3000000,
   "term_open": true,
   "single_bought": true,
-  "holdings": [
-   {
-    "code": "6029",
-    "name": "アトラグループ",
-    "shares": 17600,
-    "buy_price": 170.0,
-    "buy_date": "2026-11-17",
-    "price": 175.0,
-    "pnl_pct": 2.94,
-    "single": false,
-    "quote_only": true,
-    "unit": 100,
-    "warnings": [
-     "売り時（業績予想の修正で買ってから1営業日・ストップ高ではない）"
-    ],
-    "notices": [],
-    "cautions": [],
-    "sell_rule": "売り時：買ってから1営業日たった（ストップ高ではない）。今夜売る。検証：業績予想の修正でストップ高にならなかった銘柄は1営業日後の終値で売るのが一番よい（平均+0.6%・中央値+0.0%・n=3,350）",
-    "material": "業績予想の修正"
-   }
-  ]
+  "holdings": []
  },
  "new_listings": [
   {
