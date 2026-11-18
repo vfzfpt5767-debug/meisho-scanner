@@ -524,7 +524,8 @@
 "category": "A",
 "label": "業務提携",
 "price": 170.0,
-"result": null
+"result": 0.02941176470588225,
+"next_day": "2026-11-18"
 },
 {
 "base_day": "2026-11-17",
@@ -534,6 +535,7 @@
 "category": "A",
 "label": "業務提携",
 "price": 170.0,
-"result": null
+"result": 0.02941176470588225,
+"next_day": "2026-11-18"
 }
 ]

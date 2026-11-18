@@ -1,43 +1,45 @@
 {
-"generated_at": "2026-11-18T12:37:38.623970+09:00",
-"base_day": "2026-11-17",
-"deadline": "2026-11-18T07:59:00+09:00",
-"price_source": "名証 日報",
+"generated_at": "2026-11-18T16:11:10.614012+09:00",
+"base_day": "2026-11-18",
+"deadline": "2026-11-19T07:59:00+09:00",
+"price_source": "名証 相場表（速報）",
 "cards": [
 {
-"code": "6029",
-"name": "アトラグループ",
+"code": "7213",
+"name": "レシップホールディングス",
 "single": false,
-"division": "メイン",
+"division": "プレミア",
 "unit": 100,
-"category": "A",
-"score": 57,
+"category": "INFO",
+"score": 5,
 "items": [
 {
 "time": "15:30",
-"date": "11/17",
-"title": "REMED JAPAN株式会社との資本業務提携及び第三者割当増資の引受けによる同社株式取得（持分法適用関連会社化）",
-"pdf": "https://www.release.tdnet.info/inbs/140120261117582016.pdf",
+"date": "11/18",
+"title": "自己株式の取得状況及び取得終了に関するお知らせ",
+"pdf": "https://www.release.tdnet.info/inbs/140120261118582582.pdf",
 "tags": [
 {
-"cat": "A",
-"label": "業務提携",
-"score": 57,
-"reason": "業務・資本提携（規模はPDFで確認）"
+"cat": "INFO",
+"label": "自社株買いの経過",
+"score": 5,
+"reason": "自社株買いの途中経過・結果"
 }
 ]
 }
 ],
-"price": 170.0,
+"price": 579.0,
 "price_note": "名証の最終気配",
 "nse_close": null,
-"nse_quote": 170.0,
-"shares": 17600,
-"cost": 2992000.0,
+"nse_quote": 579.0,
+"shares": 5100,
+"cost": 2952900.0,
 "tob_price": null,
 "tob_gap_pct": null,
 "quote_only": true
-},
+}
+],
+"before_close": [
 {
 "code": "7943",
 "name": "ニチハ",
@@ -62,12 +64,12 @@
 ]
 }
 ],
-"price": 2661.0,
+"price": 2630.0,
 "price_note": "名証の最終気配",
 "nse_close": null,
-"nse_quote": 2661.0,
+"nse_quote": 2630.0,
 "shares": 1100,
-"cost": 2927100.0,
+"cost": 2893000.0,
 "tob_price": null,
 "tob_gap_pct": null,
 "quote_only": true
@@ -96,12 +98,12 @@
 ]
 }
 ],
-"price": 5860.0,
+"price": 5740.0,
 "price_note": "名証の最終気配",
 "nse_close": null,
-"nse_quote": 5860.0,
+"nse_quote": 5740.0,
 "shares": 500,
-"cost": 2930000.0,
+"cost": 2870000.0,
 "tob_price": null,
 "tob_gap_pct": null,
 "quote_only": true
@@ -130,48 +132,128 @@
 ]
 }
 ],
-"price": 3186.0,
+"price": 3057.0,
 "price_note": "名証の最終気配",
 "nse_close": null,
-"nse_quote": 3186.0,
+"nse_quote": 3057.0,
 "shares": 900,
-"cost": 2867400.0,
+"cost": 2751300.0,
 "tob_price": null,
 "tob_gap_pct": null,
 "quote_only": true
-}
-],
-"before_close": [
+},
 {
-"code": "7283",
-"name": "愛三工業",
+"code": "8616",
+"name": "東海東京フィナンシャル・ホールディングス",
 "single": false,
 "division": "プレミア",
 "unit": 100,
 "category": "INFO",
-"score": 5,
+"score": 0,
 "items": [
 {
-"time": "11:00",
-"date": "11/17",
-"title": "自己株式立会外買付取引（ToSTNeT-3）による自己株式の取得結果及び取得終了並びに自己株式の消却に関するお知らせ",
-"pdf": "https://www.release.tdnet.info/inbs/140120261116581507.pdf",
+"time": "13:00",
+"date": "11/18",
+"title": "2027年3月期中間　経営戦略説明会",
+"pdf": "https://www.release.tdnet.info/inbs/140120261117582399.pdf",
 "tags": [
 {
 "cat": "INFO",
-"label": "自社株買いの経過",
-"score": 5,
-"reason": "自社株買いの途中経過・結果"
+"label": "その他",
+"score": 0,
+"reason": ""
 }
 ]
 }
 ],
-"price": 2113.0,
+"price": 744.0,
 "price_note": "名証の最終気配",
 "nse_close": null,
-"nse_quote": 2113.0,
-"shares": 1400,
-"cost": 2958200.0,
+"nse_quote": 744.0,
+"shares": 4000,
+"cost": 2976000.0,
+"tob_price": null,
+"tob_gap_pct": null,
+"quote_only": true
+},
+{
+"code": "3461",
+"name": "パルマ",
+"single": false,
+"division": "メイン",
+"unit": 100,
+"category": "INFO",
+"score": 0,
+"items": [
+{
+"time": "14:30",
+"date": "11/18",
+"title": "取締役候補者及び監査役候補者の選任に関するお知らせ",
+"pdf": "https://www.release.tdnet.info/inbs/140120261118582578.pdf",
+"tags": [
+{
+"cat": "INFO",
+"label": "その他",
+"score": 0,
+"reason": ""
+}
+]
+},
+{
+"time": "14:30",
+"date": "11/18",
+"title": "2026年９月期決算説明会開催状況について",
+"pdf": "https://www.release.tdnet.info/inbs/140120261118582593.pdf",
+"tags": [
+{
+"cat": "INFO",
+"label": "その他",
+"score": 0,
+"reason": ""
+}
+]
+}
+],
+"price": 567.0,
+"price_note": "名証の最終気配",
+"nse_close": null,
+"nse_quote": 567.0,
+"shares": 5200,
+"cost": 2948400.0,
+"tob_price": null,
+"tob_gap_pct": null,
+"quote_only": true
+},
+{
+"code": "2734",
+"name": "サーラコーポレーション",
+"single": false,
+"division": "プレミア",
+"unit": 100,
+"category": "INFO",
+"score": 0,
+"items": [
+{
+"time": "15:00",
+"date": "11/18",
+"title": "子会社設立に関するお知らせ",
+"pdf": "https://www.release.tdnet.info/inbs/140120261117582382.pdf",
+"tags": [
+{
+"cat": "INFO",
+"label": "その他",
+"score": 0,
+"reason": ""
+}
+]
+}
+],
+"price": 1115.0,
+"price_note": "名証の最終気配",
+"nse_close": null,
+"nse_quote": 1115.0,
+"shares": 2600,
+"cost": 2899000.0,
 "tob_price": null,
 "tob_gap_pct": null,
 "quote_only": true

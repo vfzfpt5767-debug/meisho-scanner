@@ -1,9 +1,117 @@
 {
 "date": "2026-11-18",
-"fetched_at": "2026-11-18T12:37:39.838645+09:00",
+"fetched_at": "2026-11-18T16:11:11.636063+09:00",
 "complete": false,
-"total_all_markets": 34,
+"total_all_markets": 98,
 "items": [
+{
+"Tdnet": {
+"id": "1296985",
+"pubdate": "2026-11-18 15:30:00",
+"company_code": "21220",
+"company_name": "Ｉスペース",
+"title": "公開買付に準ずる行為として政令で定める買集め行為に関するお知らせ",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261118582577.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": null,
+"markets_string": "東",
+"update_history": null
+}
+},
+{
+"Tdnet": {
+"id": "1297009",
+"pubdate": "2026-11-18 15:30:00",
+"company_code": "72130",
+"company_name": "レシップＨＤ",
+"title": "自己株式の取得状況及び取得終了に関するお知らせ",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261118582582.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": null,
+"markets_string": "東名",
+"update_history": null
+}
+},
+{
+"Tdnet": {
+"id": "1296975",
+"pubdate": "2026-11-18 15:00:00",
+"company_code": "27340",
+"company_name": "サーラ",
+"title": "子会社設立に関するお知らせ",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261117582382.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": null,
+"markets_string": "東名",
+"update_history": null
+}
+},
+{
+"Tdnet": {
+"id": "1296973",
+"pubdate": "2026-11-18 14:30:00",
+"company_code": "34610",
+"company_name": "パルマ",
+"title": "取締役候補者及び監査役候補者の選任に関するお知らせ",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261118582578.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": null,
+"markets_string": "東名",
+"update_history": null
+}
+},
+{
+"Tdnet": {
+"id": "1296974",
+"pubdate": "2026-11-18 14:30:00",
+"company_code": "34610",
+"company_name": "パルマ",
+"title": "2026年９月期決算説明会開催状況について",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261118582593.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": null,
+"markets_string": "東名",
+"update_history": null
+}
+},
+{
+"Tdnet": {
+"id": "1296970",
+"pubdate": "2026-11-18 13:00:00",
+"company_code": "86160",
+"company_name": "東海東京",
+"title": "2027年3月期中間　経営戦略説明会",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261117582399.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": null,
+"markets_string": "東名",
+"update_history": null
+}
+},
 {
 "Tdnet": {
 "id": "1296946",
