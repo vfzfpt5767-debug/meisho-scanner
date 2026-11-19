@@ -1,7 +1,296 @@
 {
 "date": "2026-11-19",
-"fetched_at": "2026-11-19T12:11:18.158369+09:00",
+"fetched_at": "2026-11-19T16:11:14.542506+09:00",
 "complete": false,
-"total_all_markets": 44,
-"items": []
+"total_all_markets": 179,
+"items": [
+{
+"Tdnet": {
+"id": "1297237",
+"pubdate": "2026-11-19 16:00:00",
+"company_code": "76070",
+"company_name": "進和",
+"title": "新役員体制に関するお知らせ",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261118583048.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": null,
+"markets_string": "東名",
+"update_history": null
+}
+},
+{
+"Tdnet": {
+"id": "1297238",
+"pubdate": "2026-11-19 16:00:00",
+"company_code": "76070",
+"company_name": "進和",
+"title": "譲渡制限付株式報酬としての自己株式の処分に関するお知らせ",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261118583051.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": null,
+"markets_string": "東名",
+"update_history": null
+}
+},
+{
+"Tdnet": {
+"id": "1297239",
+"pubdate": "2026-11-19 16:00:00",
+"company_code": "78700",
+"company_name": "福島印",
+"title": "役員の異動に関するお知らせ",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261119583614.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": null,
+"markets_string": "名",
+"update_history": null
+}
+},
+{
+"Tdnet": {
+"id": "1297240",
+"pubdate": "2026-11-19 16:00:00",
+"company_code": "78700",
+"company_name": "福島印",
+"title": "取締役に対する譲渡制限付株式としての自己株式処分に関するお知らせ",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261119583619.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": null,
+"markets_string": "名",
+"update_history": null
+}
+},
+{
+"Tdnet": {
+"id": "1297241",
+"pubdate": "2026-11-19 16:00:00",
+"company_code": "87250",
+"company_name": "ＭＳ＆ＡＤ",
+"title": "2027年３月期 第２四半期（中間期）決算短信〔ＩＦＲＳ〕（連結）",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261113580268.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/081220261113580268.zip",
+"markets_string": "東名",
+"update_history": null
+}
+},
+{
+"Tdnet": {
+"id": "1297242",
+"pubdate": "2026-11-19 16:00:00",
+"company_code": "87250",
+"company_name": "ＭＳ＆ＡＤ",
+"title": "2026年９月中間期 決算説明資料",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261113580282.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": null,
+"markets_string": "東名",
+"update_history": null
+}
+},
+{
+"Tdnet": {
+"id": "1297243",
+"pubdate": "2026-11-19 16:00:00",
+"company_code": "87250",
+"company_name": "ＭＳ＆ＡＤ",
+"title": "自己株式取得に係る事項の決定に関するお知らせ",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261119583086.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": null,
+"markets_string": "東名",
+"update_history": null
+}
+},
+{
+"Tdnet": {
+"id": "1297244",
+"pubdate": "2026-11-19 16:00:00",
+"company_code": "87250",
+"company_name": "ＭＳ＆ＡＤ",
+"title": "三井住友海上あいおい生命保険株式会社と三井住友海上プライマリー生命保険株式会社の合併に向けた対応に関するお知らせ",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261119583091.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": null,
+"markets_string": "東名",
+"update_history": null
+}
+},
+{
+"Tdnet": {
+"id": "1297251",
+"pubdate": "2026-11-19 16:00:00",
+"company_code": "92210",
+"company_name": "フルハシＥＰＯ",
+"title": "ＴＲＥホールディングス株式会社との資本業務提携、第三者割当による新株式の発行並びに主要株主の異動に関するお知らせ",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261118582769.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": null,
+"markets_string": "東名",
+"update_history": null
+}
+},
+{
+"Tdnet": {
+"id": "1297158",
+"pubdate": "2026-11-19 15:30:00",
+"company_code": "31380",
+"company_name": "富士山マガジン",
+"title": "主要株主の異動（予定）に関するお知らせ",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261118583062.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": null,
+"markets_string": "東名",
+"update_history": null
+}
+},
+{
+"Tdnet": {
+"id": "1297165",
+"pubdate": "2026-11-19 15:30:00",
+"company_code": "34940",
+"company_name": "マリオン",
+"title": "剰余金の配当に関するお知らせ",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261117581775.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": null,
+"markets_string": "東名福",
+"update_history": null
+}
+},
+{
+"Tdnet": {
+"id": "1297166",
+"pubdate": "2026-11-19 15:30:00",
+"company_code": "34940",
+"company_name": "マリオン",
+"title": "取締役候補者の選任に関するお知らせ",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261117581778.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": null,
+"markets_string": "東名福",
+"update_history": null
+}
+},
+{
+"Tdnet": {
+"id": "1297172",
+"pubdate": "2026-11-19 15:30:00",
+"company_code": "377A0",
+"company_name": "エージェントＩＧＨＤ",
+"title": "2026年12月期 第３四半期決算 質疑応答集",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261119583555.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": null,
+"markets_string": "名",
+"update_history": null
+}
+},
+{
+"Tdnet": {
+"id": "1297189",
+"pubdate": "2026-11-19 15:30:00",
+"company_code": "64650",
+"company_name": "ホシザキ",
+"title": "自己株式の取得状況及び取得終了に関するお知らせ",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261016552142.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": null,
+"markets_string": "東名",
+"update_history": null
+}
+},
+{
+"Tdnet": {
+"id": "1297140",
+"pubdate": "2026-11-19 14:10:00",
+"company_code": "69890",
+"company_name": "北電工業",
+"title": "（訂正）公開買付届出書の訂正届出書の提出に伴う「北陸電気工業株式会社の普通株式に対する公開買付け開始のお知らせ」及び公開買付開始公告の訂正のお知らせ",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261119583332.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": null,
+"markets_string": "東",
+"update_history": null
+}
+},
+{
+"Tdnet": {
+"id": "1297137",
+"pubdate": "2026-11-19 13:00:00",
+"company_code": "34470",
+"company_name": "信和",
+"title": "2027年３月期第２四半期（中間期）決算説明会資料",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261118582415.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": null,
+"markets_string": "東名",
+"update_history": null
+}
+}
+]
 }

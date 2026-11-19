@@ -1,12 +1,88 @@
 {
-"generated_at": "2026-11-19T12:11:17.371128+09:00",
-"base_day": "2026-11-18",
-"deadline": "2026-11-19T07:59:00+09:00",
-"price_source": "名証 日報",
+"generated_at": "2026-11-19T16:11:13.547502+09:00",
+"base_day": "2026-11-19",
+"deadline": "2026-11-20T07:59:00+09:00",
+"price_source": "名証 相場表（速報）",
 "cards": [
 {
-"code": "7213",
-"name": "レシップホールディングス",
+"code": "8725",
+"name": "ＭＳ＆ＡＤインシュアランスグループホールディングス",
+"single": false,
+"division": "プレミア",
+"unit": 100,
+"category": "A",
+"score": 54,
+"items": [
+{
+"time": "16:00",
+"date": "11/19",
+"title": "2027年３月期 第２四半期（中間期）決算短信〔ＩＦＲＳ〕（連結）",
+"pdf": "https://www.release.tdnet.info/inbs/140120261113580268.pdf",
+"tags": [
+{
+"cat": "INFO",
+"label": "決算短信",
+"score": 15,
+"reason": "決算発表（数値はPDFで確認。自動計算はしていません）"
+}
+]
+},
+{
+"time": "16:00",
+"date": "11/19",
+"title": "2026年９月中間期 決算説明資料",
+"pdf": "https://www.release.tdnet.info/inbs/140120261113580282.pdf",
+"tags": [
+{
+"cat": "INFO",
+"label": "その他",
+"score": 0,
+"reason": ""
+}
+]
+},
+{
+"time": "16:00",
+"date": "11/19",
+"title": "自己株式取得に係る事項の決定に関するお知らせ",
+"pdf": "https://www.release.tdnet.info/inbs/140120261119583086.pdf",
+"tags": [
+{
+"cat": "A",
+"label": "自社株買い",
+"score": 49,
+"reason": "自己株式取得の決定（規模＝発行済株式に対する%はPDFで確認）"
+}
+]
+},
+{
+"time": "16:00",
+"date": "11/19",
+"title": "三井住友海上あいおい生命保険株式会社と三井住友海上プライマリー生命保険株式会社の合併に向けた対応に関するお知らせ",
+"pdf": "https://www.release.tdnet.info/inbs/140120261119583091.pdf",
+"tags": [
+{
+"cat": "INFO",
+"label": "その他",
+"score": 0,
+"reason": ""
+}
+]
+}
+],
+"price": 5061.0,
+"price_note": "名証の最終気配",
+"nse_close": null,
+"nse_quote": 5061.0,
+"shares": 500,
+"cost": 2530500.0,
+"tob_price": null,
+"tob_gap_pct": null,
+"quote_only": true
+},
+{
+"code": "6465",
+"name": "ホシザキ",
 "single": false,
 "division": "プレミア",
 "unit": 100,
@@ -15,9 +91,9 @@
 "items": [
 {
 "time": "15:30",
-"date": "11/18",
+"date": "11/19",
 "title": "自己株式の取得状況及び取得終了に関するお知らせ",
-"pdf": "https://www.release.tdnet.info/inbs/140120261118582582.pdf",
+"pdf": "https://www.release.tdnet.info/inbs/140120261016552142.pdf",
 "tags": [
 {
 "cat": "INFO",
@@ -28,53 +104,19 @@
 ]
 }
 ],
-"price": 579.0,
+"price": 5302.0,
 "price_note": "名証の最終気配",
 "nse_close": null,
-"nse_quote": 579.0,
-"shares": 5100,
-"cost": 2952900.0,
+"nse_quote": 5302.0,
+"shares": 500,
+"cost": 2651000.0,
 "tob_price": null,
 "tob_gap_pct": null,
 "quote_only": true
 },
 {
-"code": "3808",
-"name": "オーケーウェブ",
-"single": true,
-"division": "ネクスト",
-"unit": 100,
-"category": "INFO",
-"score": 0,
-"items": [
-{
-"time": "16:00",
-"date": "11/18",
-"title": "株式会社オーケーウェブ2027年６月期第１四半期決算説明会資料",
-"pdf": "https://www.release.tdnet.info/inbs/140120261118582191.pdf",
-"tags": [
-{
-"cat": "INFO",
-"label": "その他",
-"score": 0,
-"reason": ""
-}
-]
-}
-],
-"price": 17.0,
-"price_note": "名証の終値",
-"nse_close": 17.0,
-"nse_quote": null,
-"shares": 176400,
-"cost": 2998800.0,
-"tob_price": null,
-"tob_gap_pct": null,
-"quote_only": false
-},
-{
-"code": "6899",
-"name": "ＡＳＴＩ",
+"code": "3138",
+"name": "富士山マガジンサービス",
 "single": false,
 "division": "メイン",
 "unit": 100,
@@ -82,10 +124,10 @@
 "score": 0,
 "items": [
 {
-"time": "16:00",
-"date": "11/18",
-"title": "主要株主及び主要株主である筆頭株主の異動に関するお知らせ",
-"pdf": "https://www.release.tdnet.info/inbs/140120261015551522.pdf",
+"time": "15:30",
+"date": "11/19",
+"title": "主要株主の異動（予定）に関するお知らせ",
+"pdf": "https://www.release.tdnet.info/inbs/140120261118583062.pdf",
 "tags": [
 {
 "cat": "INFO",
@@ -96,64 +138,44 @@
 ]
 }
 ],
-"price": 2081.0,
+"price": 1126.0,
 "price_note": "名証の最終気配",
 "nse_close": null,
-"nse_quote": 2081.0,
-"shares": 1400,
-"cost": 2913400.0,
+"nse_quote": 1126.0,
+"shares": 2600,
+"cost": 2927600.0,
 "tob_price": null,
 "tob_gap_pct": null,
 "quote_only": true
 },
 {
-"code": "6676",
-"name": "バッファロー",
+"code": "3494",
+"name": "マリオン",
 "single": false,
-"division": "プレミア",
-"unit": 100,
-"category": "SELF_TOB",
-"score": 0,
-"items": [
-{
-"time": "16:30",
-"date": "11/18",
-"title": "自己株式の公開買付け開始に関するお知らせ",
-"pdf": "https://www.release.tdnet.info/inbs/140120261117582319.pdf",
-"tags": [
-{
-"cat": "SELF_TOB",
-"label": "自社株TOB",
-"score": 0,
-"reason": "会社が自分の株を買い戻すTOB。値上がり材料になりにくい"
-}
-]
-}
-],
-"price": 3175.0,
-"price_note": "名証の最終気配",
-"nse_close": null,
-"nse_quote": 3175.0,
-"shares": 900,
-"cost": 2857500.0,
-"tob_price": null,
-"tob_gap_pct": null,
-"quote_only": true
-},
-{
-"code": "138A",
-"name": "光フードサービス",
-"single": false,
-"division": "ネクスト",
+"division": "メイン",
 "unit": 100,
 "category": "INFO",
 "score": 0,
 "items": [
 {
-"time": "17:30",
-"date": "11/18",
-"title": "本社移転日決定に関するお知らせ",
-"pdf": "https://www.release.tdnet.info/inbs/140120261112576514.pdf",
+"time": "15:30",
+"date": "11/19",
+"title": "剰余金の配当に関するお知らせ",
+"pdf": "https://www.release.tdnet.info/inbs/140120261117581775.pdf",
+"tags": [
+{
+"cat": "INFO",
+"label": "その他",
+"score": 0,
+"reason": ""
+}
+]
+},
+{
+"time": "15:30",
+"date": "11/19",
+"title": "取締役候補者の選任に関するお知らせ",
+"pdf": "https://www.release.tdnet.info/inbs/140120261117581778.pdf",
 "tags": [
 {
 "cat": "INFO",
@@ -164,31 +186,167 @@
 ]
 }
 ],
-"price": 3055.0,
+"price": 350.0,
 "price_note": "名証の最終気配",
 "nse_close": null,
-"nse_quote": 3055.0,
-"shares": 900,
-"cost": 2749500.0,
+"nse_quote": 350.0,
+"shares": 8500,
+"cost": 2975000.0,
 "tob_price": null,
 "tob_gap_pct": null,
 "quote_only": true
 },
 {
-"code": "655A",
-"name": "ＬＴＶ－Ｘ",
+"code": "377A",
+"name": "エージェントＩＧホールディングス",
 "single": true,
-"division": "ネクスト",
+"division": "メイン",
 "unit": 100,
-"category": "BAD",
-"score": -50,
+"category": "INFO",
+"score": 0,
 "items": [
 {
-"time": "17:00",
-"date": "11/18",
-"title": "第三者割当増資の結果に関するお知らせ",
-"pdf": "https://www.release.tdnet.info/inbs/140120261118582890.pdf",
+"time": "15:30",
+"date": "11/19",
+"title": "2026年12月期 第３四半期決算 質疑応答集",
+"pdf": "https://www.release.tdnet.info/inbs/140120261119583555.pdf",
 "tags": [
+{
+"cat": "INFO",
+"label": "その他",
+"score": 0,
+"reason": ""
+}
+]
+}
+],
+"price": 1160.0,
+"price_note": "名証の終値",
+"nse_close": 1160.0,
+"nse_quote": null,
+"shares": 2500,
+"cost": 2900000.0,
+"tob_price": null,
+"tob_gap_pct": null,
+"quote_only": false
+},
+{
+"code": "7607",
+"name": "進和",
+"single": false,
+"division": "プレミア",
+"unit": 100,
+"category": "INFO",
+"score": 0,
+"items": [
+{
+"time": "16:00",
+"date": "11/19",
+"title": "新役員体制に関するお知らせ",
+"pdf": "https://www.release.tdnet.info/inbs/140120261118583048.pdf",
+"tags": [
+{
+"cat": "INFO",
+"label": "その他",
+"score": 0,
+"reason": ""
+}
+]
+},
+{
+"time": "16:00",
+"date": "11/19",
+"title": "譲渡制限付株式報酬としての自己株式の処分に関するお知らせ",
+"pdf": "https://www.release.tdnet.info/inbs/140120261118583051.pdf",
+"tags": [
+{
+"cat": "INFO",
+"label": "その他",
+"score": 0,
+"reason": ""
+}
+]
+}
+],
+"price": 2715.0,
+"price_note": "名証の最終気配",
+"nse_close": null,
+"nse_quote": 2715.0,
+"shares": 1100,
+"cost": 2986500.0,
+"tob_price": null,
+"tob_gap_pct": null,
+"quote_only": true
+},
+{
+"code": "7870",
+"name": "福島印刷",
+"single": true,
+"division": "メイン",
+"unit": 100,
+"category": "INFO",
+"score": 0,
+"items": [
+{
+"time": "16:00",
+"date": "11/19",
+"title": "役員の異動に関するお知らせ",
+"pdf": "https://www.release.tdnet.info/inbs/140120261119583614.pdf",
+"tags": [
+{
+"cat": "INFO",
+"label": "その他",
+"score": 0,
+"reason": ""
+}
+]
+},
+{
+"time": "16:00",
+"date": "11/19",
+"title": "取締役に対する譲渡制限付株式としての自己株式処分に関するお知らせ",
+"pdf": "https://www.release.tdnet.info/inbs/140120261119583619.pdf",
+"tags": [
+{
+"cat": "INFO",
+"label": "その他",
+"score": 0,
+"reason": ""
+}
+]
+}
+],
+"price": 370.0,
+"price_note": "名証の終値",
+"nse_close": 370.0,
+"nse_quote": null,
+"shares": 8100,
+"cost": 2997000.0,
+"tob_price": null,
+"tob_gap_pct": null,
+"quote_only": false
+},
+{
+"code": "9221",
+"name": "フルハシＥＰＯ",
+"single": false,
+"division": "メイン",
+"unit": 100,
+"category": "CHECK",
+"score": 7,
+"items": [
+{
+"time": "16:00",
+"date": "11/19",
+"title": "ＴＲＥホールディングス株式会社との資本業務提携、第三者割当による新株式の発行並びに主要株主の異動に関するお知らせ",
+"pdf": "https://www.release.tdnet.info/inbs/140120261118582769.pdf",
+"tags": [
+{
+"cat": "A",
+"label": "業務提携",
+"score": 57,
+"reason": "業務・資本提携（規模はPDFで確認）"
+},
 {
 "cat": "BAD",
 "label": "増資・売出し",
@@ -198,123 +356,21 @@
 ]
 }
 ],
-"price": 521.0,
-"price_note": "名証の終値",
-"nse_close": 521.0,
-"nse_quote": null,
-"shares": 5700,
-"cost": 2969700.0,
+"price": 1093.0,
+"price_note": "名証の最終気配",
+"nse_close": null,
+"nse_quote": 1093.0,
+"shares": 2700,
+"cost": 2951100.0,
 "tob_price": null,
 "tob_gap_pct": null,
-"quote_only": false
+"quote_only": true
 }
 ],
 "before_close": [
 {
-"code": "7943",
-"name": "ニチハ",
-"single": false,
-"division": "プレミア",
-"unit": 100,
-"category": "INFO",
-"score": 0,
-"items": [
-{
-"time": "09:30",
-"date": "11/18",
-"title": "2027年3月期第2四半期(中間期)決算説明資料",
-"pdf": "https://www.release.tdnet.info/inbs/140120261117582288.pdf",
-"tags": [
-{
-"cat": "INFO",
-"label": "その他",
-"score": 0,
-"reason": ""
-}
-]
-}
-],
-"price": 2630.0,
-"price_note": "名証の最終気配",
-"nse_close": null,
-"nse_quote": 2630.0,
-"shares": 1100,
-"cost": 2893000.0,
-"tob_price": null,
-"tob_gap_pct": null,
-"quote_only": true
-},
-{
-"code": "8522",
-"name": "名古屋銀行",
-"single": false,
-"division": "プレミア",
-"unit": 100,
-"category": "INFO",
-"score": 0,
-"items": [
-{
-"time": "10:00",
-"date": "11/18",
-"title": "（訂正）「2027年3月期第2四半期（中間期）決算短信〔日本基準〕（連結）」の一部訂正について",
-"pdf": "https://www.release.tdnet.info/inbs/140120261117582361.pdf",
-"tags": [
-{
-"cat": "INFO",
-"label": "その他",
-"score": 0,
-"reason": ""
-}
-]
-}
-],
-"price": 5740.0,
-"price_note": "名証の最終気配",
-"nse_close": null,
-"nse_quote": 5740.0,
-"shares": 500,
-"cost": 2870000.0,
-"tob_price": null,
-"tob_gap_pct": null,
-"quote_only": true
-},
-{
-"code": "3086",
-"name": "Ｊ．フロント　リテイリング",
-"single": false,
-"division": "プレミア",
-"unit": 100,
-"category": "INFO",
-"score": 0,
-"items": [
-{
-"time": "11:00",
-"date": "11/18",
-"title": "主要株主である筆頭株主の異動に関するお知らせ",
-"pdf": "https://www.release.tdnet.info/inbs/140120261118582533.pdf",
-"tags": [
-{
-"cat": "INFO",
-"label": "その他",
-"score": 0,
-"reason": ""
-}
-]
-}
-],
-"price": 3057.0,
-"price_note": "名証の最終気配",
-"nse_close": null,
-"nse_quote": 3057.0,
-"shares": 900,
-"cost": 2751300.0,
-"tob_price": null,
-"tob_gap_pct": null,
-"quote_only": true
-},
-{
-"code": "8616",
-"name": "東海東京フィナンシャル・ホールディングス",
+"code": "3447",
+"name": "信和",
 "single": false,
 "division": "プレミア",
 "unit": 100,
@@ -323,9 +379,9 @@
 "items": [
 {
 "time": "13:00",
-"date": "11/18",
-"title": "2027年3月期中間　経営戦略説明会",
-"pdf": "https://www.release.tdnet.info/inbs/140120261117582399.pdf",
+"date": "11/19",
+"title": "2027年３月期第２四半期（中間期）決算説明会資料",
+"pdf": "https://www.release.tdnet.info/inbs/140120261118582415.pdf",
 "tags": [
 {
 "cat": "INFO",
@@ -336,94 +392,12 @@
 ]
 }
 ],
-"price": 744.0,
+"price": 884.0,
 "price_note": "名証の最終気配",
 "nse_close": null,
-"nse_quote": 744.0,
-"shares": 4000,
-"cost": 2976000.0,
-"tob_price": null,
-"tob_gap_pct": null,
-"quote_only": true
-},
-{
-"code": "3461",
-"name": "パルマ",
-"single": false,
-"division": "メイン",
-"unit": 100,
-"category": "INFO",
-"score": 0,
-"items": [
-{
-"time": "14:30",
-"date": "11/18",
-"title": "取締役候補者及び監査役候補者の選任に関するお知らせ",
-"pdf": "https://www.release.tdnet.info/inbs/140120261118582578.pdf",
-"tags": [
-{
-"cat": "INFO",
-"label": "その他",
-"score": 0,
-"reason": ""
-}
-]
-},
-{
-"time": "14:30",
-"date": "11/18",
-"title": "2026年９月期決算説明会開催状況について",
-"pdf": "https://www.release.tdnet.info/inbs/140120261118582593.pdf",
-"tags": [
-{
-"cat": "INFO",
-"label": "その他",
-"score": 0,
-"reason": ""
-}
-]
-}
-],
-"price": 567.0,
-"price_note": "名証の最終気配",
-"nse_close": null,
-"nse_quote": 567.0,
-"shares": 5200,
-"cost": 2948400.0,
-"tob_price": null,
-"tob_gap_pct": null,
-"quote_only": true
-},
-{
-"code": "2734",
-"name": "サーラコーポレーション",
-"single": false,
-"division": "プレミア",
-"unit": 100,
-"category": "INFO",
-"score": 0,
-"items": [
-{
-"time": "15:00",
-"date": "11/18",
-"title": "子会社設立に関するお知らせ",
-"pdf": "https://www.release.tdnet.info/inbs/140120261117582382.pdf",
-"tags": [
-{
-"cat": "INFO",
-"label": "その他",
-"score": 0,
-"reason": ""
-}
-]
-}
-],
-"price": 1115.0,
-"price_note": "名証の最終気配",
-"nse_close": null,
-"nse_quote": 1115.0,
-"shares": 2600,
-"cost": 2899000.0,
+"nse_quote": 884.0,
+"shares": 3300,
+"cost": 2917200.0,
 "tob_price": null,
 "tob_gap_pct": null,
 "quote_only": true

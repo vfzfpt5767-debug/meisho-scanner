@@ -537,5 +537,25 @@
 "price": 170.0,
 "result": 0.02941176470588225,
 "next_day": "2026-11-18"
+},
+{
+"base_day": "2026-11-19",
+"source": "rule_top",
+"code": "8725",
+"name": "ＭＳ＆ＡＤインシュアランスグループホールディングス",
+"category": "A",
+"label": "自社株買い",
+"price": 5061.0,
+"result": null
+},
+{
+"base_day": "2026-11-19",
+"source": "rule_sa",
+"code": "8725",
+"name": "ＭＳ＆ＡＤインシュアランスグループホールディングス",
+"category": "A",
+"label": "自社株買い",
+"price": 5061.0,
+"result": null
 }
 ]

@@ -1,8 +1,8 @@
 {
- "generated_at": "2026-11-19T12:11:17.371128+09:00",
- "base_day": "2026-11-18",
- "deadline": "2026-11-19T07:59:00+09:00",
- "price_source": "名証 日報",
+ "generated_at": "2026-11-19T16:11:13.547502+09:00",
+ "base_day": "2026-11-19",
+ "deadline": "2026-11-20T07:59:00+09:00",
+ "price_source": "名証 相場表（速報）",
  "rules": {
   "prefer": "上がった割合より「大きく上がる可能性」を優先する：ストップ高張り付き＞TOB＞決算サプライズ・上方修正の小〜中型株＞そのほかの好材料",
   "unverified": "中身を確かめられなくても、タイトルと検証が強い好材料なら自信度「中」で買ってよい。悪材料が混ざる・PTSで売られているものは買わない",
@@ -13,7 +13,161 @@
   "search": "Web検索は1銘柄2〜3回まで。調査は短く",
   "every_night": "毎晩300万円の枠いっぱいに必ず買う（現金のまま寝ない）。見送りは、どの候補にも悪材料が見つかったときだけ"
  },
- "candidates": [],
+ "candidates": [
+  {
+   "code": "8725",
+   "name": "ＭＳ＆ＡＤインシュアランスグループホールディングス",
+   "category": "A",
+   "score": 54,
+   "single": false,
+   "price": 5061.0,
+   "price_note": "名証の最終気配",
+   "quote_only": true,
+   "unit": 100,
+   "shares_for_budget": 500,
+   "tob_price": null,
+   "tob_gap_pct": null,
+   "model_prob": null,
+   "items": [
+    {
+     "time": "11/19 16:00",
+     "title": "2027年３月期 第２四半期（中間期）決算短信〔ＩＦＲＳ〕（連結）",
+     "pdf": "https://www.release.tdnet.info/inbs/140120261113580268.pdf",
+     "labels": [
+      {
+       "cat": "INFO",
+       "label": "決算短信",
+       "backtest_next_day": {
+        "up": 40.7,
+        "mean": -0.36,
+        "median": -0.52,
+        "p10": -8.2,
+        "n": 19890
+       }
+      }
+     ]
+    },
+    {
+     "time": "11/19 16:00",
+     "title": "2026年９月中間期 決算説明資料",
+     "pdf": "https://www.release.tdnet.info/inbs/140120261113580282.pdf",
+     "labels": []
+    },
+    {
+     "time": "11/19 16:00",
+     "title": "自己株式取得に係る事項の決定に関するお知らせ",
+     "pdf": "https://www.release.tdnet.info/inbs/140120261119583086.pdf",
+     "labels": [
+      {
+       "cat": "A",
+       "label": "自社株買い",
+       "backtest_next_day": {
+        "up": 65.99,
+        "mean": 2.31,
+        "median": 1.35,
+        "p10": -4.32,
+        "n": 1729
+       }
+      }
+     ]
+    },
+    {
+     "time": "11/19 16:00",
+     "title": "三井住友海上あいおい生命保険株式会社と三井住友海上プライマリー生命保険株式会社の合併に向けた対応に関するお知らせ",
+     "pdf": "https://www.release.tdnet.info/inbs/140120261119583091.pdf",
+     "labels": []
+    }
+   ],
+   "ir_check": {
+    "status": "unreachable",
+    "ir_page": "https://www.ms-ad-hd.com/ja/index.html",
+    "checked": "2026-11-19T07:11",
+    "for_title": "自己株式取得に係る事項の決定に関するお知らせ"
+   }
+  },
+  {
+   "code": "9221",
+   "name": "フルハシＥＰＯ",
+   "category": "CHECK",
+   "score": 7,
+   "single": false,
+   "price": 1093.0,
+   "price_note": "名証の最終気配",
+   "quote_only": true,
+   "unit": 100,
+   "shares_for_budget": 2700,
+   "tob_price": null,
+   "tob_gap_pct": null,
+   "model_prob": null,
+   "items": [
+    {
+     "time": "11/19 16:00",
+     "title": "ＴＲＥホールディングス株式会社との資本業務提携、第三者割当による新株式の発行並びに主要株主の異動に関するお知らせ",
+     "pdf": "https://www.release.tdnet.info/inbs/140120261118582769.pdf",
+     "labels": [
+      {
+       "cat": "A",
+       "label": "業務提携",
+       "backtest_next_day": {
+        "up": 59.74,
+        "mean": 2.74,
+        "median": 0.86,
+        "p10": -5.41,
+        "n": 549
+       }
+      },
+      {
+       "cat": "BAD",
+       "label": "増資・売出し",
+       "backtest_next_day": {
+        "up": 42.07,
+        "mean": 0.39,
+        "median": -0.11,
+        "p10": -7.74,
+        "n": 599
+       }
+      }
+     ]
+    }
+   ],
+   "ir_check": {
+    "status": "not_found",
+    "ir_page": "https://www.fuluhashi.co.jp/news/",
+    "recent": [
+     {
+      "text": "名証ＩＲエキスポ2026への出展のお知らせ",
+      "url": "https://www.fuluhashi.co.jp/%e5%90%8d%e8%a8%bc%ef%bd%89%ef%bd%92%e3%82%a8%e3%82%ad%e3%82%b9%e3%83%9d2023%e3%81%b8%e3%81%ae%e5%87%ba%e5%b1%95%e3%81%ae%e3%81%8a%e7%9f%a5%e3%82%89%e3%81%9b/",
+      "date": "2026-11-03"
+     },
+     {
+      "text": "連結子会社の商号変更に関するお知らせ",
+      "url": "https://www.fuluhashi.co.jp/%e9%80%a3%e7%b5%90%e5%ad%90%e4%bc%9a%e7%a4%be%e3%81%ae%e5%95%86%e5%8f%b7%e5%a4%89%e6%9b%b4%e3%81%ab%e9%96%a2%e3%81%99%e3%82%8b%e3%81%8a%e7%9f%a5%e3%82%89%e3%81%9b/",
+      "date": "2026-10-01"
+     },
+     {
+      "text": "カスタマーハラスメントの防止に関する基本方針",
+      "url": "https://www.fuluhashi.co.jp/%e3%82%ab%e3%82%b9%e3%82%bf%e3%83%9e%e3%83%bc%e3%83%8f%e3%83%a9%e3%82%b9%e3%83%a1%e3%83%b3%e3%83%88%e3%81%ae%e9%98%b2%e6%ad%a2%e3%81%ab%e9%96%a2%e3%81%99%e3%82%8b%e5%9f%ba%e6%9c%ac%e6%96%b9%e9%87%9d/",
+      "date": "2026-10-01"
+     },
+     {
+      "text": "「第９回SXアワード」で奨励賞を受賞しました",
+      "url": "https://www.fuluhashi.co.jp/%e3%80%8c%e7%ac%ac%ef%bc%99%e5%9b%9esx%e3%82%a2%e3%83%af%e3%83%bc%e3%83%89%e3%80%8d%e3%81%a7%e5%a5%a8%e5%8a%b1%e8%b3%9e%e3%82%92%e5%8f%97%e8%b3%9e%e3%81%97%e3%81%be%e3%81%97%e3%81%9f/",
+      "date": "2026-09-01"
+     },
+     {
+      "text": "【注意喚起】当社名を無断使用した「偽通販サイト」にご注意ください",
+      "url": "https://www.fuluhashi.co.jp/%e3%80%90%e6%b3%a8%e6%84%8f%e5%96%9a%e8%b5%b7%e3%80%91%e5%bd%93%e7%a4%be%e5%90%8d%e3%82%92%e7%84%a1%e6%96%ad%e4%bd%bf%e7%94%a8%e3%81%97%e3%81%9f%e3%80%8c%e5%81%bd%e9%80%9a%e8%b2%a9%e3%82%b5%e3%82%a4/",
+      "date": "2026-07-02"
+     }
+    ],
+    "also_checked": [
+     "https://www.fuluhashi.co.jp/"
+    ],
+    "checked": "2026-11-19T07:11",
+    "for_title": "ＴＲＥホールディングス株式会社との資本業務提携、第三者割当による新株式の発行並びに主要株主の異動に関するお知らせ"
+   }
+  }
+ ],
  "other_after_close_count": 6,
  "earnings_only": [],
  "stop_limits": [],
@@ -66,7 +220,7 @@
    "single": false,
    "offer_price": null,
    "first_day_price": 727.0,
-   "price_now": 709.0
+   "price_now": 714.0
   },
   {
    "code": "655A",
@@ -76,7 +230,7 @@
    "single": true,
    "offer_price": 570.0,
    "first_day_price": 575.0,
-   "price_now": 521.0
+   "price_now": 501.0
   },
   {
    "code": "7986",
@@ -86,7 +240,7 @@
    "single": false,
    "offer_price": null,
    "first_day_price": 2078.0,
-   "price_now": 1856.0
+   "price_now": 1875.0
   }
  ],
  "earnings_today": [
@@ -97,26 +251,26 @@
   }
  ],
  "simulator": {
-  "nights_left": 6,
+  "nights_left": 5,
   "start_assets": 4780700.0,
   "target": 6750000,
   "best": "aggressive",
   "best_label": "毎晩1位候補に全額（要確認だけの夜も買う）",
-  "advice": "勝負モード：毎晩、大きく上がる可能性が一番高い候補に300万円の枠いっぱい（休む夜を作らない）。10位ラインの見込みに届く確率 1.5%・今の10位を超える確率 26.7%",
+  "advice": "勝負モード：毎晩、大きく上がる可能性が一番高い候補に300万円の枠いっぱい（休む夜を作らない）。10位ラインの見込みに届く確率 1.0%・今の10位を超える確率 22.1%",
   "mode": "top10",
   "target_now": 5405800,
   "target_now_date": "2026-11-12",
   "probs": {
-   "毎晩1位候補に全額（要確認だけの夜も買う）": 1.5,
-   "毎晩上位2銘柄に半分ずつ": 0.81,
-   "S・A・ストップ高張り付きがある夜だけ1位に全額、ない夜は休む": 1.34,
-   "S・A・張り付きがある夜だけ、上位2銘柄に半分ずつ": 0.73
+   "毎晩1位候補に全額（要確認だけの夜も買う）": 0.97,
+   "毎晩上位2銘柄に半分ずつ": 0.48,
+   "S・A・ストップ高張り付きがある夜だけ1位に全額、ない夜は休む": 0.89,
+   "S・A・張り付きがある夜だけ、上位2銘柄に半分ずつ": 0.52
   },
   "probs_now": {
-   "毎晩1位候補に全額（要確認だけの夜も買う）": 26.66,
-   "毎晩上位2銘柄に半分ずつ": 21.93,
-   "S・A・ストップ高張り付きがある夜だけ1位に全額、ない夜は休む": 22.54,
-   "S・A・張り付きがある夜だけ、上位2銘柄に半分ずつ": 19.86
+   "毎晩1位候補に全額（要確認だけの夜も買う）": 22.12,
+   "毎晩上位2銘柄に半分ずつ": 17.15,
+   "S・A・ストップ高張り付きがある夜だけ1位に全額、ない夜は休む": 18.2,
+   "S・A・張り付きがある夜だけ、上位2銘柄に半分ずつ": 15.86
   }
  },
  "strategy": {
@@ -127,7 +281,7 @@
   "top10_line_final_est": 3750000,
   "gap_to_now_line": 625100,
   "gap_to_final_est": 1969300,
-  "nights_left": 6,
-  "need_per_night_pct": 10.9
+  "nights_left": 5,
+  "need_per_night_pct": 13.1
  }
 }
