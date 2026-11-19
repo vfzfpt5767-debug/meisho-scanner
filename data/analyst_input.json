@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-19T20:56:15.413202+09:00",
+ "generated_at": "2026-11-19T21:18:21.939318+09:00",
  "base_day": "2026-11-19",
  "deadline": "2026-11-20T07:59:00+09:00",
  "price_source": "名証 日報",
@@ -251,13 +251,31 @@
  ],
  "errors": [],
  "portfolio": {
-  "cash": 4780700.0,
+  "cash": 2250200.0,
   "total": 4780700.0,
   "profit": 1780700.0,
-  "term_left": 3000000,
+  "term_left": 469500.0,
   "term_open": true,
   "single_bought": true,
-  "holdings": []
+  "holdings": [
+   {
+    "code": "8725",
+    "name": "ＭＳ＆ＡＤインシュアランスグループホールディングス",
+    "shares": 500,
+    "buy_price": 5061.0,
+    "buy_date": "2026-11-19",
+    "price": 5061.0,
+    "pnl_pct": 0.0,
+    "single": false,
+    "quote_only": true,
+    "unit": 100,
+    "warnings": [],
+    "notices": [],
+    "cautions": [],
+    "sell_rule": "11/20(金)の終値で売る予定（買ってから1営業日後）。検証：TOB（S）でストップ高にならなかった銘柄は1営業日後の終値で売るのが一番よい（平均+2.0%・中央値+0.6%・n=100）",
+    "material": "TOB（S）"
+   }
+  ]
  },
  "new_listings": [
   {
