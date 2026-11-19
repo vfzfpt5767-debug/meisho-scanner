@@ -1,8 +1,8 @@
 {
-"generated_at": "2026-11-19T16:11:13.547502+09:00",
+"generated_at": "2026-11-19T17:11:03.672713+09:00",
 "base_day": "2026-11-19",
 "deadline": "2026-11-20T07:59:00+09:00",
-"price_source": "名証 相場表（速報）",
+"price_source": "名証 日報",
 "cards": [
 {
 "code": "8725",
@@ -325,6 +325,40 @@
 "tob_price": null,
 "tob_gap_pct": null,
 "quote_only": false
+},
+{
+"code": "8803",
+"name": "平和不動産",
+"single": false,
+"division": "プレミア",
+"unit": 100,
+"category": "CHECK",
+"score": 40,
+"items": [
+{
+"time": "16:20",
+"date": "11/19",
+"title": "通期業績予想の修正に関するお知らせ",
+"pdf": "https://www.release.tdnet.info/inbs/140120261119583455.pdf",
+"tags": [
+{
+"cat": "CHECK",
+"label": "業績予想の修正",
+"score": 40,
+"reason": "上方か下方かタイトルでは不明。PDFで確認"
+}
+]
+}
+],
+"price": 2384.0,
+"price_note": "名証の最終気配",
+"nse_close": null,
+"nse_quote": 2384.0,
+"shares": 1200,
+"cost": 2860800.0,
+"tob_price": null,
+"tob_gap_pct": null,
+"quote_only": true
 },
 {
 "code": "9221",

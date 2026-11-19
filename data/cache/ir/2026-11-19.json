@@ -2,7 +2,7 @@
  "8725|自己株式取得に係る事項の決定に関するお知らせ": {
   "status": "unreachable",
   "ir_page": "https://www.ms-ad-hd.com/ja/index.html",
-  "checked": "2026-11-19T07:11",
+  "checked": "2026-11-19T08:11",
   "for_title": "自己株式取得に係る事項の決定に関するお知らせ"
  },
  "9221|ＴＲＥホールディングス株式会社との資本業務提携、第三者割当による新株式の発行並びに主要株主の異動に関するお知らせ": {
@@ -38,7 +38,40 @@
   "also_checked": [
    "https://www.fuluhashi.co.jp/"
   ],
-  "checked": "2026-11-19T07:11",
+  "checked": "2026-11-19T08:11",
   "for_title": "ＴＲＥホールディングス株式会社との資本業務提携、第三者割当による新株式の発行並びに主要株主の異動に関するお知らせ"
+ },
+ "8803|通期業績予想の修正に関するお知らせ": {
+  "status": "not_found",
+  "ir_page": "https://www.heiwa-net.co.jp/",
+  "recent": [
+   {
+    "text": "日本橋兜町・茅場町の2プロジェクトが2026年度グッドデザイン賞を受賞～日本橋兜町・茅場町エリアにおける取り組みが7年連",
+    "url": "https://www.heiwa-net.co.jp/Portals/0/news/261016.pdf",
+    "date": "2026-10-16"
+   },
+   {
+    "text": "日本橋兜町の複合施設「K5」、ミシュランガイドのホテルセレクションにて3年連続で「ミシュランキー」を獲得",
+    "url": "https://www.heiwa-net.co.jp/Portals/0/news/261015.pdf",
+    "date": "2026-10-15"
+   },
+   {
+    "text": "福岡マラソン2026への協賛のお知らせ",
+    "url": "https://www.heiwa-net.co.jp/Portals/0/news/261008-1.pdf",
+    "date": "2026-10-08"
+   },
+   {
+    "text": "「ＨＦ押上レジデンスⅡ」竣工のお知らせ",
+    "url": "https://www.heiwa-net.co.jp/Portals/0/news/261007.pdf",
+    "date": "2026-10-07"
+   },
+   {
+    "text": "GRESBリアルエステイト評価「スタンディング・インベストメント・ベンチマーク」 において最高位の「5スター」 を初取得",
+    "url": "https://www.heiwa-net.co.jp/Portals/0/news/261005 1.pdf",
+    "date": "2026-10-05"
+   }
+  ],
+  "checked": "2026-11-19T08:11",
+  "for_title": "通期業績予想の修正に関するお知らせ"
  }
 }
