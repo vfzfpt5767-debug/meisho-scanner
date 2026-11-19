@@ -401,7 +401,7 @@
    "base_day": "2026-11-18"
   },
   "2026-11-19-2116": {
-   "status": "undone",
+   "status": "custom",
    "mode": "record",
    "patch": {
     "removed": [],
@@ -440,7 +440,8 @@
   "01M7MR5D9CF3SSXX534A8WHTZQ",
   "01M7MRXS4D5GA7N87FJ1NMKKEN",
   "01M7QCY3MRJ7ZM1VR6YNKGZ4EY",
-  "01M7T055DRV8MXWB7VV58PYSYT"
+  "01M7T055DRV8MXWB7VV58PYSYT",
+  "01M7T06B7Q54RGR2VPVSVNTKZC"
  ],
  "manual": [
   {
@@ -518,12 +519,28 @@
    },
    "at": "2026-11-17T21:50:46.939010+09:00",
    "decision": null
+  },
+  {
+   "id": "LINE 11/19 22:33",
+   "text": "買い 6029 159単位 175円",
+   "patch": {
+    "removed": [],
+    "added": [
+     [
+      "6029",
+      "15900",
+      "175",
+      "2026-11-19",
+      "LINE 11/19 22:33"
+     ]
+    ],
+    "cash_delta": -2782500.0
+   },
+   "at": "2026-11-19T22:33:54.818923+09:00",
+   "decision": "2026-11-19-2116"
   }
  ],
- "awaiting": {
-  "decision": "2026-11-19-2116",
-  "since": "2026-11-19T22:33:18.303932+09:00"
- },
+ "awaiting": null,
  "enabled": true,
  "questions": [
   {
