@@ -441,7 +441,8 @@
   "01M7MRXS4D5GA7N87FJ1NMKKEN",
   "01M7QCY3MRJ7ZM1VR6YNKGZ4EY",
   "01M7T055DRV8MXWB7VV58PYSYT",
-  "01M7T06B7Q54RGR2VPVSVNTKZC"
+  "01M7T06B7Q54RGR2VPVSVNTKZC",
+  "01M7T07F3PNAW3X24RXXWVG4FH"
  ],
  "manual": [
   {
@@ -538,6 +539,33 @@
    },
    "at": "2026-11-19T22:33:54.818923+09:00",
    "decision": "2026-11-19-2116"
+  },
+  {
+   "id": "LINE 11/19 22:34",
+   "text": "売り 6029 全部 172円\n買い 8725 5単位 5061円",
+   "patch": {
+    "removed": [
+     [
+      "6029",
+      "15900",
+      "175",
+      "2026-11-19",
+      "LINE 11/19 22:33"
+     ]
+    ],
+    "added": [
+     [
+      "8725",
+      "500",
+      "5061",
+      "2026-11-19",
+      "LINE 11/19 22:34"
+     ]
+    ],
+    "cash_delta": 204300.0
+   },
+   "at": "2026-11-19T22:34:32.896935+09:00",
+   "decision": null
   }
  ],
  "awaiting": null,
