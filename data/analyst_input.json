@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-19T21:18:21.939318+09:00",
+ "generated_at": "2026-11-19T22:33:48.458802+09:00",
  "base_day": "2026-11-19",
  "deadline": "2026-11-20T07:59:00+09:00",
  "price_source": "名証 日報",
@@ -81,7 +81,7 @@
    "ir_check": {
     "status": "unreachable",
     "ir_page": "https://www.ms-ad-hd.com/ja/index.html",
-    "checked": "2026-11-19T11:41",
+    "checked": "2026-11-19T13:33",
     "for_title": "自己株式取得に係る事項の決定に関するお知らせ"
    }
   },
@@ -149,7 +149,7 @@
       "date": "2026-10-05"
      }
     ],
-    "checked": "2026-11-19T11:41",
+    "checked": "2026-11-19T13:33",
     "for_title": "通期業績予想の修正に関するお知らせ"
    }
   },
@@ -231,7 +231,7 @@
     "also_checked": [
      "https://www.fuluhashi.co.jp/"
     ],
-    "checked": "2026-11-19T11:41",
+    "checked": "2026-11-19T13:33",
     "for_title": "ＴＲＥホールディングス株式会社との資本業務提携、第三者割当による新株式の発行並びに主要株主の異動に関するお知らせ"
    }
   }
@@ -251,31 +251,13 @@
  ],
  "errors": [],
  "portfolio": {
-  "cash": 2250200.0,
+  "cash": 4780700.0,
   "total": 4780700.0,
   "profit": 1780700.0,
-  "term_left": 469500.0,
+  "term_left": 3000000,
   "term_open": true,
   "single_bought": true,
-  "holdings": [
-   {
-    "code": "8725",
-    "name": "ＭＳ＆ＡＤインシュアランスグループホールディングス",
-    "shares": 500,
-    "buy_price": 5061.0,
-    "buy_date": "2026-11-19",
-    "price": 5061.0,
-    "pnl_pct": 0.0,
-    "single": false,
-    "quote_only": true,
-    "unit": 100,
-    "warnings": [],
-    "notices": [],
-    "cautions": [],
-    "sell_rule": "11/20(金)の終値で売る予定（買ってから1営業日後）。検証：TOB（S）でストップ高にならなかった銘柄は1営業日後の終値で売るのが一番よい（平均+2.0%・中央値+0.6%・n=100）",
-    "material": "TOB（S）"
-   }
-  ]
+  "holdings": []
  },
  "new_listings": [
   {
