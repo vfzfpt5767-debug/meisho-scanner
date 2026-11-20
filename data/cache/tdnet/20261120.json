@@ -1,7 +1,26 @@
 {
 "date": "2026-11-20",
-"fetched_at": "2026-11-20T07:06:10.326578+09:00",
+"fetched_at": "2026-11-20T11:17:34.094377+09:00",
 "complete": false,
-"total_all_markets": 1,
-"items": []
+"total_all_markets": 31,
+"items": [
+{
+"Tdnet": {
+"id": "1297321",
+"pubdate": "2026-11-20 10:30:00",
+"company_code": "78700",
+"company_name": "福島印",
+"title": "従業員持株会に対する譲渡制限付株式としての 自己株式処分の払込完了及び一部失権に関するお知らせ",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261120583848.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": null,
+"markets_string": "名",
+"update_history": null
+}
+}
+]
 }
