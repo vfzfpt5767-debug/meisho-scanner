@@ -1,9 +1,45 @@
 {
 "date": "2026-11-20",
-"fetched_at": "2026-11-20T11:17:34.094377+09:00",
+"fetched_at": "2026-11-20T11:25:41.032847+09:00",
 "complete": false,
-"total_all_markets": 31,
+"total_all_markets": 40,
 "items": [
+{
+"Tdnet": {
+"id": "1297322",
+"pubdate": "2026-11-20 11:00:00",
+"company_code": "27800",
+"company_name": "コメ兵ＨＤ",
+"title": "ブランド・ファッション事業の2027年３月期10月度月次に関するお知らせ",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261120583885.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": null,
+"markets_string": "東名",
+"update_history": null
+}
+},
+{
+"Tdnet": {
+"id": "1297329",
+"pubdate": "2026-11-20 11:00:00",
+"company_code": "69890",
+"company_name": "北電工業",
+"title": "（訂正）「株式会社BCJ-116による当社株式に対する公開買付けに関する賛同の意見表明及び応募推奨のお知らせ」の一部訂正について",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261120583960.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": null,
+"markets_string": "東",
+"update_history": null
+}
+},
 {
 "Tdnet": {
 "id": "1297321",
