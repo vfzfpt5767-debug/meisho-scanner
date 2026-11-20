@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-20T17:11:05.770459+09:00",
+ "generated_at": "2026-11-20T18:41:09.652516+09:00",
  "base_day": "2026-11-20",
  "deadline": "2026-11-24T07:59:00+09:00",
  "price_source": "名証 日報",
@@ -96,7 +96,7 @@
     "also_checked": [
      "https://www.osaka-yuka.co.jp/"
     ],
-    "checked": "2026-11-20T08:11",
+    "checked": "2026-11-20T09:41",
     "for_title": "株式分割及び株式分割に伴う定款の一部変更並びに配当予想の修正に関するお知らせ"
    }
   },
@@ -146,6 +146,86 @@
     "doc_date": "2026-11-20",
     "checked": "2026-11-20T07:11",
     "for_title": "業績予想及び配当予想の修正に関するお知らせ"
+   }
+  },
+  {
+   "code": "9249",
+   "name": "日本エコシステム",
+   "category": "A",
+   "score": 49,
+   "single": false,
+   "price": 1582.0,
+   "price_note": "名証の最終気配",
+   "quote_only": true,
+   "unit": 100,
+   "shares_for_budget": 1800,
+   "tob_price": null,
+   "tob_gap_pct": null,
+   "model_prob": null,
+   "items": [
+    {
+     "time": "11/20 17:30",
+     "title": "役員候補者に関するお知らせ",
+     "pdf": "https://www.release.tdnet.info/inbs/140120261119583707.pdf",
+     "labels": []
+    },
+    {
+     "time": "11/20 17:30",
+     "title": "公認会計士等の異動に関するお知らせ",
+     "pdf": "https://www.release.tdnet.info/inbs/140120261119583715.pdf",
+     "labels": []
+    },
+    {
+     "time": "11/20 17:30",
+     "title": "特定の株主からの自己株式取得に関するお知らせ",
+     "pdf": "https://www.release.tdnet.info/inbs/140120261119583716.pdf",
+     "labels": [
+      {
+       "cat": "A",
+       "label": "自社株買い",
+       "backtest_next_day": {
+        "up": 65.99,
+        "mean": 2.31,
+        "median": 1.35,
+        "p10": -4.32,
+        "n": 1729
+       }
+      }
+     ]
+    }
+   ],
+   "ir_check": {
+    "status": "not_found",
+    "ir_page": "https://www.jp-eco.co.jp/",
+    "recent": [
+     {
+      "text": "2026.11.11 かんぽ生命様によるラジオ体操ワンポイントレッスンを開催",
+      "url": "https://www.jp-eco.co.jp/news/view/3214/",
+      "date": "2026-11-11"
+     },
+     {
+      "text": "2026.10.23 日本エコシステム、AVANTIAと共に第24回愛知県スポーツ少年団バレーボール交流大会を協賛",
+      "url": "https://www.jp-eco.co.jp/news/view/3209/",
+      "date": "2026-10-23"
+     },
+     {
+      "text": "2026.10.21 名証IRエキスポ2026出展のお知らせ",
+      "url": "https://www.jp-eco.co.jp/news/view/3205/",
+      "date": "2026-10-21"
+     },
+     {
+      "text": "2026.09.15 福岡証券取引所主催のIRイベント「福証IRフェスタ2026秋」に登壇しました",
+      "url": "https://www.jp-eco.co.jp/news/view/3189/",
+      "date": "2026-09-15"
+     },
+     {
+      "text": "2026.08.25 個人投資家向け会社説明会「福証IRフェスタ2026秋」登壇のお知らせ",
+      "url": "https://www.jp-eco.co.jp/news/view/3187/",
+      "date": "2026-08-25"
+     }
+    ],
+    "checked": "2026-11-20T09:41",
+    "for_title": "特定の株主からの自己株式取得に関するお知らせ"
    }
   }
  ],

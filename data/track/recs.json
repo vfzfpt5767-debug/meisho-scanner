@@ -590,5 +590,15 @@
 "label": "株式分割",
 "price": 2842.0,
 "result": null
+},
+{
+"base_day": "2026-11-20",
+"source": "rule_sa",
+"code": "9249",
+"name": "日本エコシステム",
+"category": "A",
+"label": "自社株買い",
+"price": 1582.0,
+"result": null
 }
 ]

@@ -1,9 +1,99 @@
 {
 "date": "2026-11-20",
-"fetched_at": "2026-11-20T17:11:07.128460+09:00",
+"fetched_at": "2026-11-20T18:41:10.427935+09:00",
 "complete": false,
-"total_all_markets": 254,
+"total_all_markets": 279,
 "items": [
+{
+"Tdnet": {
+"id": "1297566",
+"pubdate": "2026-11-20 17:45:00",
+"company_code": "49330",
+"company_name": "Ｉｎｅ",
+"title": "ＭＢＯの実施に関する賛同及び応募中立の意見表明のお知らせ",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261119583727.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": null,
+"markets_string": "東",
+"update_history": null
+}
+},
+{
+"Tdnet": {
+"id": "1297567",
+"pubdate": "2026-11-20 17:45:00",
+"company_code": "49330",
+"company_name": "Ｉｎｅ",
+"title": "ジャンボ株式会社による株式会社Ｉ－ｎｅ（証券コード：4933）の株券等に対する公開買付けの開始に関するお知らせ",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261119583729.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": null,
+"markets_string": "東",
+"update_history": null
+}
+},
+{
+"Tdnet": {
+"id": "1297552",
+"pubdate": "2026-11-20 17:30:00",
+"company_code": "92490",
+"company_name": "日本エコシステム",
+"title": "役員候補者に関するお知らせ",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261119583707.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": null,
+"markets_string": "東名札福",
+"update_history": null
+}
+},
+{
+"Tdnet": {
+"id": "1297553",
+"pubdate": "2026-11-20 17:30:00",
+"company_code": "92490",
+"company_name": "日本エコシステム",
+"title": "公認会計士等の異動に関するお知らせ",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261119583715.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": null,
+"markets_string": "東名札福",
+"update_history": null
+}
+},
+{
+"Tdnet": {
+"id": "1297554",
+"pubdate": "2026-11-20 17:30:00",
+"company_code": "92490",
+"company_name": "日本エコシステム",
+"title": "特定の株主からの自己株式取得に関するお知らせ",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261119583716.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": null,
+"markets_string": "東名札福",
+"update_history": null
+}
+},
 {
 "Tdnet": {
 "id": "1297473",

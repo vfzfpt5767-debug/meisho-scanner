@@ -1,5 +1,5 @@
 {
-"generated_at": "2026-11-20T17:11:05.770459+09:00",
+"generated_at": "2026-11-20T18:41:09.652516+09:00",
 "base_day": "2026-11-20",
 "deadline": "2026-11-24T07:59:00+09:00",
 "price_source": "名証 日報",
@@ -116,6 +116,68 @@
 "nse_quote": 1479.0,
 "shares": 2000,
 "cost": 2958000.0,
+"tob_price": null,
+"tob_gap_pct": null,
+"quote_only": true
+},
+{
+"code": "9249",
+"name": "日本エコシステム",
+"single": false,
+"division": "メイン",
+"unit": 100,
+"category": "A",
+"score": 49,
+"items": [
+{
+"time": "17:30",
+"date": "11/20",
+"title": "役員候補者に関するお知らせ",
+"pdf": "https://www.release.tdnet.info/inbs/140120261119583707.pdf",
+"tags": [
+{
+"cat": "INFO",
+"label": "その他",
+"score": 0,
+"reason": ""
+}
+]
+},
+{
+"time": "17:30",
+"date": "11/20",
+"title": "公認会計士等の異動に関するお知らせ",
+"pdf": "https://www.release.tdnet.info/inbs/140120261119583715.pdf",
+"tags": [
+{
+"cat": "INFO",
+"label": "その他",
+"score": 0,
+"reason": ""
+}
+]
+},
+{
+"time": "17:30",
+"date": "11/20",
+"title": "特定の株主からの自己株式取得に関するお知らせ",
+"pdf": "https://www.release.tdnet.info/inbs/140120261119583716.pdf",
+"tags": [
+{
+"cat": "A",
+"label": "自社株買い",
+"score": 49,
+"reason": "自己株式取得の決定（規模＝発行済株式に対する%はPDFで確認）"
+}
+]
+}
+],
+"price": 1582.0,
+"price_note": "名証の最終気配",
+"nse_close": null,
+"nse_quote": 1582.0,
+"shares": 1800,
+"cost": 2847600.0,
 "tob_price": null,
 "tob_gap_pct": null,
 "quote_only": true
