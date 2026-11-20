@@ -1,9 +1,9 @@
 {
 "fetched_date": "2026-11-20",
-"fetched_time": "01:31",
+"fetched_time": "17:11",
 "files": [
 "https://www.jpx.co.jp/listing/event-schedules/financial-announcement/tvdivq0000001ofb-att/kessan09_1106.xlsx",
-"https://www.jpx.co.jp/listing/event-schedules/financial-announcement/tvdivq0000001ofb-att/kessan10_1106.xlsx",
+"https://www.jpx.co.jp/listing/event-schedules/financial-announcement/tvdivq0000001ofb-att/kessan10_1120.xlsx",
 "https://www.nse.or.jp/listing/files/kessan10_6.xlsx"
 ],
 "events": [
@@ -26955,6 +26955,15 @@
 },
 {
 "date": "2026-12-09",
+"code": "4599",
+"name": "ステムリム",
+"kind": "第１四半期",
+"sources": [
+"JPX"
+]
+},
+{
+"date": "2026-12-09",
 "code": "5032",
 "name": "ＡＮＹＣＯＬＯＲ",
 "kind": "第２四半期",
@@ -27189,6 +27198,15 @@
 },
 {
 "date": "2026-12-10",
+"code": "6184",
+"name": "鎌倉新書",
+"kind": "第３四半期",
+"sources": [
+"JPX"
+]
+},
+{
+"date": "2026-12-10",
 "code": "6535",
 "name": "アイモバイル",
 "kind": "第１四半期",
@@ -27246,6 +27264,15 @@
 "code": "7682",
 "name": "浜木綿",
 "kind": "第１四半期",
+"sources": [
+"JPX"
+]
+},
+{
+"date": "2026-12-10",
+"code": "7777",
+"name": "スリー・ディー・マトリックス",
+"kind": "第２四半期",
 "sources": [
 "JPX"
 ]
@@ -28038,6 +28065,15 @@
 "code": "7131",
 "name": "のむら産業",
 "kind": "本決算",
+"sources": [
+"JPX"
+]
+},
+{
+"date": "2026-12-14",
+"code": "7435",
+"name": "ナ・デックス",
+"kind": "第２四半期",
 "sources": [
 "JPX"
 ]

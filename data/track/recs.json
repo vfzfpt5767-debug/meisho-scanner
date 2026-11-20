@@ -570,5 +570,25 @@
 "price": 5061.0,
 "result": 0.003951788184153315,
 "next_day": "2026-11-20"
+},
+{
+"base_day": "2026-11-20",
+"source": "rule_top",
+"code": "4124",
+"name": "大阪油化工業",
+"category": "A",
+"label": "株式分割",
+"price": 2842.0,
+"result": null
+},
+{
+"base_day": "2026-11-20",
+"source": "rule_sa",
+"code": "4124",
+"name": "大阪油化工業",
+"category": "A",
+"label": "株式分割",
+"price": 2842.0,
+"result": null
 }
 ]

@@ -1,9 +1,153 @@
 {
 "date": "2026-11-20",
-"fetched_at": "2026-11-20T16:11:10.576702+09:00",
+"fetched_at": "2026-11-20T17:11:07.128460+09:00",
 "complete": false,
-"total_all_markets": 174,
+"total_all_markets": 254,
 "items": [
+{
+"Tdnet": {
+"id": "1297473",
+"pubdate": "2026-11-20 16:00:00",
+"company_code": "24130",
+"company_name": "エムスリー",
+"title": "自己株式の取得及び自己株式の公開買付けに関するお知らせ",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261120583974.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": null,
+"markets_string": "東",
+"update_history": null
+}
+},
+{
+"Tdnet": {
+"id": "1297474",
+"pubdate": "2026-11-20 16:00:00",
+"company_code": "24130",
+"company_name": "エムスリー",
+"title": "自己株式の取得及び自己株式の公開買付けについて",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261120584093.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": null,
+"markets_string": "東",
+"update_history": null
+}
+},
+{
+"Tdnet": {
+"id": "1297481",
+"pubdate": "2026-11-20 16:00:00",
+"company_code": "39680",
+"company_name": "セグエ",
+"title": "主要株主の異動（予定）および公開買付けに準ずる行為として政令で定める買集め行為に関する知らせ",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261120584308.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": null,
+"markets_string": "東",
+"update_history": null
+}
+},
+{
+"Tdnet": {
+"id": "1297485",
+"pubdate": "2026-11-20 16:00:00",
+"company_code": "41240",
+"company_name": "大阪油化工業",
+"title": "株式分割及び株式分割に伴う定款の一部変更並びに配当予想の修正に関するお知らせ",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261119583151.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/091220261119583151.zip",
+"markets_string": "東名",
+"update_history": null
+}
+},
+{
+"Tdnet": {
+"id": "1297486",
+"pubdate": "2026-11-20 16:00:00",
+"company_code": "41240",
+"company_name": "大阪油化工業",
+"title": "株主優待制度の変更に関するお知らせ",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261119583138.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": null,
+"markets_string": "東名",
+"update_history": null
+}
+},
+{
+"Tdnet": {
+"id": "1297487",
+"pubdate": "2026-11-20 16:00:00",
+"company_code": "41240",
+"company_name": "大阪油化工業",
+"title": "取締役候補者（監査等委員である取締役を除く。）の選任及び役員の異動に関するお知らせ",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261119583142.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": null,
+"markets_string": "東名",
+"update_history": null
+}
+},
+{
+"Tdnet": {
+"id": "1297488",
+"pubdate": "2026-11-20 16:00:00",
+"company_code": "41240",
+"company_name": "大阪油化工業",
+"title": "支配株主等に関する事項について",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261119583144.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": null,
+"markets_string": "東名",
+"update_history": null
+}
+},
+{
+"Tdnet": {
+"id": "1297489",
+"pubdate": "2026-11-20 16:00:00",
+"company_code": "41960",
+"company_name": "ネオマーケ",
+"title": "本店移転および定款一部変更に関するお知らせ",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261120583804.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": null,
+"markets_string": "東名",
+"update_history": null
+}
+},
 {
 "Tdnet": {
 "id": "1297464",

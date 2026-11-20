@@ -1,9 +1,91 @@
 {
-"generated_at": "2026-11-20T16:11:09.610995+09:00",
+"generated_at": "2026-11-20T17:11:05.770459+09:00",
 "base_day": "2026-11-20",
 "deadline": "2026-11-24T07:59:00+09:00",
-"price_source": "名証 相場表（速報）",
+"price_source": "名証 日報",
 "cards": [
+{
+"code": "4124",
+"name": "大阪油化工業",
+"single": false,
+"division": "メイン",
+"unit": 100,
+"category": "A",
+"score": 73,
+"items": [
+{
+"time": "16:00",
+"date": "11/20",
+"title": "株式分割及び株式分割に伴う定款の一部変更並びに配当予想の修正に関するお知らせ",
+"pdf": "https://www.release.tdnet.info/inbs/140120261119583151.pdf",
+"tags": [
+{
+"cat": "CHECK",
+"label": "配当予想の修正",
+"score": 60,
+"reason": "増配か減配かタイトルでは不明。PDFで確認"
+},
+{
+"cat": "A",
+"label": "株式分割",
+"score": 63,
+"reason": "株式分割（投資しやすくなり買われやすい）"
+}
+]
+},
+{
+"time": "16:00",
+"date": "11/20",
+"title": "株主優待制度の変更に関するお知らせ",
+"pdf": "https://www.release.tdnet.info/inbs/140120261119583138.pdf",
+"tags": [
+{
+"cat": "CHECK",
+"label": "優待の変更",
+"score": 44,
+"reason": "株主優待の変更。拡充か縮小かPDFで確認"
+}
+]
+},
+{
+"time": "16:00",
+"date": "11/20",
+"title": "取締役候補者（監査等委員である取締役を除く。）の選任及び役員の異動に関するお知らせ",
+"pdf": "https://www.release.tdnet.info/inbs/140120261119583142.pdf",
+"tags": [
+{
+"cat": "INFO",
+"label": "その他",
+"score": 0,
+"reason": ""
+}
+]
+},
+{
+"time": "16:00",
+"date": "11/20",
+"title": "支配株主等に関する事項について",
+"pdf": "https://www.release.tdnet.info/inbs/140120261119583144.pdf",
+"tags": [
+{
+"cat": "INFO",
+"label": "その他",
+"score": 0,
+"reason": ""
+}
+]
+}
+],
+"price": 2842.0,
+"price_note": "名証の最終気配",
+"nse_close": null,
+"nse_quote": 2842.0,
+"shares": 1000,
+"cost": 2842000.0,
+"tob_price": null,
+"tob_gap_pct": null,
+"quote_only": true
+},
 {
 "code": "3321",
 "name": "ミタチ産業",
@@ -184,6 +266,40 @@
 "nse_quote": 4170.0,
 "shares": 700,
 "cost": 2919000.0,
+"tob_price": null,
+"tob_gap_pct": null,
+"quote_only": true
+},
+{
+"code": "4196",
+"name": "ネオマーケティング",
+"single": false,
+"division": "メイン",
+"unit": 100,
+"category": "INFO",
+"score": 0,
+"items": [
+{
+"time": "16:00",
+"date": "11/20",
+"title": "本店移転および定款一部変更に関するお知らせ",
+"pdf": "https://www.release.tdnet.info/inbs/140120261120583804.pdf",
+"tags": [
+{
+"cat": "INFO",
+"label": "その他",
+"score": 0,
+"reason": ""
+}
+]
+}
+],
+"price": 1303.0,
+"price_note": "名証の最終気配",
+"nse_close": null,
+"nse_quote": 1303.0,
+"shares": 2300,
+"cost": 2996900.0,
 "tob_price": null,
 "tob_gap_pct": null,
 "quote_only": true
