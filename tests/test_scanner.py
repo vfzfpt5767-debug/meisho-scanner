@@ -1408,3 +1408,54 @@ def test_sell_rule_holds_tob_until_price(monkeypatch):
     there = SimpleNamespace(tob_price=2770, gap_pct=(2770 / 2755 - 1) * 100)
     rule, _ = P._sell_rule(h, ctx, {}, there)
     assert "今夜売る" in rule
+
+
+def test_pages_failure_notifies_only_when_repeated(tmp_path, monkeypatch):
+    # ページの公開だけの失敗：1回目はLINEを送らない。続けて失敗したら1回だけ送る。直ったら数え直す
+    from scanner import pages_status as PS
+
+    monkeypatch.setattr(PS, "STATE", tmp_path / "pages_state.json")
+    sent = []
+
+    def fake_send(text, kind):
+        sent.append((kind, text))
+        return "LINEに送信しました（今月1通目）"
+
+    assert PS.record(True, send=fake_send) == (False, "ページの公開：成功")  # 失敗がなければ何も書かない
+    assert not (tmp_path / "pages_state.json").exists()
+    PS.record(False, "https://example/runs/1", send=fake_send)
+    assert sent == []  # 1回目は送らない
+    PS.record(False, "https://example/runs/2", send=fake_send)
+    assert len(sent) == 1 and sent[0][0] == "pages_failure"
+    assert "続けて失敗" in sent[0][1] and "データの取得とLINEの通知は正常" in sent[0][1] and "runs/2" in sent[0][1]
+    PS.record(False, "https://example/runs/3", send=fake_send)
+    assert len(sent) == 1  # 同じ続きの失敗では1回だけ
+    changed, note = PS.record(True, send=fake_send)
+    assert changed and "直った" in note
+    PS.record(False, "https://example/runs/4", send=fake_send)
+    assert len(sent) == 1  # 直ったあとの1回目はまた送らない
+    PS.record(False, "https://example/runs/5", send=fake_send)
+    assert len(sent) == 2
+
+
+def test_scan_workflow_pages_steps():
+    # ページの公開（準備・アップロード・公開）だけが continue-on-error。ほかのステップの失敗は今までどおり LINE で知らせる
+    import pathlib
+
+    yaml = __import__("pytest").importorskip("yaml")
+    wf = yaml.safe_load(pathlib.Path(".github/workflows/scan.yml").read_text(encoding="utf-8"))
+    steps = wf["jobs"]["scan"]["steps"]
+    by_id = {s.get("id"): s for s in steps if s.get("id")}
+    for sid in ("pages_cfg", "pages_up", "deploy", "deploy2"):
+        assert by_id[sid].get("continue-on-error") is True, sid
+    assert by_id["deploy"]["uses"] == by_id["deploy2"]["uses"] == "actions/deploy-pages@v5"
+    assert by_id["deploy2"]["if"] == "steps.deploy.outcome == 'failure'"
+    names = [s.get("name", "") for s in steps]
+    wait = steps[names.index("Pages の公開をやり直す前に60秒待つ")]
+    assert wait["run"].strip() == "sleep 60" and names.index("Pages の公開をやり直す前に60秒待つ") < names.index("Pages に公開（やり直し）")
+    for s in steps:
+        if s.get("id") in ("pages_cfg", "pages_up", "deploy", "deploy2") or s.get("name", "").startswith("ページの公開の結果を記録"):
+            continue
+        assert "continue-on-error" not in s, s.get("name")  # スキャン・保存・AIの起動などは失敗したら止まる
+    last = steps[-1]
+    assert last["name"] == "失敗をLINEで通知" and last["if"] == "failure()" and "--failure" in last["run"]
