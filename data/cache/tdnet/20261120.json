@@ -1,9 +1,45 @@
 {
 "date": "2026-11-20",
-"fetched_at": "2026-11-20T18:41:10.427935+09:00",
+"fetched_at": "2026-11-20T20:41:11.202773+09:00",
 "complete": false,
-"total_all_markets": 279,
+"total_all_markets": 283,
 "items": [
+{
+"Tdnet": {
+"id": "1297571",
+"pubdate": "2026-11-20 19:40:00",
+"company_code": "67270",
+"company_name": "ワコム",
+"title": "MBOの実施及び公開買付けの開始予定に関する意見表明並びに応募の推奨に関するお知らせ",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261113579942.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": null,
+"markets_string": "東",
+"update_history": null
+}
+},
+{
+"Tdnet": {
+"id": "1297572",
+"pubdate": "2026-11-20 19:40:00",
+"company_code": "67270",
+"company_name": "ワコム",
+"title": "MP-2611株式会社による株式会社ワコム株式（証券コード：6727）に対する公開買付けの開始予定に関するお知らせ",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261120584437.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": null,
+"markets_string": "東",
+"update_history": null
+}
+},
 {
 "Tdnet": {
 "id": "1297566",
