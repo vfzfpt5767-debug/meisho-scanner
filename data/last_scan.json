@@ -1,5 +1,5 @@
 {
-"generated_at": "2026-11-24T10:11:51.903515+09:00",
+"generated_at": "2026-11-24T14:22:40.891121+09:00",
 "base_day": "2026-11-20",
 "deadline": "2026-11-24T07:59:00+09:00",
 "price_source": "名証 日報",
@@ -212,6 +212,40 @@
 "nse_quote": 1915.0,
 "shares": 1500,
 "cost": 2872500.0,
+"tob_price": null,
+"tob_gap_pct": null,
+"quote_only": true
+},
+{
+"code": "6203",
+"name": "豊和工業",
+"single": false,
+"division": "プレミア",
+"unit": 100,
+"category": "INFO",
+"score": 0,
+"items": [
+{
+"time": "14:00",
+"date": "11/24",
+"title": "2027年3月期 第2四半期（中間期）　決算説明会資料",
+"pdf": "https://www.release.tdnet.info/inbs/140120261124584847.pdf",
+"tags": [
+{
+"cat": "INFO",
+"label": "その他",
+"score": 0,
+"reason": ""
+}
+]
+}
+],
+"price": 1618.0,
+"price_note": "名証の最終気配",
+"nse_close": null,
+"nse_quote": 1618.0,
+"shares": 1800,
+"cost": 2912400.0,
 "tob_price": null,
 "tob_gap_pct": null,
 "quote_only": true
