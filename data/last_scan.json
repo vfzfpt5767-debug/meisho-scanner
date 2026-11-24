@@ -1,5 +1,5 @@
 {
-"generated_at": "2026-11-24T07:56:40.343819+09:00",
+"generated_at": "2026-11-24T10:11:51.903515+09:00",
 "base_day": "2026-11-20",
 "deadline": "2026-11-24T07:59:00+09:00",
 "price_source": "名証 日報",
@@ -178,6 +178,40 @@
 "nse_quote": 1582.0,
 "shares": 1800,
 "cost": 2847600.0,
+"tob_price": null,
+"tob_gap_pct": null,
+"quote_only": true
+},
+{
+"code": "8891",
+"name": "ＡＭＧホールディングス",
+"single": false,
+"division": "メイン",
+"unit": 100,
+"category": "INFO",
+"score": 0,
+"items": [
+{
+"time": "09:00",
+"date": "11/24",
+"title": "2027年３月期　第２四半期決算説明資料",
+"pdf": "https://www.release.tdnet.info/inbs/140120261124584560.pdf",
+"tags": [
+{
+"cat": "INFO",
+"label": "その他",
+"score": 0,
+"reason": ""
+}
+]
+}
+],
+"price": 1915.0,
+"price_note": "名証の最終気配",
+"nse_close": null,
+"nse_quote": 1915.0,
+"shares": 1500,
+"cost": 2872500.0,
 "tob_price": null,
 "tob_gap_pct": null,
 "quote_only": true
