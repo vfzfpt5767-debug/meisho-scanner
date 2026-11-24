@@ -1,9 +1,81 @@
 {
 "date": "2026-11-24",
-"fetched_at": "2026-11-24T14:54:00.151017+09:00",
+"fetched_at": "2026-11-24T16:11:08.365416+09:00",
 "complete": false,
-"total_all_markets": 72,
+"total_all_markets": 144,
 "items": [
+{
+"Tdnet": {
+"id": "1297708",
+"pubdate": "2026-11-24 16:00:00",
+"company_code": "38080",
+"company_name": "オーケーウェブ",
+"title": "（開示事項の経過）人員削減等の合理化の実施結果及び特別損失の計上に関するお知らせ",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261120583986.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": null,
+"markets_string": "名",
+"update_history": null
+}
+},
+{
+"Tdnet": {
+"id": "1297714",
+"pubdate": "2026-11-24 16:00:00",
+"company_code": "67970",
+"company_name": "名古屋電機工業",
+"title": "2027年3月期 中間期 決算説明資料",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261124584998.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": null,
+"markets_string": "東名",
+"update_history": null
+}
+},
+{
+"Tdnet": {
+"id": "1297657",
+"pubdate": "2026-11-24 15:30:00",
+"company_code": "29830",
+"company_name": "Ｇ－アールプランナー",
+"title": "当座貸越契約の増額に関するお知らせ",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261124584793.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": null,
+"markets_string": "東名",
+"update_history": null
+}
+},
+{
+"Tdnet": {
+"id": "1297685",
+"pubdate": "2026-11-24 15:30:00",
+"company_code": "54610",
+"company_name": "中部鋼鈑",
+"title": "製造所における事故に関するお知らせ",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261124585243.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": null,
+"markets_string": "東名",
+"update_history": null
+}
+},
 {
 "Tdnet": {
 "id": "1297646",

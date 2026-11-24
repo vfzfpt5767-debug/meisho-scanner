@@ -579,7 +579,8 @@
 "category": "A",
 "label": "株式分割",
 "price": 2842.0,
-"result": null
+"result": 0.12948627726952844,
+"next_day": "2026-11-24"
 },
 {
 "base_day": "2026-11-20",
@@ -589,7 +590,8 @@
 "category": "A",
 "label": "株式分割",
 "price": 2842.0,
-"result": null
+"result": 0.12948627726952844,
+"next_day": "2026-11-24"
 },
 {
 "base_day": "2026-11-20",
@@ -599,7 +601,8 @@
 "category": "A",
 "label": "自社株買い",
 "price": 1582.0,
-"result": null
+"result": -0.007585335018963302,
+"next_day": "2026-11-24"
 },
 {
 "base_day": "2026-11-20",
@@ -609,6 +612,7 @@
 "category": "AI",
 "label": "",
 "price": 1479.0,
-"result": null
+"result": 0.16294793779580807,
+"next_day": "2026-11-24"
 }
 ]

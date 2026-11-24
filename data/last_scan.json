@@ -1,187 +1,147 @@
 {
-"generated_at": "2026-11-24T14:53:59.121578+09:00",
-"base_day": "2026-11-20",
-"deadline": "2026-11-24T07:59:00+09:00",
-"price_source": "名証 日報",
+"generated_at": "2026-11-24T16:11:07.571234+09:00",
+"base_day": "2026-11-24",
+"deadline": "2026-11-25T07:59:00+09:00",
+"price_source": "名証 相場表（速報）",
 "cards": [
 {
-"code": "4124",
-"name": "大阪油化工業",
-"single": false,
-"division": "メイン",
+"code": "3808",
+"name": "オーケーウェブ",
+"single": true,
+"division": "ネクスト",
 "unit": 100,
-"category": "A",
-"score": 73,
+"category": "INFO",
+"score": 3,
 "items": [
 {
 "time": "16:00",
-"date": "11/20",
-"title": "株式分割及び株式分割に伴う定款の一部変更並びに配当予想の修正に関するお知らせ",
-"pdf": "https://www.release.tdnet.info/inbs/140120261119583151.pdf",
-"tags": [
-{
-"cat": "CHECK",
-"label": "配当予想の修正",
-"score": 60,
-"reason": "増配か減配かタイトルでは不明。PDFで確認"
-},
-{
-"cat": "A",
-"label": "株式分割",
-"score": 63,
-"reason": "株式分割（投資しやすくなり買われやすい）"
-}
-]
-},
-{
-"time": "16:00",
-"date": "11/20",
-"title": "株主優待制度の変更に関するお知らせ",
-"pdf": "https://www.release.tdnet.info/inbs/140120261119583138.pdf",
-"tags": [
-{
-"cat": "CHECK",
-"label": "優待の変更",
-"score": 44,
-"reason": "株主優待の変更。拡充か縮小かPDFで確認"
-}
-]
-},
-{
-"time": "16:00",
-"date": "11/20",
-"title": "取締役候補者（監査等委員である取締役を除く。）の選任及び役員の異動に関するお知らせ",
-"pdf": "https://www.release.tdnet.info/inbs/140120261119583142.pdf",
+"date": "11/24",
+"title": "（開示事項の経過）人員削減等の合理化の実施結果及び特別損失の計上に関するお知らせ",
+"pdf": "https://www.release.tdnet.info/inbs/140120261120583986.pdf",
 "tags": [
 {
 "cat": "INFO",
-"label": "その他",
-"score": 0,
-"reason": ""
-}
-]
-},
-{
-"time": "16:00",
-"date": "11/20",
-"title": "支配株主等に関する事項について",
-"pdf": "https://www.release.tdnet.info/inbs/140120261119583144.pdf",
-"tags": [
-{
-"cat": "INFO",
-"label": "その他",
-"score": 0,
-"reason": ""
+"label": "訂正・変更: 特別損失",
+"score": 3,
+"reason": "以前の開示の訂正・変更"
 }
 ]
 }
 ],
-"price": 2842.0,
-"price_note": "名証の最終気配",
-"nse_close": null,
-"nse_quote": 2842.0,
-"shares": 1000,
-"cost": 2842000.0,
+"price": 16.0,
+"price_note": "名証の終値",
+"nse_close": 16.0,
+"nse_quote": null,
+"shares": 187500,
+"cost": 3000000.0,
 "tob_price": null,
 "tob_gap_pct": null,
-"quote_only": true
+"quote_only": false
 },
 {
-"code": "3321",
-"name": "ミタチ産業",
+"code": "2983",
+"name": "アールプランナー",
 "single": false,
-"division": "プレミア",
+"division": "メイン",
 "unit": 100,
-"category": "CHECK",
-"score": 60,
+"category": "INFO",
+"score": 0,
 "items": [
 {
 "time": "15:30",
-"date": "11/20",
-"title": "業績予想及び配当予想の修正に関するお知らせ",
-"pdf": "https://www.release.tdnet.info/inbs/140120261120584103.pdf",
+"date": "11/24",
+"title": "当座貸越契約の増額に関するお知らせ",
+"pdf": "https://www.release.tdnet.info/inbs/140120261124584793.pdf",
 "tags": [
 {
-"cat": "CHECK",
-"label": "配当予想の修正",
-"score": 60,
-"reason": "増配か減配かタイトルでは不明。PDFで確認"
+"cat": "INFO",
+"label": "その他",
+"score": 0,
+"reason": ""
 }
 ]
 }
 ],
-"price": 1479.0,
+"price": 1332.0,
 "price_note": "名証の最終気配",
 "nse_close": null,
-"nse_quote": 1479.0,
-"shares": 2000,
-"cost": 2958000.0,
+"nse_quote": 1332.0,
+"shares": 2200,
+"cost": 2930400.0,
 "tob_price": null,
 "tob_gap_pct": null,
 "quote_only": true
 },
 {
-"code": "9249",
-"name": "日本エコシステム",
+"code": "5461",
+"name": "中部鋼鈑",
+"single": false,
+"division": "プレミア",
+"unit": 100,
+"category": "INFO",
+"score": 0,
+"items": [
+{
+"time": "15:30",
+"date": "11/24",
+"title": "製造所における事故に関するお知らせ",
+"pdf": "https://www.release.tdnet.info/inbs/140120261124585243.pdf",
+"tags": [
+{
+"cat": "INFO",
+"label": "その他",
+"score": 0,
+"reason": ""
+}
+]
+}
+],
+"price": 2201.0,
+"price_note": "名証の最終気配",
+"nse_close": null,
+"nse_quote": 2201.0,
+"shares": 1300,
+"cost": 2861300.0,
+"tob_price": null,
+"tob_gap_pct": null,
+"quote_only": true
+},
+{
+"code": "6797",
+"name": "名古屋電機工業",
 "single": false,
 "division": "メイン",
 "unit": 100,
-"category": "A",
-"score": 48,
+"category": "INFO",
+"score": 0,
 "items": [
 {
-"time": "17:30",
-"date": "11/20",
-"title": "役員候補者に関するお知らせ",
-"pdf": "https://www.release.tdnet.info/inbs/140120261119583707.pdf",
+"time": "16:00",
+"date": "11/24",
+"title": "2027年3月期 中間期 決算説明資料",
+"pdf": "https://www.release.tdnet.info/inbs/140120261124584998.pdf",
 "tags": [
 {
 "cat": "INFO",
 "label": "その他",
 "score": 0,
 "reason": ""
-}
-]
-},
-{
-"time": "17:30",
-"date": "11/20",
-"title": "公認会計士等の異動に関するお知らせ",
-"pdf": "https://www.release.tdnet.info/inbs/140120261119583715.pdf",
-"tags": [
-{
-"cat": "INFO",
-"label": "その他",
-"score": 0,
-"reason": ""
-}
-]
-},
-{
-"time": "17:30",
-"date": "11/20",
-"title": "特定の株主からの自己株式取得に関するお知らせ",
-"pdf": "https://www.release.tdnet.info/inbs/140120261119583716.pdf",
-"tags": [
-{
-"cat": "A",
-"label": "自社株買い",
-"score": 48,
-"reason": "自己株式取得の決定（規模＝発行済株式に対する%はPDFで確認）"
 }
 ]
 }
 ],
-"price": 1582.0,
+"price": 1085.0,
 "price_note": "名証の最終気配",
 "nse_close": null,
-"nse_quote": 1582.0,
-"shares": 1800,
-"cost": 2847600.0,
+"nse_quote": 1085.0,
+"shares": 2700,
+"cost": 2929500.0,
 "tob_price": null,
 "tob_gap_pct": null,
 "quote_only": true
-},
+}
+],
+"before_close": [
 {
 "code": "8891",
 "name": "ＡＭＧホールディングス",
@@ -206,12 +166,12 @@
 ]
 }
 ],
-"price": 1915.0,
+"price": 1911.0,
 "price_note": "名証の最終気配",
 "nse_close": null,
-"nse_quote": 1915.0,
+"nse_quote": 1911.0,
 "shares": 1500,
-"cost": 2872500.0,
+"cost": 2866500.0,
 "tob_price": null,
 "tob_gap_pct": null,
 "quote_only": true
@@ -240,12 +200,12 @@
 ]
 }
 ],
-"price": 1618.0,
+"price": 1672.0,
 "price_note": "名証の最終気配",
 "nse_close": null,
-"nse_quote": 1618.0,
-"shares": 1800,
-"cost": 2912400.0,
+"nse_quote": 1672.0,
+"shares": 1700,
+"cost": 2842400.0,
 "tob_price": null,
 "tob_gap_pct": null,
 "quote_only": true
@@ -274,334 +234,12 @@
 ]
 }
 ],
-"price": 829.0,
-"price_note": "名証の最終気配",
-"nse_close": null,
-"nse_quote": 829.0,
-"shares": 3600,
-"cost": 2984400.0,
-"tob_price": null,
-"tob_gap_pct": null,
-"quote_only": true
-},
-{
-"code": "259A",
-"name": "ケイ・ウノ",
-"single": true,
-"division": "ネクスト",
-"unit": 100,
-"category": "INFO",
-"score": 0,
-"items": [
-{
-"time": "15:30",
-"date": "11/20",
-"title": "2026年9月期　決算説明資料(スクリプト付き)",
-"pdf": "https://www.release.tdnet.info/inbs/140120261120584291.pdf",
-"tags": [
-{
-"cat": "INFO",
-"label": "その他",
-"score": 0,
-"reason": ""
-}
-]
-}
-],
-"price": 1453.0,
-"price_note": "名証の終値",
-"nse_close": 1453.0,
-"nse_quote": null,
-"shares": 2000,
-"cost": 2906000.0,
-"tob_price": null,
-"tob_gap_pct": null,
-"quote_only": false
-},
-{
-"code": "3441",
-"name": "山王",
-"single": false,
-"division": "メイン",
-"unit": 100,
-"category": "INFO",
-"score": 0,
-"items": [
-{
-"time": "15:30",
-"date": "11/20",
-"title": "譲渡制限付株式報酬としての自己株式の処分の払込完了に関するお知らせ",
-"pdf": "https://www.release.tdnet.info/inbs/140120261119583654.pdf",
-"tags": [
-{
-"cat": "INFO",
-"label": "その他",
-"score": 0,
-"reason": ""
-}
-]
-}
-],
-"price": 1337.0,
-"price_note": "名証の最終気配",
-"nse_close": null,
-"nse_quote": 1337.0,
-"shares": 2200,
-"cost": 2941400.0,
-"tob_price": null,
-"tob_gap_pct": null,
-"quote_only": true
-},
-{
-"code": "9330",
-"name": "揚羽",
-"single": false,
-"division": "ネクスト",
-"unit": 100,
-"category": "INFO",
-"score": 0,
-"items": [
-{
-"time": "15:30",
-"date": "11/20",
-"title": "定款の一部変更に関するお知らせ",
-"pdf": "https://www.release.tdnet.info/inbs/140120261120583946.pdf",
-"tags": [
-{
-"cat": "INFO",
-"label": "その他",
-"score": 0,
-"reason": ""
-}
-]
-},
-{
-"time": "15:30",
-"date": "11/20",
-"title": "社長交代及び役員人事に関するお知らせ",
-"pdf": "https://www.release.tdnet.info/inbs/140120261120583896.pdf",
-"tags": [
-{
-"cat": "INFO",
-"label": "その他",
-"score": 0,
-"reason": ""
-}
-]
-}
-],
 "price": 853.0,
 "price_note": "名証の最終気配",
 "nse_close": null,
 "nse_quote": 853.0,
 "shares": 3500,
 "cost": 2985500.0,
-"tob_price": null,
-"tob_gap_pct": null,
-"quote_only": true
-},
-{
-"code": "5333",
-"name": "ＮＧＫ",
-"single": false,
-"division": "プレミア",
-"unit": 100,
-"category": "INFO",
-"score": 0,
-"items": [
-{
-"time": "15:40",
-"date": "11/20",
-"title": "従業員持株会向け譲渡制限付株式インセンティブとしての自己株式の処分に関するお知らせ",
-"pdf": "https://www.release.tdnet.info/inbs/140120261119583753.pdf",
-"tags": [
-{
-"cat": "INFO",
-"label": "その他",
-"score": 0,
-"reason": ""
-}
-]
-}
-],
-"price": 4170.0,
-"price_note": "名証の最終気配",
-"nse_close": null,
-"nse_quote": 4170.0,
-"shares": 700,
-"cost": 2919000.0,
-"tob_price": null,
-"tob_gap_pct": null,
-"quote_only": true
-},
-{
-"code": "4196",
-"name": "ネオマーケティング",
-"single": false,
-"division": "メイン",
-"unit": 100,
-"category": "INFO",
-"score": 0,
-"items": [
-{
-"time": "16:00",
-"date": "11/20",
-"title": "本店移転および定款一部変更に関するお知らせ",
-"pdf": "https://www.release.tdnet.info/inbs/140120261120583804.pdf",
-"tags": [
-{
-"cat": "INFO",
-"label": "その他",
-"score": 0,
-"reason": ""
-}
-]
-}
-],
-"price": 1303.0,
-"price_note": "名証の最終気配",
-"nse_close": null,
-"nse_quote": 1303.0,
-"shares": 2300,
-"cost": 2996900.0,
-"tob_price": null,
-"tob_gap_pct": null,
-"quote_only": true
-}
-],
-"before_close": [
-{
-"code": "2734",
-"name": "サーラコーポレーション",
-"single": false,
-"division": "プレミア",
-"unit": 100,
-"category": "INFO",
-"score": 5,
-"items": [
-{
-"time": "15:00",
-"date": "11/20",
-"title": "自己株式の取得状況及び取得終了に関するお知らせ",
-"pdf": "https://www.release.tdnet.info/inbs/140120261120584221.pdf",
-"tags": [
-{
-"cat": "INFO",
-"label": "自社株買いの経過",
-"score": 5,
-"reason": "自社株買いの途中経過・結果"
-}
-]
-}
-],
-"price": 1094.0,
-"price_note": "名証の最終気配",
-"nse_close": null,
-"nse_quote": 1094.0,
-"shares": 2700,
-"cost": 2953800.0,
-"tob_price": null,
-"tob_gap_pct": null,
-"quote_only": true
-},
-{
-"code": "7870",
-"name": "福島印刷",
-"single": true,
-"division": "メイン",
-"unit": 100,
-"category": "INFO",
-"score": 0,
-"items": [
-{
-"time": "10:30",
-"date": "11/20",
-"title": "従業員持株会に対する譲渡制限付株式としての 自己株式処分の払込完了及び一部失権に関するお知らせ",
-"pdf": "https://www.release.tdnet.info/inbs/140120261120583848.pdf",
-"tags": [
-{
-"cat": "INFO",
-"label": "その他",
-"score": 0,
-"reason": ""
-}
-]
-}
-],
-"price": 369.0,
-"price_note": "名証の終値",
-"nse_close": 369.0,
-"nse_quote": null,
-"shares": 8100,
-"cost": 2988900.0,
-"tob_price": null,
-"tob_gap_pct": null,
-"quote_only": false
-},
-{
-"code": "2780",
-"name": "コメ兵ホールディングス",
-"single": false,
-"division": "メイン",
-"unit": 100,
-"category": "INFO",
-"score": 0,
-"items": [
-{
-"time": "11:00",
-"date": "11/20",
-"title": "ブランド・ファッション事業の2027年３月期10月度月次に関するお知らせ",
-"pdf": "https://www.release.tdnet.info/inbs/140120261120583885.pdf",
-"tags": [
-{
-"cat": "INFO",
-"label": "その他",
-"score": 0,
-"reason": ""
-}
-]
-}
-],
-"price": 3105.0,
-"price_note": "名証の最終気配",
-"nse_close": null,
-"nse_quote": 3105.0,
-"shares": 900,
-"cost": 2794500.0,
-"tob_price": null,
-"tob_gap_pct": null,
-"quote_only": true
-},
-{
-"code": "3461",
-"name": "パルマ",
-"single": false,
-"division": "メイン",
-"unit": 100,
-"category": "INFO",
-"score": 0,
-"items": [
-{
-"time": "14:00",
-"date": "11/20",
-"title": "事業KPI　2027年9月期　10月度月次情報",
-"pdf": "https://www.release.tdnet.info/inbs/140120261120584102.pdf",
-"tags": [
-{
-"cat": "INFO",
-"label": "その他",
-"score": 0,
-"reason": ""
-}
-]
-}
-],
-"price": 531.0,
-"price_note": "名証の最終気配",
-"nse_close": null,
-"nse_quote": 531.0,
-"shares": 5600,
-"cost": 2973600.0,
 "tob_price": null,
 "tob_gap_pct": null,
 "quote_only": true
