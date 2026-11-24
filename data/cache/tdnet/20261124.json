@@ -1,9 +1,27 @@
 {
 "date": "2026-11-24",
-"fetched_at": "2026-11-24T16:11:08.365416+09:00",
+"fetched_at": "2026-11-24T17:11:03.662681+09:00",
 "complete": false,
-"total_all_markets": 144,
+"total_all_markets": 178,
 "items": [
+{
+"Tdnet": {
+"id": "1297744",
+"pubdate": "2026-11-24 17:00:00",
+"company_code": "70590",
+"company_name": "コプロＨＤ",
+"title": "2027年3月期第2四半期 アナリスト・個人投資家合同決算説明会 質疑応答要旨",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261124585322.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": null,
+"markets_string": "東名",
+"update_history": null
+}
+},
 {
 "Tdnet": {
 "id": "1297708",

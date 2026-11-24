@@ -1,8 +1,8 @@
 {
-"generated_at": "2026-11-24T16:11:07.571234+09:00",
+"generated_at": "2026-11-24T17:11:02.976378+09:00",
 "base_day": "2026-11-24",
 "deadline": "2026-11-25T07:59:00+09:00",
-"price_source": "名証 相場表（速報）",
+"price_source": "名証 日報",
 "cards": [
 {
 "code": "3808",
@@ -136,6 +136,40 @@
 "nse_quote": 1085.0,
 "shares": 2700,
 "cost": 2929500.0,
+"tob_price": null,
+"tob_gap_pct": null,
+"quote_only": true
+},
+{
+"code": "7059",
+"name": "コプロ・ホールディングス",
+"single": false,
+"division": "プレミア",
+"unit": 100,
+"category": "INFO",
+"score": 0,
+"items": [
+{
+"time": "17:00",
+"date": "11/24",
+"title": "2027年3月期第2四半期 アナリスト・個人投資家合同決算説明会 質疑応答要旨",
+"pdf": "https://www.release.tdnet.info/inbs/140120261124585322.pdf",
+"tags": [
+{
+"cat": "INFO",
+"label": "その他",
+"score": 0,
+"reason": ""
+}
+]
+}
+],
+"price": 868.0,
+"price_note": "名証の最終気配",
+"nse_close": null,
+"nse_quote": 868.0,
+"shares": 3400,
+"cost": 2951200.0,
 "tob_price": null,
 "tob_gap_pct": null,
 "quote_only": true
