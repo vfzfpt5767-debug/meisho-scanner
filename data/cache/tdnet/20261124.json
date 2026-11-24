@@ -1,16 +1,35 @@
 {
 "date": "2026-11-24",
-"fetched_at": "2026-11-24T14:22:43.853219+09:00",
+"fetched_at": "2026-11-24T14:54:00.151017+09:00",
 "complete": false,
-"total_all_markets": 70,
+"total_all_markets": 72,
 "items": [
 {
+"Tdnet": {
+"id": "1297646",
+"pubdate": "2026-11-24 14:30:00",
+"company_code": "64700",
+"company_name": "大豊工業",
+"title": "主要株主の異動に関するお知らせ",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261124585029.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": null,
+"markets_string": "東名",
+"update_history": null
+}
+},
+{
+"Tdnet": {
 "id": "1297643",
 "pubdate": "2026-11-24 14:00:00",
 "company_code": "62030",
 "company_name": "豊和工",
 "title": "2027年3月期 第2四半期（中間期）　決算説明会資料",
-"document_url": "https://www.release.tdnet.info/inbs/140120261124584847.pdf",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261124584847.pdf",
 "url_report_type_summary": null,
 "url_report_type_fs_consolidated": null,
 "url_report_type_fs_non_consolidated": null,
@@ -19,14 +38,16 @@
 "url_xbrl": null,
 "markets_string": "東名",
 "update_history": null
+}
 },
 {
+"Tdnet": {
 "id": "1297581",
 "pubdate": "2026-11-24 09:00:00",
 "company_code": "88910",
 "company_name": "ＡＭＧＨＤ",
 "title": "2027年３月期　第２四半期決算説明資料",
-"document_url": "https://www.release.tdnet.info/inbs/140120261124584560.pdf",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261124584560.pdf",
 "url_report_type_summary": null,
 "url_report_type_fs_consolidated": null,
 "url_report_type_fs_non_consolidated": null,
@@ -35,6 +56,7 @@
 "url_xbrl": null,
 "markets_string": "東名",
 "update_history": null
+}
 }
 ]
 }
