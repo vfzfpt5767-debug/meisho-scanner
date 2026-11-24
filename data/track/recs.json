@@ -614,5 +614,15 @@
 "price": 1479.0,
 "result": 0.16294793779580807,
 "next_day": "2026-11-24"
+},
+{
+"base_day": "2026-11-24",
+"source": "ai",
+"code": "4062",
+"name": "イビデン",
+"category": "AI",
+"label": "",
+"price": 5372.0,
+"result": null
 }
 ]
