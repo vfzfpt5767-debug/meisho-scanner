@@ -1,9 +1,27 @@
 {
 "date": "2026-11-24",
-"fetched_at": "2026-11-24T17:11:03.662681+09:00",
+"fetched_at": "2026-11-24T18:41:06.027468+09:00",
 "complete": false,
-"total_all_markets": 178,
+"total_all_markets": 206,
 "items": [
+{
+"Tdnet": {
+"id": "1297777",
+"pubdate": "2026-11-24 18:00:00",
+"company_code": "65720",
+"company_name": "オープンＧ",
+"title": "主要株主の異動（予定）およびオープングループ株式会社（証券コード：6572）に対する公開買付けに準ずる行為として政令で定める買集め行為に関するお知らせ",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261124585392.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": null,
+"markets_string": "東",
+"update_history": null
+}
+},
 {
 "Tdnet": {
 "id": "1297744",
