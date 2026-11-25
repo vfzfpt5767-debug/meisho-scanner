@@ -1,16 +1,17 @@
 {
 "date": "2026-11-25",
-"fetched_at": "2026-11-25T10:26:57.606086+09:00",
+"fetched_at": "2026-11-25T13:20:52.866066+09:00",
 "complete": false,
-"total_all_markets": 20,
+"total_all_markets": 45,
 "items": [
 {
-"id": "1297804",
-"pubdate": "2026-11-25 10:00:00",
-"company_code": "72130",
-"company_name": "レシップＨＤ",
-"title": "2027年3月期 第2四半期決算説明資料",
-"document_url": "https://www.release.tdnet.info/inbs/140120261124584623.pdf",
+"Tdnet": {
+"id": "1297825",
+"pubdate": "2026-11-25 13:00:00",
+"company_code": "21850",
+"company_name": "シイエム・シイ",
+"title": "特定の株主からの自己株式取得に関するお知らせ",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261119583567.pdf",
 "url_report_type_summary": null,
 "url_report_type_fs_consolidated": null,
 "url_report_type_fs_non_consolidated": null,
@@ -19,6 +20,43 @@
 "url_xbrl": null,
 "markets_string": "東名",
 "update_history": null
+}
+},
+{
+"Tdnet": {
+"id": "1297806",
+"pubdate": "2026-11-25 10:50:00",
+"company_code": "81300",
+"company_name": "サンゲツ",
+"title": "2027年３月期 第２四半期（中間期）決算・経営戦略説明資料",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261124584767.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": null,
+"markets_string": "東名",
+"update_history": null
+}
+},
+{
+"Tdnet": {
+"id": "1297804",
+"pubdate": "2026-11-25 10:00:00",
+"company_code": "72130",
+"company_name": "レシップＨＤ",
+"title": "2027年3月期 第2四半期決算説明資料",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261124584623.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": null,
+"markets_string": "東名",
+"update_history": null
+}
 }
 ]
 }
