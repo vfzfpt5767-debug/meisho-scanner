@@ -623,7 +623,8 @@
 "category": "AI",
 "label": "",
 "price": 5372.0,
-"result": null
+"result": -0.16008935219657483,
+"next_day": "2026-11-25"
 },
 {
 "base_day": "2026-11-24",
@@ -633,7 +634,8 @@
 "category": "A",
 "label": "自社株買い",
 "price": 1719.0,
-"result": null
+"result": 0.021524141942990127,
+"next_day": "2026-11-25"
 },
 {
 "base_day": "2026-11-24",
@@ -643,6 +645,7 @@
 "category": "A",
 "label": "自社株買い",
 "price": 1719.0,
-"result": null
+"result": 0.021524141942990127,
+"next_day": "2026-11-25"
 }
 ]

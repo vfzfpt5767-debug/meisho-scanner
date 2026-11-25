@@ -1,9 +1,45 @@
 {
 "date": "2026-11-25",
-"fetched_at": "2026-11-25T13:51:37.489943+09:00",
+"fetched_at": "2026-11-25T16:11:05.932790+09:00",
 "complete": false,
-"total_all_markets": 45,
+"total_all_markets": 136,
 "items": [
+{
+"Tdnet": {
+"id": "1297890",
+"pubdate": "2026-11-25 15:30:00",
+"company_code": "64730",
+"company_name": "ジェイテクト",
+"title": "自己株式の取得及び自己株式の公開買付け並びに自己株式の消却に関するお知らせ",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261124585457.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": null,
+"markets_string": "東名",
+"update_history": null
+}
+},
+{
+"Tdnet": {
+"id": "1297900",
+"pubdate": "2026-11-25 15:30:00",
+"company_code": "75140",
+"company_name": "ヒマラヤ",
+"title": "譲渡制限付株式報酬としての自己株式の処分に関するお知らせ",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261125586066.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": null,
+"markets_string": "東名",
+"update_history": null
+}
+},
 {
 "Tdnet": {
 "id": "1297825",
