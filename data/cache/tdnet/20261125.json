@@ -1,17 +1,16 @@
 {
 "date": "2026-11-25",
-"fetched_at": "2026-11-25T17:11:04.477797+09:00",
+"fetched_at": "2026-11-25T18:41:12.792279+09:00",
 "complete": false,
-"total_all_markets": 189,
+"total_all_markets": 204,
 "items": [
 {
-"Tdnet": {
 "id": "1297964",
 "pubdate": "2026-11-25 16:20:00",
 "company_code": "53840",
 "company_name": "ＦＵＪＩＭＩ",
 "title": "シンジケートローン契約締結に関するお知らせ",
-"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261124585114.pdf",
+"document_url": "https://www.release.tdnet.info/inbs/140120261124585114.pdf",
 "url_report_type_summary": null,
 "url_report_type_fs_consolidated": null,
 "url_report_type_fs_non_consolidated": null,
@@ -20,16 +19,14 @@
 "url_xbrl": null,
 "markets_string": "東名",
 "update_history": null
-}
 },
 {
-"Tdnet": {
 "id": "1297942",
 "pubdate": "2026-11-25 16:00:00",
 "company_code": "60250",
 "company_name": "日本ＰＣサービス",
 "title": "中期経営計画 2027～2029「収益力を高め、次のステージへ」",
-"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261125585910.pdf",
+"document_url": "https://www.release.tdnet.info/inbs/140120261125585910.pdf",
 "url_report_type_summary": null,
 "url_report_type_fs_consolidated": null,
 "url_report_type_fs_non_consolidated": null,
@@ -38,16 +35,14 @@
 "url_xbrl": null,
 "markets_string": "名",
 "update_history": null
-}
 },
 {
-"Tdnet": {
 "id": "1297890",
 "pubdate": "2026-11-25 15:30:00",
 "company_code": "64730",
 "company_name": "ジェイテクト",
 "title": "自己株式の取得及び自己株式の公開買付け並びに自己株式の消却に関するお知らせ",
-"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261124585457.pdf",
+"document_url": "https://www.release.tdnet.info/inbs/140120261124585457.pdf",
 "url_report_type_summary": null,
 "url_report_type_fs_consolidated": null,
 "url_report_type_fs_non_consolidated": null,
@@ -56,16 +51,14 @@
 "url_xbrl": null,
 "markets_string": "東名",
 "update_history": null
-}
 },
 {
-"Tdnet": {
 "id": "1297900",
 "pubdate": "2026-11-25 15:30:00",
 "company_code": "75140",
 "company_name": "ヒマラヤ",
 "title": "譲渡制限付株式報酬としての自己株式の処分に関するお知らせ",
-"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261125586066.pdf",
+"document_url": "https://www.release.tdnet.info/inbs/140120261125586066.pdf",
 "url_report_type_summary": null,
 "url_report_type_fs_consolidated": null,
 "url_report_type_fs_non_consolidated": null,
@@ -74,16 +67,14 @@
 "url_xbrl": null,
 "markets_string": "東名",
 "update_history": null
-}
 },
 {
-"Tdnet": {
 "id": "1297825",
 "pubdate": "2026-11-25 13:00:00",
 "company_code": "21850",
 "company_name": "シイエム・シイ",
 "title": "特定の株主からの自己株式取得に関するお知らせ",
-"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261119583567.pdf",
+"document_url": "https://www.release.tdnet.info/inbs/140120261119583567.pdf",
 "url_report_type_summary": null,
 "url_report_type_fs_consolidated": null,
 "url_report_type_fs_non_consolidated": null,
@@ -92,16 +83,14 @@
 "url_xbrl": null,
 "markets_string": "東名",
 "update_history": null
-}
 },
 {
-"Tdnet": {
 "id": "1297806",
 "pubdate": "2026-11-25 10:50:00",
 "company_code": "81300",
 "company_name": "サンゲツ",
 "title": "2027年３月期 第２四半期（中間期）決算・経営戦略説明資料",
-"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261124584767.pdf",
+"document_url": "https://www.release.tdnet.info/inbs/140120261124584767.pdf",
 "url_report_type_summary": null,
 "url_report_type_fs_consolidated": null,
 "url_report_type_fs_non_consolidated": null,
@@ -110,16 +99,14 @@
 "url_xbrl": null,
 "markets_string": "東名",
 "update_history": null
-}
 },
 {
-"Tdnet": {
 "id": "1297804",
 "pubdate": "2026-11-25 10:00:00",
 "company_code": "72130",
 "company_name": "レシップＨＤ",
 "title": "2027年3月期 第2四半期決算説明資料",
-"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261124584623.pdf",
+"document_url": "https://www.release.tdnet.info/inbs/140120261124584623.pdf",
 "url_report_type_summary": null,
 "url_report_type_fs_consolidated": null,
 "url_report_type_fs_non_consolidated": null,
@@ -128,7 +115,6 @@
 "url_xbrl": null,
 "markets_string": "東名",
 "update_history": null
-}
 }
 ]
 }
