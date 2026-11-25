@@ -1,8 +1,8 @@
 {
-"generated_at": "2026-11-25T16:11:05.098138+09:00",
+"generated_at": "2026-11-25T17:11:03.527686+09:00",
 "base_day": "2026-11-25",
 "deadline": "2026-11-26T07:59:00+09:00",
-"price_source": "名証 相場表（速報）",
+"price_source": "名証 日報",
 "cards": [
 {
 "code": "6473",
@@ -68,6 +68,74 @@
 "nse_quote": 855.0,
 "shares": 3500,
 "cost": 2992500.0,
+"tob_price": null,
+"tob_gap_pct": null,
+"quote_only": true
+},
+{
+"code": "6025",
+"name": "日本ＰＣサービス",
+"single": true,
+"division": "ネクスト",
+"unit": 100,
+"category": "INFO",
+"score": 0,
+"items": [
+{
+"time": "16:00",
+"date": "11/25",
+"title": "中期経営計画 2027～2029「収益力を高め、次のステージへ」",
+"pdf": "https://www.release.tdnet.info/inbs/140120261125585910.pdf",
+"tags": [
+{
+"cat": "INFO",
+"label": "その他",
+"score": 0,
+"reason": ""
+}
+]
+}
+],
+"price": 681.0,
+"price_note": "名証の終値",
+"nse_close": 681.0,
+"nse_quote": null,
+"shares": 4400,
+"cost": 2996400.0,
+"tob_price": null,
+"tob_gap_pct": null,
+"quote_only": false
+},
+{
+"code": "5384",
+"name": "フジミインコーポレーテッド",
+"single": false,
+"division": "プレミア",
+"unit": 100,
+"category": "INFO",
+"score": 0,
+"items": [
+{
+"time": "16:20",
+"date": "11/25",
+"title": "シンジケートローン契約締結に関するお知らせ",
+"pdf": "https://www.release.tdnet.info/inbs/140120261124585114.pdf",
+"tags": [
+{
+"cat": "INFO",
+"label": "その他",
+"score": 0,
+"reason": ""
+}
+]
+}
+],
+"price": 2582.0,
+"price_note": "名証の最終気配",
+"nse_close": null,
+"nse_quote": 2582.0,
+"shares": 1100,
+"cost": 2840200.0,
 "tob_price": null,
 "tob_gap_pct": null,
 "quote_only": true

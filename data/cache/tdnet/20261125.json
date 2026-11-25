@@ -1,9 +1,45 @@
 {
 "date": "2026-11-25",
-"fetched_at": "2026-11-25T16:11:05.932790+09:00",
+"fetched_at": "2026-11-25T17:11:04.477797+09:00",
 "complete": false,
-"total_all_markets": 136,
+"total_all_markets": 189,
 "items": [
+{
+"Tdnet": {
+"id": "1297964",
+"pubdate": "2026-11-25 16:20:00",
+"company_code": "53840",
+"company_name": "ＦＵＪＩＭＩ",
+"title": "シンジケートローン契約締結に関するお知らせ",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261124585114.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": null,
+"markets_string": "東名",
+"update_history": null
+}
+},
+{
+"Tdnet": {
+"id": "1297942",
+"pubdate": "2026-11-25 16:00:00",
+"company_code": "60250",
+"company_name": "日本ＰＣサービス",
+"title": "中期経営計画 2027～2029「収益力を高め、次のステージへ」",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261125585910.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": null,
+"markets_string": "名",
+"update_history": null
+}
+},
 {
 "Tdnet": {
 "id": "1297890",
