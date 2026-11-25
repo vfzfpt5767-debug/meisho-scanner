@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-25T20:56:10.791675+09:00",
+ "generated_at": "2026-11-25T21:17:34.011743+09:00",
  "base_day": "2026-11-25",
  "deadline": "2026-11-26T07:59:00+09:00",
  "price_source": "名証 日報",
@@ -29,33 +29,13 @@
  ],
  "errors": [],
  "portfolio": {
-  "cash": 1785000.0,
+  "cash": 5259000.0,
   "total": 5259000.0,
   "profit": 2259000.0,
   "term_left": 3000000,
   "term_open": true,
   "single_bought": true,
-  "holdings": [
-   {
-    "code": "3321",
-    "name": "ミタチ産業",
-    "shares": 2000,
-    "buy_price": 1479.0,
-    "buy_date": "2026-11-20",
-    "price": 1737.0,
-    "pnl_pct": 17.44,
-    "single": false,
-    "quote_only": true,
-    "unit": 100,
-    "warnings": [
-     "売り時（上方修正で買ってから2営業日・ストップ高ではない）"
-    ],
-    "notices": [],
-    "cautions": [],
-    "sell_rule": "売り時：買ってから2営業日たった（ストップ高ではない）。今夜売る。検証：上方修正でストップ高にならなかった銘柄は1営業日後の終値で売るのが一番よい（平均+2.7%・中央値+1.8%・n=245）",
-    "material": "上方修正"
-   }
-  ]
+  "holdings": []
  },
  "new_listings": [
   {
