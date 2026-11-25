@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-25T08:15:04.240201+09:00",
+ "generated_at": "2026-11-25T10:26:56.778467+09:00",
  "base_day": "2026-11-24",
  "deadline": "2026-11-25T07:59:00+09:00",
  "price_source": "名証 日報",
@@ -14,7 +14,7 @@
   "every_night": "毎晩300万円の枠いっぱいに必ず買う（現金のまま寝ない）。見送りは、どの候補にも悪材料が見つかったときだけ"
  },
  "candidates": [],
- "other_after_close_count": 5,
+ "other_after_close_count": 6,
  "earnings_only": [],
  "stop_limits": [
   {
@@ -54,7 +54,7 @@
  ],
  "errors": [],
  "portfolio": {
-  "cash": 2539000.0,
+  "cash": 1785000.0,
   "total": 5225000.0,
   "profit": 2225000.0,
   "term_left": 3000000.0,
@@ -62,21 +62,23 @@
   "single_bought": true,
   "holdings": [
    {
-    "code": "4062",
-    "name": "イビデン",
-    "shares": 500,
-    "buy_price": 5372.0,
-    "buy_date": "2026-11-24",
-    "price": 5372.0,
-    "pnl_pct": 0.0,
+    "code": "3321",
+    "name": "ミタチ産業",
+    "shares": 2000,
+    "buy_price": 1479.0,
+    "buy_date": "2026-11-20",
+    "price": 1720.0,
+    "pnl_pct": 16.29,
     "single": false,
     "quote_only": true,
     "unit": 100,
-    "warnings": [],
+    "warnings": [
+     "売り時（上方修正で買ってから1営業日・ストップ高ではない）"
+    ],
     "notices": [],
     "cautions": [],
-    "sell_rule": "11/25(水)の終値で売る予定（買ってから1営業日後）。検証：好材料・要確認（全体）でストップ高にならなかった銘柄は1営業日後の終値で売るのが一番よい（平均+1.2%・中央値+0.6%・n=9,230）",
-    "material": "好材料・要確認（全体）"
+    "sell_rule": "売り時：買ってから1営業日たった（ストップ高ではない）。今夜売る。検証：上方修正でストップ高にならなかった銘柄は1営業日後の終値で売るのが一番よい（平均+2.7%・中央値+1.8%・n=245）",
+    "material": "上方修正"
    }
   ]
  },
