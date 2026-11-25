@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-26T05:43:42.130167+09:00",
+ "generated_at": "2026-11-26T06:21:14.641722+09:00",
  "base_day": "2026-11-25",
  "deadline": "2026-11-26T07:59:00+09:00",
  "price_source": "名証 日報",
@@ -36,6 +36,144 @@
   "term_open": true,
   "single_bought": true,
   "holdings": []
+ },
+ "morning": {
+  "direction": "日経平均先物は前日の日経平均より+0.6% → 上昇して始まりそう",
+  "futures_gap_pct": 0.567217700531919,
+  "indices": [
+   {
+    "symbol": "^GSPC",
+    "label": "S&P500",
+    "last": 7182.77978515625,
+    "change_pct": -0.2542678815435351,
+    "date": "2026-11-25"
+   },
+   {
+    "symbol": "^IXIC",
+    "label": "ナスダック",
+    "last": 23585.802734375,
+    "change_pct": -0.6224791327410162,
+    "date": "2026-11-25"
+   },
+   {
+    "symbol": "^SOX",
+    "label": "SOX指数（半導体）",
+    "last": 8774.8623046875,
+    "change_pct": -0.6525637737050616,
+    "date": "2026-11-25"
+   },
+   {
+    "symbol": "JPY=X",
+    "label": "ドル円",
+    "last": 159.19500732421875,
+    "change_pct": 0.11697742613965278,
+    "date": "2026-11-25"
+   },
+   {
+    "symbol": "NIY=F",
+    "label": "日経平均先物（CME・円建て）",
+    "last": 57335.0,
+    "change_pct": -0.12194059750892938,
+    "date": "2026-11-25"
+   },
+   {
+    "symbol": "^N225",
+    "label": "日経平均",
+    "last": 58644.62890625,
+    "change_pct": 3.912316783295866,
+    "date": "2026-11-24"
+   }
+  ],
+  "adr_top": [
+   {
+    "adr": "SMTOY",
+    "code": "5802",
+    "name": "住友電気工業",
+    "jp_price": 1233.5,
+    "implied": 1286.8169830412687,
+    "gap_pct": 4.322414514898143,
+    "adr_change_pct": 2.5906773515252945,
+    "traded": true,
+    "single": false
+   },
+   {
+    "adr": "FELTY",
+    "code": "6504",
+    "name": "富士電機",
+    "jp_price": 9926.0,
+    "implied": 10202.796850099063,
+    "gap_pct": 2.788604171862419,
+    "adr_change_pct": -1.4805603392892164,
+    "traded": true,
+    "single": false
+   },
+   {
+    "adr": "NGKSY",
+    "code": "5334",
+    "name": "日本特殊陶業",
+    "jp_price": 3565.0,
+    "implied": 3644.600584068876,
+    "gap_pct": 2.23283545775248,
+    "adr_change_pct": 3.7447986060747063,
+    "traded": true,
+    "single": false
+   },
+   {
+    "adr": "JSGRY",
+    "code": "5938",
+    "name": "ＬＩＸＩＬ",
+    "jp_price": 1710.0,
+    "implied": 1739.4473726516187,
+    "gap_pct": 1.722068576118052,
+    "adr_change_pct": 4.86747098256306,
+    "traded": true,
+    "single": false
+   },
+   {
+    "adr": "FJTSY",
+    "code": "6702",
+    "name": "富士通",
+    "jp_price": 3441.0,
+    "implied": 3484.213700379599,
+    "gap_pct": 1.2558471484916733,
+    "adr_change_pct": 3.612159165698192,
+    "traded": true,
+    "single": false
+   },
+   {
+    "adr": "TM",
+    "code": "7203",
+    "name": "トヨタ自動車",
+    "jp_price": 3406.0,
+    "implied": 3448.04778367305,
+    "gap_pct": 1.2345209534072366,
+    "adr_change_pct": 2.7718207513425686,
+    "traded": true,
+    "single": false
+   },
+   {
+    "adr": "DNZOY",
+    "code": "6902",
+    "name": "デンソー",
+    "jp_price": 1952.0,
+    "implied": 1970.4382255717494,
+    "gap_pct": 0.9445812280609367,
+    "adr_change_pct": 2.163055451795648,
+    "traded": true,
+    "single": false
+   },
+   {
+    "adr": "SMFG",
+    "code": "8316",
+    "name": "三井住友フィナンシャルグループ",
+    "jp_price": 2991.0,
+    "implied": 3010.3316625571747,
+    "gap_pct": 0.6463277351111518,
+    "adr_change_pct": 0.5340491450842144,
+    "traded": true,
+    "single": false
+   }
+  ]
  },
  "new_listings": [
   {
