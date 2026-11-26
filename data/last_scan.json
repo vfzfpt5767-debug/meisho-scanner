@@ -1,8 +1,8 @@
 {
-"generated_at": "2026-11-26T16:11:03.476121+09:00",
+"generated_at": "2026-11-26T17:11:14.779293+09:00",
 "base_day": "2026-11-26",
 "deadline": "2026-11-27T07:59:00+09:00",
-"price_source": "名証 相場表（速報）",
+"price_source": "名証 日報",
 "cards": [
 {
 "code": "2778",
@@ -136,6 +136,74 @@
 "nse_quote": 582.0,
 "shares": 5100,
 "cost": 2968200.0,
+"tob_price": null,
+"tob_gap_pct": null,
+"quote_only": true
+},
+{
+"code": "6025",
+"name": "日本ＰＣサービス",
+"single": true,
+"division": "ネクスト",
+"unit": 100,
+"category": "INFO",
+"score": 0,
+"items": [
+{
+"time": "16:00",
+"date": "11/26",
+"title": "役付取締役の異動に関するお知らせ",
+"pdf": "https://www.release.tdnet.info/inbs/140120261126586971.pdf",
+"tags": [
+{
+"cat": "INFO",
+"label": "その他",
+"score": 0,
+"reason": ""
+}
+]
+}
+],
+"price": 689.0,
+"price_note": "名証の終値",
+"nse_close": 689.0,
+"nse_quote": null,
+"shares": 4300,
+"cost": 2962700.0,
+"tob_price": null,
+"tob_gap_pct": null,
+"quote_only": false
+},
+{
+"code": "4463",
+"name": "日華化学",
+"single": false,
+"division": "プレミア",
+"unit": 100,
+"category": "CHECK",
+"score": 44,
+"items": [
+{
+"time": "16:00",
+"date": "11/26",
+"title": "株主優待制度の変更に関するお知らせ",
+"pdf": "https://www.release.tdnet.info/inbs/140120261126586426.pdf",
+"tags": [
+{
+"cat": "CHECK",
+"label": "優待の変更",
+"score": 44,
+"reason": "株主優待の変更。拡充か縮小かPDFで確認"
+}
+]
+}
+],
+"price": 1781.0,
+"price_note": "名証の最終気配",
+"nse_close": null,
+"nse_quote": 1781.0,
+"shares": 1600,
+"cost": 2849600.0,
 "tob_price": null,
 "tob_gap_pct": null,
 "quote_only": true

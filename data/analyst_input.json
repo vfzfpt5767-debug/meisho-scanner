@@ -1,8 +1,8 @@
 {
- "generated_at": "2026-11-26T16:11:03.476121+09:00",
+ "generated_at": "2026-11-26T17:11:14.779293+09:00",
  "base_day": "2026-11-26",
  "deadline": "2026-11-27T07:59:00+09:00",
- "price_source": "名証 相場表（速報）",
+ "price_source": "名証 日報",
  "rules": {
   "prefer": "上がった割合より「大きく上がる可能性」を優先する：ストップ高張り付き＞TOB＞決算サプライズ・上方修正の小〜中型株＞そのほかの好材料",
   "unverified": "中身を確かめられなくても、タイトルと検証が強い好材料なら自信度「中」で買ってよい。悪材料が混ざる・PTSで売られているものは買わない",
@@ -13,8 +13,80 @@
   "search": "Web検索は1銘柄2〜3回まで。調査は短く",
   "every_night": "毎晩300万円の枠いっぱいに必ず買う（現金のまま寝ない）。見送りは、どの候補にも悪材料が見つかったときだけ"
  },
- "candidates": [],
- "other_after_close_count": 4,
+ "candidates": [
+  {
+   "code": "4463",
+   "name": "日華化学",
+   "category": "CHECK",
+   "score": 44,
+   "single": false,
+   "price": 1781.0,
+   "price_note": "名証の最終気配",
+   "quote_only": true,
+   "unit": 100,
+   "shares_for_budget": 1600,
+   "tob_price": null,
+   "tob_gap_pct": null,
+   "model_prob": null,
+   "items": [
+    {
+     "time": "11/26 16:00",
+     "title": "株主優待制度の変更に関するお知らせ",
+     "pdf": "https://www.release.tdnet.info/inbs/140120261126586426.pdf",
+     "labels": [
+      {
+       "cat": "CHECK",
+       "label": "優待の変更",
+       "backtest_next_day": {
+        "up": 62.84,
+        "mean": 1.44,
+        "median": 0.98,
+        "p10": -5.0,
+        "n": 522
+       }
+      }
+     ]
+    }
+   ],
+   "ir_check": {
+    "status": "not_found",
+    "ir_page": "https://www.nicca.co.jp/topics/",
+    "recent": [
+     {
+      "text": "PHP脆弱性への対応および「お問い合わせ」フォームの一時停止について",
+      "url": "https://www.nicca.co.jp/topics/other/1078.html",
+      "date": "2026-10-22"
+     },
+     {
+      "text": "「北陸技術交流テクノフェア2026」に出展します",
+      "url": "https://www.nicca.co.jp/topics/company/1075.html",
+      "date": "2026-10-09"
+     },
+     {
+      "text": "令和8年熊本地震の被災地への義援金について",
+      "url": "https://www.nicca.co.jp/topics/other/1076.html",
+      "date": "2026-10-05"
+     },
+     {
+      "text": "人事異動について（2026年10月1日付け）",
+      "url": "https://www.nicca.co.jp/topics/company/1077.html",
+      "date": "2026-10-01"
+     },
+     {
+      "text": "人事異動について（2026年10月1日付け）",
+      "url": "https://www.nicca.co.jp/topics/company/1072.html",
+      "date": "2026-10-01"
+     }
+    ],
+    "also_checked": [
+     "https://www.nicca.co.jp/"
+    ],
+    "checked": "2026-11-26T08:11",
+    "for_title": "株主優待制度の変更に関するお知らせ"
+   }
+  }
+ ],
+ "other_after_close_count": 5,
  "earnings_only": [],
  "stop_limits": [],
  "tob_tracker": [
@@ -32,8 +104,8 @@
   "cash": 5259000.0,
   "total": 5259000.0,
   "profit": 2259000.0,
-  "term_left": 3000000.0,
-  "term_open": false,
+  "term_left": 3000000,
+  "term_open": true,
   "single_bought": true,
   "holdings": []
  },
@@ -90,26 +162,26 @@
   }
  ],
  "simulator": {
-  "nights_left": 1,
+  "nights_left": 2,
   "start_assets": 5259000.0,
   "target": 6750000,
   "best": "aggressive",
   "best_label": "毎晩1位候補に全額（要確認だけの夜も買う）",
-  "advice": "勝負モード：毎晩、大きく上がる可能性が一番高い候補に300万円の枠いっぱい（休む夜を作らない）。10位ラインの見込みに届く確率 0.4%・今の10位を超える確率 17.7%",
+  "advice": "勝負モード：毎晩、大きく上がる可能性が一番高い候補に300万円の枠いっぱい（休む夜を作らない）。10位ラインの見込みに届く確率 0.9%・今の10位を超える確率 31.1%",
   "mode": "top10",
   "target_now": 5405800,
   "target_now_date": "2026-11-12",
   "probs": {
-   "毎晩1位候補に全額（要確認だけの夜も買う）": 0.4,
-   "毎晩上位2銘柄に半分ずつ": 0.21,
-   "S・A・ストップ高張り付きがある夜だけ1位に全額、ない夜は休む": 0.54,
-   "S・A・張り付きがある夜だけ、上位2銘柄に半分ずつ": 0.18
+   "毎晩1位候補に全額（要確認だけの夜も買う）": 0.86,
+   "毎晩上位2銘柄に半分ずつ": 0.47,
+   "S・A・ストップ高張り付きがある夜だけ1位に全額、ない夜は休む": 0.83,
+   "S・A・張り付きがある夜だけ、上位2銘柄に半分ずつ": 0.47
   },
   "probs_now": {
-   "毎晩1位候補に全額（要確認だけの夜も買う）": 17.72,
-   "毎晩上位2銘柄に半分ずつ": 18.34,
-   "S・A・ストップ高張り付きがある夜だけ1位に全額、ない夜は休む": 13.39,
-   "S・A・張り付きがある夜だけ、上位2銘柄に半分ずつ": 14.62
+   "毎晩1位候補に全額（要確認だけの夜も買う）": 31.06,
+   "毎晩上位2銘柄に半分ずつ": 32.36,
+   "S・A・ストップ高張り付きがある夜だけ1位に全額、ない夜は休む": 25.14,
+   "S・A・張り付きがある夜だけ、上位2銘柄に半分ずつ": 26.81
   }
  },
  "strategy": {
@@ -120,7 +192,7 @@
   "top10_line_final_est": 3750000,
   "gap_to_now_line": 146800,
   "gap_to_final_est": 1491000,
-  "nights_left": 1,
-  "need_per_night_pct": 49.7
+  "nights_left": 2,
+  "need_per_night_pct": 24.9
  }
 }

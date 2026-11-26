@@ -1,9 +1,81 @@
 {
 "date": "2026-11-26",
-"fetched_at": "2026-11-26T16:11:04.267197+09:00",
+"fetched_at": "2026-11-26T17:11:31.605644+09:00",
 "complete": false,
-"total_all_markets": 128,
+"total_all_markets": 183,
 "items": [
+{
+"Tdnet": {
+"id": "1298170",
+"pubdate": "2026-11-26 17:00:00",
+"company_code": "23710",
+"company_name": "カカクコム",
+"title": "Kamgras １株式会社による株式会社カカクコム（証券コード：2371）の株券等に対する公開買付けの買付条件等の変更に関するお知らせ",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261126586534.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": null,
+"markets_string": "東",
+"update_history": null
+}
+},
+{
+"Tdnet": {
+"id": "1298136",
+"pubdate": "2026-11-26 16:00:00",
+"company_code": "44630",
+"company_name": "日華化学",
+"title": "株主優待制度の変更に関するお知らせ",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261126586426.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": null,
+"markets_string": "東名",
+"update_history": null
+}
+},
+{
+"Tdnet": {
+"id": "1298141",
+"pubdate": "2026-11-26 16:00:00",
+"company_code": "59410",
+"company_name": "中西製作所",
+"title": "主要株主及び主要株主である筆頭株主の異動（予定）並びに公開買付けに準ずる行為として政令で定める買い集め行為に関するお知らせ",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261126586662.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": null,
+"markets_string": "東",
+"update_history": null
+}
+},
+{
+"Tdnet": {
+"id": "1298142",
+"pubdate": "2026-11-26 16:00:00",
+"company_code": "60250",
+"company_name": "日本ＰＣサービス",
+"title": "役付取締役の異動に関するお知らせ",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261126586971.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": null,
+"markets_string": "名",
+"update_history": null
+}
+},
 {
 "Tdnet": {
 "id": "1298063",
