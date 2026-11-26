@@ -647,5 +647,15 @@
 "price": 1719.0,
 "result": 0.021524141942990127,
 "next_day": "2026-11-25"
+},
+{
+"base_day": "2026-11-26",
+"source": "ai",
+"code": "4463",
+"name": "日華化学",
+"category": "AI",
+"label": "",
+"price": 1781.0,
+"result": null
 }
 ]
