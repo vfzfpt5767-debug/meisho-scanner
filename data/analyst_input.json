@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-27T05:35:21.420256+09:00",
+ "generated_at": "2026-11-27T06:21:05.685416+09:00",
  "base_day": "2026-11-26",
  "deadline": "2026-11-27T07:59:00+09:00",
  "price_source": "名証 日報",
@@ -81,7 +81,7 @@
     "also_checked": [
      "https://www.nicca.co.jp/"
     ],
-    "checked": "2026-11-26T20:30",
+    "checked": "2026-11-26T21:21",
     "for_title": "株主優待制度の変更に関するお知らせ"
    }
   }
@@ -126,6 +126,144 @@
     ],
     "sell_rule": "11/27(金)の終値で売る予定（買ってから1営業日後）。検証：優待新設・拡充でストップ高にならなかった銘柄は1営業日後の終値で売るのが一番よい（平均+3.5%・中央値+2.9%・n=425）",
     "material": "優待新設・拡充"
+   }
+  ]
+ },
+ "morning": {
+  "direction": "日経平均先物は前日の日経平均より+0.3% → ほぼ横ばい",
+  "futures_gap_pct": 0.28842160476778567,
+  "indices": [
+   {
+    "symbol": "^GSPC",
+    "label": "S&P500",
+    "last": 7182.77978515625,
+    "change_pct": -0.2542678815435351,
+    "date": "2026-11-25"
+   },
+   {
+    "symbol": "^IXIC",
+    "label": "ナスダック",
+    "last": 23585.80078125,
+    "change_pct": -0.622487362128954,
+    "date": "2026-11-25"
+   },
+   {
+    "symbol": "^SOX",
+    "label": "SOX指数（半導体）",
+    "last": 8774.8603515625,
+    "change_pct": -0.6525858866402445,
+    "date": "2026-11-25"
+   },
+   {
+    "symbol": "JPY=X",
+    "label": "ドル円",
+    "last": 159.2830047607422,
+    "change_pct": 0.01319294835473439,
+    "date": "2026-11-26"
+   },
+   {
+    "symbol": "NIY=F",
+    "label": "日経平均先物（CME・円建て）",
+    "last": 57665.0,
+    "change_pct": 0.5580259830848311,
+    "date": "2026-11-26"
+   },
+   {
+    "symbol": "^N225",
+    "label": "日経平均",
+    "last": 57011.62109375,
+    "change_pct": -2.784582054582607,
+    "date": "2026-11-25"
+   }
+  ],
+  "adr_top": [
+   {
+    "adr": "FELTY",
+    "code": "6504",
+    "name": "富士電機",
+    "jp_price": 9922.0,
+    "implied": 10208.436599631845,
+    "gap_pct": 2.886883689093378,
+    "adr_change_pct": -1.4805603392892164,
+    "traded": true,
+    "single": false
+   },
+   {
+    "adr": "JSGRY",
+    "code": "5938",
+    "name": "ＬＩＸＩＬ",
+    "jp_price": 1697.5,
+    "implied": 1740.4088783692512,
+    "gap_pct": 2.5277689760972777,
+    "adr_change_pct": 4.86747098256306,
+    "traded": true,
+    "single": false
+   },
+   {
+    "adr": "DNZOY",
+    "code": "6902",
+    "name": "デンソー",
+    "jp_price": 1932.0,
+    "implied": 1974.7384452249194,
+    "gap_pct": 2.2121348460103274,
+    "adr_change_pct": 2.3294486048903718,
+    "traded": true,
+    "single": false
+   },
+   {
+    "adr": "TM",
+    "code": "7203",
+    "name": "トヨタ自動車",
+    "jp_price": 3377.0,
+    "implied": 3449.9537439859614,
+    "gap_pct": 2.1603122293740507,
+    "adr_change_pct": 2.7718207513425686,
+    "traded": true,
+    "single": false
+   },
+   {
+    "adr": "TAK",
+    "code": "4502",
+    "name": "武田薬品工業",
+    "jp_price": 7250.0,
+    "implied": 7375.351038294465,
+    "gap_pct": 1.7289798385443422,
+    "adr_change_pct": 1.8141585862462062,
+    "traded": true,
+    "single": false
+   },
+   {
+    "adr": "MITSY",
+    "code": "8031",
+    "name": "三井物産",
+    "jp_price": 4595.0,
+    "implied": 4659.6681227292465,
+    "gap_pct": 1.4073584924754412,
+    "adr_change_pct": 3.0103336490219013,
+    "traded": true,
+    "single": false
+   },
+   {
+    "adr": "NGKSY",
+    "code": "5334",
+    "name": "日本特殊陶業",
+    "jp_price": 3599.0,
+    "implied": 3646.6151919007452,
+    "gap_pct": 1.3230117227214677,
+    "adr_change_pct": 3.7447986060747063,
+    "traded": true,
+    "single": false
+   },
+   {
+    "adr": "SMFG",
+    "code": "8316",
+    "name": "三井住友フィナンシャルグループ",
+    "jp_price": 2980.0,
+    "implied": 3011.995668695576,
+    "gap_pct": 1.0736801575696786,
+    "adr_change_pct": 0.5340491450842144,
+    "traded": true,
+    "single": false
    }
   ]
  },
