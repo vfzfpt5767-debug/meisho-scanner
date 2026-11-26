@@ -1,17 +1,16 @@
 {
 "date": "2026-11-26",
-"fetched_at": "2026-11-26T18:41:03.331735+09:00",
+"fetched_at": "2026-11-26T20:41:04.797493+09:00",
 "complete": false,
-"total_all_markets": 194,
+"total_all_markets": 203,
 "items": [
 {
-"Tdnet": {
-"id": "1298170",
-"pubdate": "2026-11-26 17:00:00",
-"company_code": "23710",
-"company_name": "カカクコム",
-"title": "Kamgras １株式会社による株式会社カカクコム（証券コード：2371）の株券等に対する公開買付けの買付条件等の変更に関するお知らせ",
-"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261126586534.pdf",
+"id": "1298195",
+"pubdate": "2026-11-26 19:30:00",
+"company_code": "26120",
+"company_name": "かどや製油",
+"title": "（株）ITG-Gホールディングスによる公開買付届出書の訂正に伴う「かどや製油（株）の普通株式に対する公開買付けの開始に関するお知らせ」の変更について",
+"document_url": "https://www.release.tdnet.info/inbs/140120261126587202.pdf",
 "url_report_type_summary": null,
 "url_report_type_fs_consolidated": null,
 "url_report_type_fs_non_consolidated": null,
@@ -20,16 +19,46 @@
 "url_xbrl": null,
 "markets_string": "東",
 "update_history": null
-}
 },
 {
-"Tdnet": {
+"id": "1298196",
+"pubdate": "2026-11-26 19:30:00",
+"company_code": "26120",
+"company_name": "かどや製油",
+"title": "（変更）「株式会社ITG-Gホールディングスによる当社株式に対する公開買付けに関する賛同の意見表明及び応募推奨のお知らせ」の一部変更に関するお知らせ",
+"document_url": "https://www.release.tdnet.info/inbs/140120261126587203.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": null,
+"markets_string": "東",
+"update_history": null
+},
+{
+"id": "1298170",
+"pubdate": "2026-11-26 17:00:00",
+"company_code": "23710",
+"company_name": "カカクコム",
+"title": "Kamgras １株式会社による株式会社カカクコム（証券コード：2371）の株券等に対する公開買付けの買付条件等の変更に関するお知らせ",
+"document_url": "https://www.release.tdnet.info/inbs/140120261126586534.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": null,
+"markets_string": "東",
+"update_history": null
+},
+{
 "id": "1298136",
 "pubdate": "2026-11-26 16:00:00",
 "company_code": "44630",
 "company_name": "日華化学",
 "title": "株主優待制度の変更に関するお知らせ",
-"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261126586426.pdf",
+"document_url": "https://www.release.tdnet.info/inbs/140120261126586426.pdf",
 "url_report_type_summary": null,
 "url_report_type_fs_consolidated": null,
 "url_report_type_fs_non_consolidated": null,
@@ -38,16 +67,14 @@
 "url_xbrl": null,
 "markets_string": "東名",
 "update_history": null
-}
 },
 {
-"Tdnet": {
 "id": "1298141",
 "pubdate": "2026-11-26 16:00:00",
 "company_code": "59410",
 "company_name": "中西製作所",
 "title": "主要株主及び主要株主である筆頭株主の異動（予定）並びに公開買付けに準ずる行為として政令で定める買い集め行為に関するお知らせ",
-"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261126586662.pdf",
+"document_url": "https://www.release.tdnet.info/inbs/140120261126586662.pdf",
 "url_report_type_summary": null,
 "url_report_type_fs_consolidated": null,
 "url_report_type_fs_non_consolidated": null,
@@ -56,16 +83,14 @@
 "url_xbrl": null,
 "markets_string": "東",
 "update_history": null
-}
 },
 {
-"Tdnet": {
 "id": "1298142",
 "pubdate": "2026-11-26 16:00:00",
 "company_code": "60250",
 "company_name": "日本ＰＣサービス",
 "title": "役付取締役の異動に関するお知らせ",
-"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261126586971.pdf",
+"document_url": "https://www.release.tdnet.info/inbs/140120261126586971.pdf",
 "url_report_type_summary": null,
 "url_report_type_fs_consolidated": null,
 "url_report_type_fs_non_consolidated": null,
@@ -74,16 +99,14 @@
 "url_xbrl": null,
 "markets_string": "名",
 "update_history": null
-}
 },
 {
-"Tdnet": {
 "id": "1298063",
 "pubdate": "2026-11-26 15:30:00",
 "company_code": "27780",
 "company_name": "パレモ・ＨＤ",
 "title": "(株)パレモの月次売上高前年比情報に関するお知らせ",
-"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261126586583.pdf",
+"document_url": "https://www.release.tdnet.info/inbs/140120261126586583.pdf",
 "url_report_type_summary": null,
 "url_report_type_fs_consolidated": null,
 "url_report_type_fs_non_consolidated": null,
@@ -92,16 +115,14 @@
 "url_xbrl": null,
 "markets_string": "東名",
 "update_history": null
-}
 },
 {
-"Tdnet": {
 "id": "1298093",
 "pubdate": "2026-11-26 15:30:00",
 "company_code": "61890",
 "company_name": "グローバルキッズＣ",
 "title": "公開買付けに準ずる行為として政令で定める買集め行為に関するお知らせ",
-"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261126586723.pdf",
+"document_url": "https://www.release.tdnet.info/inbs/140120261126586723.pdf",
 "url_report_type_summary": null,
 "url_report_type_fs_consolidated": null,
 "url_report_type_fs_non_consolidated": null,
@@ -110,16 +131,14 @@
 "url_xbrl": null,
 "markets_string": "東",
 "update_history": null
-}
 },
 {
-"Tdnet": {
 "id": "1298096",
 "pubdate": "2026-11-26 15:30:00",
 "company_code": "64300",
 "company_name": "ダイコク電",
 "title": "2027年３月期 第２四半期決算説明資料",
-"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261126586826.pdf",
+"document_url": "https://www.release.tdnet.info/inbs/140120261126586826.pdf",
 "url_report_type_summary": null,
 "url_report_type_fs_consolidated": null,
 "url_report_type_fs_non_consolidated": null,
@@ -128,16 +147,14 @@
 "url_xbrl": null,
 "markets_string": "東名",
 "update_history": null
-}
 },
 {
-"Tdnet": {
 "id": "1298107",
 "pubdate": "2026-11-26 15:30:00",
 "company_code": "76490",
 "company_name": "スギＨＤ",
 "title": "親会社等の決算に関するお知らせ",
-"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261125586242.pdf",
+"document_url": "https://www.release.tdnet.info/inbs/140120261125586242.pdf",
 "url_report_type_summary": null,
 "url_report_type_fs_consolidated": null,
 "url_report_type_fs_non_consolidated": null,
@@ -146,16 +163,14 @@
 "url_xbrl": null,
 "markets_string": "東名",
 "update_history": null
-}
 },
 {
-"Tdnet": {
 "id": "1298108",
 "pubdate": "2026-11-26 15:30:00",
 "company_code": "79280",
 "company_name": "旭化学",
 "title": "2026年８月期決算説明資料及び中期経営計画の進捗状況",
-"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261126586861.pdf",
+"document_url": "https://www.release.tdnet.info/inbs/140120261126586861.pdf",
 "url_report_type_summary": null,
 "url_report_type_fs_consolidated": null,
 "url_report_type_fs_non_consolidated": null,
@@ -164,34 +179,30 @@
 "url_xbrl": null,
 "markets_string": "東名",
 "update_history": null
-}
 },
 {
-"Tdnet": {
 "id": "1298047",
 "pubdate": "2026-11-26 15:00:00",
 "company_code": "93060",
 "company_name": "東陽倉",
 "title": "特別利益（投資有価証券売却益）の計上及び業績予想の修正に関するお知らせ",
-"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261125586311.pdf",
+"document_url": "https://www.release.tdnet.info/inbs/140120261125586311.pdf",
 "url_report_type_summary": null,
 "url_report_type_fs_consolidated": null,
 "url_report_type_fs_non_consolidated": null,
 "url_report_type_earnings_forecast": null,
 "url_report_type_expected_dividends": null,
-"url_xbrl": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/091220261125586311.zip",
+"url_xbrl": "https://www.release.tdnet.info/inbs/091220261125586311.zip",
 "markets_string": "東名",
 "update_history": null
-}
 },
 {
-"Tdnet": {
 "id": "1298039",
 "pubdate": "2026-11-26 14:00:00",
 "company_code": "95310",
 "company_name": "東瓦斯",
 "title": "完全子会社（ニジオ合同会社）の吸収合併（簡易吸収合併）に関するお知らせ",
-"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261126586441.pdf",
+"document_url": "https://www.release.tdnet.info/inbs/140120261126586441.pdf",
 "url_report_type_summary": null,
 "url_report_type_fs_consolidated": null,
 "url_report_type_fs_non_consolidated": null,
@@ -200,16 +211,14 @@
 "url_xbrl": null,
 "markets_string": "東名",
 "update_history": null
-}
 },
 {
-"Tdnet": {
 "id": "1298032",
 "pubdate": "2026-11-26 13:00:00",
 "company_code": "44390",
 "company_name": "東名",
 "title": "譲渡制限付株式報酬としての新株式発行に関するお知らせ",
-"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261124585460.pdf",
+"document_url": "https://www.release.tdnet.info/inbs/140120261124585460.pdf",
 "url_report_type_summary": null,
 "url_report_type_fs_consolidated": null,
 "url_report_type_fs_non_consolidated": null,
@@ -218,16 +227,14 @@
 "url_xbrl": null,
 "markets_string": "東名",
 "update_history": null
-}
 },
 {
-"Tdnet": {
 "id": "1298024",
 "pubdate": "2026-11-26 12:00:00",
 "company_code": "78050",
 "company_name": "プリントネット",
 "title": "公益財団法人財務会計基準機構への加入状況等に関するお知らせ",
-"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261126586614.pdf",
+"document_url": "https://www.release.tdnet.info/inbs/140120261126586614.pdf",
 "url_report_type_summary": null,
 "url_report_type_fs_consolidated": null,
 "url_report_type_fs_non_consolidated": null,
@@ -236,16 +243,14 @@
 "url_xbrl": null,
 "markets_string": "東名",
 "update_history": null
-}
 },
 {
-"Tdnet": {
 "id": "1298025",
 "pubdate": "2026-11-26 12:00:00",
 "company_code": "78050",
 "company_name": "プリントネット",
 "title": "支配株主等に関する事項について",
-"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261126586622.pdf",
+"document_url": "https://www.release.tdnet.info/inbs/140120261126586622.pdf",
 "url_report_type_summary": null,
 "url_report_type_fs_consolidated": null,
 "url_report_type_fs_non_consolidated": null,
@@ -254,7 +259,6 @@
 "url_xbrl": null,
 "markets_string": "東名",
 "update_history": null
-}
 }
 ]
 }

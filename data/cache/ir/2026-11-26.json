@@ -4,6 +4,16 @@
   "ir_page": "https://www.nicca.co.jp/topics/",
   "recent": [
    {
+    "text": "組織改編・人事異動について（2027年1月1日付け）",
+    "url": "https://www.nicca.co.jp/topics/company/1082.html",
+    "date": "2027-01-01"
+   },
+   {
+    "text": "最高戦略責任者（CSO）の新設および任命に関するお知らせ",
+    "url": "https://www.nicca.co.jp/topics/company/1083.html",
+    "date": "2026-11-26"
+   },
+   {
     "text": "PHP脆弱性への対応および「お問い合わせ」フォームの一時停止について",
     "url": "https://www.nicca.co.jp/topics/other/1078.html",
     "date": "2026-10-22"
@@ -17,22 +27,12 @@
     "text": "令和8年熊本地震の被災地への義援金について",
     "url": "https://www.nicca.co.jp/topics/other/1076.html",
     "date": "2026-10-05"
-   },
-   {
-    "text": "人事異動について（2026年10月1日付け）",
-    "url": "https://www.nicca.co.jp/topics/company/1077.html",
-    "date": "2026-10-01"
-   },
-   {
-    "text": "人事異動について（2026年10月1日付け）",
-    "url": "https://www.nicca.co.jp/topics/company/1072.html",
-    "date": "2026-10-01"
    }
   ],
   "also_checked": [
    "https://www.nicca.co.jp/"
   ],
-  "checked": "2026-11-26T09:41",
+  "checked": "2026-11-26T11:41",
   "for_title": "株主優待制度の変更に関するお知らせ"
  }
 }
