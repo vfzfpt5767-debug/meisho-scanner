@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-26T07:43:49.860252+09:00",
+ "generated_at": "2026-11-26T12:39:26.585685+09:00",
  "base_day": "2026-11-25",
  "deadline": "2026-11-26T07:59:00+09:00",
  "price_source": "名証 日報",
@@ -14,7 +14,7 @@
   "every_night": "毎晩300万円の枠いっぱいに必ず買う（現金のまま寝ない）。見送りは、どの候補にも悪材料が見つかったときだけ"
  },
  "candidates": [],
- "other_after_close_count": 4,
+ "other_after_close_count": 5,
  "earnings_only": [],
  "stop_limits": [],
  "tob_tracker": [
@@ -32,148 +32,10 @@
   "cash": 5259000.0,
   "total": 5259000.0,
   "profit": 2259000.0,
-  "term_left": 3000000,
-  "term_open": true,
+  "term_left": 3000000.0,
+  "term_open": false,
   "single_bought": true,
   "holdings": []
- },
- "morning": {
-  "direction": "日経平均先物は前日の日経平均より+0.4% → 上昇して始まりそう",
-  "futures_gap_pct": 0.41812528744140653,
-  "indices": [
-   {
-    "symbol": "^GSPC",
-    "label": "S&P500",
-    "last": 7182.77978515625,
-    "change_pct": -0.2542678815435351,
-    "date": "2026-11-25"
-   },
-   {
-    "symbol": "^IXIC",
-    "label": "ナスダック",
-    "last": 23585.802734375,
-    "change_pct": -0.6224791327410162,
-    "date": "2026-11-25"
-   },
-   {
-    "symbol": "^SOX",
-    "label": "SOX指数（半導体）",
-    "last": 8774.8623046875,
-    "change_pct": -0.6525637737050616,
-    "date": "2026-11-25"
-   },
-   {
-    "symbol": "JPY=X",
-    "label": "ドル円",
-    "last": 159.10899353027344,
-    "change_pct": 0.06288376320697786,
-    "date": "2026-11-25"
-   },
-   {
-    "symbol": "NIY=F",
-    "label": "日経平均先物（CME・円建て）",
-    "last": 57250.0,
-    "change_pct": -0.2700113230554857,
-    "date": "2026-11-25"
-   },
-   {
-    "symbol": "^N225",
-    "label": "日経平均",
-    "last": 58644.62890625,
-    "change_pct": 3.912316783295866,
-    "date": "2026-11-24"
-   }
-  ],
-  "adr_top": [
-   {
-    "adr": "SMTOY",
-    "code": "5802",
-    "name": "住友電気工業",
-    "jp_price": 1233.5,
-    "implied": 1286.1217099125129,
-    "gap_pct": 4.266048634982811,
-    "adr_change_pct": 2.5906773515252945,
-    "traded": true,
-    "single": false
-   },
-   {
-    "adr": "FELTY",
-    "code": "6504",
-    "name": "富士電機",
-    "jp_price": 9926.0,
-    "implied": 10197.284232079937,
-    "gap_pct": 2.733067016723134,
-    "adr_change_pct": -1.4805603392892164,
-    "traded": true,
-    "single": false
-   },
-   {
-    "adr": "NGKSY",
-    "code": "5334",
-    "name": "日本特殊陶業",
-    "jp_price": 3565.0,
-    "implied": 3642.631389626662,
-    "gap_pct": 2.177598587003149,
-    "adr_change_pct": 3.7447986060747063,
-    "traded": true,
-    "single": false
-   },
-   {
-    "adr": "JSGRY",
-    "code": "5938",
-    "name": "ＬＩＸＩＬ",
-    "jp_price": 1710.0,
-    "implied": 1738.5075412435567,
-    "gap_pct": 1.6671076750617964,
-    "adr_change_pct": 4.86747098256306,
-    "traded": true,
-    "single": false
-   },
-   {
-    "adr": "FJTSY",
-    "code": "6702",
-    "name": "富士通",
-    "jp_price": 3441.0,
-    "implied": 3482.3311637076067,
-    "gap_pct": 1.201138149015013,
-    "adr_change_pct": 3.612159165698192,
-    "traded": true,
-    "single": false
-   },
-   {
-    "adr": "TM",
-    "code": "7203",
-    "name": "トヨタ自動車",
-    "jp_price": 3406.0,
-    "implied": 3446.184787612034,
-    "gap_pct": 1.1798234765717508,
-    "adr_change_pct": 2.7718207513425686,
-    "traded": true,
-    "single": false
-   },
-   {
-    "adr": "DNZOY",
-    "code": "6902",
-    "name": "デンソー",
-    "jp_price": 1952.0,
-    "implied": 1969.3735887444707,
-    "gap_pct": 0.8900404069913215,
-    "adr_change_pct": 2.163055451795648,
-    "traded": true,
-    "single": false
-   },
-   {
-    "adr": "SMFG",
-    "code": "8316",
-    "name": "三井住友フィナンシャルグループ",
-    "jp_price": 2991.0,
-    "implied": 3008.705166527667,
-    "gap_pct": 0.5919480617742279,
-    "adr_change_pct": 0.5340491450842144,
-    "traded": true,
-    "single": false
-   }
-  ]
  },
  "new_listings": [
   {
@@ -228,26 +90,26 @@
   }
  ],
  "simulator": {
-  "nights_left": 3,
+  "nights_left": 2,
   "start_assets": 5259000.0,
   "target": 6750000,
   "best": "aggressive",
   "best_label": "毎晩1位候補に全額（要確認だけの夜も買う）",
-  "advice": "勝負モード：毎晩、大きく上がる可能性が一番高い候補に300万円の枠いっぱい（休む夜を作らない）。10位ラインの見込みに届く確率 1.5%・今の10位を超える確率 41.0%",
+  "advice": "勝負モード：毎晩、大きく上がる可能性が一番高い候補に300万円の枠いっぱい（休む夜を作らない）。10位ラインの見込みに届く確率 0.9%・今の10位を超える確率 31.1%",
   "mode": "top10",
   "target_now": 5405800,
   "target_now_date": "2026-11-12",
   "probs": {
-   "毎晩1位候補に全額（要確認だけの夜も買う）": 1.47,
-   "毎晩上位2銘柄に半分ずつ": 0.66,
-   "S・A・ストップ高張り付きがある夜だけ1位に全額、ない夜は休む": 1.45,
-   "S・A・張り付きがある夜だけ、上位2銘柄に半分ずつ": 0.76
+   "毎晩1位候補に全額（要確認だけの夜も買う）": 0.86,
+   "毎晩上位2銘柄に半分ずつ": 0.47,
+   "S・A・ストップ高張り付きがある夜だけ1位に全額、ない夜は休む": 0.83,
+   "S・A・張り付きがある夜だけ、上位2銘柄に半分ずつ": 0.47
   },
   "probs_now": {
-   "毎晩1位候補に全額（要確認だけの夜も買う）": 41.01,
-   "毎晩上位2銘柄に半分ずつ": 42.92,
-   "S・A・ストップ高張り付きがある夜だけ1位に全額、ない夜は休む": 34.36,
-   "S・A・張り付きがある夜だけ、上位2銘柄に半分ずつ": 36.83
+   "毎晩1位候補に全額（要確認だけの夜も買う）": 31.06,
+   "毎晩上位2銘柄に半分ずつ": 32.36,
+   "S・A・ストップ高張り付きがある夜だけ1位に全額、ない夜は休む": 25.14,
+   "S・A・張り付きがある夜だけ、上位2銘柄に半分ずつ": 26.81
   }
  },
  "strategy": {
@@ -258,7 +120,7 @@
   "top10_line_final_est": 3750000,
   "gap_to_now_line": 146800,
   "gap_to_final_est": 1491000,
-  "nights_left": 3,
-  "need_per_night_pct": 16.6
+  "nights_left": 2,
+  "need_per_night_pct": 24.9
  }
 }

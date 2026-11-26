@@ -1,9 +1,57 @@
 {
-"generated_at": "2026-11-26T07:43:49.860252+09:00",
+"generated_at": "2026-11-26T12:39:26.585685+09:00",
 "base_day": "2026-11-25",
 "deadline": "2026-11-26T07:59:00+09:00",
 "price_source": "名証 日報",
 "cards": [
+{
+"code": "7805",
+"name": "プリントネット",
+"single": false,
+"division": "メイン",
+"unit": 100,
+"category": "INFO",
+"score": 0,
+"items": [
+{
+"time": "12:00",
+"date": "11/26",
+"title": "公益財団法人財務会計基準機構への加入状況等に関するお知らせ",
+"pdf": "https://www.release.tdnet.info/inbs/140120261126586614.pdf",
+"tags": [
+{
+"cat": "INFO",
+"label": "その他",
+"score": 0,
+"reason": ""
+}
+]
+},
+{
+"time": "12:00",
+"date": "11/26",
+"title": "支配株主等に関する事項について",
+"pdf": "https://www.release.tdnet.info/inbs/140120261126586622.pdf",
+"tags": [
+{
+"cat": "INFO",
+"label": "その他",
+"score": 0,
+"reason": ""
+}
+]
+}
+],
+"price": 604.0,
+"price_note": "名証の最終気配",
+"nse_close": null,
+"nse_quote": 604.0,
+"shares": 4900,
+"cost": 2959600.0,
+"tob_price": null,
+"tob_gap_pct": null,
+"quote_only": true
+},
 {
 "code": "6473",
 "name": "ジェイテクト",

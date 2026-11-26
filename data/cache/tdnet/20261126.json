@@ -1,7 +1,44 @@
 {
 "date": "2026-11-26",
-"fetched_at": "2026-11-26T07:43:50.646447+09:00",
+"fetched_at": "2026-11-26T12:39:27.488284+09:00",
 "complete": false,
-"total_all_markets": 0,
-"items": []
+"total_all_markets": 29,
+"items": [
+{
+"Tdnet": {
+"id": "1298024",
+"pubdate": "2026-11-26 12:00:00",
+"company_code": "78050",
+"company_name": "プリントネット",
+"title": "公益財団法人財務会計基準機構への加入状況等に関するお知らせ",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261126586614.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": null,
+"markets_string": "東名",
+"update_history": null
+}
+},
+{
+"Tdnet": {
+"id": "1298025",
+"pubdate": "2026-11-26 12:00:00",
+"company_code": "78050",
+"company_name": "プリントネット",
+"title": "支配株主等に関する事項について",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261126586622.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": null,
+"markets_string": "東名",
+"update_history": null
+}
+}
+]
 }
