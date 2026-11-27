@@ -1,23 +1,23 @@
 {
-"generated_at": "2026-11-27T13:06:05.460061+09:00",
-"base_day": "2026-11-26",
-"deadline": "2026-11-27T07:59:00+09:00",
-"price_source": "名証 日報",
+"generated_at": "2026-11-27T16:11:08.047449+09:00",
+"base_day": "2026-11-27",
+"deadline": "2026-11-30T07:59:00+09:00",
+"price_source": "名証 相場表（速報）",
 "cards": [
 {
-"code": "2778",
-"name": "パレモ・ホールディングス",
-"single": false,
-"division": "メイン",
-"unit": 100,
+"code": "1553",
+"name": "ＭＡＸＩＳ　Ｓ＆Ｐ東海上場投信",
+"single": true,
+"division": "その他(ETF等)",
+"unit": 10,
 "category": "INFO",
 "score": 0,
 "items": [
 {
 "time": "15:30",
-"date": "11/26",
-"title": "(株)パレモの月次売上高前年比情報に関するお知らせ",
-"pdf": "https://www.release.tdnet.info/inbs/140120261126586583.pdf",
+"date": "11/27",
+"title": "ＥＴＦの投資信託約款の変更に関するお知らせ",
+"pdf": "https://www.release.tdnet.info/inbs/140120261127587639.pdf",
 "tags": [
 {
 "cat": "INFO",
@@ -28,53 +28,19 @@
 ]
 }
 ],
-"price": 130.0,
+"price": 5251.0,
 "price_note": "名証の最終気配",
 "nse_close": null,
-"nse_quote": 130.0,
-"shares": 23000,
-"cost": 2990000.0,
+"nse_quote": 5251.0,
+"shares": 570,
+"cost": 2993070.0,
 "tob_price": null,
 "tob_gap_pct": null,
 "quote_only": true
 },
 {
-"code": "6430",
-"name": "ダイコク電機",
-"single": false,
-"division": "プレミア",
-"unit": 100,
-"category": "INFO",
-"score": 0,
-"items": [
-{
-"time": "15:30",
-"date": "11/26",
-"title": "2027年３月期 第２四半期決算説明資料",
-"pdf": "https://www.release.tdnet.info/inbs/140120261126586826.pdf",
-"tags": [
-{
-"cat": "INFO",
-"label": "その他",
-"score": 0,
-"reason": ""
-}
-]
-}
-],
-"price": 2299.0,
-"price_note": "名証の最終気配",
-"nse_close": null,
-"nse_quote": 2299.0,
-"shares": 1300,
-"cost": 2988700.0,
-"tob_price": null,
-"tob_gap_pct": null,
-"quote_only": true
-},
-{
-"code": "7649",
-"name": "スギホールディングス",
+"code": "3447",
+"name": "信和",
 "single": false,
 "division": "プレミア",
 "unit": 100,
@@ -83,9 +49,9 @@
 "items": [
 {
 "time": "15:30",
-"date": "11/26",
-"title": "親会社等の決算に関するお知らせ",
-"pdf": "https://www.release.tdnet.info/inbs/140120261125586242.pdf",
+"date": "11/27",
+"title": "代表取締役の異動に関するお知らせ",
+"pdf": "https://www.release.tdnet.info/inbs/140120261127587705.pdf",
 "tags": [
 {
 "cat": "INFO",
@@ -96,53 +62,19 @@
 ]
 }
 ],
-"price": 1391.0,
+"price": 876.0,
 "price_note": "名証の最終気配",
 "nse_close": null,
-"nse_quote": 1391.0,
-"shares": 2100,
-"cost": 2921100.0,
+"nse_quote": 876.0,
+"shares": 3400,
+"cost": 2978400.0,
 "tob_price": null,
 "tob_gap_pct": null,
 "quote_only": true
 },
 {
-"code": "7928",
-"name": "旭化学工業",
-"single": false,
-"division": "メイン",
-"unit": 100,
-"category": "INFO",
-"score": 0,
-"items": [
-{
-"time": "15:30",
-"date": "11/26",
-"title": "2026年８月期決算説明資料及び中期経営計画の進捗状況",
-"pdf": "https://www.release.tdnet.info/inbs/140120261126586861.pdf",
-"tags": [
-{
-"cat": "INFO",
-"label": "その他",
-"score": 0,
-"reason": ""
-}
-]
-}
-],
-"price": 582.0,
-"price_note": "名証の最終気配",
-"nse_close": null,
-"nse_quote": 582.0,
-"shares": 5100,
-"cost": 2968200.0,
-"tob_price": null,
-"tob_gap_pct": null,
-"quote_only": true
-},
-{
-"code": "6025",
-"name": "日本ＰＣサービス",
+"code": "5075",
+"name": "アップコン",
 "single": true,
 "division": "ネクスト",
 "unit": 100,
@@ -150,10 +82,10 @@
 "score": 0,
 "items": [
 {
-"time": "16:00",
-"date": "11/26",
-"title": "役付取締役の異動に関するお知らせ",
-"pdf": "https://www.release.tdnet.info/inbs/140120261126586971.pdf",
+"time": "15:30",
+"date": "11/27",
+"title": "大型案件受注に関するお知らせ",
+"pdf": "https://www.release.tdnet.info/inbs/140120261127587871.pdf",
 "tags": [
 {
 "cat": "INFO",
@@ -164,120 +96,30 @@
 ]
 }
 ],
-"price": 689.0,
+"price": 970.0,
 "price_note": "名証の終値",
-"nse_close": 689.0,
+"nse_close": 970.0,
 "nse_quote": null,
-"shares": 4300,
-"cost": 2962700.0,
+"shares": 3000,
+"cost": 2910000.0,
 "tob_price": null,
 "tob_gap_pct": null,
 "quote_only": false
 },
 {
-"code": "4463",
-"name": "日華化学",
-"single": false,
-"division": "プレミア",
-"unit": 100,
-"category": "CHECK",
-"score": 44,
-"items": [
-{
-"time": "16:00",
-"date": "11/26",
-"title": "株主優待制度の変更に関するお知らせ",
-"pdf": "https://www.release.tdnet.info/inbs/140120261126586426.pdf",
-"tags": [
-{
-"cat": "CHECK",
-"label": "優待の変更",
-"score": 44,
-"reason": "株主優待の変更。拡充か縮小かPDFで確認"
-}
-]
-}
-],
-"price": 1781.0,
-"price_note": "名証の最終気配",
-"nse_close": null,
-"nse_quote": 1781.0,
-"shares": 1600,
-"cost": 2849600.0,
-"tob_price": null,
-"tob_gap_pct": null,
-"quote_only": true
-}
-],
-"before_close": [
-{
-"code": "9306",
-"name": "東陽倉庫",
-"single": false,
-"division": "プレミア",
-"unit": 100,
-"category": "A",
-"score": 45,
-"items": [
-{
-"time": "15:00",
-"date": "11/26",
-"title": "特別利益（投資有価証券売却益）の計上及び業績予想の修正に関するお知らせ",
-"pdf": "https://www.release.tdnet.info/inbs/140120261125586311.pdf",
-"tags": [
-{
-"cat": "CHECK",
-"label": "業績予想の修正",
-"score": 40,
-"reason": "上方か下方かタイトルでは不明。PDFで確認"
-},
-{
-"cat": "A",
-"label": "特別利益",
-"score": 40,
-"reason": "特別利益の計上（一時的な利益）"
-}
-]
-}
-],
-"price": 2017.0,
-"price_note": "名証の最終気配",
-"nse_close": null,
-"nse_quote": 2017.0,
-"shares": 1400,
-"cost": 2823800.0,
-"tob_price": null,
-"tob_gap_pct": null,
-"quote_only": true
-},
-{
-"code": "7805",
-"name": "プリントネット",
-"single": false,
+"code": "7227",
+"name": "アスカ",
+"single": true,
 "division": "メイン",
 "unit": 100,
 "category": "INFO",
 "score": 0,
 "items": [
 {
-"time": "12:00",
-"date": "11/26",
-"title": "公益財団法人財務会計基準機構への加入状況等に関するお知らせ",
-"pdf": "https://www.release.tdnet.info/inbs/140120261126586614.pdf",
-"tags": [
-{
-"cat": "INFO",
-"label": "その他",
-"score": 0,
-"reason": ""
-}
-]
-},
-{
-"time": "12:00",
-"date": "11/26",
-"title": "支配株主等に関する事項について",
-"pdf": "https://www.release.tdnet.info/inbs/140120261126586622.pdf",
+"time": "15:30",
+"date": "11/27",
+"title": "代表取締役の異動、社内カンパニー制への移行及び役員担当変更に関するお知らせ",
+"pdf": "https://www.release.tdnet.info/inbs/140120261127587866.pdf",
 "tags": [
 {
 "cat": "INFO",
@@ -288,16 +130,100 @@
 ]
 }
 ],
-"price": 605.0,
+"price": 1830.0,
+"price_note": "名証の終値",
+"nse_close": 1830.0,
+"nse_quote": null,
+"shares": 1600,
+"cost": 2928000.0,
+"tob_price": null,
+"tob_gap_pct": null,
+"quote_only": false
+},
+{
+"code": "7282",
+"name": "豊田合成",
+"single": false,
+"division": "プレミア",
+"unit": 100,
+"category": "INFO",
+"score": 0,
+"items": [
+{
+"time": "15:30",
+"date": "11/27",
+"title": "従業員持株会に対する自己株式の処分（社員向け譲渡制限付株式（RS））に関するお知らせ",
+"pdf": "https://www.release.tdnet.info/inbs/140120261120584274.pdf",
+"tags": [
+{
+"cat": "INFO",
+"label": "その他",
+"score": 0,
+"reason": ""
+}
+]
+}
+],
+"price": 1016.5,
 "price_note": "名証の最終気配",
 "nse_close": null,
-"nse_quote": 605.0,
-"shares": 4900,
-"cost": 2964500.0,
+"nse_quote": 1016.5,
+"shares": 2900,
+"cost": 2947850.0,
 "tob_price": null,
 "tob_gap_pct": null,
 "quote_only": true
 },
+{
+"code": "8904",
+"name": "ＡＶＡＮＴＩＡ",
+"single": false,
+"division": "プレミア",
+"unit": 100,
+"category": "INFO",
+"score": 0,
+"items": [
+{
+"time": "15:30",
+"date": "11/27",
+"title": "役員人事に関するお知らせ",
+"pdf": "https://www.release.tdnet.info/inbs/140120261126586470.pdf",
+"tags": [
+{
+"cat": "INFO",
+"label": "その他",
+"score": 0,
+"reason": ""
+}
+]
+},
+{
+"time": "15:30",
+"date": "11/27",
+"title": "譲渡制限付株式報酬としての自己株式の処分に関するお知らせ",
+"pdf": "https://www.release.tdnet.info/inbs/140120261124585150.pdf",
+"tags": [
+{
+"cat": "INFO",
+"label": "その他",
+"score": 0,
+"reason": ""
+}
+]
+}
+],
+"price": 816.0,
+"price_note": "名証の最終気配",
+"nse_close": null,
+"nse_quote": 816.0,
+"shares": 3600,
+"cost": 2937600.0,
+"tob_price": null,
+"tob_gap_pct": null,
+"quote_only": true
+}
+],
+"before_close": [
 {
 "code": "4439",
 "name": "東名",
@@ -309,9 +235,9 @@
 "items": [
 {
 "time": "13:00",
-"date": "11/26",
-"title": "譲渡制限付株式報酬としての新株式発行に関するお知らせ",
-"pdf": "https://www.release.tdnet.info/inbs/140120261124585460.pdf",
+"date": "11/27",
+"title": "支配株主等に関する事項について",
+"pdf": "https://www.release.tdnet.info/inbs/140120261113579174.pdf",
 "tags": [
 {
 "cat": "INFO",
@@ -322,30 +248,30 @@
 ]
 }
 ],
-"price": 1056.0,
+"price": 1085.0,
 "price_note": "名証の最終気配",
 "nse_close": null,
-"nse_quote": 1056.0,
-"shares": 2800,
-"cost": 2956800.0,
+"nse_quote": 1085.0,
+"shares": 2700,
+"cost": 2929500.0,
 "tob_price": null,
 "tob_gap_pct": null,
 "quote_only": true
 },
 {
-"code": "9531",
-"name": "東京瓦斯",
-"single": false,
-"division": "プレミア",
+"code": "7790",
+"name": "バルコス",
+"single": true,
+"division": "ネクスト",
 "unit": 100,
 "category": "INFO",
 "score": 0,
 "items": [
 {
-"time": "14:00",
-"date": "11/26",
-"title": "完全子会社（ニジオ合同会社）の吸収合併（簡易吸収合併）に関するお知らせ",
-"pdf": "https://www.release.tdnet.info/inbs/140120261126586441.pdf",
+"time": "13:00",
+"date": "11/27",
+"title": "映画『遥かな町へ』がGolden Diamond Awardsにノミネート決定",
+"pdf": "https://www.release.tdnet.info/inbs/140120261127587647.pdf",
 "tags": [
 {
 "cat": "INFO",
@@ -356,15 +282,63 @@
 ]
 }
 ],
-"price": 6636.0,
-"price_note": "名証の最終気配",
-"nse_close": null,
-"nse_quote": 6636.0,
-"shares": 400,
-"cost": 2654400.0,
+"price": 1230.0,
+"price_note": "名証の終値",
+"nse_close": 1230.0,
+"nse_quote": null,
+"shares": 2400,
+"cost": 2952000.0,
 "tob_price": null,
 "tob_gap_pct": null,
-"quote_only": true
+"quote_only": false
+},
+{
+"code": "7488",
+"name": "ヤガミ",
+"single": true,
+"division": "メイン",
+"unit": 100,
+"category": "CHECK",
+"score": 45,
+"items": [
+{
+"time": "15:00",
+"date": "11/27",
+"title": "2027年４月期　第２四半期（中間期）決算短信〔日本基準〕（連結）",
+"pdf": "https://www.release.tdnet.info/inbs/140120261126586818.pdf",
+"tags": [
+{
+"cat": "INFO",
+"label": "決算短信",
+"score": 15,
+"reason": "決算発表（数値はPDFで確認。自動計算はしていません）"
+}
+]
+},
+{
+"time": "15:00",
+"date": "11/27",
+"title": "2027年４月期第２四半期（中間期）業績予想と実績との差異及び通期業績予想の修正並びに剰余金の配当（中間配当）に関するお知らせ",
+"pdf": "https://www.release.tdnet.info/inbs/140120261126586836.pdf",
+"tags": [
+{
+"cat": "CHECK",
+"label": "業績予想の修正",
+"score": 40,
+"reason": "上方か下方かタイトルでは不明。PDFで確認"
+}
+]
+}
+],
+"price": 4340.0,
+"price_note": "名証の終値",
+"nse_close": 4340.0,
+"nse_quote": null,
+"shares": 600,
+"cost": 2604000.0,
+"tob_price": null,
+"tob_gap_pct": null,
+"quote_only": false
 }
 ],
 "tob_rows": [
@@ -392,10 +366,10 @@
 "label": "買い手側の開示（積水ハウス）"
 }
 ],
-"price": 2758.0,
+"price": 2759.0,
 "price_note": "名証",
 "tob_price": 2770.0,
-"gap_pct": 0.435097897026826,
+"gap_pct": 0.3986951794128224,
 "sell_signal": true
 }
 ],
