@@ -1,9 +1,81 @@
 {
 "date": "2026-11-27",
-"fetched_at": "2026-11-27T16:11:08.841550+09:00",
+"fetched_at": "2026-11-27T17:11:08.620303+09:00",
 "complete": false,
-"total_all_markets": 169,
+"total_all_markets": 253,
 "items": [
+{
+"Tdnet": {
+"id": "1298434",
+"pubdate": "2026-11-27 17:00:00",
+"company_code": "29720",
+"company_name": "Ｒ－サンケイＲＥ",
+"title": "（変更）「シティインデックスフィフスによるサンケイリアルエステート投資法人（2972）投資口に対する公開買付に関する賛同及び応募中立の意見表明」の一部変更",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261127587811.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": null,
+"markets_string": "東",
+"update_history": null
+}
+},
+{
+"Tdnet": {
+"id": "1298422",
+"pubdate": "2026-11-27 16:30:00",
+"company_code": "34470",
+"company_name": "信和",
+"title": "株式会社チトセ・スポーツプランの株式の取得（子会社化）に関するお知らせ",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261127587873.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": null,
+"markets_string": "東名",
+"update_history": null
+}
+},
+{
+"Tdnet": {
+"id": "1298391",
+"pubdate": "2026-11-27 16:00:00",
+"company_code": "38420",
+"company_name": "ネクストジェン",
+"title": "従業員持株会向け譲渡制限付株式インセンティブ制度の導入に関するお知らせ",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261126587160.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": null,
+"markets_string": "東名",
+"update_history": null
+}
+},
+{
+"Tdnet": {
+"id": "1298410",
+"pubdate": "2026-11-27 16:00:00",
+"company_code": "79460",
+"company_name": "光陽社",
+"title": "主要株主の異動に関するお知らせ",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261127587554.pdf",
+"url_report_type_summary": null,
+"url_report_type_fs_consolidated": null,
+"url_report_type_fs_non_consolidated": null,
+"url_report_type_earnings_forecast": null,
+"url_report_type_expected_dividends": null,
+"url_xbrl": null,
+"markets_string": "名",
+"update_history": null
+}
+},
 {
 "Tdnet": {
 "id": "1298275",

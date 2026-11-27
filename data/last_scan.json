@@ -1,8 +1,8 @@
 {
-"generated_at": "2026-11-27T16:11:08.047449+09:00",
+"generated_at": "2026-11-27T17:11:07.183796+09:00",
 "base_day": "2026-11-27",
 "deadline": "2026-11-30T07:59:00+09:00",
-"price_source": "名証 相場表（速報）",
+"price_source": "名証 日報",
 "cards": [
 {
 "code": "1553",
@@ -52,6 +52,20 @@
 "date": "11/27",
 "title": "代表取締役の異動に関するお知らせ",
 "pdf": "https://www.release.tdnet.info/inbs/140120261127587705.pdf",
+"tags": [
+{
+"cat": "INFO",
+"label": "その他",
+"score": 0,
+"reason": ""
+}
+]
+},
+{
+"time": "16:30",
+"date": "11/27",
+"title": "株式会社チトセ・スポーツプランの株式の取得（子会社化）に関するお知らせ",
+"pdf": "https://www.release.tdnet.info/inbs/140120261127587873.pdf",
 "tags": [
 {
 "cat": "INFO",
@@ -221,6 +235,74 @@
 "tob_price": null,
 "tob_gap_pct": null,
 "quote_only": true
+},
+{
+"code": "3842",
+"name": "ネクストジェン",
+"single": false,
+"division": "メイン",
+"unit": 100,
+"category": "INFO",
+"score": 0,
+"items": [
+{
+"time": "16:00",
+"date": "11/27",
+"title": "従業員持株会向け譲渡制限付株式インセンティブ制度の導入に関するお知らせ",
+"pdf": "https://www.release.tdnet.info/inbs/140120261126587160.pdf",
+"tags": [
+{
+"cat": "INFO",
+"label": "その他",
+"score": 0,
+"reason": ""
+}
+]
+}
+],
+"price": 1261.0,
+"price_note": "名証の最終気配",
+"nse_close": null,
+"nse_quote": 1261.0,
+"shares": 2300,
+"cost": 2900300.0,
+"tob_price": null,
+"tob_gap_pct": null,
+"quote_only": true
+},
+{
+"code": "7946",
+"name": "光陽社",
+"single": true,
+"division": "メイン",
+"unit": 100,
+"category": "INFO",
+"score": 0,
+"items": [
+{
+"time": "16:00",
+"date": "11/27",
+"title": "主要株主の異動に関するお知らせ",
+"pdf": "https://www.release.tdnet.info/inbs/140120261127587554.pdf",
+"tags": [
+{
+"cat": "INFO",
+"label": "その他",
+"score": 0,
+"reason": ""
+}
+]
+}
+],
+"price": 356.0,
+"price_note": "名証の終値",
+"nse_close": 356.0,
+"nse_quote": null,
+"shares": 8400,
+"cost": 2990400.0,
+"tob_price": null,
+"tob_gap_pct": null,
+"quote_only": false
 }
 ],
 "before_close": [
