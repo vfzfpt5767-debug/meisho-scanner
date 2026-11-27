@@ -1,32 +1,35 @@
 {
 "date": "2026-11-27",
-"fetched_at": "2026-11-27T18:41:09.233667+09:00",
+"fetched_at": "2026-11-27T20:41:06.343030+09:00",
 "complete": false,
-"total_all_markets": 266,
+"total_all_markets": 269,
 "items": [
 {
+"Tdnet": {
 "id": "1298456",
 "pubdate": "2026-11-27 17:40:00",
 "company_code": "74880",
 "company_name": "ヤガミ",
 "title": "(訂正・数値データ訂正)「2027年4月期 第2四半期（中間期）決算短信〔日本基準〕（連結）」の一部訂正について",
-"document_url": "https://www.release.tdnet.info/inbs/140120261127588054.pdf",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261127588054.pdf",
 "url_report_type_summary": null,
 "url_report_type_fs_consolidated": null,
 "url_report_type_fs_non_consolidated": null,
 "url_report_type_earnings_forecast": null,
 "url_report_type_expected_dividends": null,
-"url_xbrl": "https://www.release.tdnet.info/inbs/081220261127588054.zip",
+"url_xbrl": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/081220261127588054.zip",
 "markets_string": "名",
 "update_history": null
+}
 },
 {
+"Tdnet": {
 "id": "1298434",
 "pubdate": "2026-11-27 17:00:00",
 "company_code": "29720",
 "company_name": "Ｒ－サンケイＲＥ",
 "title": "（変更）「シティインデックスフィフスによるサンケイリアルエステート投資法人（2972）投資口に対する公開買付に関する賛同及び応募中立の意見表明」の一部変更",
-"document_url": "https://www.release.tdnet.info/inbs/140120261127587811.pdf",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261127587811.pdf",
 "url_report_type_summary": null,
 "url_report_type_fs_consolidated": null,
 "url_report_type_fs_non_consolidated": null,
@@ -35,14 +38,16 @@
 "url_xbrl": null,
 "markets_string": "東",
 "update_history": null
+}
 },
 {
+"Tdnet": {
 "id": "1298422",
 "pubdate": "2026-11-27 16:30:00",
 "company_code": "34470",
 "company_name": "信和",
 "title": "株式会社チトセ・スポーツプランの株式の取得（子会社化）に関するお知らせ",
-"document_url": "https://www.release.tdnet.info/inbs/140120261127587873.pdf",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261127587873.pdf",
 "url_report_type_summary": null,
 "url_report_type_fs_consolidated": null,
 "url_report_type_fs_non_consolidated": null,
@@ -51,14 +56,16 @@
 "url_xbrl": null,
 "markets_string": "東名",
 "update_history": null
+}
 },
 {
+"Tdnet": {
 "id": "1298391",
 "pubdate": "2026-11-27 16:00:00",
 "company_code": "38420",
 "company_name": "ネクストジェン",
 "title": "従業員持株会向け譲渡制限付株式インセンティブ制度の導入に関するお知らせ",
-"document_url": "https://www.release.tdnet.info/inbs/140120261126587160.pdf",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261126587160.pdf",
 "url_report_type_summary": null,
 "url_report_type_fs_consolidated": null,
 "url_report_type_fs_non_consolidated": null,
@@ -67,14 +74,16 @@
 "url_xbrl": null,
 "markets_string": "東名",
 "update_history": null
+}
 },
 {
+"Tdnet": {
 "id": "1298410",
 "pubdate": "2026-11-27 16:00:00",
 "company_code": "79460",
 "company_name": "光陽社",
 "title": "主要株主の異動に関するお知らせ",
-"document_url": "https://www.release.tdnet.info/inbs/140120261127587554.pdf",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261127587554.pdf",
 "url_report_type_summary": null,
 "url_report_type_fs_consolidated": null,
 "url_report_type_fs_non_consolidated": null,
@@ -83,14 +92,16 @@
 "url_xbrl": null,
 "markets_string": "名",
 "update_history": null
+}
 },
 {
+"Tdnet": {
 "id": "1298275",
 "pubdate": "2026-11-27 15:30:00",
 "company_code": "15530",
 "company_name": "ＭＸＳ東海",
 "title": "ＥＴＦの投資信託約款の変更に関するお知らせ",
-"document_url": "https://www.release.tdnet.info/inbs/140120261127587639.pdf",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261127587639.pdf",
 "url_report_type_summary": null,
 "url_report_type_fs_consolidated": null,
 "url_report_type_fs_non_consolidated": null,
@@ -99,14 +110,16 @@
 "url_xbrl": null,
 "markets_string": "名",
 "update_history": null
+}
 },
 {
+"Tdnet": {
 "id": "1298297",
 "pubdate": "2026-11-27 15:30:00",
 "company_code": "30030",
 "company_name": "ヒューリック",
 "title": "株式会社リソー教育グループ（証券コード：4714）の株券等に対する公開買付けの結果に関するお知らせ",
-"document_url": "https://www.release.tdnet.info/inbs/140120261126586894.pdf",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261126586894.pdf",
 "url_report_type_summary": null,
 "url_report_type_fs_consolidated": null,
 "url_report_type_fs_non_consolidated": null,
@@ -115,14 +128,16 @@
 "url_xbrl": null,
 "markets_string": "東",
 "update_history": null
+}
 },
 {
+"Tdnet": {
 "id": "1298304",
 "pubdate": "2026-11-27 15:30:00",
 "company_code": "34470",
 "company_name": "信和",
 "title": "代表取締役の異動に関するお知らせ",
-"document_url": "https://www.release.tdnet.info/inbs/140120261127587705.pdf",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261127587705.pdf",
 "url_report_type_summary": null,
 "url_report_type_fs_consolidated": null,
 "url_report_type_fs_non_consolidated": null,
@@ -131,14 +146,16 @@
 "url_xbrl": null,
 "markets_string": "東名",
 "update_history": null
+}
 },
 {
+"Tdnet": {
 "id": "1298315",
 "pubdate": "2026-11-27 15:30:00",
 "company_code": "46260",
 "company_name": "太陽ＨＤ",
 "title": "（開示事項の経過）KJ005株式会社による当社株式に対する公開買付け実施に向けた進捗状況のお知らせ",
-"document_url": "https://www.release.tdnet.info/inbs/140120261126586864.pdf",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261126586864.pdf",
 "url_report_type_summary": null,
 "url_report_type_fs_consolidated": null,
 "url_report_type_fs_non_consolidated": null,
@@ -147,14 +164,16 @@
 "url_xbrl": null,
 "markets_string": "東",
 "update_history": null
+}
 },
 {
+"Tdnet": {
 "id": "1298316",
 "pubdate": "2026-11-27 15:30:00",
 "company_code": "46260",
 "company_name": "太陽ＨＤ",
 "title": "KJ005株式会社による太陽ホールディングス株式会社（証券コード：4626）株式に対する 公開買付け実施に向けた進捗状況のお知らせ",
-"document_url": "https://www.release.tdnet.info/inbs/140120261126586877.pdf",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261126586877.pdf",
 "url_report_type_summary": null,
 "url_report_type_fs_consolidated": null,
 "url_report_type_fs_non_consolidated": null,
@@ -163,14 +182,16 @@
 "url_xbrl": null,
 "markets_string": "東",
 "update_history": null
+}
 },
 {
+"Tdnet": {
 "id": "1298317",
 "pubdate": "2026-11-27 15:30:00",
 "company_code": "46310",
 "company_name": "ＤＩＣ",
 "title": "（開示事項の経過）KJ005株式会社による持分法適用関連会社（太陽ホールディングス株式会社）の株式に対する公開買付け実施に向けた進捗状況のお知らせ",
-"document_url": "https://www.release.tdnet.info/inbs/140120261127587299.pdf",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261127587299.pdf",
 "url_report_type_summary": null,
 "url_report_type_fs_consolidated": null,
 "url_report_type_fs_non_consolidated": null,
@@ -179,14 +200,16 @@
 "url_xbrl": null,
 "markets_string": "東",
 "update_history": null
+}
 },
 {
+"Tdnet": {
 "id": "1298319",
 "pubdate": "2026-11-27 15:30:00",
 "company_code": "47140",
 "company_name": "リソー教育Ｇ",
 "title": "当社親会社であるヒューリック株式会社による当社株券等に対する公開買付けの結果に関するお知らせ",
-"document_url": "https://www.release.tdnet.info/inbs/140120261127587805.pdf",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261127587805.pdf",
 "url_report_type_summary": null,
 "url_report_type_fs_consolidated": null,
 "url_report_type_fs_non_consolidated": null,
@@ -195,14 +218,16 @@
 "url_xbrl": null,
 "markets_string": "東",
 "update_history": null
+}
 },
 {
+"Tdnet": {
 "id": "1298323",
 "pubdate": "2026-11-27 15:30:00",
 "company_code": "50750",
 "company_name": "アップコン",
 "title": "大型案件受注に関するお知らせ",
-"document_url": "https://www.release.tdnet.info/inbs/140120261127587871.pdf",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261127587871.pdf",
 "url_report_type_summary": null,
 "url_report_type_fs_consolidated": null,
 "url_report_type_fs_non_consolidated": null,
@@ -211,14 +236,16 @@
 "url_xbrl": null,
 "markets_string": "名",
 "update_history": null
+}
 },
 {
+"Tdnet": {
 "id": "1298339",
 "pubdate": "2026-11-27 15:30:00",
 "company_code": "72270",
 "company_name": "アスカ",
 "title": "代表取締役の異動、社内カンパニー制への移行及び役員担当変更に関するお知らせ",
-"document_url": "https://www.release.tdnet.info/inbs/140120261127587866.pdf",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261127587866.pdf",
 "url_report_type_summary": null,
 "url_report_type_fs_consolidated": null,
 "url_report_type_fs_non_consolidated": null,
@@ -227,14 +254,16 @@
 "url_xbrl": null,
 "markets_string": "名",
 "update_history": null
+}
 },
 {
+"Tdnet": {
 "id": "1298341",
 "pubdate": "2026-11-27 15:30:00",
 "company_code": "72820",
 "company_name": "豊田合",
 "title": "従業員持株会に対する自己株式の処分（社員向け譲渡制限付株式（RS））に関するお知らせ",
-"document_url": "https://www.release.tdnet.info/inbs/140120261120584274.pdf",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261120584274.pdf",
 "url_report_type_summary": null,
 "url_report_type_fs_consolidated": null,
 "url_report_type_fs_non_consolidated": null,
@@ -243,14 +272,16 @@
 "url_xbrl": null,
 "markets_string": "東名",
 "update_history": null
+}
 },
 {
+"Tdnet": {
 "id": "1298351",
 "pubdate": "2026-11-27 15:30:00",
 "company_code": "89040",
 "company_name": "ＡＶＡＮＴＩＡ",
 "title": "役員人事に関するお知らせ",
-"document_url": "https://www.release.tdnet.info/inbs/140120261126586470.pdf",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261126586470.pdf",
 "url_report_type_summary": null,
 "url_report_type_fs_consolidated": null,
 "url_report_type_fs_non_consolidated": null,
@@ -259,14 +290,16 @@
 "url_xbrl": null,
 "markets_string": "東名",
 "update_history": null
+}
 },
 {
+"Tdnet": {
 "id": "1298352",
 "pubdate": "2026-11-27 15:30:00",
 "company_code": "89040",
 "company_name": "ＡＶＡＮＴＩＡ",
 "title": "譲渡制限付株式報酬としての自己株式の処分に関するお知らせ",
-"document_url": "https://www.release.tdnet.info/inbs/140120261124585150.pdf",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261124585150.pdf",
 "url_report_type_summary": null,
 "url_report_type_fs_consolidated": null,
 "url_report_type_fs_non_consolidated": null,
@@ -275,30 +308,34 @@
 "url_xbrl": null,
 "markets_string": "東名",
 "update_history": null
+}
 },
 {
+"Tdnet": {
 "id": "1298267",
 "pubdate": "2026-11-27 15:00:00",
 "company_code": "74880",
 "company_name": "ヤガミ",
 "title": "2027年４月期　第２四半期（中間期）決算短信〔日本基準〕（連結）",
-"document_url": "https://www.release.tdnet.info/inbs/140120261126586818.pdf",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261126586818.pdf",
 "url_report_type_summary": null,
 "url_report_type_fs_consolidated": null,
 "url_report_type_fs_non_consolidated": null,
 "url_report_type_earnings_forecast": null,
 "url_report_type_expected_dividends": null,
-"url_xbrl": "https://www.release.tdnet.info/inbs/081220261126586818.zip",
+"url_xbrl": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/081220261126586818.zip",
 "markets_string": "名",
 "update_history": null
+}
 },
 {
+"Tdnet": {
 "id": "1298268",
 "pubdate": "2026-11-27 15:00:00",
 "company_code": "74880",
 "company_name": "ヤガミ",
 "title": "2027年４月期第２四半期（中間期）業績予想と実績との差異及び通期業績予想の修正並びに剰余金の配当（中間配当）に関するお知らせ",
-"document_url": "https://www.release.tdnet.info/inbs/140120261126586836.pdf",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261126586836.pdf",
 "url_report_type_summary": null,
 "url_report_type_fs_consolidated": null,
 "url_report_type_fs_non_consolidated": null,
@@ -307,14 +344,16 @@
 "url_xbrl": null,
 "markets_string": "名",
 "update_history": null
+}
 },
 {
+"Tdnet": {
 "id": "1298244",
 "pubdate": "2026-11-27 13:00:00",
 "company_code": "44390",
 "company_name": "東名",
 "title": "支配株主等に関する事項について",
-"document_url": "https://www.release.tdnet.info/inbs/140120261113579174.pdf",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261113579174.pdf",
 "url_report_type_summary": null,
 "url_report_type_fs_consolidated": null,
 "url_report_type_fs_non_consolidated": null,
@@ -323,14 +362,16 @@
 "url_xbrl": null,
 "markets_string": "東名",
 "update_history": null
+}
 },
 {
+"Tdnet": {
 "id": "1298246",
 "pubdate": "2026-11-27 13:00:00",
 "company_code": "77900",
 "company_name": "バルコス",
 "title": "映画『遥かな町へ』がGolden Diamond Awardsにノミネート決定",
-"document_url": "https://www.release.tdnet.info/inbs/140120261127587647.pdf",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261127587647.pdf",
 "url_report_type_summary": null,
 "url_report_type_fs_consolidated": null,
 "url_report_type_fs_non_consolidated": null,
@@ -339,14 +380,16 @@
 "url_xbrl": null,
 "markets_string": "名",
 "update_history": null
+}
 },
 {
+"Tdnet": {
 "id": "1298201",
 "pubdate": "2026-11-27 08:30:00",
 "company_code": "23710",
 "company_name": "カカクコム",
 "title": "（変更）「Kamgras １株式会社による当社株券等に対する公開買付けに関する賛同の意見表明及び応募推奨のお知らせ」の一部変更に関するお知らせ",
-"document_url": "https://www.release.tdnet.info/inbs/140120261126587255.pdf",
+"document_url": "https://webapi.yanoshin.jp/rd.php?https://www.release.tdnet.info/inbs/140120261126587255.pdf",
 "url_report_type_summary": null,
 "url_report_type_fs_consolidated": null,
 "url_report_type_fs_non_consolidated": null,
@@ -355,6 +398,7 @@
 "url_xbrl": null,
 "markets_string": "東",
 "update_history": null
+}
 }
 ]
 }
