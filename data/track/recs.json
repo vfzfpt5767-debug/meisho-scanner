@@ -658,5 +658,15 @@
 "price": 1781.0,
 "result": 0.02021336327905665,
 "next_day": "2026-11-27"
+},
+{
+"base_day": "2026-11-27",
+"source": "ai",
+"code": "1438",
+"name": "岐阜造園",
+"category": "AI",
+"label": "",
+"price": 2759.0,
+"result": null
 }
 ]
