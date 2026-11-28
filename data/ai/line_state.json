@@ -561,6 +561,16 @@
     "cash_delta": 0.0
    },
    "base_day": "2026-11-27"
+  },
+  "2026-11-28-2115": {
+   "status": "recorded",
+   "mode": "record",
+   "patch": {
+    "removed": [],
+    "added": [],
+    "cash_delta": 0.0
+   },
+   "base_day": "2026-11-27"
   }
  },
  "seen": [
