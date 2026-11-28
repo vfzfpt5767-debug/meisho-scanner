@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-27T22:43:00.819576+09:00",
+ "generated_at": "2026-11-28T21:16:58.560150+09:00",
  "base_day": "2026-11-27",
  "deadline": "2026-11-30T07:59:00+09:00",
  "price_source": "名証 日報",
@@ -41,7 +41,7 @@
    "ir_check": {
     "status": "unreachable",
     "ir_page": "https://www.yagami-inc.co.jp/index.html",
-    "checked": "2026-11-27T13:41",
+    "checked": "2026-11-28T12:17",
     "for_title": "(訂正・数値データ訂正)「2027年4月期 第2四半期（中間期）決算短信〔日本基準〕（連結）」の一部訂正について"
    }
   }
@@ -137,13 +137,6 @@
    "offer_price": null,
    "first_day_price": 2078.0,
    "price_now": 1848.0
-  }
- ],
- "earnings_today": [
-  {
-   "code": "7488",
-   "name": "ヤガミ",
-   "kind": ""
   }
  ],
  "simulator": {
